@@ -4,6 +4,7 @@ from bleak import BleakScanner
 from bleak.backends.characteristic import BleakGATTCharacteristic
 import struct
 import logging
+import asyncio
 
 class BLE:
 
@@ -67,11 +68,14 @@ class Pinecil:
 
     async def get_all_settings(self):
         characteristics = await self.ble.get_characteristics(self.settings_uuid)
-        settings = {}
-        for crx in characteristics:
-            raw_value = await self.ble.read_characteristic(crx)
+        async def read_char(ble, crx):
+            raw_value = await ble.read_characteristic(crx)
             number = struct.unpack('<H', raw_value)[0]
-            settings[crx.uuid] = number
+            return crx.uuid, number
+        tasks = [asyncio.ensure_future(read_char(self.ble, crx)) for crx in characteristics]
+        results = await asyncio.gather(*tasks)
+        settings = dict(results)
+        logging.debug(f'GETTING ALL SETTINGS DONE')
         return settings
 
     async def set_one_setting(self, setting, value):
