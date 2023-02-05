@@ -119,42 +119,57 @@
 <body>
   <div id="app" class="container">
     <h1 class="title">Pinecil V2 Settings</h1>
+    <div class="spinner" v-show="isBusy"></div>
     <form>
-      <div class="spinner" v-show="isBusy"></div>
-      <div class="columns is-multiline">
-        <div v-for="(group, groupName) in settings" class="column is-4-widescreen is-6-tablet is-12-mobile">
+      <div class="columns is-multiline" v-if="!isBusy">
+        <div
+          v-for="group in groups"
+          :key="group.name"
+          class="column is-4-widescreen is-6-tablet is-12-mobile"
+        >
           <div class="card">
-            <header class="card-header navbar-link is-arrowless" @click="toggleGroup(groupName)">
+            <header
+              class="card-header navbar-link is-arrowless"
+              @click="toggleGroup(group)"
+            >
               <p class="card-header-title">
-                {{groupName}}
+                {{group.name}}
               </p>
               <span class="icon">
                 <i class="fa" :class="group.isVisible ? 'fa-angle-down' : 'fa-angle-right'" aria-hidden="true"></i>
               </span>
             </header>
             <div v-show="group.isVisible" class="card-content">
-              <div v-for="(stting, name) in group.values" :key="name" class="mfield">
-                <label class="label">{{stting.display}}</label>
-                <select v-if="stting.component?.name=='select'" v-model="stting.value" class="input">
-                  <option v-for="option in stting.component.options" :value="option.value">{{option.text}}</option>
+              <div
+                v-for="name in group.items"
+                :key="name"
+                class="mfield"
+              >
+                <label class="label">{{settings[name].display}}</label>
+                <!-- dropdown value selection -->
+                <select v-if="settings[name].component?.name=='select'" v-model="settings[name].value" class="input">
+                  <option v-for="option in settings[name].component.options" :value="option.value">{{option.text}}</option>
                 </select>
-                <div v-else-if="stting.component?.name=='checkbox'" class="checkbox">
-                  <input v-model="stting.value" type="checkbox" :id="`sw-${groupName}-${name}`" />
-                  <label :for="`sw-${groupName}-${name}`"></label>
+                <!-- checkbox -->
+                <div v-else-if="settings[name].component?.name=='checkbox'" class="checkbox">
+                  <input v-model="settings[name].value" type="checkbox" :id="`sw-${group.name}-${name}`" />
+                  <label :for="`sw-${group.name}-${name}`"></label>
                 </div>
-                <div v-else-if="stting.component?.name=='range'">
-                  <input type="range" :min="stting.component.min" :max="stting.component.max"
-                    :step="stting.component.step" v-model="stting.value">
-                  <div v-if="stting.component.offable" class="tag is-warning" style="width:40px; cursor:pointer"
-                    @click="stting.value=0">
-                    {{stting.component.display && stting.component.display(stting.value) || stting.value}}
+                <!-- range slider -->
+                <div v-else-if="settings[name].component?.name=='range'">
+                  <input type="range" :min="settings[name].component.min" :max="settings[name].component.max"
+                    :step="settings[name].component.step" v-model="settings[name].value">
+                  <div v-if="settings[name].component.offable" class="tag is-warning" style="width:40px; cursor:pointer"
+                    @click="settings[name].value=0">
+                    {{settings[name].component.display && settings[name].component.display(settings[name].value) || settings[name].value}}
                   </div>
                   <div v-else class="tag is-info" style="width:40px">
-                    {{stting.component.display && stting.component.display(stting.value) || stting.value}}
+                    {{settings[name].component.display && settings[name].component.display(settings[name].value) || settings[name].value}}
                   </div>
                 </div>
-                <input v-else v-model="stting.value" class="input" type="text">
-                <p class="help">{{stting.hint}}</p>
+                <!-- regular text input -->
+                <input v-else v-model="settings[name].value" class="input" type="text">
+                <p class="help">{{settings[name].hint}}</p>
               </div>
             </div>
           </div>

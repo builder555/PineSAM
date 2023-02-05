@@ -1,59 +1,31 @@
 import asyncio
 import logging
-from bleak import BleakClient
-from bleak import BleakScanner
-import struct
 import os
 import websockets
 import json
+from pinecil_ble import Pinecil
 
 LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO').upper()
 logging.basicConfig(level=LOG_LEVEL)
 
-class Pinecil:
-
-    def __init__(self):
-        self.address = None
-        self.settings_service_uuid = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
-
-    async def __detect(self):
-        logging.info('Detecting Pinecil...')
-        devices = await BleakScanner.discover()
-        for d in devices:
-            if d.name is not None and 'pinecil' in d.name.lower():
-                logging.info('Found Pinecil at %s', d.address)
-                return d.address
-        logging.error('Pinecil not found')
-        raise Exception('Pinecil not found')
-
-    async def get_all_settings(self):
-        if self.address is None:
-            self.address = await self.__detect()
-        async with BleakClient(self.address) as client:
-            await client.connect()
-            settings = await self.__read_settings(client)
-            return settings
-    
-    async def __read_settings(self, client):
-        service = client.services.get_service(self.settings_service_uuid)
-        values_map = {}
-        for crx in service.characteristics:
-            value = await client.read_gatt_char(crx.handle)
-            number = struct.unpack('<H', value)[0]
-            values_map[crx.uuid] = number
-        return values_map
-    
 pinecil = Pinecil()
 
-async def handle_message(websocket, message):
-    settings = await pinecil.get_all_settings()
-    if message == 'GET_ALL':
+async def handle_message(websocket, data):
+    logging.info(f'Got message: {data}')
+    json_data = json.loads(data)
+    command, payload = json_data['command'], json_data.get('payload', None)
+    if command == 'GET_SETTINGS':
+        settings = await pinecil.get_all_settings()
         response = json.dumps(settings)
-    elif message == 'SET_ONE':
-        print("SETTING VALUE")
-        response = 'ACK'
+    elif command == 'UPDATE_SETTING':
+        logging.info("SETTING VALUE")
+        await pinecil.set_one_setting(payload['uuid'], payload['value'])
+        if payload.get('save'):
+            logging.info("SAVING TO FLASH")
+            await pinecil.set_one_setting('00000000-0000-1000-8000-00805f9b34fb', 1)
+        response = json.dumps({'status': 'OK'})
     else:
-        response = 'INVALID COMMAND'
+        response = json.dumps({'status': 'ERROR', 'message': 'Unknown command'})
 
     await websocket.send(response)
 

@@ -1,4 +1,4 @@
-const socket = new WebSocket("ws://localhost:12999");
+let socket = new WebSocket("ws://localhost:12999");
 
 import settingNames from "./setting-names.js";
 import settingGroups from "./setting-groups.js";
@@ -210,81 +210,43 @@ const getLocalStorageValue = (key, defaultValue) => {
   return JSON.parse(value);
 };
 
-const mapSettingUUIDtoNames = (rawSettings, names) => {
-  const namedSettings = {};
-  for (const uuid in rawSettings) {
-    const value = rawSettings[uuid];
-    const name = names[uuid] ?? uuid;
-    namedSettings[name] = { value, uuid };
-  }
-  return namedSettings;
-};
-const getComponentForSetting = (name) => {
-  if (name in settingToComponentMap) {
-    return settingToComponentMap[name];
-  }
-  return null;
-};
-const gatherSettingsForGroup = (settingsGroup, namedSettings, rawSettings) => {
-  const settings = {};
-  settingsGroup.forEach((name) => {
-    const setting = namedSettings[name];
-    settings[name] = {
-      display: settingDescriptions[name].displayText,
-      hint: settingDescriptions[name].description,
-      value: setting.value,
-      component: getComponentForSetting(name),
-    };
-    if (settings[name].component?.name == 'checkbox') {
-      settings[name].value = setting.value == '1';
-    }
-    delete rawSettings[setting.uuid];
-  });
-  return settings;
-};
-
 export default {
   data: () => ({
     settings: { },
-    isBusy: false,
+    groups: settingGroups,
+    isBusy: true,
   }),
   methods: {
-    parseSettings(rawSettings) {
-      // gather settings into groups
-      const settings = {};
-      // example of a setting: { "BLEEnabled": { "value": 1, "uuid": "abc-123-def-456"}}
-      const namedSettings = mapSettingUUIDtoNames(rawSettings, settingNames);
-      for (const groupName in settingGroups) {
-        settings[groupName] = {
-          isVisible: getLocalStorageValue(`setting-${groupName}-visible`, true),
-          values: gatherSettingsForGroup(settingGroups[groupName], namedSettings, rawSettings),
-        };
+    getLocalGroupVisibilities() {
+      for(const group of this.groups) {
+        group.isVisible = getLocalStorageValue(`setting-${group.name}-visible`, true);
       }
-      // I don't know what these settings do yet, keep them separate
-      settings["Other"] = { isVisible: getLocalStorageValue(`setting-Other-visible`, false), values: {} };
+    },
+    parseSettings(rawSettings) {
+      const settings = {};
       for (const uuid in rawSettings) {
         const value = rawSettings[uuid];
         const name = settingNames[uuid] ?? uuid;
-        settings["Other"].values[name] = {
-          display: name,
-          hint: "",
-          value: value,
-        };
+        settings[name] = {
+          value,
+          uuid,
+          display: settingDescriptions[name]?.displayText ?? name,
+          hint: settingDescriptions[name]?.description ?? '',
+          component: settingToComponentMap[name],
+        }
       }
       this.settings = settings;
     },
-    toggleGroup(groupName) {
-      this.settings[groupName].isVisible = !this.settings[groupName].isVisible;
-      localStorage.setItem(
-        `setting-${groupName}-visible`,
-        this.settings[groupName].isVisible
-      );
+    toggleGroup(group) {
+      group.isVisible = !group.isVisible;
+      localStorage.setItem(`setting-${group.name}-visible`, group.isVisible);
     },
   },
   mounted() {
+    this.getLocalGroupVisibilities();
     socket.onopen = () => {
       this.isBusy = true;
-      socket.send("GET_ALL");
+      socket.send(JSON.stringify({command: "GET_SETTINGS"}));
     };
     socket.onmessage = (event) => {
       this.parseSettings(JSON.parse(event.data));
