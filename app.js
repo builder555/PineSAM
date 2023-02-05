@@ -221,7 +221,7 @@ export default {
     settings: { },
     groups: settingGroups,
     saveToFlash: false,
-    isBusy: true,
+    isBusy: false,
     socket: null,
   }),
   methods: {
@@ -276,8 +276,12 @@ export default {
       });
     },
     fetchSettings() {
+      if (this.isBusy) return;
       this.isBusy = true;
-      this.socket.send(JSON.stringify({command: "GET_SETTINGS"}));
+      this.checkSocket()
+      .then(() => {
+        this.socket.send(JSON.stringify({command: "GET_SETTINGS"}));
+      });
     },
     initSocket(fetchSettings=true) {
       this.socket = new WebSocket("ws://localhost:12999");
@@ -294,7 +298,8 @@ export default {
       this.socket.onclose = () => {
         this.isBusy = false;
       };
-      this.socket.onerror = () => {
+      this.socket.onerror = (e) => {
+        console.warn('error!', e);
         this.isBusy = false;
       };
     },
