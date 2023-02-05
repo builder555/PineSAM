@@ -29,6 +29,8 @@ chmod +x start.sh
 ./start.sh
 ```
 
+![](./screenshot.png)
+
 ## Known issues
 
 - bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
