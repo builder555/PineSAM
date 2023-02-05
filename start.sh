@@ -1,5 +1,5 @@
 #!/bin/bash
-pipenv run server &
+LOG_LEVEL=info pipenv run server &
 pid1=$!
 
 python -m http.server 8080 &
