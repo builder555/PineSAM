@@ -9,6 +9,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [ ] Validate setting values before sending to device
 - [ ] Adjust temperature ranges based on C/F selection
 - [ ] Hide Minimum Voltage (per cell) when source is DC
+- [ ] Make it fast (do not re-connect every time)
 
 ## Requirements:
 
