@@ -1,5 +1,3 @@
-let socket = new WebSocket("ws://localhost:12999");
-
 import settingNames from "./setting-names.js";
 import settingGroups from "./setting-groups.js";
 import settingDescriptions from "./setting-descriptions.js";
@@ -224,6 +222,7 @@ export default {
     groups: settingGroups,
     saveToFlash: false,
     isBusy: true,
+    socket: null,
   }),
   methods: {
     getLocalGroupVisibilities() {
@@ -257,28 +256,51 @@ export default {
       localStorage.setItem(`setting-${group.name}-visible`, group.isVisible);
     },
     updateSetting(uuid, value) {
-      socket = new WebSocket("ws://localhost:12999");
+      this.isBusy = true;
       value = Number(value);
-      socket.onopen = () => {
-        socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {uuid: uuid, value, save: this.saveToFlash}}));
+      this.checkSocket()
+      .then(() => {
+        this.socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {uuid: uuid, value, save: this.saveToFlash}}));
+      });
+    },
+    checkSocket() {
+      return new Promise((resolve, reject) => {
+        if (this.socket.readyState !== WebSocket.OPEN) {
+          this.initSocket(false);
+          this.socket.onopen = () => {
+            resolve();
+          };
+        } else {
+          resolve();
+        }
+      });
+    },
+    fetchSettings() {
+      this.isBusy = true;
+      this.socket.send(JSON.stringify({command: "GET_SETTINGS"}));
+    },
+    initSocket(fetchSettings=true) {
+      this.socket = new WebSocket("ws://localhost:12999");
+      this.socket.onopen = () => {
+        if (fetchSettings) this.fetchSettings();
+      };
+      this.socket.onmessage = (event) => {
+        const data = JSON.parse(event.data)
+        if (data.command === "GET_SETTINGS") {
+          this.parseSettings(data.payload);
+        }
+        this.isBusy = false;
+      };
+      this.socket.onclose = () => {
+        this.isBusy = false;
+      };
+      this.socket.onerror = () => {
+        this.isBusy = false;
       };
     },
   },
   mounted() {
     this.getLocalGroupVisibilities();
-    socket.onopen = () => {
-      this.isBusy = true;
-      socket.send(JSON.stringify({command: "GET_SETTINGS"}));
-    };
-    socket.onmessage = (event) => {
-      this.parseSettings(JSON.parse(event.data));
-      this.isBusy = false;
-    };
-    socket.onclose = () => {
-      this.isBusy = false;
-    };
-    socket.onerror = () => {
-      this.isBusy = false;
-    };
+    this.initSocket();
   },
 };
