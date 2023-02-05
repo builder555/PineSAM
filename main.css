@@ -1,0 +1,113 @@
+@keyframes spinner{
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  position:relative
+}
+.spinner div:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #000;
+  animation: spinner .6s linear infinite;
+}
+.refresh-button {
+  font-size:1.2rem; 
+  margin:0 0 0 0.5rem;
+}
+.mfield {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(218, 240, 226);
+  margin: 5px 0;
+  padding: 0.5rem;
+}
+
+.mfield .label {
+  flex-grow: 1;
+  text-align: right;
+  margin-right: 0.5rem;
+  display: block;
+}
+
+.mfield .input {
+  flex-basis: 0;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.mfield .help {
+  flex-basis: 100%;
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+}
+.tag {
+  width:40px;
+}
+.card-content {
+  padding: 0;
+}
+.pointer {
+  cursor:pointer
+}
+
+.navbar-link {
+  align-items: center;
+  display: flex;
+}
+
+.checkbox input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.checkbox label {
+  --size: 4rem;
+  cursor: pointer;
+  width: var(--size);
+  height: calc(var(--size) / 2);
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.checkbox label:after {
+  content: '';
+  position: absolute;
+  top: 6%;
+  left: 2.5%;
+  width: calc(50% - 5%);
+  height: calc(100% - 11%);
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox input:checked+label {
+  background: #55da8c;
+}
+
+.checkbox input:checked+label:after {
+  left: calc(100% - 2.5%);
+  transform: translateX(-100%);
+}
+
+.checkbox label:active:after {
+  width: 55%;
+}
