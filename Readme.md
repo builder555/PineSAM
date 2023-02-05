@@ -7,7 +7,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ## Features
 - [x] Automatically detect Pinecil V2 over BLE
 - [x] Get all setting values
-- [ ] Modify settings
+- [X] Modify settings
 - [ ] Validate setting values before sending to device
 - [ ] Adjust temperature ranges based on C/F selection
 - [ ] Hide Minimum Voltage (per cell) when source is DC

@@ -210,10 +210,19 @@ const getLocalStorageValue = (key, defaultValue) => {
   return JSON.parse(value);
 };
 
+const debounce = (fn, wait) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), wait);
+  };
+};
+
 export default {
   data: () => ({
     settings: { },
     groups: settingGroups,
+    saveToFlash: false,
     isBusy: true,
   }),
   methods: {
@@ -223,23 +232,36 @@ export default {
       }
     },
     parseSettings(rawSettings) {
-      const settings = {};
       for (const uuid in rawSettings) {
-        const value = rawSettings[uuid];
+        const value = Number(rawSettings[uuid]);
         const name = settingNames[uuid] ?? uuid;
-        settings[name] = {
+        this.settings[name] = {
           value,
           uuid,
           display: settingDescriptions[name]?.displayText ?? name,
           hint: settingDescriptions[name]?.description ?? '',
           component: settingToComponentMap[name],
         }
+        if (settingToComponentMap[name]?.name === 'checkbox') {
+          this.settings[name].value = value === 1;
+        }
+        this.$watch(`settings.${name}.value`, debounce((newValue, oldValue) => {
+          if (newValue !== oldValue) {
+            this.updateSetting(uuid, newValue);
+          }
+        }, 500));
       }
-      this.settings = settings;
     },
     toggleGroup(group) {
       group.isVisible = !group.isVisible;
       localStorage.setItem(`setting-${group.name}-visible`, group.isVisible);
+    },
+    updateSetting(uuid, value) {
+      socket = new WebSocket("ws://localhost:12999");
+      value = Number(value);
+      socket.onopen = () => {
+        socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {uuid: uuid, value, save: this.saveToFlash}}));
+      };
     },
   },
   mounted() {
