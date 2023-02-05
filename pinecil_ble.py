@@ -37,6 +37,7 @@ class BLE:
                 break
         else:
             raise Exception(f'{self.device_name} not found')
+        logging.debug(f'Detecting "{self.device_name}" DONE')
 
     async def get_characteristics(self, service_uuid: str) -> List[BleakGATTCharacteristic]:
         await self.__ensure_connected()
@@ -51,7 +52,9 @@ class BLE:
 
     async def write_characteristic(self, handle: BleakGATTCharacteristic, value: bytes):
         await self.__ensure_connected()
+        logging.debug(f'Writing characteristic {handle.uuid}')
         await self.client.write_gatt_char(handle, value) #type: ignore
+        logging.debug(f'Writing characteristic {handle.uuid} DONE')
     
     async def __del__(self):
         try:
@@ -67,6 +70,7 @@ class Pinecil:
         self.settings_uuid: str = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
 
     async def get_all_settings(self):
+        logging.debug(f'GETTING ALL SETTINGS')
         characteristics = await self.ble.get_characteristics(self.settings_uuid)
         async def read_char(ble, crx):
             raw_value = await ble.read_characteristic(crx)
@@ -80,9 +84,9 @@ class Pinecil:
 
     async def set_one_setting(self, setting, value):
         characteristics = await self.ble.get_characteristics(self.settings_uuid)
+        logging.info(f'Setting {value} ({type(value)}) to {setting}')
         for crx in characteristics:
             if crx.uuid == setting:
-                logging.info(f'Writing {value} ({type(value)}) to {setting}')
                 value = struct.pack('<H', value)
                 await self.ble.write_characteristic(crx, bytearray(value))
                 break

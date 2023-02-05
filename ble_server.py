@@ -27,7 +27,7 @@ async def handle_message(websocket, data):
         response = {'status': 'OK'}
     else:
         response = {'status': 'ERROR', 'message': 'Unknown command'}
-
+    logging.info(f'Sending response')
     await websocket.send(json.dumps({**response, 'command': command}))
 
 async def hello(websocket, path):
