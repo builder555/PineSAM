@@ -8,117 +8,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous" />
-  <style>
-    @keyframes spinner {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .spinner:before {
-      content: '';
-      box-sizing: border-box;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      margin-top: -10px;
-      margin-left: -10px;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-      border-top-color: #000;
-      animation: spinner .6s linear infinite;
-    }
-
-    .mfield {
-      display: flex;
-      flex-wrap: wrap;
-      background-color: rgb(218, 240, 226);
-      margin: 5px 0;
-      padding: 0.5rem;
-    }
-
-    .mfield .label {
-      flex-grow: 1;
-      text-align: right;
-      margin-right: 0.5rem;
-      display: block;
-    }
-
-    .mfield .input {
-      flex-basis: 0;
-      flex-shrink: 1;
-      flex-grow: 1;
-    }
-
-    .mfield .help {
-      flex-basis: 100%;
-      margin-top: 0rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-content {
-      padding: 0;
-    }
-
-    .navbar-link {
-      align-items: center;
-      display: flex;
-    }
-
-    .checkbox input[type=checkbox] {
-      height: 0;
-      width: 0;
-      visibility: hidden;
-    }
-
-    .checkbox label {
-      --size: 4rem;
-      cursor: pointer;
-      width: var(--size);
-      height: calc(var(--size) / 2);
-      background: grey;
-      display: block;
-      border-radius: 100px;
-      position: relative;
-    }
-
-    .checkbox label:after {
-      content: '';
-      position: absolute;
-      top: 6%;
-      left: 2.5%;
-      width: calc(50% - 5%);
-      height: calc(100% - 11%);
-      background: #fff;
-      border-radius: 90px;
-      transition: 0.3s;
-    }
-
-    .checkbox input {
-      display: none;
-    }
-
-    .checkbox input:checked+label {
-      background: #55da8c;
-    }
-
-    .checkbox input:checked+label:after {
-      left: calc(100% - 2.5%);
-      transform: translateX(-100%);
-    }
-
-    .checkbox label:active:after {
-      width: 55%;
-    }
-  </style>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
   <div id="app" class="container">
-    <h1 class="title">Pinecil V2 Settings</h1>
-    <div class="spinner" v-show="isBusy"></div>
+    <h1 class="title">
+      Pinecil V2 Settings
+      <a class="icon refresh-button" @click="fetchSettings">
+        <i class="fas fa-sync-alt"></i>
+      </a>
+      <div v-show="isBusy" class="spinner"><div></div></div>
+    </h1>
     <div class="mfield">
       <label class="label has-text-left" style="flex-grow:0">Save changes to flash</label>
       <div class="checkbox" style="flex-grow:0">
@@ -128,7 +29,7 @@
       <p class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has a limited lifespan, making changes very often will reduce the life of your device.</strong></p>
     </div>
     <form>
-      <div class="columns is-multiline" v-if="!isBusy">
+      <div class="columns is-multiline" v-if="Object.keys(settings).length > 0">
         <div
           v-for="group in groups"
           :key="group.name"
@@ -166,11 +67,11 @@
                 <div v-else-if="settings[name].component?.name=='range'">
                   <input type="range" :min="settings[name].component.min" :max="settings[name].component.max"
                     :step="settings[name].component.step" v-model="settings[name].value">
-                  <div v-if="settings[name].component.offable" class="tag is-warning" style="width:40px; cursor:pointer"
+                  <div v-if="settings[name].component.offable" class="tag is-warning pointer"
                     @click="settings[name].value=0">
                     {{settings[name].component.display && settings[name].component.display(settings[name].value) || settings[name].value}}
                   </div>
-                  <div v-else class="tag is-info" style="width:40px">
+                  <div v-else class="tag is-info">
                     {{settings[name].component.display && settings[name].component.display(settings[name].value) || settings[name].value}}
                   </div>
                 </div>
@@ -185,7 +86,7 @@
     </form>
   </div>
   <script type="module">
-    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js';
     import app from './app.js';
     createApp(app).mount('#app');
   </script>
