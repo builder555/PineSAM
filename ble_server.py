@@ -6,12 +6,13 @@ import json
 from pinecil_ble import Pinecil
 
 LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO').upper()
-logging.basicConfig(level=LOG_LEVEL)
+timestamp_format = '%H:%M:%S'
+logging.basicConfig(level=LOG_LEVEL, format='%(asctime)s.%(msecs)03d::%(levelname)s::%(message)s', datefmt=timestamp_format)
 
 pinecil = Pinecil()
 
 async def handle_message(websocket, data):
-    logging.info(f'Got message: {data}')
+    logging.info(f'Got message: {data}') 
     json_data = json.loads(data)
     command, payload = json_data['command'], json_data.get('payload', None)
     if command == 'GET_SETTINGS':
