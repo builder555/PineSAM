@@ -40,8 +40,7 @@
     }
 
     .mfield .label {
-      flex-basis: 0;
-      flex-grow: 2;
+      flex-grow: 1;
       text-align: right;
       margin-right: 0.5rem;
       display: block;
@@ -120,6 +119,14 @@
   <div id="app" class="container">
     <h1 class="title">Pinecil V2 Settings</h1>
     <div class="spinner" v-show="isBusy"></div>
+    <div class="mfield">
+      <label class="label has-text-left" style="flex-grow:0">Save changes to flash</label>
+      <div class="checkbox" style="flex-grow:0">
+        <input v-model="saveToFlash" type="checkbox" id="sw-save-toflash" />
+        <label for="sw-save-toflash"></label>
+      </div>
+      <p class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has a limited lifespan, making changes very often will reduce the life of your device.</strong></p>
+    </div>
     <form>
       <div class="columns is-multiline" v-if="!isBusy">
         <div
@@ -168,7 +175,7 @@
                   </div>
                 </div>
                 <!-- regular text input -->
-                <input v-else v-model="settings[name].value" class="input" type="text">
+                <input v-else v-model="settings[name].value" class="input" type="text" disabled>
                 <p class="help">{{settings[name].hint}}</p>
               </div>
             </div>
