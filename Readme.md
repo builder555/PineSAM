@@ -37,3 +37,8 @@ chmod +x start.sh
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 - Pinecil not detected
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/Ralim/IronOS/discussions/1449#discussioncomment-4866655)
+
+## References
+
+- [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
+- [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
