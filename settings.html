@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Settings Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <style>
+    @keyframes spinner {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .spinner:before {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      margin-left: -10px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      border-top-color: #000;
+      animation: spinner .6s linear infinite;
+    }
+
+    .mfield {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: rgb(218, 240, 226);
+      margin: 5px 0;
+      padding: 0.5rem;
+    }
+
+    .mfield .label {
+      flex-basis: 0;
+      flex-grow: 2;
+      text-align: right;
+      margin-right: 0.5rem;
+      display: block;
+    }
+
+    .mfield .input {
+      flex-basis: 0;
+      flex-shrink: 1;
+      flex-grow: 1;
+    }
+
+    .mfield .help {
+      flex-basis: 100%;
+      margin-top: 0rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content {
+      padding: 0;
+    }
+
+    .navbar-link {
+      align-items: center;
+      display: flex;
+    }
+
+    .checkbox input[type=checkbox] {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
+
+    .checkbox label {
+      --size: 4rem;
+      cursor: pointer;
+      width: var(--size);
+      height: calc(var(--size) / 2);
+      background: grey;
+      display: block;
+      border-radius: 100px;
+      position: relative;
+    }
+
+    .checkbox label:after {
+      content: '';
+      position: absolute;
+      top: 6%;
+      left: 2.5%;
+      width: calc(50% - 5%);
+      height: calc(100% - 11%);
+      background: #fff;
+      border-radius: 90px;
+      transition: 0.3s;
+    }
+
+    .checkbox input {
+      display: none;
+    }
+
+    .checkbox input:checked+label {
+      background: #55da8c;
+    }
+
+    .checkbox input:checked+label:after {
+      left: calc(100% - 2.5%);
+      transform: translateX(-100%);
+    }
+
+    .checkbox label:active:after {
+      width: 55%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="container">
+    <h1 class="title">Pinecil V2 Settings</h1>
+    <form>
+      <div class="spinner" v-show="isBusy"></div>
+      <div class="columns is-multiline">
+        <div v-for="(group, groupName) in settings" class="column is-4-widescreen is-6-tablet is-12-mobile">
+          <div class="card">
+            <header class="card-header navbar-link is-arrowless" @click="toggleGroup(groupName)">
+              <p class="card-header-title">
+                {{groupName}}
+              </p>
+              <span class="icon">
+                <i class="fa" :class="group.isVisible ? 'fa-angle-down' : 'fa-angle-right'" aria-hidden="true"></i>
+              </span>
+            </header>
+            <div v-show="group.isVisible" class="card-content">
+              <div v-for="(stting, name) in group.values" :key="name" class="mfield">
+                <label class="label">{{stting.display}}</label>
+                <select v-if="stting.component?.name=='select'" v-model="stting.value" class="input">
+                  <option v-for="option in stting.component.options" :value="option.value">{{option.text}}</option>
+                </select>
+                <div v-else-if="stting.component?.name=='checkbox'" class="checkbox">
+                  <input v-model="stting.value" type="checkbox" :id="`sw-${groupName}-${name}`" />
+                  <label :for="`sw-${groupName}-${name}`"></label>
+                </div>
+                <div v-else-if="stting.component?.name=='range'">
+                  <input type="range" :min="stting.component.min" :max="stting.component.max"
+                    :step="stting.component.step" v-model="stting.value">
+                  <div v-if="stting.component.offable" class="tag is-warning" style="width:40px; cursor:pointer"
+                    @click="stting.value=0">
+                    {{stting.component.display && stting.component.display(stting.value) || stting.value}}
+                  </div>
+                  <div v-else class="tag is-info" style="width:40px">
+                    {{stting.component.display && stting.component.display(stting.value) || stting.value}}
+                  </div>
+                </div>
+                <input v-else v-model="stting.value" class="input" type="text">
+                <p class="help">{{stting.hint}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+    import app from './app.js';
+    createApp(app).mount('#app');
+  </script>
+</body>
+
+</html>
