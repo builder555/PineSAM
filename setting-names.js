@@ -1,5 +1,5 @@
 const settingNames = {
-  "00000000-0000-1000-8000-00805f9b34fb": "Write 1 to save", //save settings when written to?
+  "00000000-0000-1000-8000-00805f9b34fb": "Write 1 to save",
   "00000001-0000-1000-8000-00805f9b34fb": "SetTemperature",
   "00000002-0000-1000-8000-00805f9b34fb": "SleepTemperature",
   "00000003-0000-1000-8000-00805f9b34fb": "SleepTimeout",
