@@ -13,4 +13,4 @@ websockets = "*"
 python_version = "3.10"
 
 [scripts]
-"server" = "python bget.py"
+"server" = "python ble_server.py"
