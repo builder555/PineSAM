@@ -223,6 +223,7 @@ export default {
     saveToFlash: false,
     isBusy: false,
     socket: null,
+    error: '',
   }),
   methods: {
     getLocalGroupVisibilities() {
@@ -290,15 +291,21 @@ export default {
       };
       this.socket.onmessage = (event) => {
         const data = JSON.parse(event.data)
+        if (data.status == 'ERROR') {
+          console.warn('error!', data);
+          this.error = data.message;
+        }
         if (data.command === "GET_SETTINGS") {
           this.parseSettings(data.payload);
         }
         this.isBusy = false;
       };
       this.socket.onclose = () => {
+        console.log('socket closed');
         this.isBusy = false;
       };
       this.socket.onerror = (e) => {
+        this.error = 'Error connecting to backend. Make sure the server is running.'
         console.warn('error!', e);
         this.isBusy = false;
       };
