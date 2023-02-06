@@ -73,7 +73,7 @@ class BLE:
 class Pinecil:
 
     def __init__(self):
-        self.ble = BLE(name='pinecil', address='A3FAA247-7153-9592-EBA8-4DE15F5CE308')
+        self.ble = BLE(name='pinecil')
         self.settings_uuid: str = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
 
     async def get_all_settings(self):
