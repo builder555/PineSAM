@@ -1,10 +1,14 @@
 from typing import List
+import bleak
 from bleak import BleakClient
 from bleak import BleakScanner
 from bleak.backends.characteristic import BleakGATTCharacteristic
 import struct
 import logging
 import asyncio
+
+class DeviceNotFoundException(Exception):
+    pass
 
 class BLE:
 
@@ -20,12 +24,15 @@ class BLE:
         return self.client and self.client.is_connected
 
     async def __ensure_connected(self):
-        if self.is_connected:
-            return
-        if not self.address:
-            await self.__detect_device_address()
-        self.client = BleakClient(self.address)
-        await self.client.connect()
+        try:
+            if self.is_connected:
+                return
+            if not self.address:
+                await self.__detect_device_address()
+            self.client = BleakClient(self.address)
+            await self.client.connect()
+        except bleak.exc.BleakDeviceNotFoundError:
+            raise DeviceNotFoundException
 
     async def __detect_device_address(self):
         logging.info(f'Detecting "{self.device_name}"...')
@@ -36,7 +43,7 @@ class BLE:
                 self.address = d.address
                 break
         else:
-            raise Exception(f'{self.device_name} not found')
+            raise DeviceNotFoundException
         logging.debug(f'Detecting "{self.device_name}" DONE')
 
     async def get_characteristics(self, service_uuid: str) -> List[BleakGATTCharacteristic]:

@@ -13,6 +13,10 @@
 
 <body>
   <div id="app" class="container">
+    <div class="notification is-danger" v-show="error">
+      <button class="delete" @click="error=''"></button>
+      {{error}}
+    </div>
     <h1 class="title">
       Pinecil V2 Settings
       <a class="icon refresh-button" @click="fetchSettings">

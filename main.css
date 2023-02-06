@@ -111,3 +111,18 @@
 .checkbox label:active:after {
   width: 55%;
 }
+
+.notification {
+    opacity: 1;
+    animation: fade 0.5s ease-in-out;
+    position: fixed;
+    min-width: 15rem;
+    left: 2rem;
+    top: 1rem;
+    z-index:5;
+}
+
+@keyframes fade {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
