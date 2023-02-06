@@ -42,9 +42,11 @@ On a Mac http://localhost:8080/settings.html will open in your browser automatic
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 - Pinecil not detected
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/Ralim/IronOS/discussions/1449#discussioncomment-4866655)
-- Setting change is not reflected on the soldering iron:
+- Setting change is not reflected on the soldering iron
     * some changes require entering the menu on the device itself (or power cycle after saving to flash) before appearing. [Example](https://github.com/Ralim/IronOS/issues/1560)
-
+- Temperature ranges are out of whack
+    * Set your iron temperature to display in Celcius
+    
 ## References
 
 - [Pinecil](https://www.pine64.org/pinecil/) - The Pinecil homepage
