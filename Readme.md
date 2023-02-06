@@ -32,6 +32,8 @@ chmod +x start.sh
 ./start.sh
 ```
 
+On a Mac http://localhost:8080/settings.html will open in your browser automatically. On linux you need to do it manually (for now).
+
 ![](./screenshot.png)
 
 ## Known issues
