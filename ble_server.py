@@ -46,6 +46,6 @@ async def hello(websocket, path):
         logging.info('Connection closed')
 
 
-start_server = websockets.serve(hello, 'localhost', 12999) #type: ignore
+start_server = websockets.serve(hello, '0.0.0.0', 12999) #type: ignore
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
