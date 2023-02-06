@@ -9,11 +9,16 @@
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="main.css">
+  <style>
+    .hide-until-load {
+      visibility:hidden;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app" class="container">
-    <div class="notification is-danger" v-show="error">
+    <div class="notification is-danger hide-until-load" :style="{'visibility':'visible'}" v-show="error">
       <button class="delete" @click="error=''"></button>
       {{error}}
     </div>
@@ -33,7 +38,7 @@
       <p class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has a limited lifespan, making changes very often will reduce the life of your device.</strong></p>
     </div>
     <form>
-      <div class="columns is-multiline" v-if="Object.keys(settings).length > 0">
+      <div class="columns is-multiline hide-until-load" :style="{'visibility':'visible'}" v-if="Object.keys(settings).length > 0">
         <div
           v-for="group in groups"
           :key="group.name"
