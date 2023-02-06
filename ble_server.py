@@ -2,6 +2,7 @@ import asyncio
 import logging
 import os
 import websockets
+import websockets.exceptions
 import json
 from pinecil_ble import Pinecil
 from pinecil_ble import DeviceNotFoundException
@@ -31,17 +32,19 @@ async def handle_message(websocket, data):
             response = {'status': 'ERROR', 'message': 'Unknown command'}
         logging.info(f'Sending response')
         await websocket.send(json.dumps({**response, 'command': command}))
-    except websockets.exceptions.ConnectionClosedOK:
-        logging.info('Connection closed')
     except DeviceNotFoundException:
         logging.warning('Device not found')
         response = {'status': 'ERROR', 'message': 'Device not found'}
         await websocket.send(json.dumps({**response, 'command': command}))
 
 async def hello(websocket, path):
-    while True:
-        message = await websocket.recv()
-        await handle_message(websocket, message)
+    try:
+        while True:
+            message = await websocket.recv()
+            await handle_message(websocket, message)
+    except websockets.exceptions.ConnectionClosed:
+        logging.info('Connection closed')
+
 
 start_server = websockets.serve(hello, 'localhost', 12999) #type: ignore
 asyncio.get_event_loop().run_until_complete(start_server)
