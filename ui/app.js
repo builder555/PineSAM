@@ -64,7 +64,7 @@ export default {
     setTemperatureRanges(convertValue=false) {
       const ranges = {
         0 : {
-          BoostTemperature: [260, 450],
+          BoostTemperature: [250, 450],
           SetTemperature: [10, 450],
           SleepTemperature: [10, 300],
         },
@@ -80,10 +80,12 @@ export default {
       }
       const unit = this.settings['TemperatureUnit'].value;
       for (const setting in ranges[unit]) {
-        this.settings[setting].component.min = ranges[unit][setting][0];
-        this.settings[setting].component.max = ranges[unit][setting][1];
-        if (convertValue) {
-          this.settings[setting].value = converter[unit](this.settings[setting].value);
+        const [tMin,tMax] = ranges[unit][setting];
+        this.settings[setting].component.min = tMin;
+        this.settings[setting].component.max = tMax;
+        const isBoostTempOff = setting === 'BoostTemperature' && this.settings['BoostTemperature'].value === 0;
+        if (convertValue && !(isBoostTempOff)) {
+          this.settings[setting].value = Math.max(tMin, Math.min(tMax,converter[unit](this.settings[setting].value)));
         }
       }
     },
