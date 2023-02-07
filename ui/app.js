@@ -55,6 +55,7 @@ export default {
         }, 500));
       }
       this.setTemperatureRanges();
+      this.toggleVoltageSettings(this.settings['DCInCutoff'].value);
     },
     toggleGroup(group) {
       group.isVisible = !group.isVisible;
@@ -86,6 +87,12 @@ export default {
         }
       }
     },
+    toggleVoltageSettings(value) {
+      const classHidden = value ? '' : 'is-hidden';
+      this.settings['MinVolCell'].component.class = classHidden;
+      this.settings['QCMaxVoltage'].component.class = classHidden;
+      this.settings['PDNegTimeout'].component.class = classHidden;
+    },
     updateSetting(uuid, value) {
       this.isBusy = true;
       value = Number(value);
@@ -95,6 +102,9 @@ export default {
       });
       if (settingNames[uuid] === 'TemperatureUnit') {
         this.setTemperatureRanges(true);
+      }
+      if (settingNames[uuid] === 'DCInCutoff') {
+        this.toggleVoltageSettings(value)
       }
     },
     checkSocket() {
