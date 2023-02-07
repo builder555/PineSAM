@@ -10,7 +10,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Modify settings
 - [X] Adjust temperature ranges based on C/F selection
 - [X] Hide Minimum Voltage (per cell) when source is DC
-- [ ] Validate setting values before sending to device
+- [X] Validate setting values before sending to device
 
 ## Requirements:
 
