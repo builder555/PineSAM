@@ -2,7 +2,7 @@
 LOG_LEVEL=info pipenv run server &
 pid1=$!
 
-python -m http.server 8080 &
+python -m http.server 8080 --directory ../ui &
 pid2=$!
 
 sleep 1

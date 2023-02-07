@@ -24,14 +24,15 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 ```shell
 git clone https://github.com/builder555/pinecil-v2
-cd pinecil-v2
+cd pinecil-v2/backend
 pipenv install
+cd ..
 chmod +x start.sh
 ```
 
 ### Run
 ```shell
-./start.sh
+cd backend && ./start.sh
 ```
 
 On a Mac http://localhost:8080/settings.html will open in your browser automatically. On linux you need to do it manually (for now).
@@ -45,7 +46,7 @@ If you already have python installed, you can skip to step 2.
     * Check "Add Python to environment variables" option
 2. Download this repo: https://github.com/builder555/pinecil-v2/archive/master.zip
 3. Unzip it
-4. Run start.bat
+4. Run `start.bat` file inside the `backend` directory
 
 ---
 
