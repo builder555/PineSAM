@@ -188,7 +188,7 @@ const settingToComponentMap = {
     },
     BoostTemperature: {
       name: 'range',
-      min: 260,
+      min: 250,
       max: 450,
       step: 10,
       offable: true,
