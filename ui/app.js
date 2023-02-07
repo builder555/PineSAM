@@ -54,10 +54,37 @@ export default {
           }
         }, 500));
       }
+      this.setTemperatureRanges();
     },
     toggleGroup(group) {
       group.isVisible = !group.isVisible;
       localStorage.setItem(`setting-${group.name}-visible`, group.isVisible);
+    },
+    setTemperatureRanges(convertValue=false) {
+      const ranges = {
+        0 : {
+          BoostTemperature: [260, 450],
+          SetTemperature: [10, 450],
+          SleepTemperature: [10, 300],
+        },
+        1 : {
+          BoostTemperature: [480, 840],
+          SetTemperature: [60, 850],
+          SleepTemperature: [60, 580],
+        },
+      };
+      const converter = {
+        0: (value) => Math.round((value - 32) * 5 / 9),
+        1: (value) => Math.round(value * 9 / 5 + 32),
+      }
+      const unit = this.settings['TemperatureUnit'].value;
+      for (const setting in ranges[unit]) {
+        this.settings[setting].component.min = ranges[unit][setting][0];
+        this.settings[setting].component.max = ranges[unit][setting][1];
+        if (convertValue) {
+          this.settings[setting].value = converter[unit](this.settings[setting].value);
+        }
+      }
     },
     updateSetting(uuid, value) {
       this.isBusy = true;
@@ -66,6 +93,9 @@ export default {
       .then(() => {
         this.socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {uuid: uuid, value, save: this.saveToFlash}}));
       });
+      if (settingNames[uuid] === 'TemperatureUnit') {
+        this.setTemperatureRanges(true);
+      }
     },
     checkSocket() {
       return new Promise((resolve, reject) => {

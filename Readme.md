@@ -8,8 +8,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [x] Automatically detect Pinecil V2 over BLE
 - [x] Get all setting values
 - [X] Modify settings
+- [X] Adjust temperature ranges based on C/F selection
 - [ ] Validate setting values before sending to device
-- [ ] Adjust temperature ranges based on C/F selection
 - [ ] Hide Minimum Voltage (per cell) when source is DC
 
 ## Requirements:
@@ -60,8 +60,6 @@ If you already have python installed, you can skip to step 2.
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/Ralim/IronOS/discussions/1449#discussioncomment-4866655)
 - Setting change is not reflected on the soldering iron
     * some changes require entering the menu on the device itself (or power cycle after saving to flash) before appearing. [Example](https://github.com/Ralim/IronOS/issues/1560)
-- Temperature ranges are out of whack
-    * Set your iron temperature to display in Celcius
     
 ## References
 
