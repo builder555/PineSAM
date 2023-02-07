@@ -61,6 +61,7 @@
                 v-for="name in group.items"
                 :key="name"
                 class="mfield"
+                :class="settings[name]?.component?.class"
               >
                 <label class="label">{{settings[name].display}}</label>
                 <!-- dropdown value selection -->
