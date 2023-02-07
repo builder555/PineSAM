@@ -139,7 +139,7 @@ const settingToComponentMap = {
       name: 'range',
       min: 10,
       max: 450,
-      step: 1,
+      step: 5,
     },
     TempChangeShortStep: {
       name: 'range',
