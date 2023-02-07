@@ -1,7 +1,7 @@
 import settingNames from "./setting-names.js";
 import settingGroups from "./setting-groups.js";
 import settingDescriptions from "./setting-descriptions.js";
-import settingToComponentMap from "./settings-components.js";
+import settingToComponentMap from "./setting-components.js";
 
 const getLocalStorageValue = (key, defaultValue) => {
   const value = localStorage.getItem(key);
