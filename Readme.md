@@ -52,6 +52,13 @@ If you already have python installed, you can skip to step 2.
 
 ![](./screenshot.png)
 
+## Remote access
+
+You can access the settings remotely once the app is running
+
+* Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app
+* open http://\<ip-address\>:8080/settings.html on another device on the same network
+
 ## Known issues
 
 - bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
