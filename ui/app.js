@@ -90,8 +90,6 @@ export default {
     toggleVoltageSettings(value) {
       const classHidden = value ? '' : 'is-hidden';
       this.settings['MinVolCell'].component.class = classHidden;
-      this.settings['QCMaxVoltage'].component.class = classHidden;
-      this.settings['PDNegTimeout'].component.class = classHidden;
     },
     updateSetting(uuid, value) {
       this.isBusy = true;
