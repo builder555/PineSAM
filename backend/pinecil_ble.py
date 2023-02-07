@@ -1,13 +1,25 @@
 from typing import List
+import struct
+import logging
+import asyncio
 import bleak
 from bleak import BleakClient
 from bleak import BleakScanner
 from bleak.backends.characteristic import BleakGATTCharacteristic
-import struct
-import logging
-import asyncio
+from pinecil_setting_limits import value_limits
+from pinecil_setting_limits import MAX_TEMP_C
+from pinecil_setting_limits import MAX_TEMP_F
+from pinecil_setting_limits import MIN_TEMP_C
+from pinecil_setting_limits import MIN_TEMP_F
+from pinecil_setting_limits import MIN_BOOST_TEMP_C
+from pinecil_setting_limits import MIN_BOOST_TEMP_F
+from pinecil_setting_limits import MAX_SLEEP_TEMP_C
+from pinecil_setting_limits import MAX_SLEEP_TEMP_F
 
 class DeviceNotFoundException(Exception):
+    pass
+
+class ValueOutOfRangeException(Exception):
     pass
 
 class BLE:
@@ -70,11 +82,29 @@ class BLE:
         except:
             pass
 
+temperature_limits = {
+    '00000001-0000-1000-8000-00805f9b34fb':{0:[MIN_TEMP_C, MAX_TEMP_C],1:[MIN_TEMP_F, MAX_TEMP_F]},
+    '00000002-0000-1000-8000-00805f9b34fb':{0:[MIN_TEMP_C,MAX_SLEEP_TEMP_C],1:[MIN_TEMP_F,MAX_SLEEP_TEMP_F]},
+    '00000017-0000-1000-8000-00805f9b34fb':{0:[MIN_BOOST_TEMP_C, MAX_TEMP_C],1:[MIN_BOOST_TEMP_F, MAX_TEMP_F]},
+}
 class Pinecil:
 
     def __init__(self):
         self.ble = BLE(name='pinecil')
         self.settings_uuid: str = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
+        self.temp_unit_crx_uuid: str = '00000010-0000-1000-8000-00805f9b34fb'
+    
+    async def __ensure_valid_temperature(self, setting, temperature):
+        characteristics = await self.ble.get_characteristics(self.settings_uuid)
+        for crx in characteristics:
+            if crx.uuid == self.temp_unit_crx_uuid:
+                raw_value = await self.ble.read_characteristic(crx)
+                temp_unit = struct.unpack('<H', raw_value)[0]
+                limits = temperature_limits[setting][temp_unit]
+                if not limits[0] <= temperature <= limits[1]:
+                    logging.warning(f'Temp. {temperature} is out of range for setting {setting} ({limits[0]}-{limits[1]})')
+                    raise ValueOutOfRangeException
+                break
 
     async def get_all_settings(self):
         logging.debug(f'GETTING ALL SETTINGS')
@@ -90,6 +120,12 @@ class Pinecil:
         return settings
 
     async def set_one_setting(self, setting, value):
+        limits = value_limits[setting]
+        if not limits[0] <= value <= limits[1]:
+            logging.warning(f'Value {value} is out of range for setting {setting} ({limits[0]}-{limits[1]})')
+            raise ValueOutOfRangeException
+        if setting in temperature_limits:
+            await self.__ensure_valid_temperature(setting, value)
         characteristics = await self.ble.get_characteristics(self.settings_uuid)
         logging.info(f'Setting {value} ({type(value)}) to {setting}')
         for crx in characteristics:

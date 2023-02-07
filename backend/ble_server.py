@@ -6,6 +6,7 @@ import websockets.exceptions
 import json
 from pinecil_ble import Pinecil
 from pinecil_ble import DeviceNotFoundException
+from pinecil_ble import ValueOutOfRangeException
 
 LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO').upper()
 timestamp_format = '%H:%M:%S'
@@ -35,6 +36,10 @@ async def handle_message(websocket, data):
     except DeviceNotFoundException:
         logging.warning('Device not found')
         response = {'status': 'ERROR', 'message': 'Device not found'}
+        await websocket.send(json.dumps({**response, 'command': command}))
+    except ValueOutOfRangeException:
+        logging.warning('Value out of range')
+        response = {'status': 'ERROR', 'message': 'Value out of range'}
         await websocket.send(json.dumps({**response, 'command': command}))
 
 async def hello(websocket, path):
