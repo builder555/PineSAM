@@ -3,6 +3,7 @@
 Why focus on soldering when you can play with the settings instead? With this app you will have full control over your new shiny Pinecil V2 from your computer.
 
 **NB**: No special browser permissions required
+**NB**: This app needs the python backend to run on a computer, it CANNOT run entirely in the browser unlike Joric's UI.
 
 ## Features
 - [x] Automatically detect Pinecil V2 over BLE
