@@ -28,13 +28,13 @@ Why focus on soldering when you can play with the settings instead? With this ap
 git clone https://github.com/builder555/pinecil-v2
 cd pinecil-v2/backend
 pipenv install
-cd ..
 chmod +x start.sh
 ```
 
 ### Run
 ```shell
-cd backend && ./start.sh
+# from inside the pinecil-v2/backend directory:
+./start.sh
 ```
 
 On a Mac http://localhost:8080/settings.html will open in your browser automatically. On linux you need to do it manually (for now).
