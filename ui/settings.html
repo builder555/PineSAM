@@ -35,7 +35,7 @@
         <input v-model="saveToFlash" type="checkbox" id="sw-save-toflash" />
         <label for="sw-save-toflash"></label>
       </div>
-      <p class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has a limited lifespan, making changes very often will reduce the life of your device.</strong></p>
+      <p class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has limited write cycles, saving changes frequently will reduce the life of your device.</strong></p>
     </div>
     <form>
       <div class="columns is-multiline hide-until-load" :style="{'visibility':'visible'}" v-if="Object.keys(settings).length > 0">
@@ -84,6 +84,11 @@
                   <div v-else class="tag is-info">
                     {{settings[name].component.display && settings[name].component.display(settings[name].value) || settings[name].value}}
                   </div>
+                </div>
+                <div v-else-if="settings[name].component?.name=='confirm'">
+                  <button class="button is-danger" @click.prevent="confirm(name)">
+                    {{settings[name].component?.display}}
+                  </button>
                 </div>
                 <!-- regular text input -->
                 <input v-else v-model="settings[name].value" class="input" type="text" disabled>
