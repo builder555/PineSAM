@@ -11,11 +11,9 @@ class DeviceNotFoundException(Exception):
 
 class BLE:
 
-    def __init__(self, name=None, address=None):
-        if not name and not address:
-            raise Exception('No device name or address set')
-        self.address = address
-        self.device_name = name
+    def __init__(self, name):
+        self.address = None
+        self.search_name = name
         self.client: BleakClient | None = None
 
     @property
@@ -31,20 +29,20 @@ class BLE:
             self.client = BleakClient(self.address)
             await self.client.connect()
         except BleakDeviceNotFoundError:
-            logging.info(f'Could not find device "{self.device_name}" at "{self.address}"')
+            logging.info(f'Could not find device "{self.search_name}" at "{self.address}"')
             raise DeviceNotFoundException
 
     async def __detect_device_address(self):
-        logging.info(f'Detecting "{self.device_name}"...')
+        logging.info(f'Detecting "{self.search_name}"...')
         devices = await BleakScanner.discover()
         for d in devices:
-            if d.name is not None and self.device_name in d.name.lower():
-                logging.info(f'Found {self.device_name} at {d.address}')
+            if d.name is not None and self.search_name in d.name.lower():
+                logging.info(f'Found {self.search_name} at {d.address}')
                 self.address = d.address
                 break
         else:
             raise DeviceNotFoundException
-        logging.debug(f'Detecting "{self.device_name}" DONE')
+        logging.debug(f'Detecting "{self.search_name}" DONE')
 
     async def get_characteristics(self, service_uuid: str) -> List[BleakGATTCharacteristic]:
         await self.ensure_connected()
