@@ -1,4 +1,4 @@
-![](./screenshot.png)
+<img src="./screenshot.png" align="right" width="500" style="float:left">
 
 # Pinecil V2 settings
 
@@ -7,6 +7,14 @@ Why focus on soldering when you can play with the settings instead? With this ap
 **NB**: No special browser permissions required
 
 **NB**: This app needs the python backend to run on a computer, it CANNOT run entirely in the browser unlike Joric's UI.
+
+<details>
+  <summary>Full settings view</summary>
+  <p>
+    <img src="./full_settings.png"/>
+  </p>
+</details>
+<div style="clear:both;">&nbsp;</div>
 
 ## Features
 - [x] Automatically detect Pinecil V2 over BLE
