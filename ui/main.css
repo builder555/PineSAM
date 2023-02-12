@@ -4,7 +4,10 @@
   }
 }
 .spinner {
-  position:relative
+  position:fixed;
+  top:10;
+  left:calc(50% - 10px);
+  z-index:2;
 }
 .spinner div:before {
   content: '';

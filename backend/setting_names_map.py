@@ -1,5 +1,5 @@
-const settingNames = {
-  "00000000-0000-1000-8000-00805f9b34fb": "Write 1 to save",
+names_v220 = {
+  "00000000-0000-1000-8000-00805f9b34fb": "save_to_flash",
   "00000001-0000-1000-8000-00805f9b34fb": "SetTemperature",
   "00000002-0000-1000-8000-00805f9b34fb": "SleepTemperature",
   "00000003-0000-1000-8000-00805f9b34fb": "SleepTimeout",
@@ -37,6 +37,17 @@ const settingNames = {
   "00000023-0000-1000-8000-00805f9b34fb": "Brightness",
   "00000024-0000-1000-8000-00805f9b34fb": "LOGOTime",
   "00000025-0000-1000-8000-00805f9b34fb": "CalibrateCJC",
-};
+}
 
-export default settingNames;
+def reduce_idx(idx: str) -> str:
+  parts = idx.split("-")
+  first_group_as_number = int(parts[0],16)
+  # 0xffff ensures -1 becomes 0x0000ffff:
+  new_first_group_as_hex = f"{first_group_as_number-1 & 0xffff:08x}"
+  return '-'.join([new_first_group_as_hex] + parts[1:])
+
+names_v221 = {
+  **{reduce_idx(k): v for k, v in names_v220.items()},
+  "00000025-0000-1000-8000-00805f9b34fb": "BLEEnabled",
+  "0000fffe-0000-1000-8000-00805f9b34fb": "SettingsReset",
+}

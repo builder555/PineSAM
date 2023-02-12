@@ -194,6 +194,10 @@ const settingToComponentMap = {
       offable: true,
       display: (value) => value == 0 ? "Off" : value,
     },
+    SettingsReset: {
+      name: 'confirm',
+      display: 'Reset',
+    }
   };
   
 export default settingToComponentMap;

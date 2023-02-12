@@ -9,41 +9,44 @@ MAX_SLEEP_TEMP_C = 300
 MAX_SLEEP_TEMP_F = 570
 
 value_limits = {
-    "00000000-0000-1000-8000-00805f9b34fb":    [0, 1],                   # Set 1 to save
-    "00000001-0000-1000-8000-00805f9b34fb":    [MIN_TEMP_C, MAX_TEMP_F], # SolderingTemp
-    "00000002-0000-1000-8000-00805f9b34fb":    [MIN_TEMP_C, MAX_TEMP_F], # SleepTemp
-    "00000003-0000-1000-8000-00805f9b34fb":    [0, 15],                  # SleepTime
-    "00000004-0000-1000-8000-00805f9b34fb":    [0, 4],                   # MinDCVoltageCells
-    "00000005-0000-1000-8000-00805f9b34fb":    [24, 38],                 # MinVoltageCells
-    "00000006-0000-1000-8000-00805f9b34fb":    [90, 220],                # QCIdealVoltage
-    "00000007-0000-1000-8000-00805f9b34fb":    [0, 2],                   # OrientationMode
-    "00000008-0000-1000-8000-00805f9b34fb":    [0, 9],                   # Sensitivity
-    "00000009-0000-1000-8000-00805f9b34fb":    [0, 1],                   # AnimationLoop
-    "0000000a-0000-1000-8000-00805f9b34fb":    [0, 3],                   # AnimationSpeed
-    "0000000b-0000-1000-8000-00805f9b34fb":    [0, 3],                   # AutoStartMode
-    "0000000c-0000-1000-8000-00805f9b34fb":    [0, 60],                  # ShutdownTime
-    "0000000d-0000-1000-8000-00805f9b34fb":    [0, 1],                   # CoolingTempBlink
-    "0000000e-0000-1000-8000-00805f9b34fb":    [0, 1],                   # DetailedIDLE
-    "0000000f-0000-1000-8000-00805f9b34fb":    [0, 1],                   # DetailedSoldering
-    "00000010-0000-1000-8000-00805f9b34fb":    [0, 1],                   # TemperatureInF
-    "00000011-0000-1000-8000-00805f9b34fb":    [0, 1],                   # DescriptionScrollSpeed
-    "00000012-0000-1000-8000-00805f9b34fb":    [0, 2],                   # LockingMode
-    "00000013-0000-1000-8000-00805f9b34fb":    [0, 99],                  # KeepAwakePulse
-    "00000014-0000-1000-8000-00805f9b34fb":    [1, 9],                   # KeepAwakePulseWait
-    "00000015-0000-1000-8000-00805f9b34fb":    [1, 9],                   # KeepAwakePulseDuration
-    "00000016-0000-1000-8000-00805f9b34fb":    [360, 900],               # VoltageDiv
-    "00000017-0000-1000-8000-00805f9b34fb":    [0, MAX_TEMP_F],          # BoostTemp
-    "00000018-0000-1000-8000-00805f9b34fb":    [100, 2500],              # CalibrationOffset
-    "00000019-0000-1000-8000-00805f9b34fb":    [0, 220],                 # PowerLimit
-    "0000001a-0000-1000-8000-00805f9b34fb":    [0, 1],                   # ReverseButtonTempChangeEnabled
-    "0000001b-0000-1000-8000-00805f9b34fb":    [5, 90],                  # TempChangeLongStep
-    "0000001c-0000-1000-8000-00805f9b34fb":    [1, 50],                  # TempChangeShortStep
-    "0000001d-0000-1000-8000-00805f9b34fb":    [0, 9],                   # HallEffectSensitivity
-    "0000001e-0000-1000-8000-00805f9b34fb":    [0, 9],                   # AccelMissingWarningCounter
-    "0000001f-0000-1000-8000-00805f9b34fb":    [0, 9],                   # PDMissingWarningCounter
-    "00000020-0000-1000-8000-00805f9b34fb":    [0, 0xFFFF],              # UILanguage
-    "00000021-0000-1000-8000-00805f9b34fb":    [0, 50],                  # PDNegTimeout
-    "00000022-0000-1000-8000-00805f9b34fb":    [0, 1],                   # OLEDInversion
-    "00000023-0000-1000-8000-00805f9b34fb":    [0, 99],                  # OLEDBrightness
-    "00000024-0000-1000-8000-00805f9b34fb":    [0, 5],                   # LOGOTime
+    "SetTemperature":               [MIN_TEMP_C, MAX_TEMP_F],
+    "SleepTemperature":             [MIN_TEMP_C, MAX_TEMP_F],
+    "SleepTimeout":                 [0, 15],
+    "DCInCutoff":                   [0, 4],
+    "MinVolCell":                   [24, 38],
+    "QCMaxVoltage":                 [90, 220],
+    "DisplayRotation":              [0, 2],
+    "MotionSensitivity":            [0, 9],
+    "AnimLoop":                     [0, 1],
+    "AnimSpeed":                    [0, 3],
+    "AutoStart":                    [0, 3],
+    "ShutdownTimeout":              [0, 60],
+    "CooldownBlink":                [0, 1],
+    "AdvancedIdle":                 [0, 1],
+    "AdvancedSoldering":            [0, 1],
+    "TemperatureUnit":              [0, 1],
+    "ScrollingSpeed":               [0, 1],
+    "LockingMode":                  [0, 2],
+    "PowerPulsePower":              [0, 99],
+    "PowerPulseWait":               [1, 9],
+    "PowerPulseDuration":           [1, 9],
+    "VoltageCalibration":           [360, 900],
+    "BoostTemperature":             [0, MAX_TEMP_F],
+    "CalibrationOffset":            [100, 2500],
+    "PowerLimit":                   [0, 220],
+    "ReverseButtonTempChange":      [0, 1],
+    "TempChangeLongStep":           [5, 90],
+    "TempChangeShortStep":          [1, 50],
+    "HallEffectSensitivity":        [0, 9],
+    "AccelMissingWarningCounter":   [0, 9],
+    "PDMissingWarningCounter":      [0, 9],
+    "UILanguage":                   [0, 0xFFFF],
+    "PDNegTimeout":                 [0, 50],
+    "ColourInversion":              [0, 1],
+    "Brightness":                   [0, 99],
+    "LOGOTime":                     [0, 5],
+    "CalibrateCJC":                 [0, 1],
+    "BLEEnabled":                   [0, 1],
+    "SettingsReset":                [0, 0xFFFF],
+    "save_to_flash":                 [0, 1],
 }

@@ -1,4 +1,3 @@
-import settingNames from "./setting-names.js";
 import settingGroups from "./setting-groups.js";
 import settingDescriptions from "./setting-descriptions.js";
 import settingToComponentMap from "./setting-components.js";
@@ -35,12 +34,10 @@ export default {
       }
     },
     parseSettings(rawSettings) {
-      for (const uuid in rawSettings) {
-        const value = Number(rawSettings[uuid]);
-        const name = settingNames[uuid] ?? uuid;
+      for (const name in rawSettings) {
+        const value = Number(rawSettings[name]);
         this.settings[name] = {
           value,
-          uuid,
           display: settingDescriptions[name]?.displayText ?? name,
           hint: settingDescriptions[name]?.description ?? '',
           component: settingToComponentMap[name],
@@ -50,12 +47,22 @@ export default {
         }
         this.$watch(`settings.${name}.value`, debounce((newValue, oldValue) => {
           if (newValue !== oldValue) {
-            this.updateSetting(uuid, newValue);
+            this.updateSetting(name, newValue);
           }
         }, 500));
+        if (name === 'SettingsReset') {
+          const advanced = this.groups.find(group => group.name === 'Advanced settings');
+          if (advanced.items.indexOf('SettingsReset')<0) advanced.items.push('SettingsReset');
+        }
       }
       this.setTemperatureRanges();
       this.toggleVoltageSettings(this.settings['DCInCutoff'].value);
+    },
+    confirm(name){
+      const yes = window.confirm('Are you sure?');
+      if (yes && name === 'SettingsReset') {
+          this.updateSetting(name, 1);
+      }
     },
     toggleGroup(group) {
       group.isVisible = !group.isVisible;
@@ -93,17 +100,17 @@ export default {
       const classHidden = value ? '' : 'is-hidden';
       this.settings['MinVolCell'].component.class = classHidden;
     },
-    updateSetting(uuid, value) {
+    updateSetting(name, value) {
       this.isBusy = true;
       value = Number(value);
       this.checkSocket()
       .then(() => {
-        this.socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {uuid: uuid, value, save: this.saveToFlash}}));
+        this.socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {name, value, save: this.saveToFlash}}));
       });
-      if (settingNames[uuid] === 'TemperatureUnit') {
+      if (name === 'TemperatureUnit') {
         this.setTemperatureRanges(true);
       }
-      if (settingNames[uuid] === 'DCInCutoff') {
+      if (name === 'DCInCutoff') {
         this.toggleVoltageSettings(value)
       }
     },
@@ -133,6 +140,7 @@ export default {
         if (fetchSettings) this.fetchSettings();
       };
       this.socket.onmessage = (event) => {
+        this.isBusy = false;
         const data = JSON.parse(event.data)
         if (data.status == 'ERROR') {
           console.warn('error!', data);
@@ -141,16 +149,15 @@ export default {
         if (data.command === "GET_SETTINGS") {
           this.parseSettings(data.payload);
         }
-        this.isBusy = false;
       };
       this.socket.onclose = () => {
-        console.log('socket closed');
         this.isBusy = false;
+        console.log('socket closed');
       };
       this.socket.onerror = (e) => {
+        this.isBusy = false;
         this.error = 'Error connecting to backend. Make sure the server is running.'
         console.warn('error!', e);
-        this.isBusy = false;
       };
     },
   },
