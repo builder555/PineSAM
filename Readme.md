@@ -1,3 +1,5 @@
+![](./screenshot.png)
+
 # Pinecil V2 settings
 
 Why focus on soldering when you can play with the settings instead? With this app you will have full control over your new shiny Pinecil V2 from your computer using bluetooth.
@@ -51,8 +53,6 @@ If you already have python installed, you can skip to step 2.
 4. Run `start.bat` file inside the `backend` directory
 
 ---
-
-![](./screenshot.png)
 
 ## Remote access
 
