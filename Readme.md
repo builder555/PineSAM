@@ -81,7 +81,7 @@ You can access the settings remotely once the app is running
     
 ## References
 
-- [Pinecil](https://www.pine64.org/pinecil/) - The Pinecil homepage
+- [Pinecil](https://wiki.pine64.org/wiki/Pinecil) - The Pinecil Wiki page
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
 - [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
-- [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - Almost all AliExpress Pinecils are fake, check yours!
+- [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - Almost all AliExpress Pinecils are fake, check your V2!
