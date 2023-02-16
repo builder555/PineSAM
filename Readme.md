@@ -54,7 +54,7 @@ On a Mac http://localhost:8080/settings.html will open in your browser automatic
 If you already have python installed, you can skip to step 2.
 
 1. Install Python: https://www.python.org/downloads
-    * Check "Add python.exe to PATH" and "Customize Installation"
+    * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
     * See a reference screen [here](https://github.com/builder555/pinecil-v2/discussions/7#discussion-4862766) Thanks to [River-b](https://github.com/River-b)
 2. Download this repo: https://github.com/builder555/pinecil-v2/archive/master.zip
