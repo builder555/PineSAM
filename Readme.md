@@ -1,6 +1,6 @@
 <img src="./screenshot.png" align="right" width="500" style="float:left">
 
-# Pinecil V2 settings
+# PineSAM (Pinecil Settings and Menus)
 
 Why focus on soldering when you can play with the settings instead? With this app you will have full control over your new shiny Pinecil V2 from your computer using bluetooth.
 
