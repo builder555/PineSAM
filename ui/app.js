@@ -24,6 +24,7 @@ export default {
     groups: settingGroups,
     saveToFlash: false,
     isBusy: false,
+    info : {},
     socket: null,
     error: '',
   }),
@@ -127,17 +128,26 @@ export default {
       });
     },
     fetchSettings() {
-      if (this.isBusy) return;
       this.isBusy = true;
       this.checkSocket()
       .then(() => {
         this.socket.send(JSON.stringify({command: "GET_SETTINGS"}));
       });
     },
-    initSocket(fetchSettings=true) {
+    fetchInfo() {
+      this.isBusy = true;
+      this.checkSocket()
+      .then(() => {
+        this.socket.send(JSON.stringify({command: "GET_INFO"}));
+      });
+    },
+    initSocket(fetchData=true) {
       this.socket = new WebSocket(`ws://${window.location.hostname}:12999/`);
       this.socket.onopen = () => {
-        if (fetchSettings) this.fetchSettings();
+        if (fetchData) {
+          this.fetchSettings();
+          this.fetchInfo();
+        }
       };
       this.socket.onmessage = (event) => {
         this.isBusy = false;
@@ -148,6 +158,9 @@ export default {
         }
         if (data.command === "GET_SETTINGS") {
           this.parseSettings(data.payload);
+        }
+        if (data.command === "GET_INFO") {
+          this.info = data.payload;
         }
       };
       this.socket.onclose = () => {

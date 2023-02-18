@@ -28,6 +28,9 @@ async def process_command(command: str, payload: dict) -> dict:
             logging.info("SAVING TO FLASH")
             await pinecil.save_to_flash()
         return {'status': 'OK'}
+    if command == 'GET_INFO':
+        info = await pinecil.get_info()
+        return {'status': 'OK', 'payload': info}
     return {'status': 'ERROR', 'message': 'Unknown command'}
 
 async def handle_message(websocket, data):

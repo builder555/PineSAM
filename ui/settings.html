@@ -22,13 +22,24 @@
       <button class="delete" @click="error=''"></button>
       {{error}}
     </div>
-    <h1 class="title">
-      Pinecil V2 Settings
-      <a class="icon refresh-button" @click="fetchSettings">
-        <i class="fas fa-sync-alt"></i>
-      </a>
-      <div v-show="isBusy" class="spinner"><div></div></div>
-    </h1>
+    <div class="columns">
+      <div class="column is-half is-full-mobile">
+        <h1 class="title">
+          Pinecil V2 Settings
+          <a class="icon refresh-button" @click="fetchSettings">
+            <i class="fas fa-sync-alt"></i>
+          </a>
+          <div v-show="isBusy" class="spinner"><div></div></div>
+        </h1>
+      </div>
+      <div class="column is-half is-full-mobile has-text-right">
+        <h4 
+          v-if="info.id"
+          class="subtitle is-4 hide-until-load"
+          :style="{'visibility':'visible'}"
+        >{{info.name}}</h4>
+      </div>
+    </div>
     <div class="mfield">
       <label class="label has-text-left" style="flex-grow:0">Save changes to flash</label>
       <div class="checkbox" style="flex-grow:0">

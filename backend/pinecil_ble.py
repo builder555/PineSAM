@@ -56,6 +56,7 @@ class Pinecil:
     def __init__(self):
         self.ble = BLE(name='pinecil')
         self.settings_uuid: str = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
+        self.bulk_data_uuid: str = '9eae1adb-9d0d-48c5-a6e7-ae93f0ea37b0'
         self.temp_unit_crx: str = 'TemperatureUnit'
         self.names_map = NamesMap()
         self.characteristics: List[BleakGATTCharacteristic] = []
@@ -75,11 +76,26 @@ class Pinecil:
         await self.ble.ensure_connected()
         self.characteristics = await self.ble.get_characteristics(self.settings_uuid)
         self.names_map.set_version(self.__get_version(self.characteristics))
+        self.unique_id = await self.__get_pinecil_id()
         
     async def __read_setting(self, crx: BleakGATTCharacteristic) -> tuple[str, int]:
         raw_value = await self.ble.read_characteristic(crx)
         number = struct.unpack('<H', raw_value)[0]
         return self.names_map.get_name(crx.uuid), number
+
+    async def __get_pinecil_id(self):
+        try:
+            characteristics = await self.ble.get_characteristics(self.bulk_data_uuid)
+            for crx in characteristics:
+                if crx.uuid == '00000004-0000-1000-8000-00805f9b34fb':
+                    raw_value = await self.ble.read_characteristic(crx)
+                    n = struct.unpack('<Q',raw_value)[0]
+                    # using algorithm from here:
+                    # https://github.com/Ralim/IronOS/commit/eb5d6ea9fd6acd221b8880650728e13968e54d3d
+                    unique_id = ((n & 0xFFFFFFFF) ^ ((n >> 32) & 0xFFFFFFFF))
+                    return f'{unique_id:X}'
+        except:
+            return ''
 
     async def get_all_settings(self):
         logging.debug(f'GETTING ALL SETTINGS')
@@ -123,6 +139,12 @@ class Pinecil:
 
     async def save_to_flash(self):
         await self.set_one_setting('save_to_flash', 1)
+
+    async def get_info(self):
+        return {
+            'name': f'Pinecil-{self.unique_id}',
+            'id': self.unique_id,
+        }
 
 def ensure_setting_exists(name: str):
     if name not in names_v220.values() and name not in names_v221.values():
