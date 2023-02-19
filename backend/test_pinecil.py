@@ -30,24 +30,8 @@ async def test_after_connecting_device_loads_settings_ble_characteristics(mock_b
         await pinecil.connect()
         assert Method(mock_ble.get_characteristics).was_called_with('f6d75f91-5a10-4eba-a233-47d3f26a907f')
 
-def test_read_all_settings_from_v2_20():
-    pass
-
-def test_update_one_setting_at_a_time():
-    pass
-
-def test_updating_setting_with_invalid_value_fails():
-    pass
-
-def test_can_save_changes_to_flash():
-    pass
-
-def test_get_unique_device_name():
-    pass
-
-
 @pytest.mark.asyncio
-async def test_read_all_settings(mock_ble, mocked_settings):
+async def test_read_all_settings_from_v2_21(mock_ble, mocked_settings):
     with patch('pinecil_ble.BLE', return_value=mock_ble):
         pinecil = Pinecil()
         await pinecil.connect()
@@ -87,6 +71,22 @@ async def test_read_all_settings(mock_ble, mocked_settings):
         assert settings['PDNegTimeout'] == mocked_settings[32].expected_value
         assert settings['ColourInversion'] == mocked_settings[33].expected_value
         assert settings['Brightness'] == mocked_settings[34].expected_value
+
+def test_read_all_settings_from_v2_20():
+    pass
+
+def test_update_one_setting_at_a_time():
+    pass
+
+def test_updating_setting_with_invalid_value_fails():
+    pass
+
+def test_can_save_changes_to_flash():
+    pass
+
+def test_get_unique_device_name():
+    pass
+
 
 
 class Method:
