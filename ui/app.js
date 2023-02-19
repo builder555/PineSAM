@@ -167,6 +167,7 @@ export default {
         if (data.status == 'ERROR') {
           console.warn('error!', data);
           this.error = data.message;
+          return;
         }
         if (data.command === "GET_SETTINGS") {
           this.parseSettings(data.payload);
