@@ -52,7 +52,7 @@ export default {
         const isRapidlyChangingField = settingToComponentMap[name]?.name === 'range';
         if (!isRapidlyChangingField) {
           this.$watch(`settings.${name}.value`, (value) => {
-              this.updateSetting(name, newValue);
+              this.updateSetting(name, value);
           });
         }
         this.$watch(`settings.${name}.showRawValue`, (isShow) => {
