@@ -75,7 +75,7 @@ class Pinecil:
         except:
             return ''
 
-    async def get_all_settings(self):
+    async def get_all_settings(self) -> dict[str, int]:
         logging.debug(f'GETTING ALL SETTINGS')
         if not self.is_connected:
             await self.connect()
