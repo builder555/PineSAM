@@ -81,7 +81,17 @@ You can access the settings remotely once the app is running
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/Ralim/IronOS/discussions/1449#discussioncomment-4866655)
 - Setting change is not reflected on the soldering iron
     * some changes require entering the menu on the device itself (or power cycle after saving to flash) before appearing. [Example](https://github.com/Ralim/IronOS/issues/1560)
-    
+
+## Testing
+
+Make sure you have `pipenv` installed.
+
+```shell
+# inside 'backend' directory:
+pipenv install --dev
+pipenv run test
+```
+
 ## References
 
 - [Pinecil](https://wiki.pine64.org/wiki/Pinecil) - The Pinecil Wiki page

@@ -17,3 +17,4 @@ python_version = "3.10"
 
 [scripts]
 "server" = "python ble_server.py"
+"test" = "pytest"
