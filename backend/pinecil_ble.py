@@ -3,14 +3,7 @@ import struct
 import logging
 import asyncio
 from pinecil_setting_limits import value_limits
-from pinecil_setting_limits import MAX_TEMP_C
-from pinecil_setting_limits import MAX_TEMP_F
-from pinecil_setting_limits import MIN_TEMP_C
-from pinecil_setting_limits import MIN_TEMP_F
-from pinecil_setting_limits import MIN_BOOST_TEMP_C
-from pinecil_setting_limits import MIN_BOOST_TEMP_F
-from pinecil_setting_limits import MAX_SLEEP_TEMP_C
-from pinecil_setting_limits import MAX_SLEEP_TEMP_F
+from pinecil_setting_limits import temperature_limits
 from setting_names_map import names_v220, names_v221
 from ble import BleakGATTCharacteristic
 from ble import BLE
@@ -21,23 +14,8 @@ class ValueOutOfRangeException(Exception):
 class InvalidSettingException(Exception):
     message = 'Invalid setting'
 
-temperature_limits = {
-    'SetTemperature': { 
-        0: lambda t: MIN_TEMP_C<=t<=MAX_TEMP_C,
-        1 :lambda t: MIN_TEMP_F<=t<=MAX_TEMP_F
-    },
-    'SleepTemperature': {
-        0: lambda t: MIN_TEMP_C<=t<=MAX_SLEEP_TEMP_C,
-        1: lambda t: MIN_TEMP_F<=t<=MAX_SLEEP_TEMP_F,
-    },
-    'BoostTemperature': {
-        0: lambda t: MIN_BOOST_TEMP_C<=t<=MAX_TEMP_C or t==0,
-        1: lambda t: MIN_BOOST_TEMP_F<=t<=MAX_TEMP_F or t==0,
-    },
-}
 
-
-class NamesMap:
+class SettingNameToUUIDMap:
     def __init__(self):
         self.names = names_v220
 
@@ -58,7 +36,7 @@ class Pinecil:
         self.settings_uuid: str = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
         self.bulk_data_uuid: str = '9eae1adb-9d0d-48c5-a6e7-ae93f0ea37b0'
         self.temp_unit_crx: str = 'TemperatureUnit'
-        self.names_map = NamesMap()
+        self.names_map = SettingNameToUUIDMap()
         self.characteristics: List[BleakGATTCharacteristic] = []
 
     @property

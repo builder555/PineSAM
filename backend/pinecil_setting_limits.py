@@ -50,3 +50,18 @@ value_limits = {
     "SettingsReset":                [0, 0xFFFF],
     "save_to_flash":                 [0, 1],
 }
+
+temperature_limits = {
+    'SetTemperature': { 
+        0: lambda t: MIN_TEMP_C<=t<=MAX_TEMP_C,
+        1 :lambda t: MIN_TEMP_F<=t<=MAX_TEMP_F
+    },
+    'SleepTemperature': {
+        0: lambda t: MIN_TEMP_C<=t<=MAX_SLEEP_TEMP_C,
+        1: lambda t: MIN_TEMP_F<=t<=MAX_SLEEP_TEMP_F,
+    },
+    'BoostTemperature': {
+        0: lambda t: MIN_BOOST_TEMP_C<=t<=MAX_TEMP_C or t==0,
+        1: lambda t: MIN_BOOST_TEMP_F<=t<=MAX_TEMP_F or t==0,
+    },
+}
