@@ -39,18 +39,29 @@ export default {
         const value = Number(rawSettings[name]);
         this.settings[name] = {
           value,
+          lastSent: value,
           display: settingDescriptions[name]?.displayText ?? name,
           hint: settingDescriptions[name]?.description ?? '',
           component: settingToComponentMap[name],
+          showRawValue: false,
         }
-        if (settingToComponentMap[name]?.name === 'checkbox') {
+        const isBooleanField = settingToComponentMap[name]?.name === 'checkbox';
+        if (isBooleanField) {
           this.settings[name].value = value === 1;
         }
-        this.$watch(`settings.${name}.value`, debounce((newValue, oldValue) => {
-          if (newValue !== oldValue) {
-            this.updateSetting(name, newValue);
+        const isRapidlyChangingField = settingToComponentMap[name]?.name === 'range';
+        if (!isRapidlyChangingField) {
+          this.$watch(`settings.${name}.value`, (value) => {
+              this.updateSetting(name, newValue);
+          });
+        }
+        this.$watch(`settings.${name}.showRawValue`, (isShow) => {
+          if (isShow) {
+            this.$nextTick(() => {
+              this.$refs[name][0].focus();
+            });
           }
-        }, 500));
+        });
         if (name === 'SettingsReset') {
           const advanced = this.groups.find(group => group.name === 'Advanced settings');
           if (advanced.items.indexOf('SettingsReset')<0) advanced.items.push('SettingsReset');
@@ -102,20 +113,21 @@ export default {
       this.settings['MinVolCell'].component.class = classHidden;
     },
     updateSetting(name, value) {
-      this.isBusy = true;
+      if (this.settings[name].showRawValue) this.settings[name].showRawValue=false;
       value = Number(value);
+      if (this.settings[name].lastSent === value) return;
       this.checkSocket()
       .then(() => {
         this.socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {name, value, save: this.saveToFlash}}));
+        this.settings[name].lastSent = value;
       });
-      if (name === 'TemperatureUnit') {
-        this.setTemperatureRanges(true);
-      }
-      if (name === 'DCInCutoff') {
-        this.toggleVoltageSettings(value)
-      }
+      const changedTempUnit = name === 'TemperatureUnit';
+      const changedDCtype = name === 'DCInCutoff';
+      if (changedTempUnit) this.setTemperatureRanges(true);
+      if (changedDCtype) this.toggleVoltageSettings(value)
     },
     checkSocket() {
+      this.isBusy = true;
       return new Promise((resolve, reject) => {
         if (this.socket.readyState !== WebSocket.OPEN) {
           this.initSocket(false);
@@ -128,22 +140,22 @@ export default {
       });
     },
     fetchSettings() {
-      this.isBusy = true;
       this.checkSocket()
       .then(() => {
         this.socket.send(JSON.stringify({command: "GET_SETTINGS"}));
       });
     },
     fetchInfo() {
-      this.isBusy = true;
       this.checkSocket()
       .then(() => {
         this.socket.send(JSON.stringify({command: "GET_INFO"}));
       });
     },
     initSocket(fetchData=true) {
+      this.isBusy = true;
       this.socket = new WebSocket(`ws://${window.location.hostname}:12999/`);
       this.socket.onopen = () => {
+        this.isBusy = false;
         if (fetchData) {
           this.fetchSettings();
           this.fetchInfo();
