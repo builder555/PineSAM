@@ -31,7 +31,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 - python 3 (tested with 3.10)
 - pipenv
-- a browser that supports [BLE GATT](https://caniuse.com/mdn-api_bluetooth)
+- a browser
 
 ## Mac/Linux 
 
