@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: "pascalgn/automerge-action@v0.15.6"
         env:
-          GITHUB_TOKEN: "${{ secrets.TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           UPDATE_LABELS: "autorelease: pending"
           MERGE_LABELS: "autorelease: pending"
           MERGE_REMOVE_LABELS: "autorelease: pending"
