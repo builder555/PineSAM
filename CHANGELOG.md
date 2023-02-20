@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/builder555/PineSAM/compare/v1.0.2...v1.0.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* display version number ([f2a74d3](https://github.com/builder555/PineSAM/commit/f2a74d3e9755c7d3c46126274b7854883a46d94f))
+
 ## [1.0.2](https://github.com/builder555/PineSAM/compare/v1.0.1...v1.0.2) (2023-02-20)
 
 
