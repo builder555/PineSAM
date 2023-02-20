@@ -15,7 +15,7 @@ jobs:
       - uses: "pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: "${{ secrets.TOKEN }}"
+          MERGE_LABELS: "!test"
           MERGE_METHOD: "merge"
-          MERGE_LABELS: ""
           MERGE_FILTER_AUTHOR: "builder555"
           MERGE_FORKS: "false"
