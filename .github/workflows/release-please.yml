@@ -12,3 +12,6 @@ jobs:
           token: ${{ secrets.TOKEN }}
           release-type: simple
           package-name: release-please-action
+      - uses: "pascalgn/automerge-action@v0.15.6"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
