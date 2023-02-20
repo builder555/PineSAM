@@ -112,14 +112,17 @@ export default {
       const classHidden = value ? '' : 'is-hidden';
       this.settings['MinVolCell'].component.class = classHidden;
     },
-    updateSetting(name, value) {
-      // check if value is within valid range:
+    isValueOutOfLimits(name, value) {
       const {min, max, offable=false} = this.settings[name].component;
       const isMinSet = typeof min !== 'undefined';
       const isMaxSet = typeof max !== 'undefined';
       const isBelowMin = isMinSet && value < min;
       const isAboveMax = isMaxSet && value > max;
-      if (isBelowMin && !(offable && value == 0) || isAboveMax) {
+      return isAboveMax || isBelowMin && !(offable && value == 0);
+    },
+    updateSetting(name, value) {
+      if (this.isValueOutOfLimits(name, value)) {
+        const {min, max} = this.settings[name].component;
         this.error = `Value for ${name} is out of range (${min} - ${max})`;
         this.settings[name].value = this.settings[name].lastSent;
         return;
