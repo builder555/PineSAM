@@ -19,4 +19,4 @@ jobs:
           MERGE_METHOD: "merge"
           MERGE_FILTER_AUTHOR: "builder555"
           MERGE_FORKS: "false"
-          LOG: "debug"
+          LOG: "DEBUG"
