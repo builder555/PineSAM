@@ -13,7 +13,6 @@ on:
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
-    needs: [release-please]
     steps:
       - uses: "pascalgn/automerge-action@v0.15.6"
         env:
