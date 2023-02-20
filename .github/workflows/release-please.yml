@@ -12,14 +12,3 @@ jobs:
           token: ${{ secrets.TOKEN }}
           release-type: simple
           package-name: release-please-action
-  merge:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Merge PR from specific user
-        if: ${{ github.event.pull_request.user.login == 'builder555' && startsWith(github.event.pull_request.head.commit.message, 'chore(master):') }}
-        uses: peter-evans/auto-merge@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          merge-method: squash
