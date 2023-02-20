@@ -114,8 +114,12 @@ export default {
     },
     updateSetting(name, value) {
       // check if value is within valid range:
-      const {min, max, offable} = this.settings[name].component;
-      if ((value < min && (value > 0 || !offable)) || value > max) {
+      const {min, max, offable=false} = this.settings[name].component;
+      const isMinSet = typeof min !== 'undefined';
+      const isMaxSet = typeof max !== 'undefined';
+      const isBelowMin = isMinSet && value < min;
+      const isAboveMax = isMaxSet && value > max;
+      if (isBelowMin && !(offable && value == 0) || isAboveMax) {
         this.error = `Value for ${name} is out of range (${min} - ${max})`;
         this.settings[name].value = this.settings[name].lastSent;
         return;
