@@ -87,7 +87,7 @@ You can access the settings remotely once the app is running
 Make sure you have `pipenv` installed.
 
 ```shell
-# inside 'backend' directory:
+# run inside 'backend' directory:
 pipenv install --dev
 pipenv run test
 ```
