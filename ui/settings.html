@@ -113,7 +113,6 @@
                     style="height:2em;"
                     maxlength="3"
                     v-model="settings[name].value"
-                    @keydown.esc="settings[name].showRawValue=false"
                     @keydown.enter="settings[name].showRawValue=false"
                     @blur="updateSetting(name, settings[name].value)"
                     :ref="name"
