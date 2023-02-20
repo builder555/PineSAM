@@ -15,6 +15,10 @@ logging.basicConfig(level=LOG_LEVEL, format='%(asctime)s.%(msecs)03d::%(levelnam
 
 pinecil = Pinecil()
 
+def read_app_version():
+    with open('../version.txt') as f:
+        return f.read().strip()
+
 async def process_command(command: str, payload: dict) -> dict:
     if not pinecil.is_connected:
         await pinecil.connect()
@@ -30,6 +34,7 @@ async def process_command(command: str, payload: dict) -> dict:
         return {'status': 'OK'}
     if command == 'GET_INFO':
         info = await pinecil.get_info()
+        info['app_version'] = read_app_version()
         return {'status': 'OK', 'payload': info}
     return {'status': 'ERROR', 'message': 'Unknown command'}
 
