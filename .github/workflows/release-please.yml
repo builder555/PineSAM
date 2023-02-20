@@ -4,7 +4,7 @@ on:
       - master
 name: release-please
 jobs:
-  release-please:
+  update-version-and-merge:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
@@ -12,9 +12,6 @@ jobs:
           token: ${{ secrets.TOKEN }}
           release-type: simple
           package-name: release-please-action
-  automerge:
-    runs-on: ubuntu-latest
-    steps:
       - uses: "pascalgn/automerge-action@v0.15.6"
         env:
           GITHUB_TOKEN: "${{ secrets.TOKEN }}"
