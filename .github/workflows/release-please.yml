@@ -12,6 +12,13 @@ jobs:
           token: ${{ secrets.TOKEN }}
           release-type: simple
           package-name: release-please-action
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
       - uses: "pascalgn/automerge-action@v0.15.6"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.TOKEN }}"
+          MERGE_METHOD: "merge"
+          MERGE_LABELS: ""
+          MERGE_FILTER_AUTHOR: "builder555"
+          MERGE_FORKS: "false"
