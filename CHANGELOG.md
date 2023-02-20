@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.12](https://github.com/builder555/PineSAM/compare/v1.0.11...v1.0.12) (2023-02-20)
+
+
+### Bug Fixes
+
+* left-align labels ([931828c](https://github.com/builder555/PineSAM/commit/931828c077ad1644e6787bdb711d6105be4807d1))
+
 ## [1.0.11](https://github.com/builder555/PineSAM/compare/v1.0.10...v1.0.11) (2023-02-20)
 
 
