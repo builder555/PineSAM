@@ -52,91 +52,90 @@
       </div>
       <p class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has limited write cycles, saving changes frequently will reduce the life of your device.</strong></p>
     </div>
-    <form>
+    <div
+      v-if="Object.keys(settings).length > 0"
+      class="columns is-multiline hide-until-load"
+      :style="{'visibility':'visible'}"
+    >
       <div
-        v-if="Object.keys(settings).length > 0"
-        class="columns is-multiline hide-until-load"
-        :style="{'visibility':'visible'}"
+        v-for="group in groups"
+        :key="group.name"
+        class="column is-4-widescreen is-6-tablet is-12-mobile"
       >
-        <div
-          v-for="group in groups"
-          :key="group.name"
-          class="column is-4-widescreen is-6-tablet is-12-mobile"
-        >
-          <div class="card">
-            <header
-              class="card-header navbar-link is-arrowless"
-              @click="toggleGroup(group)"
+        <div class="card">
+          <header
+            class="card-header navbar-link is-arrowless"
+            @click="toggleGroup(group)"
+          >
+            <p class="card-header-title">
+              {{group.name}}
+            </p>
+            <span class="icon">
+              <i class="fa" :class="group.isVisible ? 'fa-angle-down' : 'fa-angle-right'" aria-hidden="true"></i>
+            </span>
+          </header>
+          <div v-show="group.isVisible" class="card-content">
+            <div
+              v-for="name in group.items"
+              :key="name"
+              class="mfield"
+              :class="settings[name]?.component?.class"
             >
-              <p class="card-header-title">
-                {{group.name}}
-              </p>
-              <span class="icon">
-                <i class="fa" :class="group.isVisible ? 'fa-angle-down' : 'fa-angle-right'" aria-hidden="true"></i>
-              </span>
-            </header>
-            <div v-show="group.isVisible" class="card-content">
-              <div
-                v-for="name in group.items"
-                :key="name"
-                class="mfield"
-                :class="settings[name]?.component?.class"
-              >
-                <label class="label" @click="settings[name].showText=!settings[name].showText">{{settings[name].display}}</label>
-                <!-- dropdown value selection -->
-                <select v-if="settings[name].component?.name=='select'" v-model="settings[name].value" class="input">
-                  <option v-for="option in settings[name].component.options" :value="option.value">{{option.text}}</option>
-                </select>
-                <!-- checkbox -->
-                <div v-else-if="settings[name].component?.name=='checkbox'" class="checkbox">
-                  <input v-model="settings[name].value" type="checkbox" :id="`sw-${group.name}-${name}`" />
-                  <label :for="`sw-${group.name}-${name}`"></label>
-                </div>
-                <!-- range slider -->
-                <div v-else-if="settings[name].component?.name=='range'">
-                  <input
-                    type="range"
-                    :min="settings[name].component.min"
-                    :max="settings[name].component.max"
-                    :step="settings[name].component.step"
-                    v-model="settings[name].value"
-                    @mouseup="updateSetting(name, settings[name].value)"
-                    @touchend="updateSetting(name, settings[name].value)"
-                    @blur="updateSetting(name, settings[name].value)"
-                  >
-                  <div
-                    v-if="settings[name].showRawValue"
-                    class="field tag px-0 m-0"
-                  >
-                    <input
-                      class="input px-1 mx-0 is-info py-0"
-                      type="text"
-                      style="height:2em;"
-                      maxlength="3"
-                      v-model="settings[name].value"
-                      @keydown.esc="settings[name].showRawValue=false"
-                      @blur="updateSetting(name, settings[name].value)"
-                      :ref="name"
-                    >
-                  </div>
-                  <div v-else class="tag is-info" @click="settings[name].showRawValue=true">
-                    {{settings[name].component.display && settings[name].component.display(settings[name].value) || settings[name].value}}
-                  </div>
-                </div>
-                <div v-else-if="settings[name].component?.name=='confirm'">
-                  <button class="button is-danger" @click.prevent="confirm(name)">
-                    {{settings[name].component?.display}}
-                  </button>
-                </div>
-                <!-- regular text input -->
-                <input v-else v-model="settings[name].value" class="input" type="text" disabled>
-                <p class="help">{{settings[name].hint}}</p>
+              <label class="label" @click="settings[name].showText=!settings[name].showText">{{settings[name].display}}</label>
+              <!-- dropdown value selection -->
+              <select v-if="settings[name].component?.name=='select'" v-model="settings[name].value" class="input">
+                <option v-for="option in settings[name].component.options" :value="option.value">{{option.text}}</option>
+              </select>
+              <!-- checkbox -->
+              <div v-else-if="settings[name].component?.name=='checkbox'" class="checkbox">
+                <input v-model="settings[name].value" type="checkbox" :id="`sw-${group.name}-${name}`" />
+                <label :for="`sw-${group.name}-${name}`"></label>
               </div>
+              <!-- range slider -->
+              <div v-else-if="settings[name].component?.name=='range'">
+                <input
+                  type="range"
+                  :min="settings[name].component.min"
+                  :max="settings[name].component.max"
+                  :step="settings[name].component.step"
+                  v-model="settings[name].value"
+                  @mouseup="updateSetting(name, settings[name].value)"
+                  @touchend="updateSetting(name, settings[name].value)"
+                  @blur="updateSetting(name, settings[name].value)"
+                >
+                <div
+                  v-if="settings[name].showRawValue"
+                  class="field tag px-0 m-0"
+                >
+                  <input
+                    class="input px-1 mx-0 is-info py-0"
+                    type="text"
+                    style="height:2em;"
+                    maxlength="3"
+                    v-model="settings[name].value"
+                    @keydown.esc="settings[name].showRawValue=false"
+                    @keydown.enter="settings[name].showRawValue=false"
+                    @blur="updateSetting(name, settings[name].value)"
+                    :ref="name"
+                  >
+                </div>
+                <div v-else class="tag is-info" @click="settings[name].showRawValue=true">
+                  {{settings[name].component.display && settings[name].component.display(settings[name].value) || settings[name].value}}
+                </div>
+              </div>
+              <div v-else-if="settings[name].component?.name=='confirm'">
+                <button class="button is-danger" @click.prevent="confirm(name)">
+                  {{settings[name].component?.display}}
+                </button>
+              </div>
+              <!-- regular text input -->
+              <input v-else v-model="settings[name].value" class="input" type="text" disabled>
+              <p class="help">{{settings[name].hint}}</p>
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
   <script type="module">
     import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js';
