@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/builder555/PineSAM/compare/v1.0.0...v1.0.1) (2023-02-20)
+
+
+### Bug Fixes
+
+* testing versioning ([b6a3052](https://github.com/builder555/PineSAM/commit/b6a3052b738ee61e2122fe828023ea863a0954d9))
+
 ## 1.0.0 (2023-02-20)
 
 
