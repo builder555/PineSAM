@@ -31,6 +31,13 @@
       <div class="column is-half is-full-mobile">
         <h1 class="title">
           PineSAM
+          <span
+            class="tag hide-until-load"
+            :style="{visibility: 'visible'}"
+            v-show="info.app_version"
+          >
+            v{{info.app_version}}
+          </span>
           <a class="icon refresh-button" @click="fetchSettings">
             <i class="fas fa-sync-alt"></i>
           </a>
