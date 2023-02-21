@@ -1,9 +1,9 @@
 ---
 name: Something else
-about: Generic issue template
+about: Questions, comments, offers, etc.
 title: ''
 labels: ''
-assignees: ''
+assignees: builder555
 
 ---
 
