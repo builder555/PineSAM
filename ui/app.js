@@ -44,6 +44,7 @@ export default {
           hint: settingDescriptions[name]?.description ?? '',
           component: settingToComponentMap[name],
           showRawValue: false,
+          isUpdating: false,
         }
         const isBooleanField = settingToComponentMap[name]?.name === 'checkbox';
         if (isBooleanField) {
@@ -121,24 +122,32 @@ export default {
       return isAboveMax || isBelowMin && !(offable && value == 0);
     },
     updateSetting(name, value) {
+      if (this.settings[name].isUpdating) return;
+      this.settings[name].isUpdating = true;
       if (this.isValueOutOfLimits(name, value)) {
         const {min, max} = this.settings[name].component;
         this.error = `Value for ${name} is out of range (${min} - ${max})`;
         this.settings[name].value = this.settings[name].lastSent;
+        this.settings[name].isUpdating = false;
         return;
       }
       if (this.settings[name].showRawValue) this.settings[name].showRawValue=false;
       value = Number(value);
-      if (this.settings[name].lastSent === value) return;
+      if (this.settings[name].lastSent === value) {
+        this.settings[name].isUpdating = false;
+        return;
+      }
       this.checkSocket()
       .then(() => {
         this.socket.send(JSON.stringify({command: "UPDATE_SETTING", payload: {name, value, save: this.saveToFlash}}));
         this.settings[name].lastSent = value;
-      });
+      })
+      .finally(() => this.settings[name].isUpdating = false);
       const changedTempUnit = name === 'TemperatureUnit';
       const changedDCtype = name === 'DCInCutoff';
       if (changedTempUnit) this.setTemperatureRanges(true);
       if (changedDCtype) this.toggleVoltageSettings(value)
+      this.settings[name].isUpdating = false;
     },
     checkSocket() {
       this.isBusy = true;
