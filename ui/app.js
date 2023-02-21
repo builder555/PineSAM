@@ -27,6 +27,7 @@ export default {
     info : {},
     socket: null,
     error: '',
+    isHintVisible: false,
   }),
   methods: {
     getLocalGroupVisibilities() {

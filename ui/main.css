@@ -28,13 +28,23 @@
   font-size:1.2rem; 
   margin:0 0 0 0.5rem;
 }
+.card-header {
+  background: #eef5ff;
+}
+.card {
+  box-shadow: none;
+}
+.label{
+  font-weight: 500;
+}
 .mfield {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(218, 240, 226);
-  margin: 5px 0;
+  margin: 2px 0;
   padding: 0.5rem;
+  border-bottom: 1px solid #eaeaea;
 }
+
 
 .mfield .label {
   flex-grow: 1;

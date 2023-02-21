@@ -52,13 +52,22 @@
         >{{info.name}}</h4>
       </div>
     </div>
-    <div class="mfield">
+    <div class="columns">
+      <div class="column is-half mfield">
       <label class="label has-text-left" style="flex-grow:0">Save changes to flash</label>
-      <div class="checkbox" style="flex-grow:0">
+      <div class="checkbox">
         <input v-model="saveToFlash" type="checkbox" id="sw-save-toflash" />
         <label for="sw-save-toflash"></label>
       </div>
-      <p class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has limited write cycles, saving changes frequently will reduce the life of your device.</strong></p>
+      <p v-show="isHintVisible" class="help">If this is not checked, the settings will be reset to their previous values when you turn off the soldering iron. <strong>Note that flash has limited write cycles, saving changes frequently will reduce the life of your device.</strong></p>
+    </div>
+    <div class="column is-half mfield has-text-right">
+      <label class="label ml-3">Show Hints</label>
+      <div class="checkbox">
+        <input v-model="isHintVisible" type="checkbox" id="sw-show-hints" />
+        <label for="sw-show-hints"></label>
+      </div>
+    </div>
     </div>
     <div
       v-if="Object.keys(settings).length > 0"
@@ -92,9 +101,11 @@
             >
                 <label class="label" @click="settings[name].showText=!settings[name].showText">{{settings[name].display}}</label>
                 <!-- dropdown value selection -->
-                <select v-if="settings[name].component?.name=='select'" v-model="settings[name].value" class="input">
-                  <option v-for="option in settings[name].component.options" :value="option.value">{{option.text}}</option>
-                </select>
+                <div v-if="settings[name].component?.name=='select'">
+                  <select v-model="settings[name].value" class="input">
+                    <option v-for="option in settings[name].component.options" :value="option.value">{{option.text}}</option>
+                  </select>
+                </div>
                 <!-- checkbox -->
                 <div v-else-if="settings[name].component?.name=='checkbox'" class="checkbox">
                   <input v-model="settings[name].value" type="checkbox" :id="`sw-${group.name}-${name}`" />
@@ -138,8 +149,10 @@
                   </button>
                 </div>
                 <!-- regular text input -->
-                <input v-else v-model="settings[name].value" class="input" type="text" disabled>
-                <p class="help">{{settings[name].hint}}</p>
+                <div v-else>
+                  <input v-model="settings[name].value" class="input" type="text" disabled>
+                </div>
+                <p v-show="isHintVisible" class="help">{{settings[name].hint}}</p>
               </div>
             </form>
           </div>
