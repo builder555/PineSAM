@@ -24,8 +24,8 @@ If applicable, add screenshots to help explain your problem.
 
 **Specs:**
  - OS: [e.g. Windows 11]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 1.0.8]
+ - Browser: [e.g. chrome, safari]
+ - PineSAM Version: [e.g. 1.0.8]
  - IronOS build: [e.g. 2.20.EB5D5EA]
 
 **Additional context**
