@@ -36,6 +36,8 @@
 }
 .label{
   font-weight: 500;
+  display: flex!important;
+  align-items: center;
 }
 .mfield {
   display: flex;
@@ -45,6 +47,9 @@
   border-bottom: 1px solid #eaeaea;
 }
 
+.label {
+  display:inline-block;
+}
 
 .mfield .label {
   flex-grow: 1;
@@ -72,7 +77,6 @@
 .pointer {
   cursor:pointer
 }
-
 .navbar-link {
   align-items: center;
   display: flex;
@@ -85,9 +89,9 @@
 }
 
 .checkbox label {
-  --size: 4rem;
+  --size: 3rem;
   cursor: pointer;
-  width: var(--size);
+  width: calc(var(--size) - 10px);
   height: calc(var(--size) / 2);
   background: grey;
   display: block;
@@ -100,7 +104,7 @@
   position: absolute;
   top: 6%;
   left: 2.5%;
-  width: calc(50% - 5%);
+  width: 55%;
   height: calc(100% - 11%);
   background: #fff;
   border-radius: 90px;
