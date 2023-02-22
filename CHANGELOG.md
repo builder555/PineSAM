@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.14](https://github.com/builder555/PineSAM/compare/v1.0.13...v1.0.14) (2023-02-22)
+
+
+### Bug Fixes
+
+* added link to BLE fw [#36](https://github.com/builder555/PineSAM/issues/36) ([b91b9f8](https://github.com/builder555/PineSAM/commit/b91b9f85e8049651fcc55e441b7218d800c1ba0c))
+* aligned controls ([6f8d371](https://github.com/builder555/PineSAM/commit/6f8d3716134ac4067b0df6bf6ad4807405f770e2))
+* colour+ui tweaks ([1d60d6f](https://github.com/builder555/PineSAM/commit/1d60d6fb871935a8d3e51aa1792d75d755247a20))
+* minor ui cleanup on mobile, fix GH link on ios [#15](https://github.com/builder555/PineSAM/issues/15) ([77b61c7](https://github.com/builder555/PineSAM/commit/77b61c705380ec52653d2bf59d882ef3734b40c3))
+* trying to improve [#40](https://github.com/builder555/PineSAM/issues/40) ([175309b](https://github.com/builder555/PineSAM/commit/175309be2990d6f67655822027d3a95b532632ac))
+* was an easy fix for [#41](https://github.com/builder555/PineSAM/issues/41) ([1e3a629](https://github.com/builder555/PineSAM/commit/1e3a629bea8d938720cf5abac1dc2d92edcc085b))
+
 ## [1.0.13](https://github.com/builder555/PineSAM/compare/v1.0.12...v1.0.13) (2023-02-21)
 
 
