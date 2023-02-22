@@ -52,6 +52,9 @@ chmod +x start.sh
 
 On a Mac http://localhost:8080/settings.html will open in your browser automatically. On linux you need to do it manually (for now).
 
+For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758) (thanks [@scythefwd](https://github.com/scythefwd))
+
+
 ## Windows
 
 If you already have python installed, you can skip to step 2.
