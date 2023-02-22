@@ -36,7 +36,7 @@
 }
 .label{
   font-weight: 500;
-  display: flex!important;
+  display: inline-flex!important;
   align-items: center;
 }
 .mfield {
@@ -96,7 +96,6 @@
   background: grey;
   display: block;
   border-radius: 100px;
-  position: relative;
 }
 
 input::-webkit-outer-spin-button,
@@ -106,7 +105,7 @@ input::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+    -moz-appearance:textfield;
 }
 
 .checkbox label:after {
