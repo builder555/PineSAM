@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="main.css?v=2">
+  <link rel="stylesheet" href="main.css?v=3">
   <style>
     .hide-until-load {
       visibility:hidden;
@@ -134,10 +134,10 @@
                       :min="settings[name].component.min"
                       :max="settings[name].component.max"
                       :step="settings[name].component.step"
-                      v-model="settings[name].value"
                       @mouseup="updateSetting(name, settings[name].value)"
                       @touchend="updateSetting(name, settings[name].value)"
                       @blur="updateSetting(name, settings[name].value)"
+                      v-model="settings[name].value"
                     >
                     <div
                       v-show="settings[name].showRawValue"
@@ -145,13 +145,14 @@
                     >
                       <input
                         class="input px-1 mx-0 is-info py-0"
-                        type="text"
+                        type="number"
                         style="height:2em;"
                         maxlength="3"
-                        v-model="settings[name].value"
+                        :ref="name"
+                        pattern="[0-9]*"
                         @keyup.enter.prevent.stop="updateSetting(name, settings[name].value)"
                         @blur="updateSetting(name, settings[name].value)"
-                        :ref="name"
+                        v-model="settings[name].value"
                       >
                     </div>
                     <div v-show="!settings[name].showRawValue" class="tag is-info" @click="settings[name].showRawValue=true">
