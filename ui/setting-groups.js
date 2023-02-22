@@ -12,14 +12,13 @@ const settingGroups = [
     ],
   },
   {
-    name: "Advanced settings",
+    name: "Sleep mode",
     isVisible: true,
     items: [
-      "PowerLimit",
-      "CalibrateCJC",
-      "PowerPulsePower",
-      "PowerPulseWait",
-      "PowerPulseDuration",
+      "MotionSensitivity",
+      "SleepTemperature",
+      "SleepTimeout",
+      "ShutdownTimeout",
     ],
   },
   {
@@ -30,16 +29,6 @@ const settingGroups = [
       "MinVolCell",
       "QCMaxVoltage",
       "PDNegTimeout"
-    ],
-  },
-  {
-    name: "Sleep mode",
-    isVisible: true,
-    items: [
-      "MotionSensitivity",
-      "SleepTemperature",
-      "SleepTimeout",
-      "ShutdownTimeout",
     ],
   },
   {
@@ -57,6 +46,17 @@ const settingGroups = [
       "LOGOTime",
       "AdvancedIdle",
       "AdvancedSoldering",
+    ],
+  },
+  {
+    name: "Advanced settings",
+    isVisible: true,
+    items: [
+      "PowerLimit",
+      "CalibrateCJC",
+      "PowerPulsePower",
+      "PowerPulseWait",
+      "PowerPulseDuration",
     ],
   },
   {
