@@ -10,14 +10,6 @@ const getLocalStorageValue = (key, defaultValue) => {
   return JSON.parse(value);
 };
 
-const debounce = (fn, wait) => {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), wait);
-  };
-};
-
 export default {
   data: () => ({
     settings: { },
