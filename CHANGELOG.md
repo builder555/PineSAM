@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.15](https://github.com/builder555/PineSAM/compare/v1.0.14...v1.0.15) (2023-02-22)
+
+
+### Bug Fixes
+
+* closes [#38](https://github.com/builder555/PineSAM/issues/38) ([6f6fcaa](https://github.com/builder555/PineSAM/commit/6f6fcaad5cc4c93dccfb73ce483a482d1ad2f996))
+
 ## [1.0.14](https://github.com/builder555/PineSAM/compare/v1.0.13...v1.0.14) (2023-02-22)
 
 
