@@ -28,12 +28,27 @@
   font-size:1.2rem; 
   margin:0 0 0 0.5rem;
 }
+.card-header {
+  background: #eef5ff;
+}
+.card {
+  box-shadow: none;
+}
+.label{
+  font-weight: 500;
+  display: inline-flex!important;
+  align-items: center;
+}
 .mfield {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(218, 240, 226);
-  margin: 5px 0;
+  margin: 2px 0;
   padding: 0.5rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.label {
+  display:inline-block;
 }
 
 .mfield .label {
@@ -62,7 +77,6 @@
 .pointer {
   cursor:pointer
 }
-
 .navbar-link {
   align-items: center;
   display: flex;
@@ -75,14 +89,23 @@
 }
 
 .checkbox label {
-  --size: 4rem;
+  --size: 3rem;
   cursor: pointer;
-  width: var(--size);
+  width: calc(var(--size) - 10px);
   height: calc(var(--size) / 2);
   background: grey;
   display: block;
   border-radius: 100px;
-  position: relative;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
 
 .checkbox label:after {
@@ -90,7 +113,7 @@
   position: absolute;
   top: 6%;
   left: 2.5%;
-  width: calc(50% - 5%);
+  width: 55%;
   height: calc(100% - 11%);
   background: #fff;
   border-radius: 90px;
