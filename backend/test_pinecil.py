@@ -3,6 +3,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 from pinecil_ble import Pinecil
 from test_data import settings as fake_settings
 from test_data import live_data as fake_live_data
+from test_utils import Method
 
 @pytest.fixture
 def mocked_settings():
@@ -126,18 +127,3 @@ def test_can_save_changes_to_flash():
 def test_get_unique_device_name():
     pass
 
-
-
-class Method:
-    def __init__(self, mocked_func):
-        self.mocked_func = mocked_func
-        self.mock_calls = mocked_func.mock_calls
-    def was_called_with(self, *args):
-        for call in self.mock_calls:
-            if len(call) < 2:
-                continue
-            if len(call[1]) < 1:
-                continue
-            if call[1][0]==args[0]:
-                return True
-        raise AssertionError(f'No call to {self.mocked_func} with args {args}:\n {self.mock_calls}')
