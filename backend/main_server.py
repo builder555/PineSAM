@@ -54,14 +54,21 @@ async def handle_message(websocket, data):
         response = {'status': 'ERROR', 'message': e.message}
     await websocket.send(json.dumps({**response, 'command': command}))
 
-async def ws_handler(websocket, path):
+sockets = set()
+
+async def ws_handler(websocket):
     try:
+        sockets.add(websocket)
         while True:
             message = await websocket.recv()
             await handle_message(websocket, message)
     except websockets.exceptions.ConnectionClosed:
         logging.info('Connection closed')
+        sockets.remove(websocket)
 
-start_server = websockets.serve(ws_handler, '0.0.0.0', 12999) #type: ignore
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+async def main():
+    async with websockets.serve(ws_handler, '0.0.0.0', 12999): #type: ignore
+        await asyncio.Future()
+
+if __name__ == '__main__':
+    asyncio.run(main())
