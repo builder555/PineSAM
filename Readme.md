@@ -38,15 +38,15 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ### Install
 
 ```shell
-git clone https://github.com/builder555/pinecil-v2
-cd pinecil-v2/backend
+git clone https://github.com/builder555/PineSAM
+cd PineSAM/backend
 pipenv install
 chmod +x start.sh
 ```
 
 ### Run
 ```shell
-# from inside the pinecil-v2/backend directory:
+# from inside the PineSAM/backend directory:
 ./start.sh
 ```
 
@@ -62,8 +62,8 @@ If you already have python installed, you can skip to step 2.
 1. Install Python: https://www.python.org/downloads
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
-    * See a reference screen [here](https://github.com/builder555/pinecil-v2/discussions/7#discussion-4862766) Thanks to [River-b](https://github.com/River-b)
-2. Download this repo: https://github.com/builder555/pinecil-v2/archive/master.zip
+    * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766) Thanks to [River-b](https://github.com/River-b)
+2. Download this repo: https://github.com/builder555/PineSAM/archive/master.zip
 3. Unzip it
 4. Run `start.bat` file inside the `backend` directory
 
