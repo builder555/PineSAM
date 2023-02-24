@@ -210,6 +210,11 @@ live_data = [
         expected_value=28,
     ),
     MagicMock(
+        uuid='00000002-0000-1000-8000-00805f9b34fb',
+        raw_value=bytearray(b'\x1a\x01\x00\x00'),
+        expected_value=282,
+    ),
+    MagicMock(
         uuid='00000003-0000-1000-8000-00805f9b34fb',
         raw_value=bytearray(b'3\x00\x00\x00'),
         expected_value=51,

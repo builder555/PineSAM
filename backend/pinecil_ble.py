@@ -54,6 +54,7 @@ class Pinecil:
         self.live_data_map = LiveDataToUUIDMap()
         self.crx_settings: List[BleakGATTCharacteristic] = []
         self.crx_live_data: List[BleakGATTCharacteristic] = []
+        self.live_data_to_read: List[str] = ['LiveTemp', 'Voltage', 'HandleTemp', 'OperatingMode', 'Watts']
 
     @property
     def is_connected(self):
@@ -149,7 +150,10 @@ class Pinecil:
         logging.debug(f'GETTING ALL LIVE VALUES')
         if not self.is_connected:
             await self.connect()
-        tasks = [asyncio.ensure_future(self.__read_live_item(crx)) for crx in self.crx_live_data]
+        tasks = []
+        for crx in self.crx_live_data:
+            if self.live_data_map.get_name(crx.uuid) in self.live_data_to_read:
+                tasks.append(asyncio.ensure_future(self.__read_live_item(crx)))
         results = await asyncio.gather(*tasks)
         values = dict(results)
         logging.debug(f'GETTING ALL LIVE VALUES DONE')

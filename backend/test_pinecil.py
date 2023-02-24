@@ -99,11 +99,12 @@ async def test_get_live_data(mock_ble, mocked_live_data):
         pinecil = Pinecil()
         await pinecil.connect()
         live_data = await pinecil.get_live_data()
+        assert list(live_data.keys()) == ['LiveTemp', 'Voltage', 'HandleTemp', 'OperatingMode', 'Watts']
         assert live_data['LiveTemp'] == mocked_live_data[0].expected_value
-        assert live_data['Voltage'] == mocked_live_data[1].expected_value
-        assert live_data['HandleTemp'] == mocked_live_data[2].expected_value
-        assert live_data['OperatingMode'] == mocked_live_data[3].expected_value
-        assert live_data['Watts'] == mocked_live_data[4].expected_value
+        assert live_data['Voltage'] == mocked_live_data[2].expected_value
+        assert live_data['HandleTemp'] == mocked_live_data[3].expected_value
+        assert live_data['OperatingMode'] == mocked_live_data[4].expected_value
+        assert live_data['Watts'] == mocked_live_data[5].expected_value
 
 @pytest.mark.asyncio
 async def test_reading_live_data_while_disconnected_reconnects(mock_ble):
