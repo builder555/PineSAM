@@ -54,21 +54,44 @@ async def handle_message(websocket, data):
         response = {'status': 'ERROR', 'message': e.message}
     await websocket.send(json.dumps({**response, 'command': command}))
 
-sockets = set()
+CLIENTS = set()
 
 async def ws_handler(websocket):
     try:
-        sockets.add(websocket)
+        CLIENTS.add(websocket)
         while True:
             message = await websocket.recv()
             await handle_message(websocket, message)
     except websockets.exceptions.ConnectionClosed:
         logging.info('Connection closed')
-        sockets.remove(websocket)
+        CLIENTS.remove(websocket)
 
-async def main():
-    async with websockets.serve(ws_handler, '0.0.0.0', 12999): #type: ignore
-        await asyncio.Future()
+async def send(ws, message):
+    try:
+        await ws.send(message)
+    except websockets.exceptions.ConnectionClosed:
+        pass
+
+async def pinecil_monitor(stop_event: asyncio.Event):
+    logging.info('Starting pinecil monitor')
+    print(CLIENTS)
+    while not stop_event.is_set():
+        if not pinecil.is_connected:
+            await asyncio.sleep(1)
+            continue
+        pinecil_data = await pinecil.get_live_data()
+        msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data})
+        for client in CLIENTS:
+            asyncio.create_task(send(client, msg))
+        await asyncio.sleep(2)
+
+async def main(stop_event = asyncio.Event()):
+    tasks = [
+        asyncio.create_task(pinecil_monitor(stop_event)),
+        websockets.serve(ws_handler, '0.0.0.0', 12999), #type: ignore
+    ]
+    await asyncio.gather(*tasks)
+
 
 if __name__ == '__main__':
     asyncio.run(main())

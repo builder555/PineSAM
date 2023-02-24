@@ -1,16 +1,64 @@
-from pytest import mark
+import asyncio
+import pytest
+import json
 from main_server import main
 from main_server import ws_handler
-from unittest.mock import AsyncMock, patch
+from main_server import pinecil_monitor
+from unittest.mock import AsyncMock, patch, MagicMock
 from test_utils import Method
 
+mock_clients = [1,2,3]
 
-@mark.asyncio
-async def test_socket_server_starts_with_main():
-    with patch('main_server.websockets.serve') as mock_serve,\
-         patch('main_server.asyncio.Future', new=AsyncMock()):
-        await main()
-        assert Method(mock_serve).was_called_with(ws_handler, '0.0.0.0', 12999)
+async def complete_task(a_task, stop_event):
+    with pytest.raises(asyncio.TimeoutError):
+        await asyncio.wait_for(a_task, 0.1)
+    stop_event.set()
+
+@pytest.fixture
+def patched_main():
+    with (patch('main_server.pinecil_monitor', new=AsyncMock()) as mock_monitor,
+            patch('main_server.websockets.serve', new=AsyncMock()) as mock_ws_serve):
+        yield main, mock_monitor, mock_ws_serve
+
+@pytest.mark.asyncio
+async def test_websocket_listens_on_correct_host_and_port(patched_main):
+    main, _, mock_ws_serve = patched_main
+    await main()
+    assert Method(mock_ws_serve).was_called_with(ws_handler, '0.0.0.0', 12999)
+
+@pytest.mark.asyncio
+async def test_pinecil_monitor_runs(patched_main):
+    main, mock_pinecil_monitor, _ = patched_main
+    await main()
+    assert mock_pinecil_monitor.called
+
+@pytest.mark.asyncio
+@patch('main_server.CLIENTS', mock_clients)
+@patch('main_server.send')
+async def test_pinecil_monitor_broadcasts_data_from_pinecil_to_clients(mock_ws_send):
+    mock_live_data = {'foo': 'bar'}
+    expected_command = json.dumps({'command': 'LIVE_DATA', 'payload': mock_live_data})
+    fake_pinecil = MagicMock(get_live_data=AsyncMock(return_value=mock_live_data), is_connected=True)
+    with patch('main_server.pinecil', fake_pinecil):
+        stop_event = asyncio.Event()
+        monitor_task = asyncio.create_task(pinecil_monitor(stop_event))
+        await complete_task(monitor_task, stop_event)
+
+        assert mock_ws_send.call_count > 0 and mock_ws_send.call_count == len(mock_clients)
+        for client in mock_clients:
+            assert Method(mock_ws_send).was_called_with(client, expected_command)
+
+@pytest.mark.asyncio
+@patch('main_server.CLIENTS', mock_clients)
+@patch('main_server.send', AsyncMock())
+async def test_pinecil_monitor_reads_data_only_once_per_cycle():
+    fake_pinecil = MagicMock(get_live_data=AsyncMock(return_value={}), is_connected=True)
+    with patch('main_server.pinecil', fake_pinecil):
+        stop_event = asyncio.Event()
+        monitor_task = asyncio.create_task(pinecil_monitor(stop_event))
+        await complete_task(monitor_task, stop_event)
+        assert len(mock_clients) > 1
+        assert fake_pinecil.get_live_data.call_count == 1
 
 def test_socket_command_get_settings():
     pass
