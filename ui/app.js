@@ -179,6 +179,7 @@ export default {
       };
       this.socket.onmessage = (event) => {
         this.isBusy = false;
+        console.log(event.data);
         const data = JSON.parse(event.data)
         if (data.status == 'ERROR') {
           console.warn('error!', data);
@@ -190,6 +191,9 @@ export default {
         }
         if (data.command === "GET_INFO") {
           this.info = data.payload;
+        }
+        if (data.command === 'LIVE_DATA') {
+          console.log('live data', data.payload);
         }
       };
       this.socket.onclose = () => {
