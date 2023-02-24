@@ -74,7 +74,6 @@ async def send(ws, message):
 
 async def pinecil_monitor(stop_event: asyncio.Event):
     logging.info('Starting pinecil monitor')
-    print(CLIENTS)
     while not stop_event.is_set():
         if not pinecil.is_connected:
             await asyncio.sleep(1)
