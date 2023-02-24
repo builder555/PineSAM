@@ -1,6 +1,7 @@
 import settingGroups from "./setting-groups.js";
 import settingDescriptions from "./setting-descriptions.js";
 import settingToComponentMap from "./setting-components.js";
+import { wakeLock } from "./pwa.js"
 
 const getLocalStorageValue = (key, defaultValue) => {
   const value = localStorage.getItem(key);
@@ -210,5 +211,9 @@ export default {
   mounted() {
     this.getLocalGroupVisibilities();
     this.initSocket();
+    wakeLock.request().then(lock => { this.awake = lock; });
+  },
+  beforeUnmount() {
+    wakeLock.release(this.awake);
   },
 };

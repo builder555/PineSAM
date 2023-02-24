@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/builder555/PineSAM/compare/v1.0.16...v1.1.0) (2023-02-24)
+
+
+### Features
+
+* keep the screen awake, closes [#46](https://github.com/builder555/PineSAM/issues/46) ([a337afc](https://github.com/builder555/PineSAM/commit/a337afccf28bf7e27ad2da855b736e7408ab4761))
+
 ## [1.0.16](https://github.com/builder555/PineSAM/compare/v1.0.15...v1.0.16) (2023-02-22)
 
 
