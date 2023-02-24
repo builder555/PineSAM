@@ -5,6 +5,7 @@ import websockets
 import websockets.exceptions
 import json
 from ble import DeviceNotFoundException
+from ble import DeviceDisconnectedException
 from pinecil_ble import Pinecil
 from pinecil_ble import InvalidSettingException
 from pinecil_ble import ValueOutOfRangeException
@@ -72,17 +73,25 @@ async def send(ws, message):
     except websockets.exceptions.ConnectionClosed:
         pass
 
+def broadcast(message):
+    for client in CLIENTS:
+        asyncio.create_task(send(client, message))
+
 async def pinecil_monitor(stop_event: asyncio.Event):
     logging.info('Starting pinecil monitor')
     while not stop_event.is_set():
         if not pinecil.is_connected:
+            logging.debug('waiting for pinecil...')
             await asyncio.sleep(1)
             continue
-        pinecil_data = await pinecil.get_live_data()
-        msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data})
-        for client in CLIENTS:
-            asyncio.create_task(send(client, msg))
-        await asyncio.sleep(2)
+        try:
+            pinecil_data = await pinecil.get_live_data()
+            msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data})
+            broadcast(msg)
+            await asyncio.sleep(2)
+        except DeviceDisconnectedException:
+            logging.info('Pinecil disconnected')
+            broadcast(json.dumps({'status': 'ERROR', 'message': 'Device disconnected'}))
 
 async def main(stop_event = asyncio.Event()):
     tasks = [

@@ -1,6 +1,7 @@
 import asyncio
 import pytest
 import json
+from ble import DeviceDisconnectedException
 from main_server import main
 from main_server import ws_handler
 from main_server import pinecil_monitor
@@ -36,7 +37,13 @@ async def test_pinecil_monitor_runs(patched_main):
 @patch('main_server.CLIENTS', mock_clients)
 @patch('main_server.send')
 async def test_pinecil_monitor_broadcasts_data_from_pinecil_to_clients(mock_ws_send):
-    mock_live_data = {'foo': 'bar'}
+    mock_live_data = {
+        'LiveTemp': 28,
+        'Voltage': 51,
+        'HandleTemp': 282,
+        'OperatingMode': 1,
+        'Watts': 24,
+    }
     expected_command = json.dumps({'command': 'LIVE_DATA', 'payload': mock_live_data})
     fake_pinecil = MagicMock(get_live_data=AsyncMock(return_value=mock_live_data), is_connected=True)
     with patch('main_server.pinecil', fake_pinecil):
@@ -59,6 +66,24 @@ async def test_pinecil_monitor_reads_data_only_once_per_cycle():
         await complete_task(monitor_task, stop_event)
         assert len(mock_clients) > 1
         assert fake_pinecil.get_live_data.call_count == 1
+
+@pytest.mark.asyncio
+@patch('main_server.CLIENTS', mock_clients)
+@patch('main_server.send')
+async def test_pinecil_monitor_announces_device_disconnect(mock_ws_send):
+    async def simulate_disconnect():
+        fake_pinecil.is_connected = False
+        raise DeviceDisconnectedException
+    fake_pinecil = MagicMock(
+        get_live_data=AsyncMock(side_effect=simulate_disconnect),
+        is_connected=True,
+    )
+    with patch('main_server.pinecil', fake_pinecil):
+        stop_event = asyncio.Event()
+        monitor_task = asyncio.create_task(pinecil_monitor(stop_event))
+        await complete_task(monitor_task, stop_event)
+        expected_msg = json.dumps({'status': 'ERROR', 'message': 'Device disconnected'})
+        assert Method(mock_ws_send).was_called_with(1, expected_msg)
 
 def test_socket_command_get_settings():
     pass
