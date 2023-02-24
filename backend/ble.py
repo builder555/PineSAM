@@ -60,10 +60,3 @@ class BLE:
         logging.debug(f'Writing characteristic {handle.uuid}')
         await self.client.write_gatt_char(handle, value) #type: ignore
         logging.debug(f'Writing characteristic {handle.uuid} DONE')
-    
-    async def __del__(self):
-        try:
-            if self.client:
-                await self.client.disconnect()
-        except:
-            pass
