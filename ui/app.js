@@ -21,6 +21,7 @@ export default {
     socket: null,
     error: '',
     isHintVisible: false,
+    liveData: {},
   }),
   methods: {
     getLocalGroupVisibilities() {
@@ -180,7 +181,6 @@ export default {
       };
       this.socket.onmessage = (event) => {
         this.isBusy = false;
-        console.log(event.data);
         const data = JSON.parse(event.data)
         if (data.status == 'ERROR') {
           console.warn('error!', data);
@@ -194,7 +194,7 @@ export default {
           this.info = data.payload;
         }
         if (data.command === 'LIVE_DATA') {
-          console.log('live data', data.payload);
+          this.liveData = data.payload;
         }
       };
       this.socket.onclose = () => {
