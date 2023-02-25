@@ -162,7 +162,7 @@ input[type=number] {
   border: 1px solid #c0cbcd;
   font-size: 5em;
   padding-top:0.6em;
-  width: 400px;
+  width: 320px;
   height:230px;
   position: relative;
   border-radius: 5px;
@@ -182,10 +182,10 @@ input[type=number] {
   right:0;
 }
 .live-power {
-  width: 200px;
+  width: 160px;
   height:100px;
-  font-size: 3em;
+  font-size: 2.5em;
   border: 1px solid #c0cbcd;
-  padding-top:0.25em;
+  padding-top:0.45em;
   text-align:center;
 }
