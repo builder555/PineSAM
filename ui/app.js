@@ -21,8 +21,20 @@ export default {
     socket: null,
     error: '',
     isHintVisible: false,
-    liveData: {},
+    liveDataRaw: { },
   }),
+  computed: {
+    liveData() {
+      if (Object.keys(this.liveDataRaw).length < 1) return {};
+      return {
+        'LiveTemp': this.liveDataRaw.LiveTemp,
+        'Voltage': (this.liveDataRaw.Voltage * 0.1).toFixed(1),
+        'HandleTemp': (this.liveDataRaw.HandleTemp * 0.1).toFixed(1),
+        'OperatingMode': this.liveDataRaw.OperatingMode,
+        'Watts': (this.liveDataRaw.Watts * 0.1).toFixed(1),
+      }
+    },
+  },
   methods: {
     getLocalGroupVisibilities() {
       for(const group of this.groups) {
@@ -194,7 +206,7 @@ export default {
           this.info = data.payload;
         }
         if (data.command === 'LIVE_DATA') {
-          this.liveData = data.payload;
+          this.liveDataRaw = data.payload;
         }
       };
       this.socket.onclose = () => {

@@ -58,6 +58,23 @@
         >{{info.name}} <div class="is-hidden-desktop is-inline mr-6 pr-4">&nbsp;</div></h5>
       </div>
     </div>
+    <div class="is-flex is-justify-content-center mb-5">
+      <div class="temp-holder" style="pointer-events: auto;">
+        <div class="live-temp">
+          <button class="button change minus"> <i class="fas fa-minus"></i> </button>
+          <button class="button change plus"> <i class="fas fa-plus"></i> </button>
+          <div style="font-size:0.3em; margin-top:-1.8em; margin-bottom:0.8em">SET: {{settings.SetTemperature.value}}&deg;C</div>
+          <i class="fa fa-thermometer-quarter"></i> <span style="font-weight:500">{{liveData.LiveTemp}}</span>&deg;C
+          <div style="font-size:0.3em; margin-top:0.4em">CURRENT TEMPERATURE</div>
+        </div>
+        <div class="live-power">
+          <i class="fa fa-bolt" style="font-size:0.6em; font-weight:600;"></i> {{liveData.Watts}} W
+        </div>
+        <div class="live-power">
+          <i class="fa fa-plug" style="font-size:0.6em; font-weight:600;"></i> {{liveData.Voltage}} V
+        </div>
+      </div>
+    </div>
     <div class="columns" style="pointer-events:auto;">
       <div class="column is-half is-full-mobile">
         <div class="is-flex">
@@ -89,9 +106,9 @@
         :key="group.name"
         class="column is-4-widescreen is-6-tablet is-12-mobile"
       >
-        <div class="card">
+        <div class="card no-shadow">
           <header
-            class="card-header navbar-link is-arrowless"
+            class="card-header navbar-link is-arrowless settings-header"
             @click="toggleGroup(group)"
           >
             <p class="card-header-title">

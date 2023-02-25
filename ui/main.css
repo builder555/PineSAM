@@ -28,10 +28,10 @@
   font-size:1.2rem; 
   margin:0 0 0 0.5rem;
 }
-.card-header {
+.settings-header {
   background: #eef5ff;
 }
-.card {
+.no-shadow {
   box-shadow: none;
 }
 .label{
@@ -150,4 +150,42 @@ input[type=number] {
 @keyframes fade {
   0% { opacity: 0 }
   100% { opacity: 1 }
+}
+
+.temp-holder {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 450px;
+}
+.live-temp {
+  border: 1px solid #c0cbcd;
+  font-size: 5em;
+  padding-top:0.6em;
+  width: 400px;
+  height:230px;
+  position: relative;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  text-align: center;
+}
+.live-temp button.change {
+  position:absolute;
+  top:0;
+  margin:-1px;
+}
+.live-temp .minus {
+  left:0;
+}
+.live-temp .plus {
+  right:0;
+}
+.live-power {
+  width: 200px;
+  height:100px;
+  font-size: 3em;
+  border: 1px solid #c0cbcd;
+  padding-top:0.25em;
+  text-align:center;
 }
