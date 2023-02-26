@@ -58,12 +58,12 @@
         >{{info.name}} <div class="is-hidden-desktop is-inline mr-6 pr-4">&nbsp;</div></h5>
       </div>
     </div>
-    <div class="is-flex is-justify-content-center mb-5">
+    <div class="is-flex is-justify-content-center mb-5 hide-until-load" :style="{'visibility':'visible'}">
       <div class="temp-holder" style="pointer-events: auto;">
         <div class="live-temp">
           <button class="button change minus"> <i class="fas fa-minus"></i> </button>
           <button class="button change plus"> <i class="fas fa-plus"></i> </button>
-          <div style="font-size:0.3em; margin-top:-1.8em; margin-bottom:0.8em">SET: {{settings.SetTemperature.value}}&deg;C</div>
+          <div style="font-size:0.3em; margin-bottom:0.8em">SET: {{settings?.SetTemperature?.value}}&deg;C</div>
           <i class="fa fa-thermometer-quarter"></i> <span style="font-weight:500">{{liveData.LiveTemp}}</span>&deg;C
           <div style="font-size:0.3em; margin-top:0.4em">CURRENT TEMPERATURE</div>
         </div>

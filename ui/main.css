@@ -161,7 +161,6 @@ input[type=number] {
 .live-temp {
   border: 1px solid #c0cbcd;
   font-size: 5em;
-  padding-top:0.6em;
   width: 320px;
   height:230px;
   position: relative;
