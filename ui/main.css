@@ -180,11 +180,36 @@ input[type=number] {
 .live-temp .plus {
   right:0;
 }
-.live-power {
-  width: 160px;
-  height:100px;
-  font-size: 2.5em;
+.info-row {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-content: stretch;
+  height: 100px;
+  width: 320px;
+}
+.row-item {
+  min-width: 33.33%;
+  height: 50%;
+  font-size: 1.2em;
   border: 1px solid #c0cbcd;
-  padding-top:0.45em;
-  text-align:center;
+  /* padding-top:0.45em; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.row-item i {
+  font-size:1.2em; 
+  font-weight:600; 
+  margin-right: 0.4em;
+}
+div.preset {
+  border-radius: 0;
+  border-color: #c0cbcd !important;
+  width: 50%;
+  height: 75px;
+}
+span.preset {
+  font-size: 1.7em;
 }
