@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.1](https://github.com/builder555/PineSAM/compare/v1.2.0...v1.2.1) (2023-02-27)
+
+
+### Bug Fixes
+
+* numbers shifted up ([fcd2fe7](https://github.com/builder555/PineSAM/commit/fcd2fe7755869e5bfd5aca47dee7a50f3145bd9e))
+* prevent console errors when pinecil not connected ([dd660c3](https://github.com/builder555/PineSAM/commit/dd660c39b116c57478bfbb23e76a3490b940ea50))
+* use actual settings value instead of ref ([8c34f05](https://github.com/builder555/PineSAM/commit/8c34f05ec822aa497b904cbb80ac3526286774e0))
+
 ## [1.2.0](https://github.com/builder555/PineSAM/compare/v1.1.0...v1.2.0) (2023-02-27)
 
 
