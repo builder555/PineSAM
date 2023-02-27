@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/builder555/PineSAM/compare/v1.1.0...v1.2.0) (2023-02-27)
+
+
+### Features
+
+* broadcast live data to clients [#48](https://github.com/builder555/PineSAM/issues/48) ([bd532a3](https://github.com/builder555/PineSAM/commit/bd532a304118601c528d9a0c6459c8758e468d0c))
+* Merge pull request [#55](https://github.com/builder555/PineSAM/issues/55) from NeilHanlon/work-screen_buttons ([764c714](https://github.com/builder555/PineSAM/commit/764c714aaf0556d4c1c73d31bfa53ae7dbcde98a))
+* show live temperature + electricals ([5533ec0](https://github.com/builder555/PineSAM/commit/5533ec05957584ca8aec44f9721c591170a4293e))
+* Work screen improvements and functionality implmementation ([7291869](https://github.com/builder555/PineSAM/commit/729186984caad2deff45dace91641b2aebb08c5a))
+
+
+### Bug Fixes
+
+* screen disappears if no device found ([88cf666](https://github.com/builder555/PineSAM/commit/88cf66633782f6358b22e6a04a8145a5b69560de))
+
 ## [1.1.0](https://github.com/builder555/PineSAM/compare/v1.0.16...v1.1.0) (2023-02-24)
 
 
