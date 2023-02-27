@@ -113,11 +113,6 @@ export default {
 
       var preset = this.$refs[`preset-${idx}`][0];
 
-      // console.log(event.type);
-      // console.log(this.isHolding);
-      // console.log(this.presets[idx]);
-      // console.log(setTemp);
-
       var _this = this;
       switch (event.type) {
         case "mousedown":
@@ -150,7 +145,7 @@ export default {
     },
     setTemperature(multiplier, event) {
       const settingName = "SetTemperature";
-      const setTemp = Number(this.$refs[settingName][0].value);
+      const setTemp = Number(this.settings[settingName].value);
 
       var _this = this;
       var newTemp = setTemp;
