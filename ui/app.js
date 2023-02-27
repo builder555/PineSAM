@@ -108,40 +108,31 @@ export default {
       group.isVisible = !group.isVisible;
       localStorage.setItem(`setting-${group.name}-visible`, group.isVisible);
     },
-    setExactTemperature(event, idx) {
-      const setTemp = this.$refs["SetTemperature"][0].value;
-
-      var preset = this.$refs[`preset-${idx}`][0];
-
-      var _this = this;
-      switch (event.type) {
-        case "mousedown":
-        case "touchstart":
-          this.isHolding = setTimeout(function () {
-            if (_this.isHolding) {
-              _this.confirm(
-                "SetPreset",
-                `Are you sure you wish to set this preset to ${setTemp}?`,
-                () => _this.presets[idx] = setTemp,
-              );
-              localStorage.setItem("presets", JSON.stringify(_this.presets));
-            }
-          }, 1000);
-          break;
-        case "click":
-          const presetTemp = preset.ariaValueNow;
-          console.log(preset);
-          console.log(presetTemp);
-          this.settings["SetTemperature"].value = presetTemp;
-          this.updateSetting(
-            "SetTemperature",
-            this.settings["SetTemperature"].value,
+    onPresetBtnDown(idx) {
+      const setTemp = this.settings.SetTemperature.value;
+      this.isHolding = setTimeout(() => {
+        if (this.isHolding) {
+          this.confirm(
+            "SetPreset",
+            `Are you sure you wish to set this preset to ${setTemp}?`,
+            () => this.presets[idx] = setTemp,
           );
-        default:
-          clearTimeout(this.isHolding);
-          this.isHolding = false;
-          break;
+          localStorage.setItem("presets", JSON.stringify(this.presets));
+        }
+        this.isHolding = null;
+      }, 1000);
+    },
+    onPresetBtnUp() {
+      if (this.isHolding) clearTimeout(this.isHolding);
+      this.isHolding = null;
+    },
+    setExactTemperature(temperature) {
+      this.settings.SetTemperature.value = Number(temperature);
+      if (this.isHolding) {
+        clearTimeout(this.isHolding);
+        this.isHolding = null;
       }
+      this.updateSetting("SetTemperature", this.settings.SetTemperature.value);
     },
     setTemperature(multiplier, event) {
       const settingName = "SetTemperature";
@@ -161,9 +152,6 @@ export default {
         newTemp += multiplier * getStep(stepType);
         _this.settings[settingName].value = newTemp;
       };
-
-      // console.log(event.type);
-      // console.log(this.preventClick);
 
       // mousdown -> mouseup -> click
       switch (event.type) {

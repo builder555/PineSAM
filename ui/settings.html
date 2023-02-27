@@ -116,11 +116,22 @@
                 </span>
               </div>
           </div>
-            <div v-for="(preset, idx) in presets" :aria-valuenow="preset" :ref=`preset-${idx}` class="row-item preset button is-info is-light"  @click="setExactTemperature($event, idx)" @mousedown="setExactTemperature($event, idx)" @touchstart="setExactTemperature($event, idx)">
+            <div
+              v-for="(presetTemp, idx) in presets"
+              :key="`preset-${idx}`"
+              :aria-valuenow="presetTemp"
+              :ref=`preset-${idx}`
+              class="row-item preset button is-info is-light"
+              @click="setExactTemperature(presetTemp)"
+              @mousedown="onPresetBtnDown(idx)"
+              @onmouseup="onPresetBtnUp"
+              @touchstart="onPresetBtnDown(idx)"
+              @touchend="onPresetBtnUp"
+            >
               <div class="icon-text has-text-info">
                 <span class="icon is-large">
                   <i class="fas fa-thermometer-half"></i>
-                  <span class="preset">{{preset}}</span>
+                  <span class="preset">{{presetTemp}}</span>
                 </span>
               </div>
           </div>
