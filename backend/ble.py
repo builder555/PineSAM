@@ -3,11 +3,14 @@ from typing import List
 from bleak import BleakClient
 from bleak import BleakScanner
 from bleak.exc import BleakDeviceNotFoundError
+from bleak.exc import BleakError
 from bleak.backends.characteristic import BleakGATTCharacteristic
 
 class DeviceNotFoundException(Exception):
     message = 'Device not found'
 
+class DeviceDisconnectedException(Exception):
+    message = 'Device disconnected'
 
 class BLE:
 
@@ -52,18 +55,16 @@ class BLE:
         raise Exception(f'Could not find service {service_uuid}')
 
     async def read_characteristic(self, handle: BleakGATTCharacteristic) -> bytes:
-        await self.ensure_connected()
-        return await self.client.read_gatt_char(handle) #type: ignore
+        try:
+            await self.ensure_connected()
+            return await self.client.read_gatt_char(handle) #type: ignore
+        except BleakError as e:
+            if str(e).lower() == 'disconnected':
+                raise DeviceDisconnectedException
+            raise e
 
     async def write_characteristic(self, handle: BleakGATTCharacteristic, value: bytes):
         await self.ensure_connected()
         logging.debug(f'Writing characteristic {handle.uuid}')
         await self.client.write_gatt_char(handle, value) #type: ignore
         logging.debug(f'Writing characteristic {handle.uuid} DONE')
-    
-    async def __del__(self):
-        try:
-            if self.client:
-                await self.client.disconnect()
-        except:
-            pass

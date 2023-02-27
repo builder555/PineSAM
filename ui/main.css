@@ -28,10 +28,10 @@
   font-size:1.2rem; 
   margin:0 0 0 0.5rem;
 }
-.card-header {
+.settings-header {
   background: #eef5ff;
 }
-.card {
+.no-shadow {
   box-shadow: none;
 }
 .label{
@@ -150,4 +150,66 @@ input[type=number] {
 @keyframes fade {
   0% { opacity: 0 }
   100% { opacity: 1 }
+}
+
+.temp-holder {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 450px;
+}
+.live-temp {
+  border: 1px solid #c0cbcd;
+  font-size: 5em;
+  width: 320px;
+  height:230px;
+  position: relative;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  text-align: center;
+}
+.live-temp button.change {
+  position:absolute;
+  top:0;
+  margin:-1px;
+}
+.live-temp .minus {
+  left:0;
+}
+.live-temp .plus {
+  right:0;
+}
+.info-row {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-content: stretch;
+  height: 100px;
+  width: 320px;
+}
+.row-item {
+  min-width: 33.33%;
+  height: 50%;
+  font-size: 1.2em;
+  border: 1px solid #c0cbcd;
+  /* padding-top:0.45em; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.row-item i {
+  font-size:1.2em; 
+  font-weight:600; 
+  margin-right: 0.4em;
+}
+div.preset {
+  border-radius: 0;
+  border-color: #c0cbcd !important;
+  width: 50%;
+  height: 75px;
+}
+span.preset {
+  font-size: 1.7em;
 }

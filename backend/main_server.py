@@ -5,6 +5,7 @@ import websockets
 import websockets.exceptions
 import json
 from ble import DeviceNotFoundException
+from ble import DeviceDisconnectedException
 from pinecil_ble import Pinecil
 from pinecil_ble import InvalidSettingException
 from pinecil_ble import ValueOutOfRangeException
@@ -54,14 +55,51 @@ async def handle_message(websocket, data):
         response = {'status': 'ERROR', 'message': e.message}
     await websocket.send(json.dumps({**response, 'command': command}))
 
-async def ws_handler(websocket, path):
+CLIENTS = set()
+
+async def ws_handler(websocket):
     try:
+        CLIENTS.add(websocket)
         while True:
             message = await websocket.recv()
             await handle_message(websocket, message)
     except websockets.exceptions.ConnectionClosed:
         logging.info('Connection closed')
+        CLIENTS.remove(websocket)
 
-start_server = websockets.serve(ws_handler, '0.0.0.0', 12999) #type: ignore
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+async def send(ws, message):
+    try:
+        await ws.send(message)
+    except websockets.exceptions.ConnectionClosed:
+        pass
+
+def broadcast(message):
+    for client in CLIENTS:
+        asyncio.create_task(send(client, message))
+
+async def pinecil_monitor(stop_event: asyncio.Event):
+    logging.info('Starting pinecil monitor')
+    while not stop_event.is_set():
+        if not pinecil.is_connected:
+            logging.debug('waiting for pinecil...')
+            await asyncio.sleep(1)
+            continue
+        try:
+            pinecil_data = await pinecil.get_live_data()
+            msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data})
+            broadcast(msg)
+            await asyncio.sleep(2)
+        except DeviceDisconnectedException:
+            logging.info('Pinecil disconnected')
+            broadcast(json.dumps({'status': 'ERROR', 'message': 'Device disconnected'}))
+
+async def main(stop_event = asyncio.Event()):
+    tasks = [
+        asyncio.create_task(pinecil_monitor(stop_event)),
+        websockets.serve(ws_handler, '0.0.0.0', 12999), #type: ignore
+    ]
+    await asyncio.gather(*tasks)
+
+
+if __name__ == '__main__':
+    asyncio.run(main())

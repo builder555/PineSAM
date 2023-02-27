@@ -2,19 +2,33 @@ import pytest
 from unittest.mock import AsyncMock, MagicMock, patch
 from pinecil_ble import Pinecil
 from test_data import settings as fake_settings
+from test_data import live_data as fake_live_data
+from test_utils import Method
 
 @pytest.fixture
 def mocked_settings():
     return fake_settings
 
 @pytest.fixture
-def mock_ble(mocked_settings):
-    ble = MagicMock()
-    ble.is_connected = False
-    ble.get_characteristics = AsyncMock(return_value=mocked_settings)
-    ble.ensure_connected = AsyncMock()
+def mocked_live_data():
+    return fake_live_data
+
+@pytest.fixture
+def mock_ble(mocked_settings, mocked_live_data):
+
+    async def get_characteristics(uuid):
+        if uuid == 'f6d75f91-5a10-4eba-a233-47d3f26a907f':
+            return mocked_settings
+        if uuid == 'd85efab4-168e-4a71-affd-33e27f9bc533':
+            return mocked_live_data
+        return []
     async def read_crx(a): 
         return a.raw_value
+
+    ble = MagicMock()
+    ble.is_connected = False
+    ble.get_characteristics = AsyncMock(side_effect=get_characteristics)
+    ble.ensure_connected = AsyncMock()
     ble.read_characteristic = read_crx
     return ble
 
@@ -72,6 +86,33 @@ async def test_read_all_settings_from_v2_21(mock_ble, mocked_settings):
         assert settings['ColourInversion'] == mocked_settings[33].expected_value
         assert settings['Brightness'] == mocked_settings[34].expected_value
 
+@pytest.mark.asyncio
+async def test_reading_settings_while_disconnected_reconnects(mock_ble):
+    with patch('pinecil_ble.BLE', return_value=mock_ble):
+        pinecil = Pinecil()
+        await pinecil.get_all_settings()
+        assert mock_ble.ensure_connected.called
+
+@pytest.mark.asyncio
+async def test_get_live_data(mock_ble, mocked_live_data):
+    with patch('pinecil_ble.BLE', return_value=mock_ble):
+        pinecil = Pinecil()
+        await pinecil.connect()
+        live_data = await pinecil.get_live_data()
+        assert list(live_data.keys()) == ['LiveTemp', 'Voltage', 'HandleTemp', 'OperatingMode', 'Watts']
+        assert live_data['LiveTemp'] == mocked_live_data[0].expected_value
+        assert live_data['Voltage'] == mocked_live_data[2].expected_value
+        assert live_data['HandleTemp'] == mocked_live_data[3].expected_value
+        assert live_data['OperatingMode'] == mocked_live_data[4].expected_value
+        assert live_data['Watts'] == mocked_live_data[5].expected_value
+
+@pytest.mark.asyncio
+async def test_reading_live_data_while_disconnected_reconnects(mock_ble):
+    with patch('pinecil_ble.BLE', return_value=mock_ble):
+        pinecil = Pinecil()
+        await pinecil.get_live_data()
+        assert mock_ble.ensure_connected.called
+
 def test_read_all_settings_from_v2_20():
     pass
 
@@ -87,18 +128,3 @@ def test_can_save_changes_to_flash():
 def test_get_unique_device_name():
     pass
 
-
-
-class Method:
-    def __init__(self, mocked_func):
-        self.mocked_func = mocked_func
-        self.mock_calls = mocked_func.mock_calls
-    def was_called_with(self, *args):
-        for call in self.mock_calls:
-            if len(call) < 2:
-                continue
-            if len(call[1]) < 1:
-                continue
-            if call[1][0]==args[0]:
-                return True
-        raise AssertionError(f'No call to {self.mocked_func} with args {args}:\n {self.mock_calls}')
