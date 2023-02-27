@@ -79,12 +79,13 @@
               @click="setTemperature(1, $event)"
               @touchstart="setTemperature(1, $event)"
               @mousedown="setTemperature(1, $event)"
+              @touchleave="setTemperature(0, $event)"
               @mouseleave="setTemperature(0, $event)"
               @mouseup="setTemperature(0, $event)"
               @touchend="setTemperature(0, $event)"
-              >
-                <i class="fas fa-plus"></i>
-              </button>
+            >
+              <i class="fas fa-plus"></i>
+            </button>
           </div>
           <div style="font-size:0.3em; margin-bottom:0.8em" >SET {{settings.SetTemperature?.value}}&deg;{{settings.TemperatureUnit?.value ? 'F' : 'C'}}</div>
             <i class="fa fa-thermometer-quarter"></i> <span style="font-weight:500">{{liveData.LiveTemp}}</span>&deg;{{settings.TemperatureUnit?.value ? 'F' : 'C'}}
