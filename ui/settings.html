@@ -58,20 +58,50 @@
         >{{info.name}} <div class="is-hidden-desktop is-inline mr-6 pr-4">&nbsp;</div></h5>
       </div>
     </div>
-    <div class="is-flex is-justify-content-center mb-5 hide-until-load" :style="{'visibility':'visible'}">
+    <div class="is-flex is-justify-content-center mb-6 hide-until-load" :style="{'visibility':'visible'}">
       <div class="temp-holder" style="pointer-events: auto;">
         <div class="live-temp">
-          <button class="button change minus"> <i class="fas fa-minus"></i> </button>
-          <button class="button change plus"> <i class="fas fa-plus"></i> </button>
-          <div style="font-size:0.3em; margin-bottom:0.8em">SET: {{settings?.SetTemperature?.value}}&deg;C</div>
-          <i class="fa fa-thermometer-quarter"></i> <span style="font-weight:500">{{liveData.LiveTemp}}</span>&deg;C
-          <div style="font-size:0.3em; margin-top:0.4em">CURRENT TEMPERATURE</div>
+          <div class="buttons are-large">
+            <button class="button change minus" @click="setTemperature(-1, $event)" @touchstart="setTemperature(-1, $event)" @mousedown="setTemperature(-1, $event)" @touchleave="setTemperature(0, $event)" @mouseleave="setTemperature(0, $event)" @mouseup="setTemperature(0, $event)" @touchend="setTemperature(0, $event)"> <i class="fas fa-minus"></i> </button>
+            <button class="button change plus"  @click="setTemperature(1, $event)" @touchstart="setTemperature(1, $event)" @mousedown="setTemperature(1, $event)"  @mouseleave="setTemperature(0, $event)" @mouseup="setTemperature(0, $event)" @touchend="setTemperature(0, $event)"> <i class="fas fa-plus"></i> </button>
+          </div>
+          <div style="font-size:0.3em; margin-top:-1.8em; margin-bottom:0.8em" >SET {{settings.SetTemperature.value}}&deg;{{settings.TemperatureUnit.value ? 'F' : 'C'}}</div>
+            <i class="fa fa-thermometer-quarter"></i> <span style="font-weight:500">{{liveData.LiveTemp}}</span>&deg;{{settings.TemperatureUnit.value ? 'F' : 'C'}}
+          <div style="font-size:0.2em; margin-top:-1em">CURRENT</div>
         </div>
-        <div class="live-power">
-          <i class="fa fa-bolt" style="font-size:0.6em; font-weight:600;"></i> {{liveData.Watts}} W
-        </div>
-        <div class="live-power">
-          <i class="fa fa-plug" style="font-size:0.6em; font-weight:600;"></i> {{liveData.Voltage}} V
+        <div class="info-row">
+          <div class="row-item">
+              <div class="icon-text">
+                <span class="icon has-text-dark" style="width: 100%;">
+                  <i class="fas fa-angle-double-up"></i> 
+                  <span>{{liveData.PeakWatts}} W</span>
+                </span>
+              </div>
+          </div>
+          <div class="row-item">
+              <div class="icon-text">
+                <span class="icon has-text-dark" style="width: 100%;">
+                  <i class="fa fa-bolt"></i> 
+                  <span>{{liveData.Watts}} W</span>
+                </span>
+              </div>
+          </div>
+          <div class="row-item">
+              <div class="icon-text">
+                <span class="icon has-text-dark" style="width: 100%;">
+                  <i class="fa fa-plug"></i> 
+                  <span>{{liveData.Voltage}} V</span>
+                </span>
+              </div>
+          </div>
+            <div v-for="(preset, idx) in presets" :aria-valuenow="preset" :ref=`preset-${idx}` class="row-item preset button is-info is-light"  @click="setExactTemperature($event, idx)" @mousedown="setExactTemperature($event, idx)" @touchstart="setExactTemperature($event, idx)">
+              <div class="icon-text has-text-info">
+                <span class="icon is-large">
+                  <i class="fas fa-thermometer-half"></i>
+                  <span class="preset">{{preset}}</span>
+                </span>
+              </div>
+          </div>
         </div>
       </div>
     </div>
