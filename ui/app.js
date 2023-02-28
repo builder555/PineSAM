@@ -22,7 +22,8 @@ export default {
     error: "",
     isHintVisible: false,
     liveDataRaw: {},
-    isHolding: false,
+    holdingBtnTimer: false,
+    isPlusMinusHeld: false,
     preventClick: false,
     presets: [],
     peakWatts: 0.0,
@@ -110,80 +111,44 @@ export default {
     },
     onPresetBtnDown(idx) {
       const setTemp = this.settings.SetTemperature.value;
-      this.isHolding = setTimeout(() => {
-        if (this.isHolding) {
-          this.confirm(
-            "SetPreset",
-            `Are you sure you wish to set this preset to ${setTemp}?`,
-            () => this.presets[idx] = setTemp,
-          );
-          localStorage.setItem("presets", JSON.stringify(this.presets));
-        }
-        this.isHolding = null;
+      this.holdingBtnTimer = setTimeout(() => {
+        this.confirm(
+          "SetPreset",
+          `Are you sure you wish to set this preset to ${setTemp}?`,
+          () => this.presets[idx] = setTemp,
+        );
+        localStorage.setItem("presets", JSON.stringify(this.presets));
+        this.holdingBtnTimer = null;
       }, 1000);
     },
     onPresetBtnUp() {
-      if (this.isHolding) clearTimeout(this.isHolding);
-      this.isHolding = null;
+      if (this.holdingBtnTimer) clearTimeout(this.holdingBtnTimer);
+      this.holdingBtnTimer = null;
     },
     setExactTemperature(temperature) {
       this.settings.SetTemperature.value = Number(temperature);
-      if (this.isHolding) {
-        clearTimeout(this.isHolding);
-        this.isHolding = null;
-      }
       this.updateSetting("SetTemperature", this.settings.SetTemperature.value);
     },
-    setTemperature(multiplier, event) {
-      const settingName = "SetTemperature";
-      const setTemp = Number(this.settings[settingName].value);
-
-      var _this = this;
-      var newTemp = setTemp;
-
-      var getStep = function (stepType) {
-        if (!["Long", "Short"].includes(stepType)) {
-          return NaN;
-        }
-        return Number(_this.settings[`TempChange${stepType}Step`].value);
-      };
-
-      var update = function (stepType) {
-        newTemp += multiplier * getStep(stepType);
-        _this.settings[settingName].value = newTemp;
-      };
-
-      // mousdown -> mouseup -> click
-      switch (event.type) {
-        case "mousedown":
-        case "touchstart":
-          _this.isHolding = setTimeout(function () {
-            // Wait 1000ms, then start increasing by Long value every 500ms until release.
-            _this.preventClick = true;
-            if (_this.isHolding) {
-              _this.isHolding = setInterval(function () {
-                update("Long");
-              }, 500);
-            }
-          }, 1000);
-          break;
-        case "click":
-          if (!this.preventClick) {
-            update("Short");
-          }
-          this.preventClick = false;
-          // **intentionally** fall down into default
-        default:
-          clearTimeout(this.isHolding);
-          clearInterval(this.isHolding);
-          console.log(
-            "Sending new SetTemperature setting to device: ",
-            this.settings["SetTemperature"].value,
-          );
-          this.updateSetting(
-            "SetTemperature",
-            this.settings["SetTemperature"].value,
-          );
+    changeTemperature(direction) {
+      if (this.isPlusMinusHeld) return;
+      const currentSetTemp = this.settings.SetTemperature.value;
+      const step = this.settings.TempChangeShortStep.value;
+      this.setExactTemperature(currentSetTemp + direction * step);
+    },
+    onChangeTempBtnDown(direction) {
+      const step = this.settings.TempChangeLongStep.value;
+      this.holdingBtnTimer = setInterval(() => {
+        this.isPlusMinusHeld = true;
+        this.setExactTemperature(this.settings.SetTemperature.value + direction * step);
+      }, 1000);
+    },
+    onChangeTempBtnUp() {
+      if (this.holdingBtnTimer) {
+        setTimeout(() => { // to ensure "onClick" doesn't update the temperature
+          clearInterval(this.holdingBtnTimer);
+          this.holdingBtnTimer = null;
+          this.isPlusMinusHeld = false;
+        },0);
       }
     },
     setTemperatureRanges(convertValue = false) {
@@ -318,7 +283,6 @@ export default {
           this.liveDataRaw = data.payload;
           const watts = this.liveData["Watts"];
           if (watts > this.peakWatts) {
-            console.log("doing stuff");
             this.peakWatts = Math.max(watts, this.peakWatts);
           }
         }

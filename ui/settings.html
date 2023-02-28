@@ -64,25 +64,21 @@
           <div class="buttons are-large">
             <button
               class="button change minus"
-              @click="setTemperature(-1, $event)"
-              @touchstart="setTemperature(-1, $event)"
-              @mousedown="setTemperature(-1, $event)"
-              @touchleave="setTemperature(0, $event)"
-              @mouseleave="setTemperature(0, $event)"
-              @mouseup="setTemperature(0, $event)"
-              @touchend="setTemperature(0, $event)"
+              @click="changeTemperature(-1)"
+              @touchstart="onChangeTempBtnDown(-1)"
+              @mousedown="onChangeTempBtnDown(-1)"
+              @touchend="onChangeTempBtnUp"
+              @mouseup="onChangeTempBtnUp"
             >
               <i class="fas fa-minus"></i> 
             </button>
             <button
               class="button change plus"
-              @click="setTemperature(1, $event)"
-              @touchstart="setTemperature(1, $event)"
-              @mousedown="setTemperature(1, $event)"
-              @touchleave="setTemperature(0, $event)"
-              @mouseleave="setTemperature(0, $event)"
-              @mouseup="setTemperature(0, $event)"
-              @touchend="setTemperature(0, $event)"
+              @click="changeTemperature(1)"
+              @touchstart="onChangeTempBtnDown(1)"
+              @mousedown="onChangeTempBtnDown(1)"
+              @touchend="onChangeTempBtnUp"
+              @mouseup="onChangeTempBtnUp"
             >
               <i class="fas fa-plus"></i>
             </button>
@@ -124,7 +120,7 @@
               class="row-item preset button is-info is-light"
               @click="setExactTemperature(presetTemp)"
               @mousedown="onPresetBtnDown(idx)"
-              @onmouseup="onPresetBtnUp"
+              @mouseup="onPresetBtnUp"
               @touchstart="onPresetBtnDown(idx)"
               @touchend="onPresetBtnUp"
             >
