@@ -137,9 +137,15 @@ export default {
     },
     onChangeTempBtnDown(direction) {
       const step = this.settings.TempChangeLongStep.value;
-      this.holdingBtnTimer = setInterval(() => {
+      const updateTemperature = () => {
         this.isPlusMinusHeld = true;
         this.setExactTemperature(this.settings.SetTemperature.value + direction * step);
+      };
+      this.holdingBtnTimer = setInterval(() => {
+        updateTemperature();
+        clearInterval(this.holdingBtnTimer);
+        // speed up the temperature change
+        this.holdingBtnTimer = setInterval(updateTemperature, 600);
       }, 1000);
     },
     onChangeTempBtnUp() {
