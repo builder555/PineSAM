@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/builder555/PineSAM/compare/v1.2.1...v1.3.0) (2023-02-28)
+
+
+### Features
+
+* holding +/- speeds up change ([9c766a2](https://github.com/builder555/PineSAM/commit/9c766a2971f576692adb923854415576e4e852ed))
+
 ## [1.2.1](https://github.com/builder555/PineSAM/compare/v1.2.0...v1.2.1) (2023-02-27)
 
 
