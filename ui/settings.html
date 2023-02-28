@@ -34,8 +34,16 @@
     </div>
     <div class="columns" style="pointer-events: none;">
       <div class="column is-half is-full-mobile" style="pointer-events: none;">
-        <h1 class="title" style="pointer-events: none!important;">
-          PineSAM
+        <h1 class="title">
+          <span :style="{'display':'none'}">PineSAM</span>
+          <a 
+            @click="isNameHidden=!isNameHidden"
+            class="hide-until-load"
+            :style="{visibility:'visible', 'pointer-events': 'auto'}"
+          >
+            <span v-if="isNameHidden">PineSAM</span>
+            <span v-else>{{info.name}}</span>
+          </a>
           <span
             class="tag hide-until-load"
             :style="{visibility: 'visible'}"
@@ -43,7 +51,7 @@
           >
             v{{info.app_version}}
           </span>
-          <a class="icon refresh-button" @click="fetchSettings" style="pointer-events:auto;">
+          <a class="icon refresh-button" @click="fetchSettings" style="pointer-events: auto;">
             <i class="fas fa-sync-alt"></i>
           </a>
           <div v-show="isBusy" class="spinner"><div></div></div>
@@ -55,7 +63,7 @@
           class="subtitle is-5 hide-until-load"
           :style="{'visibility':'visible'}"
           style="pointer-events: none;"
-        >{{info.name}} <div class="is-hidden-desktop is-inline mr-6 pr-4">&nbsp;</div></h5>
+        > <div class="is-hidden-desktop is-inline mr-6 pr-4">&nbsp;</div></h5>
       </div>
     </div>
     <div class="is-flex is-justify-content-center mb-6 hide-until-load" :style="{'visibility':'visible'}">
