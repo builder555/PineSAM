@@ -20,6 +20,7 @@ export default {
     info: {},
     socket: null,
     error: "",
+    isNameHidden: true,
     isHintVisible: false,
     liveDataRaw: {},
     holdingBtnTimer: false,
