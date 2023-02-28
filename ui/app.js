@@ -33,12 +33,12 @@ export default {
     liveData() {
       if (Object.keys(this.liveDataRaw).length < 1) return {};
       return {
-        "LiveTemp": this.liveDataRaw.LiveTemp,
-        "Voltage": (this.liveDataRaw.Voltage * 0.1).toFixed(1),
-        "HandleTemp": (this.liveDataRaw.HandleTemp * 0.1).toFixed(1),
-        "OperatingMode": this.liveDataRaw.OperatingMode,
-        "Watts": (this.liveDataRaw.Watts * 0.1).toFixed(1),
-        "PeakWatts": (this.peakWatts).toFixed(1),
+        LiveTemp: this.liveDataRaw.LiveTemp,
+        Voltage: (this.liveDataRaw.Voltage * 0.1).toFixed(1),
+        HandleTemp: (this.liveDataRaw.HandleTemp * 0.1).toFixed(1),
+        OperatingMode: this.liveDataRaw.OperatingMode,
+        Watts: (this.liveDataRaw.Watts * 0.1).toFixed(1),
+        PeakWatts: (this.peakWatts).toFixed(1),
       };
     },
   },
