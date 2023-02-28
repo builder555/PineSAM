@@ -21,24 +21,26 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 ## Features
 - [x] Automatically detect Pinecil V2 over BLE
-- [x] Get all setting values
-- [X] Modify setting and vaidate values before sending to device
+- [x] Get all setting from Pinecil
+- [X] Modify settings and vaidate values before sending to device
 - [X] Adjust temperature ranges based on C/F selection
 - [X] Toggle Show hints to show help messsages
 - [X] Hide Minimum Voltage (per cell) when source is not battery.
+- [X] Work view with: +/- buttons to change set temperature, live tip temperature, peak watts, live watts, input voltage.
+- [X] Customizable Preset buttons to allow quick change to common temperatures.
 
-## Supports
+## Requirements:
+- python 3 (tested with 3.10)
+- pipenv
+- a browser
+
+## Platforms
 - [x] Windows
 - [x] Mac
 - [x] Linux
 - [x] iphone
 - [x] Android
 
-## Requirements:
-
-- python 3 (tested with 3.10)
-- pipenv
-- a browser
 
 ## Mac/Linux 
 
@@ -78,11 +80,11 @@ If you already have python installed, you can skip to step 2.
 
 ## Remote access
 
-You can access the settings remotely once the app is running
+You can access the settings remotely once the app is running (i.e, run from a phone).
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app
 * open http://\<ip-address\>:8080/settings.html on another device on the same network
-* this works to run PineSAM on an iPhone or Android phone if you don't want to install python on the phone.
+* this works to run PineSAM on an iPhone or Android if you don't want to install python on the phone.
 
 ## Known issues
 
@@ -108,4 +110,4 @@ pipenv run test
 - [Pinecil](https://wiki.pine64.org/wiki/Pinecil) - The Pinecil Wiki page
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
 - [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
-- [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - Almost all AliExpress Pinecils are fake, check your V2!
+- [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - all AliExpress Pinecils are fake, check your V2!
