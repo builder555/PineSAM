@@ -1,6 +1,5 @@
 ## [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=plastic)](https://github.com/dwyl/esta/issues) <img alt="Custom badge" src="https://img.shields.io/endpoint?color=blue&style=plastic&url=https%3A%2F%2Fhits.dwyl.com%2Fbuilder555%2FPineSAM.json"> ![GitHub all](https://img.shields.io/github/downloads/builder555/PineSAM/total) ![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
 
-![GitHub all](https://img.shields.io/github/downloads/ralim/IronOS/total)
 
 <img src="./screenshot1.3.1.png" align="right" width="500" style="float:left">
 
