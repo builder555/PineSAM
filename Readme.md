@@ -1,4 +1,4 @@
-<img src="./Screenshot1.3.0.png" align="right" width="500" style="float:left">
+<img src="./screenshot1.3.png" align="right" width="500" style="float:left">
 
 # PineSAM
 
