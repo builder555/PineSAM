@@ -1,4 +1,5 @@
-## [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=plastic)](https://github.com/dwyl/esta/issues) <img alt="Custom badge" src="https://img.shields.io/endpoint?color=blue&style=plastic&url=https%3A%2F%2Fhits.dwyl.com%2Fbuilder555%2FPineSAM.json"> ![GitHub all](https://img.shields.io/github/downloads/builder555/PineSAM/total) ![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=plastic)](https://github.com/dwyl/esta/issues) <img alt="Custom badge" src="https://img.shields.io/endpoint?color=blue&style=plastic&url=https%3A%2F%2Fhits.dwyl.com%2Fbuilder555%2FPineSAM.json">  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/builder555/PineSAM/total?color=blue&style=plastic"> ![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
+
 
 
 
