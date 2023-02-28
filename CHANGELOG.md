@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/builder555/PineSAM/compare/v1.3.0...v1.3.1) (2023-02-28)
+
+
+### Bug Fixes
+
+* hide pinecil name by default. closes [#56](https://github.com/builder555/PineSAM/issues/56) ([0593657](https://github.com/builder555/PineSAM/commit/059365762526d980c09de1e5cbe1890964c7de20))
+
 ## [1.3.0](https://github.com/builder555/PineSAM/compare/v1.2.1...v1.3.0) (2023-02-28)
 
 
