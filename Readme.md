@@ -1,8 +1,8 @@
-<img src="./screenshot.png" align="right" width="500" style="float:left">
+<img src="./Screenshot1.3.0.png" align="right" width="500" style="float:left">
 
 # PineSAM
 
-PineSAM = (pinecil settings and menus)
+PineSAM = (Pinecil Settings and Menus)
 
 Why focus on soldering when you can play with the settings instead? With this app you will have full control over your new shiny Pinecil V2 from your computer using bluetooth.
 
@@ -14,7 +14,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 <details>
   <summary>Full settings view</summary>
   <p>
-    <img src="./full_settings.png"/>
+    <img src="./full_settings1.3.png"/>
   </p>
 </details>
 <div style="clear:both;">&nbsp;</div>
@@ -22,10 +22,17 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ## Features
 - [x] Automatically detect Pinecil V2 over BLE
 - [x] Get all setting values
-- [X] Modify settings
+- [X] Modify setting and vaidate values before sending to device
 - [X] Adjust temperature ranges based on C/F selection
-- [X] Hide Minimum Voltage (per cell) when source is DC
-- [X] Validate setting values before sending to device
+- [X] Toggle Show hints to show help messsages
+- [X] Hide Minimum Voltage (per cell) when source is not battery.
+
+## Supports
+- [x] Windows
+- [x] Mac
+- [x] Linux
+- [x] iphone
+- [x] Android
 
 ## Requirements:
 
@@ -75,6 +82,7 @@ You can access the settings remotely once the app is running
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app
 * open http://\<ip-address\>:8080/settings.html on another device on the same network
+* this works to run PineSAM on an iPhone or Android phone if you don't want to install python on the phone.
 
 ## Known issues
 
