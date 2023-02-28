@@ -1,3 +1,7 @@
+## [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=plastic)](https://github.com/dwyl/esta/issues) <img alt="Custom badge" src="https://img.shields.io/endpoint?color=blue&style=plastic&url=https%3A%2F%2Fhits.dwyl.com%2Fbuilder555%2FPineSAM.json"> ![GitHub all](https://img.shields.io/github/downloads/builder555/PineSAM/total) ![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
+
+![GitHub all](https://img.shields.io/github/downloads/ralim/IronOS/total)
+
 <img src="./screenshot1.3.1.png" align="right" width="500" style="float:left">
 
 # PineSAM
@@ -21,13 +25,14 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 ## Features
 - [x] Automatically detect Pinecil V2 over BLE
-- [x] Get all setting from Pinecil
+- [x] Get all settings from Pinecil
 - [X] Modify settings and vaidate values before sending to device
 - [X] Adjust temperature ranges based on C/F selection
-- [X] Toggle Show hints to show help messsages
+- [X] Show hints toggle button for help messsages
 - [X] Hide Minimum Voltage (per cell) when source is not battery.
-- [X] Work view with: +/- buttons to change set temperature, live tip temperature, peak watts, live watts, input voltage.
-- [X] Customizable Preset buttons to allow quick change to common temperatures.
+- [X] Work View with: +/- buttons to change set temperature, live tip temperature, peak watts, live watts, input voltage.
+- [X] Customizable Preset buttons to allow quick change to commonly used temperatures.
+- [X] Backend runs locally on all major platforms/OS while the User Interface runs on your favorite browser.
 
 ## Requirements:
 - python 3 (tested with 3.10)
