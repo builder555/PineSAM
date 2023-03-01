@@ -35,16 +35,23 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Customizable Preset buttons to allow quick change to commonly used temperatures.
 - [X] Backend runs locally on all major platforms/OS while the User Interface runs on your favorite browser.
 
-## Requirements:
+## Requirements
+### backend:
 - python 3 (tested with 3.10)
 - pipenv
-- a browser
+### UI:
+- any browser (IE is not a browser)
 
 ## Platforms
+### backend:
 - [x] Windows
-- [x] Mac
+- [x] MacOS
 - [x] Linux
-- [x] iphone
+### UI:
+- [x] Windows
+- [x] MacOS
+- [x] Linux
+- [x] iOS
 - [x] Android
 
 
@@ -98,8 +105,7 @@ You can access the settings remotely once the app is running (i.e, run from a ph
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 - Pinecil not detected
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
-- Setting change is not reflected on the soldering iron
-    * some changes require entering the menu on the device itself (or power cycle after saving to flash) before appearing. [Example](https://github.com/Ralim/IronOS/issues/1560)
+
 
 ## Testing
 
