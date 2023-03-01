@@ -86,7 +86,7 @@ If you already have python installed, you can skip to step 2.
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
     * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Download this repo: https://github.com/builder555/PineSAM/archive/master.zip
+2. Download the source code from the latest release: https://github.com/builder555/PineSAM/releases/latest
 3. Right click the zip and open Properties > General tab and check Unblock if it appears at the bottom. Then Unzip it.
 
 ### Run
