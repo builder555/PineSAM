@@ -1,8 +1,13 @@
-<img src="./screenshot.png" align="right" width="500" style="float:left">
+<img alt="Custom badge" src="https://img.shields.io/endpoint?color=blue&style=plastic&url=https%3A%2F%2Fhits.dwyl.com%2Fbuilder555%2FPineSAM.json">  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/builder555/PineSAM/total?color=blue&style=plastic"> ![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
+
+
+
+
+<img src="./screenshot1.3.1.png" align="right" width="500" style="float:left">
 
 # PineSAM
 
-PineSAM = (pinecil settings and menus)
+PineSAM = (Pinecil Settings and Menus)
 
 Why focus on soldering when you can play with the settings instead? With this app you will have full control over your new shiny Pinecil V2 from your computer using bluetooth.
 
@@ -14,24 +19,34 @@ Why focus on soldering when you can play with the settings instead? With this ap
 <details>
   <summary>Full settings view</summary>
   <p>
-    <img src="./full_settings.png"/>
+    <img src="./full_settings1.3.1.png"/>
   </p>
 </details>
 <div style="clear:both;">&nbsp;</div>
 
 ## Features
 - [x] Automatically detect Pinecil V2 over BLE
-- [x] Get all setting values
-- [X] Modify settings
+- [x] Get all settings from Pinecil
+- [X] Modify settings and vaidate values before sending to device
 - [X] Adjust temperature ranges based on C/F selection
-- [X] Hide Minimum Voltage (per cell) when source is DC
-- [X] Validate setting values before sending to device
+- [X] Show hints toggle button for help messsages
+- [X] Hide Minimum Voltage (per cell) when source is not battery.
+- [X] Work View with: +/- buttons to change set temperature, live tip temperature, peak watts, live watts, input voltage.
+- [X] Customizable Preset buttons to allow quick change to commonly used temperatures.
+- [X] Backend runs locally on all major platforms/OS while the User Interface runs on your favorite browser.
 
 ## Requirements:
-
 - python 3 (tested with 3.10)
 - pipenv
 - a browser
+
+## Platforms
+- [x] Windows
+- [x] Mac
+- [x] Linux
+- [x] iphone
+- [x] Android
+
 
 ## Mac/Linux 
 
@@ -71,10 +86,11 @@ If you already have python installed, you can skip to step 2.
 
 ## Remote access
 
-You can access the settings remotely once the app is running
+You can access the settings remotely once the app is running (i.e, run from a phone).
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app
 * open http://\<ip-address\>:8080/settings.html on another device on the same network
+* this works to run PineSAM on an iPhone or Android if you don't want to install python on the phone.
 
 ## Known issues
 
@@ -100,4 +116,4 @@ pipenv run test
 - [Pinecil](https://wiki.pine64.org/wiki/Pinecil) - The Pinecil Wiki page
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
 - [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
-- [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - Almost all AliExpress Pinecils are fake, check your V2!
+- [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - almost all AliExpress Pinecils are fake, check your V2!
