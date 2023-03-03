@@ -1,6 +1,6 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM&count_bg=%23107FBC&title_bg=%23555555&icon=pre-commit.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 ![GitHub all releases](https://img.shields.io/github/downloads/builder555/Pinesam/total)
-![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
+[![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)](https://github.com/builder555/PineSAM/releases/latest)
 
 
 # PineSAM
