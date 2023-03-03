@@ -1,7 +1,6 @@
-<img alt="Custom badge" src="https://img.shields.io/endpoint?color=blue&style=plastic&url=https%3A%2F%2Fhits.dwyl.com%2Fbuilder555%2FPineSAM.json">  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/builder555/PineSAM/total?color=blue&style=plastic"> ![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
-
-
-
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM&count_bg=%23107FBC&title_bg=%23555555&icon=pre-commit.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+![GitHub all releases](https://img.shields.io/github/downloads/builder555/Pinesam/total)
+![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)
 
 <img src="./screenshot1.3.1.png" align="right" width="500" style="float:left">
 
