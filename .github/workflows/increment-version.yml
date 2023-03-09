@@ -1,0 +1,61 @@
+name: Increment Version
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  increment-version:
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.event.head_commit.message, 'chore:')"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Increment version
+        id: increment-version
+        run: |
+          raw_commits=$(cat <<EOFF 
+            ${{ toJSON(github.event.commits) }} 
+          EOFF)
+          commits=$(echo "$raw_commits" | jq ".[].message" | tr -d '"')
+          IFS='.' read -r major minor patch <<< "$(cat version.txt)"
+          readarray -t commit_messages <<< "$commits"
+          is_incremented=0
+          for COMMIT_MESSAGE in "${commit_messages[@]}"; do
+            if [[ "$COMMIT_MESSAGE" == "fix:"* ]]; then
+              is_incremented=1
+              patch=$((patch + 1))
+            elif [[ "$COMMIT_MESSAGE" == "feat:"* ]]; then
+              is_incremented=1
+              minor=$((minor + 1))
+              patch=0
+            elif [[ "$COMMIT_MESSAGE" == "fix!"* ]] || [[ "$COMMIT_MESSAGE" == "feat!"* ]]; then
+              is_incremented=1
+              major=$((major + 1))
+              minor=0
+              patch=0
+            fi
+          done
+          echo "$major.$minor.$patch" > version.txt
+          echo "tag=v$major.$minor.$patch" >> $GITHUB_OUTPUT
+          echo "is_incremented=$is_incremented" >> $GITHUB_OUTPUT
+
+      - name: Commit version changes
+        if: ${{ steps.increment-version.outputs.is_incremented != 0 }}
+        run: |
+          echo "checking version"
+          cat version.txt
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add version.txt
+          git commit -m "chore: bump version to $(cat version.txt)"
+          git tag ${{ steps.increment-version.outputs.tag }}
+      
+      - name: Push changes
+        if: ${{ steps.increment-version.outputs.is_incremented != 0 }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          tags: true
