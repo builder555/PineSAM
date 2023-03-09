@@ -21,8 +21,8 @@ def read_app_version():
         return f.read().strip()
 
 async def process_command(command: str, payload: dict) -> dict:
-    if not pinecil.is_connected:
-        await pinecil.connect()
+    while not pinecil.is_connected:
+        await asyncio.sleep(0.5)
     if command == 'GET_SETTINGS':
         settings = await pinecil.get_all_settings()
         return {'status': 'OK', 'payload': settings}
@@ -81,12 +81,13 @@ async def pinecil_monitor(stop_event: asyncio.Event):
     logging.info('Starting pinecil monitor')
     while not stop_event.is_set():
         if not pinecil.is_connected:
-            logging.debug('waiting for pinecil...')
+            logging.info('waiting for pinecil...')
+            await pinecil.connect()
             await asyncio.sleep(1)
             continue
         try:
             pinecil_data = await pinecil.get_live_data()
-            msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data})
+            msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data, 'status': 'OK'})
             broadcast(msg)
             await asyncio.sleep(2)
         except DeviceDisconnectedException:

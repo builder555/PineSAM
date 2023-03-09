@@ -44,7 +44,7 @@ async def test_pinecil_monitor_broadcasts_data_from_pinecil_to_clients(mock_ws_s
         'OperatingMode': 1,
         'Watts': 24,
     }
-    expected_command = json.dumps({'command': 'LIVE_DATA', 'payload': mock_live_data})
+    expected_command = json.dumps({'command': 'LIVE_DATA', 'payload': mock_live_data, 'status': 'OK'})
     fake_pinecil = MagicMock(get_live_data=AsyncMock(return_value=mock_live_data), is_connected=True)
     with patch('main_server.pinecil', fake_pinecil):
         stop_event = asyncio.Event()
@@ -76,6 +76,7 @@ async def test_pinecil_monitor_announces_device_disconnect(mock_ws_send):
         raise DeviceDisconnectedException
     fake_pinecil = MagicMock(
         get_live_data=AsyncMock(side_effect=simulate_disconnect),
+        connect=AsyncMock(),
         is_connected=True,
     )
     with patch('main_server.pinecil', fake_pinecil):

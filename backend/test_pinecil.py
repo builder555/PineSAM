@@ -128,3 +128,5 @@ def test_can_save_changes_to_flash():
 def test_get_unique_device_name():
     pass
 
+def test_requesting_all_settings_frequently_returns_cached_values():
+    pass

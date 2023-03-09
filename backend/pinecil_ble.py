@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple, Dict
 import struct
 import logging
 import asyncio
@@ -7,6 +7,7 @@ from pinecil_setting_limits import temperature_limits
 from crx_uuid_name_map import names_v220, names_v221, live_data_names
 from ble import BleakGATTCharacteristic
 from ble import BLE
+import time
 
 class ValueOutOfRangeException(Exception):
     message = 'Value out of range'
@@ -55,10 +56,14 @@ class Pinecil:
         self.crx_settings: List[BleakGATTCharacteristic] = []
         self.crx_live_data: List[BleakGATTCharacteristic] = []
         self.live_data_to_read: List[str] = ['LiveTemp', 'Voltage', 'HandleTemp', 'OperatingMode', 'Watts']
+        self.is_initialized = False
+        self.is_getting_settings = False
+        self.__last_read_settings = {}
+        self.__last_read_settings_time = 0
 
     @property
     def is_connected(self):
-        return self.ble.is_connected
+        return self.ble.is_connected and self.is_initialized
 
     def __get_version(self, crxs: List[BleakGATTCharacteristic]):
         # this is just a hack until the version is exposed in the settings
@@ -73,8 +78,9 @@ class Pinecil:
         self.crx_live_data = await self.ble.get_characteristics(self.live_data_uuid)
         self.settings_map.set_version(self.__get_version(self.crx_settings))
         self.unique_id = await self.__get_pinecil_id()
+        self.is_initialized = True
         
-    async def __read_setting(self, crx: BleakGATTCharacteristic) -> tuple[str, int]:
+    async def __read_setting(self, crx: BleakGATTCharacteristic) -> Tuple[str, int]:
         raw_value = await self.ble.read_characteristic(crx)
         number = struct.unpack('<H', raw_value)[0]
         return self.settings_map.get_name(crx.uuid), number
@@ -93,15 +99,28 @@ class Pinecil:
         except:
             return ''
 
-    async def get_all_settings(self) -> dict[str, int]:
-        logging.debug(f'GETTING ALL SETTINGS')
-        if not self.is_connected:
-            await self.connect()
-        tasks = [asyncio.ensure_future(self.__read_setting(crx)) for crx in self.crx_settings]
-        results = await asyncio.gather(*tasks)
-        settings = dict(results)
-        logging.debug(f'GETTING ALL SETTINGS DONE')
-        return settings
+    async def get_all_settings(self) -> Dict[str, int]:
+        logging.info('REQUEST FOR SETTINGS')
+        while self.is_getting_settings:
+            await asyncio.sleep(0.5)
+        if time.time() - self.__last_read_settings_time < 2:
+            return self.__last_read_settings
+        try:
+            logging.info(f'Reading all settings')
+            self.is_getting_settings = True
+            if not self.is_connected:
+                await self.connect()
+            tasks = [asyncio.ensure_future(self.__read_setting(crx)) for crx in self.crx_settings]
+            results = await asyncio.gather(*tasks)
+            settings = dict(results)
+            logging.info(f'Reading all settings DONE')
+            self.__last_read_settings = settings
+            self.__last_read_settings_time = time.time()
+            return settings
+        except Exception as e:
+            raise e
+        finally:
+            self.is_getting_settings = False
 
     async def __ensure_valid_temperature(self, setting, temperature):
         characteristics = await self.ble.get_characteristics(self.settings_uuid)
@@ -141,12 +160,12 @@ class Pinecil:
             'name': f'Pinecil-{self.unique_id}',
             'id': self.unique_id,
         }
-    async def __read_live_item(self, crx: BleakGATTCharacteristic) -> tuple[str, int]:
+    async def __read_live_item(self, crx: BleakGATTCharacteristic) -> Tuple[str, int]:
         raw_value = await self.ble.read_characteristic(crx)
         number = struct.unpack('<L', raw_value)[0]
         return self.live_data_map.get_name(crx.uuid), number
 
-    async def get_live_data(self) -> dict[str, int]:
+    async def get_live_data(self) -> Dict[str, int]:
         logging.debug(f'GETTING ALL LIVE VALUES')
         if not self.is_connected:
             await self.connect()
