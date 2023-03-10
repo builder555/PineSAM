@@ -4,7 +4,7 @@ import logging
 import asyncio
 from pinecil_setting_limits import value_limits
 from pinecil_setting_limits import temperature_limits
-from crx_uuid_name_map import names_v220, names_v221, live_data_names
+from crx_uuid_name_map import names_v220, names_v221, bulk_data_names
 from ble import BleakGATTCharacteristic
 from ble import BLE
 import time
@@ -29,12 +29,12 @@ class SettingNameToUUIDMap:
     def get_uuid(self, name: str) -> str:
         return next((k for k, v in self.names.items() if v == name), name)
 
-class LiveDataToUUIDMap:
+class BulkDataToUUIDMap:
     def __init__(self):
-        self.names = live_data_names
+        self.names = bulk_data_names
 
     def set_version(self, version: str):
-        self.names = live_data_names
+        self.names = bulk_data_names
         
     def get_name(self, uuid: str) -> str:
         return self.names.get(uuid, uuid)
@@ -49,13 +49,13 @@ class Pinecil:
         self.ble = BLE(name='pinecil')
         self.settings_uuid: str = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
         self.bulk_data_uuid: str = '9eae1adb-9d0d-48c5-a6e7-ae93f0ea37b0'
-        self.live_data_uuid: str = 'd85efab4-168e-4a71-affd-33e27f9bc533'
+        # self.live_data_uuid: str = 'd85efab4-168e-4a71-affd-33e27f9bc533'
         self.temp_unit_crx: str = 'TemperatureUnit'
         self.settings_map = SettingNameToUUIDMap()
-        self.live_data_map = LiveDataToUUIDMap()
+        self.bulk_data_map = BulkDataToUUIDMap()
         self.crx_settings: List[BleakGATTCharacteristic] = []
-        self.crx_live_data: List[BleakGATTCharacteristic] = []
-        self.live_data_to_read: List[str] = ['LiveTemp', 'Voltage', 'HandleTemp', 'OperatingMode', 'Watts']
+        self.crx_bulk_data: BleakGATTCharacteristic
+        self.bulk_data_to_read: str = 'BulkData'
         self.is_initialized = False
         self.is_getting_settings = False
         self.__last_read_settings = {}
@@ -75,7 +75,11 @@ class Pinecil:
     async def connect(self):
         await self.ble.ensure_connected()
         self.crx_settings = await self.ble.get_characteristics(self.settings_uuid)
-        self.crx_live_data = await self.ble.get_characteristics(self.live_data_uuid)
+        bulk_crx = await self.ble.get_characteristics(self.bulk_data_uuid)
+        for crx in bulk_crx:
+            if crx.uuid == self.bulk_data_map.get_uuid(self.bulk_data_to_read):
+                self.crx_bulk_data = crx
+                break
         self.settings_map.set_version(self.__get_version(self.crx_settings))
         self.unique_id = await self.__get_pinecil_id()
         self.is_initialized = True
@@ -160,21 +164,33 @@ class Pinecil:
             'name': f'Pinecil-{self.unique_id}',
             'id': self.unique_id,
         }
-    async def __read_live_item(self, crx: BleakGATTCharacteristic) -> Tuple[str, int]:
+    async def __read_live_data(self, crx: BleakGATTCharacteristic) -> Dict[str, int]:
         raw_value = await self.ble.read_characteristic(crx)
-        number = struct.unpack('<L', raw_value)[0]
-        return self.live_data_map.get_name(crx.uuid), number
+        num_of_values = len(raw_value) >> 2 # divide by 4
+        values = struct.unpack(f'<{num_of_values}I', raw_value)
+        values_map = [
+            "LiveTemp",
+            "SetTemp",
+            "Voltage",
+            "HandleTemp",
+            "PWMLevel",
+            "PowerSource",
+            "TipResistance",
+            "Uptime",
+            "MovementTime",
+            "MaxTipTempAbility",
+            "uVoltsTip",
+            "HallSensor",
+            "OperatingMode",
+            "Watts",
+        ]
+        return dict(zip(values_map, values))
 
     async def get_live_data(self) -> Dict[str, int]:
         logging.debug(f'GETTING ALL LIVE VALUES')
         if not self.is_connected:
             await self.connect()
-        tasks = []
-        for crx in self.crx_live_data:
-            if self.live_data_map.get_name(crx.uuid) in self.live_data_to_read:
-                tasks.append(asyncio.ensure_future(self.__read_live_item(crx)))
-        results = await asyncio.gather(*tasks)
-        values = dict(results)
+        values = await self.__read_live_data(self.crx_bulk_data)
         logging.debug(f'GETTING ALL LIVE VALUES DONE')
         return values
 

@@ -19,7 +19,7 @@ def mock_ble(mocked_settings, mocked_live_data):
     async def get_characteristics(uuid):
         if uuid == 'f6d75f91-5a10-4eba-a233-47d3f26a907f':
             return mocked_settings
-        if uuid == 'd85efab4-168e-4a71-affd-33e27f9bc533':
+        if uuid == '9eae1adb-9d0d-48c5-a6e7-ae93f0ea37b0':
             return mocked_live_data
         return []
     async def read_crx(a): 
@@ -99,12 +99,20 @@ async def test_get_live_data(mock_ble, mocked_live_data):
         pinecil = Pinecil()
         await pinecil.connect()
         live_data = await pinecil.get_live_data()
-        assert list(live_data.keys()) == ['LiveTemp', 'Voltage', 'HandleTemp', 'OperatingMode', 'Watts']
-        assert live_data['LiveTemp'] == mocked_live_data[0].expected_value
-        assert live_data['Voltage'] == mocked_live_data[2].expected_value
-        assert live_data['HandleTemp'] == mocked_live_data[3].expected_value
-        assert live_data['OperatingMode'] == mocked_live_data[4].expected_value
-        assert live_data['Watts'] == mocked_live_data[5].expected_value
+        assert live_data["LiveTemp"] == mocked_live_data[0].expected_value[0]
+        assert live_data["SetTemp"] == mocked_live_data[0].expected_value[1]
+        assert live_data["Voltage"] == mocked_live_data[0].expected_value[2]
+        assert live_data["HandleTemp"] == mocked_live_data[0].expected_value[3]
+        assert live_data["PWMLevel"] == mocked_live_data[0].expected_value[4]
+        assert live_data["PowerSource"] == mocked_live_data[0].expected_value[5]
+        assert live_data["TipResistance"] == mocked_live_data[0].expected_value[6]
+        assert live_data["Uptime"] == mocked_live_data[0].expected_value[7]
+        assert live_data["MovementTime"] == mocked_live_data[0].expected_value[8]
+        assert live_data["MaxTipTempAbility"] == mocked_live_data[0].expected_value[9]
+        assert live_data["uVoltsTip"] == mocked_live_data[0].expected_value[10]
+        assert live_data["HallSensor"] == mocked_live_data[0].expected_value[11]
+        assert live_data["OperatingMode"] == mocked_live_data[0].expected_value[12]
+        assert live_data["Watts"] == mocked_live_data[0].expected_value[13]
 
 @pytest.mark.asyncio
 async def test_reading_live_data_while_disconnected_reconnects(mock_ble):
