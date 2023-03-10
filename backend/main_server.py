@@ -80,13 +80,22 @@ def broadcast(message):
 
 async def pinecil_monitor(stop_event: asyncio.Event):
     logging.info('Starting pinecil monitor')
+    should_announce_not_found = True
     while not stop_event.is_set():
         if not pinecil.is_connected:
             logging.info('waiting for pinecil...')
-            await pinecil.connect()
+            try:
+                await pinecil.connect()
+            except DeviceNotFoundException as e:
+                logging.warning(e.message)
+                response = {'status': 'ERROR', 'message': e.message}
+                if should_announce_not_found:
+                    broadcast(json.dumps(response))
+                should_announce_not_found = False
             await asyncio.sleep(1)
             continue
         try:
+            should_announce_not_found = True
             pinecil_data = await pinecil.get_live_data()
             msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data, 'status': 'OK'})
             broadcast(msg)

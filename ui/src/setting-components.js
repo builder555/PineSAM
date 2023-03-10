@@ -184,7 +184,7 @@ const settingToComponentMap = {
     min: 0,
     max: 99,
     step: 11,
-    display: (value) => (value == 0 ? 'Off' : value / 11 + 1),
+    display: (value) => (value / 11 + 1),
   },
   BoostTemperature: {
     name: 'range',
