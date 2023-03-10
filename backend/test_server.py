@@ -94,3 +94,6 @@ def test_socket_command_update_setting():
 
 def test_socket_command_get_info():
     pass
+
+def test_read_version_from_parent_directory_regardless_of_cwd():
+    pass

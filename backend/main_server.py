@@ -17,7 +17,8 @@ logging.basicConfig(level=LOG_LEVEL, format='%(asctime)s.%(msecs)03d::%(levelnam
 pinecil = Pinecil()
 
 def read_app_version():
-    with open('../version.txt') as f:
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    with open(os.path.join(parent_dir, 'version.txt')) as f:
         return f.read().strip()
 
 async def process_command(command: str, payload: dict) -> dict:
