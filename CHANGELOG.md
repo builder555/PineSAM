@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.5.5
+
+* fix: ensure correct ci files permissions [04f9c37](https://github.com/builder555/PineSAM/commit/04f9c37e73d8c6b648f725a87203b3e27897d490)
+
 ## v1.5.4
 
 * feat: using proper vue.js framework [9badfe8](https://github.com/builder555/PineSAM/commit/9badfe86ec9597cd54f198aac5bd00502ff63622)
