@@ -101,7 +101,7 @@ If you already have python installed, you can skip to step 2.
 
 ## Remote access, phones
 
-You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. Remote devices (phone) just needs to be on the same network as the pc running the ''start'' script.
+PineSAM can be accessed remotely (i.e, display on a phone) once the app is running on the main PC/laptop. Remote devices (phone) just needs to be on the same network as the pc running the ''start'' script.
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app.
 * open http://\<ip-address\>:8080/settings.html on the second device (i.e. phone).
