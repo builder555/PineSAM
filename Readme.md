@@ -73,9 +73,9 @@ chmod +x start.sh
 ./start.sh
 ```
 
-On a Mac http://localhost:8080/settings.html will open in your browser automatically. On linux you need to do it manually (for now).
-
-For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
+* On a Mac http://localhost:8080/settings.html will open in your browser automatically.
+* On linux you need to do it manually (for now).
+* For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
 
 
 ## Windows
@@ -85,8 +85,8 @@ If you already have python installed, you can skip to step 2.
 1. Install Python: https://www.python.org/downloads
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
-    * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Download the zip package of the latest release: https://github.com/builder555/PineSAM/releases/latest
+    * For Windows install [see here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
+2. Download the zip package of the latest PineSAM [release here](https://github.com/builder555/PineSAM/releases/latest).
 3. Right click the zip and open Properties > General tab, and check Unblock if it appears at the bottom. Then Unzip it.
 
 ### Run
