@@ -98,7 +98,7 @@ If you already have python installed, you can skip to step 2.
 ```
 
 
-## Remote access
+## Remote access, phones
 
 You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
 
@@ -112,7 +112,7 @@ You can access the settings remotely (i.e, run from a phone) once the app is run
 - bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 - Pinecil not detected
-    * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
+    * possible solution: need to [install](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) a BLE version of [the firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
     * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
 
 
