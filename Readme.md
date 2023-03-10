@@ -56,7 +56,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [x] Android
 
 
-## Mac/Linux 
+## Mac, Linux 
 
 ### Install
 
@@ -73,9 +73,9 @@ chmod +x start.sh
 ./start.sh
 ```
 
-On a Mac http://localhost:8080/settings.html will open in your browser automatically. On linux you need to do it manually (for now).
-
-For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
+* On a Mac http://localhost:8080/settings.html will open in your browser automatically.
+* On linux you need to do it manually (for now).
+* For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
 
 
 ## Windows
@@ -85,34 +85,35 @@ If you already have python installed, you can skip to step 2.
 1. Install Python: https://www.python.org/downloads
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
-    * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Download the source code from the latest release: https://github.com/builder555/PineSAM/releases/latest
-3. Right click the zip and open Properties > General tab and check Unblock if it appears at the bottom. Then Unzip it.
+    * For Windows install [see here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
+2. Download the zip package of the latest PineSAM [release here](https://github.com/builder555/PineSAM/releases/latest).
+3. Right click the zip and open Properties > General tab, and check Unblock if it appears at the bottom. Then Unzip it.
 
 ### Run
-1. Open a command terminal (windows powershell recommended).
-2. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
+1. PineSAM will auto connect Pinecil by BLE (no need to connect Pinecil to Windows bluetooth, which may lead to a connection failure).
+2. Open a command terminal (windows powershell recommended).
+3. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
 ```shell
 # from inside the PineSAM\backend directory:
 .\start.bat
 ```
+4. if it does not start a browser with PineSAM, check [Known Issues below](https://github.com/builder555/PineSAM#known-issues).
 
+## Remote access, phones
 
-## Remote access
-
-You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
+You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. Remote devices (phone) just needs to be on the same network as the pc running the ''start'' script.
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app.
-* open http://\<ip-address\>:8080/settings.html on the second device on the same network (i.e. phone).
+* open http://\<ip-address\>:8080/settings.html on the second device (i.e. phone).
 * this works to run PineSAM on an iPhone or Android if you don't want to install python on the phone.
-* Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the main computer.
+* Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the pc running the app.
 
 ## Known issues
-
+- If the browser is not connecting to Pinecil, check and disconnect it from other places (Windows bluetooth, a different BLE webpage).
 - bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 - Pinecil not detected
-    * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
+    * possible solution: need to [install](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) a BLE version of [the firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
     * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
 
 
