@@ -13,7 +13,7 @@ pushd dist || exit
 zip -r "${zip_path}" main_server/ serve/
 
 popd || exit
-zip -u "${zip_path}" start.sh version.txt
+zip -u -j "${zip_path}" ci/start.sh version.txt
 
 echo "asset_path=$zip_path" >> "$GITHUB_OUTPUT"
 echo "asset_name=${name}.zip" >> "$GITHUB_OUTPUT"

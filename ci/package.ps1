@@ -11,7 +11,7 @@ Push-Location dist
 Compress-Archive -Path main_server/, serve/ -DestinationPath $zip_path -Force
 Pop-Location
 
-Compress-Archive -Update start.ps1 $zip_path
+Compress-Archive -Update ci/start.ps1 $zip_path
 Compress-Archive -Update version.txt $zip_path
 
 Write-Output "asset_path=$zip_path" >> $Env:GITHUB_OUTPUT
