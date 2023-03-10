@@ -68,9 +68,10 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 ```shell
 git clone https://github.com/builder555/PineSAM
+cd PineSAM
 chmod +x setup-dev.sh
 chmod +x run-dev.sh
-./setup.sh
+./setup-dev.sh
 ```
 
 ### Run
