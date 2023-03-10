@@ -66,16 +66,16 @@ jobs:
         include:
           - os: macos-latest
             TARGET: MacOS
-            ARCHITECTURE: amd64
+            ARCHITECTURE: x64
             BUILD_CMD: ci/build.sh
             PACKAGE_CMD: ci/package.sh
           - os: windows-latest
             TARGET: Windows
-            ARCHITECTURE: amd64
+            ARCHITECTURE: x64
             BUILD_CMD: ci/build.ps1
             PACKAGE_CMD: ci/package.ps1
           - os: ubuntu-latest
-            ARCHITECTURE: amd64
+            ARCHITECTURE: x64
             TARGET: Ubuntu
             BUILD_CMD: ci/build.sh
             PACKAGE_CMD: ci/package.sh
