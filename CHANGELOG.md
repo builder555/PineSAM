@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.5.4
+
+* feat: using proper vue.js framework [9badfe8](https://github.com/builder555/PineSAM/commit/9badfe86ec9597cd54f198aac5bd00502ff63622)
+* fix: ensure settings are fetched at most once a second [764d52c](https://github.com/builder555/PineSAM/commit/764d52cd9bd80bc271910505a92629c2b2ede39b)
+* feat: using new build process [9b2c65c](https://github.com/builder555/PineSAM/commit/9b2c65cbed9b19e3d2e59c65b3d878b9e3097dfd)
+* fix: updated instructions and convenience scripts [61177fc](https://github.com/builder555/PineSAM/commit/61177fcd430ceb1da52c1bc66b15776f001f7157)
+* fix: don't use relative path to get version [64c0ce7](https://github.com/builder555/PineSAM/commit/64c0ce7eb4413d6b4e3b5e998fcb08b692f67a56)
+* fix: typo [21636f6](https://github.com/builder555/PineSAM/commit/21636f6f086051f92af04626e668dd1845b774c0)
+* update readme [c0434c8](https://github.com/builder555/PineSAM/commit/c0434c8697672aa64f0092e1ef063462a8351bf8)
+* update instructions [1de1ffa](https://github.com/builder555/PineSAM/commit/1de1ffaf6b17027764b062325d4c444eeddf1ef7)
+* fix: cleaned up setup scripts [b2cd75a](https://github.com/builder555/PineSAM/commit/b2cd75ada8a4dc9765e54a43b2058b2edbb7283b)
+
 ## [1.3.1](https://github.com/builder555/PineSAM/compare/v1.3.0...v1.3.1) (2023-02-28)
 
 
