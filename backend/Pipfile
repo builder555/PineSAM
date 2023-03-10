@@ -11,6 +11,7 @@ websockets = "*"
 pytest = "*"
 pytest-watch = "*"
 pytest-asyncio = "*"
+pyinstaller = "*"
 
 [requires]
 python_version = "3"

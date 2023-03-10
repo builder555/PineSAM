@@ -1,0 +1,111 @@
+---
+name: Buld a release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.get-version.outputs.tag }}
+      release_url: ${{ steps.release-url.outputs.release_url }}
+      name: ${{ steps.get-name.outputs.name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get version
+        id: get-version
+        run: |
+          echo "tag=v$(cat version.txt)" >> $GITHUB_OUTPUT
+      - name: Get name
+        id: get-name
+        run: |
+          echo "name=$(basename ${GITHUB_REPOSITORY})" >> $GITHUB_OUTPUT
+      - name: Update changelog
+        id: update-changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          API_URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits"
+          COMMITS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "$API_URL" | jq -r 'map(select(.commit.message | startswith("chore:") | not)) | .[] | "* \(.commit.message) [\(.sha[:7])](\(.html_url))"')
+          echo "# Changelog" > changelog.tmp
+          echo "" >> changelog.tmp
+          echo "## v$(cat version.txt)" >> changelog.tmp
+          echo "" >> changelog.tmp
+          echo "$COMMITS" >> changelog.tmp
+          echo "$COMMITS" > release_msg.tmp
+          tail -n +2 CHANGELOG.md >> changelog.tmp
+          mv changelog.tmp CHANGELOG.md
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add CHANGELOG.md
+          git commit -m "chore: update changelog"
+          git push
+          echo "release_text_path=$(realpath release_msg.tmp)" >> $GITHUB_OUTPUT
+      - name: Create Empty GH Release
+        id: create-release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get-version.outputs.tag }}
+          body_path: ${{ steps.update-changelog.outputs.release_text_path }}
+      - name: Output Release URL File
+        id: release-url
+        run: |
+          echo "release_url=${{ steps.create-release.outputs.upload_url }}" >> $GITHUB_OUTPUT
+  build:
+    name: Build Packages
+    needs: create-release
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            TARGET: MacOS
+            ARCHITECTURE: amd64
+            BUILD_CMD: ci/build.sh
+            PACKAGE_CMD: ci/package.sh
+          - os: windows-latest
+            TARGET: Windows
+            ARCHITECTURE: amd64
+            BUILD_CMD: ci/build.ps1
+            PACKAGE_CMD: ci/package.ps1
+          - os: ubuntu-latest
+            ARCHITECTURE: amd64
+            TARGET: Ubuntu
+            BUILD_CMD: ci/build.sh
+            PACKAGE_CMD: ci/package.sh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python for ${{matrix.target}}
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies for ${{matrix.target}}
+        run: |
+          pip install pyinstaller websockets bleak
+          pushd ui && npm install && popd
+      - name: Build application with pyinstaller for ${{matrix.target}}
+        run: ${{ matrix.BUILD_CMD }}
+      - name: Package application for ${{matrix.TARGET}}
+        id: package-app
+        run: |
+          ${{ matrix.PACKAGE_CMD }} "${{needs.create-release.outputs.name}}-${{matrix.TARGET}}-${{matrix.ARCHITECTURE}}-${{needs.create-release.outputs.tag}}"
+      - name: Upload release asset for ${{matrix.target}}
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.release_url}}
+          asset_path: ${{ steps.package-app.outputs.asset_path }}
+          asset_name: ${{ steps.package-app.outputs.asset_name }}
+          asset_content_type: application/zip
