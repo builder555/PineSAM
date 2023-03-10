@@ -60,7 +60,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 1. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your system
 2. Extract
-3. Mac/LinuxL run `./start.sh` in terminal. Windows: run `start.ps1` in powershell
+3. Mac/Linux run `./start.sh` in terminal. Windows: run `start.ps1` in powershell.
 
 ## Using Dev version on Mac/Linux:
 
