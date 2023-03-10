@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.7
+
+* fix: crash on start when device is not connected [4db6189](https://github.com/builder555/PineSAM/commit/4db61890c8fb47af5692f253d0fce669c21cb71a)
+* fix: display brightness values 1-10. closes #82 [1ece9b8](https://github.com/builder555/PineSAM/commit/1ece9b80fd04ede1b89636d07a64630fe72affef)
+
 ## v1.5.5
 
 * fix: ensure correct ci files permissions [04f9c37](https://github.com/builder555/PineSAM/commit/04f9c37e73d8c6b648f725a87203b3e27897d490)
