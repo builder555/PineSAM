@@ -26,3 +26,4 @@ fi
 rm -rf node_modules
 # install dependencies
 npm install -D
+cd ..

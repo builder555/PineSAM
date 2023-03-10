@@ -56,8 +56,13 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [x] iOS
 - [x] Android
 
+## Using binaries (MAY BE LAGGY OR UNSTABLE):
 
-## Mac/Linux 
+1. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your system
+2. Extract
+3. Mac/LinuxL run `./start.sh` in terminal. Windows: run `start.ps1` in powershell
+
+## Using Dev version on Mac/Linux:
 
 ### Install
 
@@ -79,24 +84,24 @@ On a Mac http://localhost:8080 will open in your browser automatically. On some 
 For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
 
 
-## Windows
+## Using Dev version on Windows:
 
-If you already have python installed, you can skip to step 2.
+If you already have Python and NodeJS installed, you can skip to step 3.
 
 1. Install Python: https://www.python.org/downloads
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
     * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Download the source code from the latest release: https://github.com/builder555/PineSAM/releases/latest
-3. Right click the zip and open Properties > General tab and check Unblock if it appears at the bottom. Then Unzip it.
+2. Install NodeJS: https://nodejs.org/en/download/
+3. Download the source code from the latest release: https://github.com/builder555/PineSAM/releases/latest
+4. Right click the zip and open Properties > General tab and check Unblock if it appears at the bottom. Then Unzip it.
 
 ### Run
 1. Open a command terminal (windows powershell recommended).
 2. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
-```shell
-# from inside the PineSAM\backend directory:
-.\setup-dev.bat
-.\run-dev.bat
+```batch
+setup-dev.bat
+run-dev.bat
 ```
 
 
@@ -116,6 +121,7 @@ You can access the settings remotely (i.e, run from a phone) once the app is run
 - Pinecil not detected
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
     * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
+    * You paired your Pinecil using system settings - unpair it.
 
 
 ## Testing
