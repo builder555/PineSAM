@@ -110,7 +110,7 @@ run-dev.bat
 You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app.
-* open http://\<ip-address\>:8080/ on the second device on the same network (i.e. phone).
+* open `http://<ip-address>:8080/` on the second device on the same network (i.e. phone).
 * this works to run PineSAM on an iPhone or Android if you don't want to install python on the phone.
 * Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the main computer.
 
