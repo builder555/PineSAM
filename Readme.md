@@ -56,7 +56,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [x] Android
 
 
-## Mac/Linux 
+## Mac, Linux 
 
 ### Install
 
@@ -86,29 +86,30 @@ If you already have python installed, you can skip to step 2.
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
     * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Download the source code from the latest release: https://github.com/builder555/PineSAM/releases/latest
-3. Right click the zip and open Properties > General tab and check Unblock if it appears at the bottom. Then Unzip it.
+2. Download the zip package of the latest release: https://github.com/builder555/PineSAM/releases/latest
+3. Right click the zip and open Properties > General tab, and check Unblock if it appears at the bottom. Then Unzip it.
 
 ### Run
-1. Open a command terminal (windows powershell recommended).
-2. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
+1. PineSAM will auto connect Pinecil by BLE (no need to connect Pinecil to Windows bluetooth, which may lead to a connection failure).
+2. Open a command terminal (windows powershell recommended).
+3. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
 ```shell
 # from inside the PineSAM\backend directory:
 .\start.bat
 ```
-
+4. if it does not start a browser with PineSAM, check [Known Issues below](https://github.com/builder555/PineSAM#known-issues).
 
 ## Remote access, phones
 
-You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
+You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. Remote devices (phone) just needs to be on the same network as the pc running the ''start'' script.
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app.
-* open http://\<ip-address\>:8080/settings.html on the second device on the same network (i.e. phone).
+* open http://\<ip-address\>:8080/settings.html on the second device (i.e. phone).
 * this works to run PineSAM on an iPhone or Android if you don't want to install python on the phone.
-* Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the main computer.
+* Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the pc running the app.
 
 ## Known issues
-
+- If the browser is not connecting to Pinecil, check and disconnect it from other places (Windows bluetooth, a different BLE webpage).
 - bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 - Pinecil not detected
