@@ -56,7 +56,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [x] iOS
 - [x] Android
 
-## Using binaries (MAY BE LAGGY OR UNSTABLE):
+## Using binaries:
 
 1. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your system
 2. Extract
