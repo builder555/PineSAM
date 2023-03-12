@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.8.0
+
+* feat: testing new speed improvement [1ce828c](https://github.com/builder555/PineSAM/commit/1ce828cc7e3ec8531220b64c24e8b21f3f415ce4)
+* fix: move start commands used for binaries [48b1a18](https://github.com/builder555/PineSAM/commit/48b1a184594f6be7106be9792097b40ab44c85fd)
+* update readme [35621ae](https://github.com/builder555/PineSAM/commit/35621ae4f1aa353ac4c10b26930ae9da209eeaab)
+* feat: messing around with css [14e89a9](https://github.com/builder555/PineSAM/commit/14e89a9cb9e5a04db3345f7630aa959aaa5d7924)
+* fix: cleaned up styling issues [cc85c89](https://github.com/builder555/PineSAM/commit/cc85c89d75cb0dd43f19f849ef9874ee152777d2)
+* fix: updated settings colours to match work hud [94985dc](https://github.com/builder555/PineSAM/commit/94985dcd3487e660f954a26b3ae41603403534d3)
+* fix: prevent crash when BLE sends 'turned off' error [8016111](https://github.com/builder555/PineSAM/commit/801611113d801b7194cbe716cd219186c9b2999c)
+* feat: add source code as separate zip [7814979](https://github.com/builder555/PineSAM/commit/7814979df4a6533d368f2b0373d6ab34747ac63e)
+
 ## v1.5.7
 
 * fix: crash on start when device is not connected [4db6189](https://github.com/builder555/PineSAM/commit/4db61890c8fb47af5692f253d0fce669c21cb71a)
