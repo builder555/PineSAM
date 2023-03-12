@@ -39,6 +39,9 @@ watch(
       :min="setting.component.min"
       :max="setting.component.max"
       :step="setting.component.step"
+      :style="{
+        backgroundSize: `${((setting.value - setting.component.min) / (setting.component.max - setting.component.min)) * 100}% 100%`,
+      }"
       @mouseup="updateSetting(name, setting.value)"
       @touchend="updateSetting(name, setting.value)"
       @blur="updateSetting(name, setting.value)"
@@ -57,8 +60,50 @@ watch(
         v-model="localValue"
       />
     </div>
-    <div v-show="!isRawValueVisible" class="tag is-info" @click="() => (isRawValueVisible = !isRawValueVisible)">
+    <div v-show="!isRawValueVisible" class="tag bg-accent" @click="() => (isRawValueVisible = !isRawValueVisible)">
       {{ (setting.component.display && setting.component.display(setting.value)) || setting.value }}
     </div>
   </div>
 </template>
+<style scoped>
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-top: 0.5rem;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-color:#ddd;
+  background-image: linear-gradient(rgba(var(--secondary-color),1), rgba(var(--secondary-color),1));
+  background-repeat: no-repeat;
+}
+input[type="range"]::-webkit-slider-thumb
+{
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border:none;
+  border-radius: 50%;
+  background: rgb(var(--accent-color));
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background .3s ease-in-out;
+}
+input[type="range"]::-moz-range-thumb
+ {
+  height: 18px;
+  width: 18px;
+  border:none;
+  border-radius: 50%;
+  background: rgb(var(--accent-color));
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #555;
+  transition: background .3s ease-in-out;
+}
+
+input[type=range]::-webkit-slider-runnable-track  {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+</style>

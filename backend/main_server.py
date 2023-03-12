@@ -99,7 +99,7 @@ async def pinecil_monitor(stop_event: asyncio.Event):
             pinecil_data = await pinecil.get_live_data()
             msg = json.dumps({'command': 'LIVE_DATA', 'payload': pinecil_data, 'status': 'OK'})
             broadcast(msg)
-            await asyncio.sleep(2)
+            await asyncio.sleep(0.5)
         except DeviceDisconnectedException:
             logging.info('Pinecil disconnected')
             broadcast(json.dumps({'status': 'ERROR', 'message': 'Device disconnected'}))

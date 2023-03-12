@@ -58,7 +58,7 @@ const setExactTemperature = (temp) => {
     <div class="live-temp">
       <div class="buttons are-large">
         <button
-          class="button change minus"
+          class="button change minus primary"
           @click="changeTemperature(-1)"
           @touchstart="onChangeTempBtnDown(-1)"
           @mousedown="onChangeTempBtnDown(-1)"
@@ -68,7 +68,7 @@ const setExactTemperature = (temp) => {
           <i class="fas fa-minus"></i>
         </button>
         <button
-          class="button change plus"
+          class="button change plus primary"
           @click="changeTemperature(1)"
           @touchstart="onChangeTempBtnDown(1)"
           @mousedown="onChangeTempBtnDown(1)"
@@ -82,40 +82,17 @@ const setExactTemperature = (temp) => {
         SET {{ store.settings?.SetTemperature?.value }}&deg;{{ store.settings?.TemperatureUnit?.value ? 'F' : 'C' }}
       </div>
       <i class="fa fa-thermometer-quarter"></i>
+      <span>&nbsp;</span>
       <span style="font-weight: 500">{{ store.liveData?.LiveTemp }}</span
       >&deg;{{ store.settings?.TemperatureUnit?.value ? 'F' : 'C' }}
       <div style="font-size: 0.2em; margin-top: -1em">CURRENT</div>
     </div>
     <div class="info-row">
-      <div class="row-item">
-        <div class="icon-text">
-          <span class="icon has-text-dark" style="width: 100%">
-            <i class="fas fa-angle-double-up"></i>
-            <span>{{ store.liveData?.PeakWatts }} W</span>
-          </span>
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="icon-text">
-          <span class="icon has-text-dark" style="width: 100%">
-            <i class="fa fa-bolt"></i>
-            <span>{{ store.liveData?.Watts }} W</span>
-          </span>
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="icon-text">
-          <span class="icon has-text-dark" style="width: 100%">
-            <i class="fa fa-plug"></i>
-            <span>{{ store.liveData?.Voltage }} V</span>
-          </span>
-        </div>
-      </div>
       <div
         v-for="(presetTemp, idx) in presets"
         :key="`preset-${idx}`"
         :aria-valuenow="presetTemp"
-        class="row-item preset button is-info is-light"
+        class="row-item preset button"
         @click="setExactTemperature(presetTemp)"
         @mousedown="onPresetBtnDown(idx)"
         @mouseup="onPresetBtnUp"
@@ -123,9 +100,33 @@ const setExactTemperature = (temp) => {
         @touchend="onPresetBtnUp"
       >
         <div class="icon-text has-text-info">
-          <span class="icon is-large">
+          <span class="icon is-large primary">
             <i class="fas fa-thermometer-half"></i>
             <span class="preset">{{ presetTemp }}</span>
+          </span>
+        </div>
+      </div>
+      <div class="row-item power">
+        <div class="icon-text">
+          <span class="icon has-text-dark" style="width: 100%">
+            <i class="fa fa-plug"></i>
+            <span>{{ store.liveData?.Voltage }} V</span>
+          </span>
+        </div>
+      </div>
+      <div class="row-item power">
+        <div class="icon-text">
+          <span class="icon has-text-dark" style="width: 100%">
+            <i class="fa fa-bolt"></i>
+            <span>{{ store.liveData?.Watts }} W</span>
+          </span>
+        </div>
+      </div>
+      <div class="row-item power">
+        <div class="icon-text">
+          <span class="icon has-text-dark" style="width: 100%">
+            <i class="fas fa-angle-double-up"></i>
+            <span>{{ store.liveData?.PeakWatts }} W</span>
           </span>
         </div>
       </div>
@@ -155,6 +156,17 @@ const setExactTemperature = (temp) => {
   top: 0;
   margin: -1px;
 }
+.live-temp .change:first-child {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.live-temp .change:last-child {
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.change i {
+  font-size: 1.9rem;
+}
 .live-temp .minus {
   left: 0;
 }
@@ -171,9 +183,25 @@ const setExactTemperature = (temp) => {
 }
 div.preset {
   border-radius: 0;
-  border-color: #c0cbcd !important;
+  border-top:0;
+  border-bottom:0;
   width: 50%;
   height: 75px;
+  font-weight: 500;
+  background-color: rgba(var(--secondary-color),0.1);
+}
+div.preset:first-child {
+  border-left-width: 1px;
+}
+div.row-item {
+  border-left-width:0px;
+}
+.power:last-child {
+  border-bottom-right-radius: 5px;
+}
+.power:nth-child(3) {
+  border-bottom-left-radius: 5px;
+  border-left-width:1px;
 }
 span.preset {
   font-size: 1.7em;

@@ -59,7 +59,7 @@ class BLE:
             await self.ensure_connected()
             return await self.client.read_gatt_char(handle) #type: ignore
         except BleakError as e:
-            if str(e).lower() == 'disconnected':
+            if str(e).lower() == 'disconnected' or str(e).lower().find('turned off') >= 0:
                 raise DeviceDisconnectedException
             raise e
 

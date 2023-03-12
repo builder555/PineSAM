@@ -206,32 +206,7 @@ settings = [
 live_data = [
     MagicMock(
         uuid='00000001-0000-1000-8000-00805f9b34fb',
-        raw_value=bytearray(b'\x1c\x00\x00\x00'),
-        expected_value=28,
-    ),
-    MagicMock(
-        uuid='00000002-0000-1000-8000-00805f9b34fb',
-        raw_value=bytearray(b'\x1a\x01\x00\x00'),
-        expected_value=282,
-    ),
-    MagicMock(
-        uuid='00000003-0000-1000-8000-00805f9b34fb',
-        raw_value=bytearray(b'3\x00\x00\x00'),
-        expected_value=51,
-    ),
-    MagicMock(
-        uuid='00000004-0000-1000-8000-00805f9b34fb',
-        raw_value=bytearray(b'\x1a\x01\x00\x00'),
-        expected_value=282,
-    ),
-    MagicMock(
-        uuid='0000000d-0000-1000-8000-00805f9b34fb',
-        raw_value=bytearray(b'\x01\x00\x00\x00'),
-        expected_value=1,
-    ),
-    MagicMock(
-        uuid='0000000e-0000-1000-8000-00805f9b34fb',
-        raw_value=bytearray(b'\x18\x00\x00\x00'),
-        expected_value=24,
+        raw_value=bytearray(b'!\x00\x00\x006\x01\x00\x00x\x00\x00\x00\x1d\x01\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00P\x00\x00\x00<,\x00\x00\xc7*\x00\x00\xc3\x01\x00\x00\x1e\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
+        expected_value=[33, 310, 120, 285, 0, 3, 80, 11324, 10951, 451, 1054, 0, 0, 0],
     ),
 ]

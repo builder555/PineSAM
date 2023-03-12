@@ -1,5 +1,27 @@
+:root {
+  --primary-color: 51,21,110;
+  --primary-rgb: rgb(51,21,110);
+  --secondary-color: 63, 7, 172;
+  --secondary-rgb: rgb(63, 7, 172);
+  --accent-color: 160,23,165;
+  --accent-rgb: rgb(160,23,165);
+}
+.primary {
+  color: rgb(var(--primary-color));
+}
+.accent {
+  color: rgb(var(--accent-color));
+}
+.secondary {
+  color: rgb(var(--secondary-color));
+}
+
 .tag {
   width: 40px;
+}
+.bg-accent {
+  background-color: rgba(var(--accent-color),0.9) !important;
+  color:#fff !important;
 }
 .pointer {
   cursor: pointer;
@@ -49,7 +71,7 @@ input[type='number'] {
 }
 
 .checkbox input:checked + label {
-  background: #55da8c;
+  background: rgb(var(--accent-color));
 }
 
 .checkbox input:checked + label:after {

@@ -1,4 +1,8 @@
+<script setup>
+defineProps(['version']);
+</script>
 <template>
+  <div class="version">v{{ version }}</div>
   <a
     href="https://github.com/builder555/PineSAM"
     target="_blank"
@@ -9,7 +13,7 @@
       width="80"
       height="80"
       viewBox="0 0 250 250"
-      style="fill: #64ceaa; color: #fff; position: absolute; top: 0; border: 0; right: 0"
+      style="fill: rgb(160,23,165); color: #fff; position: absolute; top: 0; border: 0; right: 0"
       aria-hidden="true"
     >
       <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -28,6 +32,17 @@
   </a>
 </template>
 <style scoped>
+.version {
+  position: absolute;
+  top: 27px;
+  right: 23px;
+  padding: 0.5rem;
+  color: #999;
+  font-size: 0.85rem;
+  font-weight: bold;
+  z-index: 100;
+  transform: rotate(45deg);
+}
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }

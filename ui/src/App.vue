@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, onBeforeUnmount } from 'vue';
-import TheWorkView from './components/WorkView.vue';
+import TheWorkView from './components/TheWorkView.vue';
 import TheSettings from './components/TheSettings.vue';
 import TheOctocat from './components/TheOctocat.vue';
 import TheNotification from './components/TheNotification.vue';
@@ -20,12 +20,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <the-octocat />
+  <the-octocat :version="info.app_version"/>
   <div class="container p-2 no-click">
     <the-notification v-model="store.error" />
     <div class="columns">
       <div class="column is-half is-full-mobile">
-        <the-name-display :version="info.app_version" :name="info.name" @reload="store.fetchSettings" />
+        <the-name-display :name="info.name" @reload="store.fetchSettings" />
       </div>
       <div v-show="store.isBusy" class="spinner"><div></div></div>
       <div class="column is-half is-full-mobile has-text-right-tablet has-text-left">
