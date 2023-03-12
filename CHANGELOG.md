@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.8.2
+
+* fix: use new screenshot, remove versioned ones [478629e](https://github.com/builder555/PineSAM/commit/478629e131f6efbbb3743faca6de65d74bc1d3d3)
+
 ## v1.8.1
 
 * Merge pull request #94 from builder555/master
