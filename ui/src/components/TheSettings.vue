@@ -138,7 +138,7 @@ for (const group of groups.value) {
   margin-bottom: 0.5rem;
 }
 .settings-header {
-  background: #eef5ff;
+  background-color: rgba(var(--secondary-color),0.1);
 }
 .no-shadow {
   box-shadow: none;

@@ -18,7 +18,10 @@
 
 .tag {
   width: 40px;
-  /* background-color: rgba(var(--secondary-color),0.7) !important; */
+}
+.bg-accent {
+  background-color: rgba(var(--accent-color),0.9) !important;
+  color:#fff !important;
 }
 .pointer {
   cursor: pointer;
@@ -68,7 +71,7 @@ input[type='number'] {
 }
 
 .checkbox input:checked + label {
-  background: #55da8c;
+  background: rgb(var(--accent-color));
 }
 
 .checkbox input:checked + label:after {

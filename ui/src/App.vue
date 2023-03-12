@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, onBeforeUnmount } from 'vue';
-import TheWorkView from './components/WorkView.vue';
+import TheWorkView from './components/TheWorkView.vue';
 import TheSettings from './components/TheSettings.vue';
 import TheOctocat from './components/TheOctocat.vue';
 import TheNotification from './components/TheNotification.vue';
