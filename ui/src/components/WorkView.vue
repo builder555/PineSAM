@@ -156,6 +156,14 @@ const setExactTemperature = (temp) => {
   top: 0;
   margin: -1px;
 }
+.live-temp .change:first-child {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.live-temp .change:last-child {
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
 .change i {
   font-size: 1.9rem;
 }
@@ -175,17 +183,25 @@ const setExactTemperature = (temp) => {
 }
 div.preset {
   border-radius: 0;
-  border-color: #c0cbcd !important;
+  border-top:0;
+  border-bottom:0;
   width: 50%;
   height: 75px;
   font-weight: 500;
   background-color: rgba(var(--secondary-color),0.1);
 }
+div.preset:first-child {
+  border-left-width: 1px;
+}
+div.row-item {
+  border-left-width:0px;
+}
 .power:last-child {
   border-bottom-right-radius: 5px;
 }
-.power:first-child {
+.power:nth-child(3) {
   border-bottom-left-radius: 5px;
+  border-left-width:1px;
 }
 span.preset {
   font-size: 1.7em;
