@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.8.4
+
+* fix: use proper variables in source workflow [ed0ee5f](https://github.com/builder555/PineSAM/commit/ed0ee5f5b4fb7ee0ce43c35384830b642231a996)
+
 ## v1.8.3
 
 * fix: update permissions. agian! [6ee7bec](https://github.com/builder555/PineSAM/commit/6ee7beca3845c3cf1c61a64274f881bbaa9e4742)
