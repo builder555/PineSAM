@@ -1,5 +1,24 @@
+:root {
+  --primary-color: 51,21,110;
+  --primary-rgb: rgb(51,21,110);
+  --secondary-color: 63, 7, 172;
+  --secondary-rgb: rgb(63, 7, 172);
+  --accent-color: 160,23,165;
+  --accent-rgb: rgb(160,23,165);
+}
+.primary {
+  color: rgb(var(--primary-color));
+}
+.accent {
+  color: rgb(var(--accent-color));
+}
+.secondary {
+  color: rgb(var(--secondary-color));
+}
+
 .tag {
   width: 40px;
+  /* background-color: rgba(var(--secondary-color),0.7) !important; */
 }
 .pointer {
   cursor: pointer;
