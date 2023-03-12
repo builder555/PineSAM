@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.8.3
+
+* fix: update permissions. agian! [6ee7bec](https://github.com/builder555/PineSAM/commit/6ee7beca3845c3cf1c61a64274f881bbaa9e4742)
+
 ## v1.8.2
 
 * fix: use new screenshot, remove versioned ones [478629e](https://github.com/builder555/PineSAM/commit/478629e131f6efbbb3743faca6de65d74bc1d3d3)
