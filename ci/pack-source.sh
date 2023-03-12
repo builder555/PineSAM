@@ -8,6 +8,7 @@ if [[ -z $1 ]]; then
 fi
 
 zip_name="${name}.zip"
-zip -x ci -x CODE_OF_CONDUCT.md -x CHANGELOG.md -r $zipname ./
-echo "asset_path="$(dirname "${PWD}")/$zip_name" >> $GITHUB_OUTPUT
+zip --verbose -x ci -x CODE_OF_CONDUCT.md -x CHANGELOG.md -r $zip_name ./
+zip_path=$(realpath "$zip_name")
+echo "asset_path=$zip_path" >> $GITHUB_OUTPUT
 echo "asset_name=$zip_name" >> $GITHUB_OUTPUT
