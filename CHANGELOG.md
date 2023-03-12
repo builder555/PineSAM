@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.8.1
+
+* Merge pull request #94 from builder555/master
+
+update dev to master [622daa8](https://github.com/builder555/PineSAM/commit/622daa8366d0c864fc472686aa283e4f8f1fc321)
+* fix: pack source as one of matrix strategies [bb38857](https://github.com/builder555/PineSAM/commit/bb38857034f8c2db39ba65d6819f66813ebaf57e)
+
 ## v1.8.0
 
 * feat: testing new speed improvement [1ce828c](https://github.com/builder555/PineSAM/commit/1ce828cc7e3ec8531220b64c24e8b21f3f415ce4)
