@@ -7,7 +7,7 @@ const isNameHidden = ref(true);
   <h1 class="title">
     <a class="restore-click" @click="isNameHidden = !isNameHidden || !name">
       <span class="accent" v-if="isNameHidden">PineSAM</span>
-      <span class="accent" v-else>{{ name }}</span>
+      <span class="accent small" v-else>{{ name }}</span>
     </a>
   </h1>
 </template>
@@ -18,5 +18,8 @@ const isNameHidden = ref(true);
 }
 h1 {
   font-family: 'Righteous', "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.small {
+  font-size: 0.8em;
 }
 </style>
