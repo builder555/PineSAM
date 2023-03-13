@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.9.3
+
+* fix: removed duplicate job [12d55d1](https://github.com/builder555/PineSAM/commit/12d55d11630171e84a864d3b31c2958822934ed9)
+* fix: tweak the therm. colour a bit. should close #57 [b9e75bd](https://github.com/builder555/PineSAM/commit/b9e75bdc9f338da4029af9ae9ec1288798d301af)
+
 ## v1.9.1
 
 * fix: show hints by default, remember last setting. closes #64 [accede2](https://github.com/builder555/PineSAM/commit/accede2779a25f6bc2158d24203cd86d6af15383)
