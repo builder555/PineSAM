@@ -16,7 +16,7 @@ const thermometerIcon = computed(() => {
 });
 const thermometerHue = computed(() => {
   const tempRange = 450;
-  const hueRange = 120;
+  const hueRange = 100;
   const currentTemp = store.liveData?.LiveTemp??0;
   const hue = (tempRange - currentTemp) / tempRange * hueRange;
   return hue;
