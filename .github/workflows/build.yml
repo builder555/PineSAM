@@ -57,6 +57,26 @@ jobs:
         id: release-url
         run: |
           echo "release_url=${{ steps.create-release.outputs.upload_url }}" >> $GITHUB_OUTPUT
+  package-source:
+    name: Package Source
+    needs: create-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Compress Source
+        id: package-app
+        run: |
+          ci/pack-source.sh "${{needs.create-release.outputs.name}}-Source-all-${{needs.create-release.outputs.tag}}"
+      - name: Upload release asset for ${{matrix.target}}
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.release_url}}
+          asset_path: ${{ steps.package-app.outputs.asset_path }}
+          asset_name: ${{ steps.package-app.outputs.asset_name }}
+          asset_content_type: application/zip
   build:
     name: Build Packages
     needs: create-release

@@ -1,10 +1,26 @@
 <script setup>
+import {computed} from 'vue';
 import { useAppStore } from '../stores/appstore';
 import { getLocalStorageValue } from '../storage';
 let holdingBtnTimer = false;
 let isPlusMinusHeld = false;
 const store = useAppStore();
 const presets = getLocalStorageValue(`presets`, ['315', '365']);
+const thermometerIcon = computed(() => {
+  const temp = store.liveData?.LiveTemp??0;
+  if (temp < 50) return 'fa-thermometer-empty';
+  if (temp < 100) return 'fa-thermometer-quarter';
+  if (temp < 280) return 'fa-thermometer-half';
+  if (temp < 370) return 'fa-thermometer-three-quarters';
+  return 'fa-thermometer-full';
+});
+const thermometerHue = computed(() => {
+  const tempRange = 450;
+  const hueRange = 120;
+  const currentTemp = store.liveData?.LiveTemp??0;
+  const hue = (tempRange - currentTemp) / tempRange * hueRange;
+  return hue;
+});
 const onPresetBtnDown = (idx) => {
   const setTemp = store.settings.SetTemperature.value;
   holdingBtnTimer = setTimeout(() => {
@@ -81,7 +97,12 @@ const setExactTemperature = (temp) => {
       <div style="font-size: 0.3em; margin-bottom: 0.8em">
         SET {{ store.settings?.SetTemperature?.value }}&deg;{{ store.settings?.TemperatureUnit?.value ? 'F' : 'C' }}
       </div>
-      <i class="fa fa-thermometer-quarter"></i>
+      <i
+        class="fa"
+        :class="thermometerIcon"
+        :style="{ color: `hsl(${thermometerHue}, 80%, 50%)` }"
+        style="font-size: 4rem;"
+      />
       <span>&nbsp;</span>
       <span style="font-weight: 500">{{ store.liveData?.LiveTemp }}</span
       >&deg;{{ store.settings?.TemperatureUnit?.value ? 'F' : 'C' }}
