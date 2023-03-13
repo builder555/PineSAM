@@ -28,11 +28,7 @@ onBeforeUnmount(() => {
         <the-name-display :name="info.name" @reload="store.fetchSettings" />
       </div>
       <div v-show="store.isBusy" class="spinner"><div></div></div>
-      <div class="column is-half is-full-mobile has-text-right-tablet has-text-left">
-        <h5 v-if="info.id" class="subtitle is-5">
-          <div class="is-hidden-desktop is-inline mr-6 pr-4">&nbsp;</div>
-        </h5>
-      </div>
+      <div class="column is-half is-full-mobile has-text-right-tablet has-text-left"></div>
     </div>
     <div class="is-flex is-justify-content-center mb-6">
       <the-work-view />
