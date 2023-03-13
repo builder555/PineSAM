@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 defineProps(['name']);
-defineEmits(['reload']);
 const isNameHidden = ref(true);
 </script>
 <template>
@@ -9,9 +8,6 @@ const isNameHidden = ref(true);
     <a class="restore-click" @click="isNameHidden = !isNameHidden || !name">
       <span class="accent" v-if="isNameHidden">PineSAM</span>
       <span class="accent" v-else>{{ name }}</span>
-    </a>
-    <a class="icon primary refresh-button restore-click" @click="$emit('reload')">
-      <i class="fas fa-sync-alt"></i>
     </a>
   </h1>
 </template>
