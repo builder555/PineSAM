@@ -1,18 +1,21 @@
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM&count_bg=%23107FBC&title_bg=%23555555&icon=pre-commit.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-![GitHub all releases](https://img.shields.io/github/downloads/builder555/Pinesam/total)
-[![Latest Release](https://img.shields.io/github/v/release/builder555/PineSAM)](https://github.com/builder555/PineSAM/releases/latest)
-
-
-# PineSAM
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM&count_bg=%23FF00BF&title_bg=%23625E5E&icon=pre-commit.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+![contributors welcome](https://img.shields.io/badge/contributors-welcome-aa00ff)
+![Download (all releases)](https://img.shields.io/github/downloads/builder555/pinesam/total?color=7700b3)
+![contributors](https://img.shields.io/github/contributors-anon/builder555/pinesam?color=7700b3)
+[![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=5500ff)](https://github.com/builder555/PineSAM/releases/latest)
+<br><br>
+<img src="./images/PineSAM_logo-A017A5.png" align="left" width="200" height="64" style="float:left"> <br><br>
+***
+<br>
 <img src="./screenshot.png" align="right" width="500" style="float:left">
 
 
-PineSAM = (Pinecil Settings and Menus)
+PineSAM = Pinecil Settings and Menus
 
 Why focus on soldering when you can play with the settings instead? With this app you have full control over your new shiny Pinecil V2 from your computer using bluetooth.
 
 
-**NB**: No special browser permissions required
+**NB**: No special browser BLE GATT or flags required and works on all major OS/devices.
 
 **NB**: This app needs the python backend to run on a computer, it CANNOT run entirely in the browser like Joric's UI.
 
@@ -24,7 +27,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 </details>
 <div style="clear:both;">&nbsp;</div>
 
-## Features
+# Features
+
 - [x] Automatically detect Pinecil V2 over BLE bluetooth.
 - [x] Get all settings from V2.
 - [X] Show hints toggle button for help messsages.
@@ -36,33 +40,40 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Temperature automatically adjusts based on °C or °F setting.
 - [X] Hide Minimum Voltage (per cell) when source is not battery.
 
-## Requirements to run development version
-### backend:
-- python 3 (tested with 3.10)
+## Platforms
+ | System  | Windows | MacOS | Linux | iOS | Android|
+ | :-----: | :-----: | :---: | :---: | :-: | :----: |
+ | backend |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+ | UI      |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+<br>
+
+# Install Options
+
+## I. Using pre-made binaries
+
+1. Does not require installation of python or node.js
+2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your OS system (Mac/Linux, Windows).
+2. **Mac/Linux**: extract and run `./start.sh` in terminal.
+3. **Windows**: 
+   * right click on the zip, properties> general, check box to Unblock.
+   * Run powershell as admin `.\start.ps1`
+   * If you get [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
+   
+```shell
+# set this one time in powershell
+Set-ExecutionPolicy RemoteSigned
+```
+
+
+## II. Install the Dev version (Source-all-xxx)
+### Install these to run the backend script
+- python 3 (tested with 3.10/3.11)
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
-### UI:
-- any browser (IE is not a browser)
+#### UI
+- runs on any browser (IE is not a browser)
 
-## Platforms
-### backend:
-- [x] Windows
-- [x] MacOS
-- [x] Linux
-### UI:
-- [x] Windows
-- [x] MacOS
-- [x] Linux
-- [x] iOS
-- [x] Android
-
-## Using binaries:
-
-1. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your system
-2. Extract
-3. Mac/Linux run `./start.sh` in terminal. Windows: run `start.ps1` in powershell.
-
-## Using Dev version on Mac/Linux:
+### Using Dev version on Mac/Linux
 
 ### Install
 
@@ -85,8 +96,9 @@ On a Mac http://localhost:8080 will open in your browser automatically. On some 
 For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
 
 
-## Using Dev version on Windows:
+### Using Dev version on Windows
 
+### Install
 If you already have Python and NodeJS installed, you can skip to step 3.
 
 1. Install Python: https://www.python.org/downloads
@@ -95,16 +107,18 @@ If you already have Python and NodeJS installed, you can skip to step 3.
     * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
 2. Install NodeJS: https://nodejs.org/en/download/
 3. Download the source code from the latest release: https://github.com/builder555/PineSAM/releases/latest
-4. Right click the zip and open Properties > General tab and check Unblock if it appears at the bottom. Then Unzip it.
-
-### Run
-1. Open a command terminal (windows powershell recommended).
-2. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
-```batch
-setup-dev.bat
-run-dev.bat
+4. Right click the zip and open Properties > General tab and check _Unblock_ if it appears at the bottom. Then Unzip it.
+5. Run powershell as administrator, [set permissions](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
+```shell
+# only need to set this one time in powershell
+Set-ExecutionPolicy RemoteSigned
 ```
-
+### Run
+2. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
+```shell
+setup-dev.bat   # only need to run this one time
+run-dev.bat     # run this command every time you use Pinecil
+```
 
 ## Remote access
 
@@ -116,13 +130,15 @@ You can access the settings remotely (i.e, run from a phone) once the app is run
 * Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the main computer.
 
 ## Known issues
-
-- bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
+1. bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
-- Pinecil not detected
+2. Pinecil not detected
+    * possible solution: you paired your Pinecil using system settings - unpair it from all other places.
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
     * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
-    * You paired your Pinecil using system settings - unpair it.
+    
+3. Windows Powershell permissions issue
+    * windows by default does not allow any scripts to run in powershell. `set-executionpolicy remotesigned` and make sure the zip file properties are _Unblocked_  [see permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/).
 
 
 ## Testing
