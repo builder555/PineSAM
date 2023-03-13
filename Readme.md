@@ -106,7 +106,7 @@ If you already have Python and NodeJS installed, you can skip to step 3.
     * Check "Add Python to environment variables" option
     * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
 2. Install NodeJS: https://nodejs.org/en/download/
-3. Download the source code from the latest release: https://github.com/builder555/PineSAM/releases/latest
+3. Download the Source-all-xxx from the latest release: https://github.com/builder555/PineSAM/releases/latest
 4. Right click the zip and open Properties > General tab and check _Unblock_ if it appears at the bottom. Then Unzip it.
 5. Run powershell as administrator, [set permissions](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
 ```shell
