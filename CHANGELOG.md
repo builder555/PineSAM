@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.9.1
+
+* fix: show hints by default, remember last setting. closes #64 [accede2](https://github.com/builder555/PineSAM/commit/accede2779a25f6bc2158d24203cd86d6af15383)
+* fix: link to IronOS page in hints. closes #42 [1cceff7](https://github.com/builder555/PineSAM/commit/1cceff7b2d9ac5188284ca793e094a97571f3dd9)
+* feat: colour and icon change with temperature. closes #66 and #57 [72d0c87](https://github.com/builder555/PineSAM/commit/72d0c87025c78ee72ea90e5815e89450d00362c4)
+* fix: only include what is needed for source package [3c2375e](https://github.com/builder555/PineSAM/commit/3c2375efe58e6df935d8420827cfe92d69c6dbfa)
+
 ## v1.8.4
 
 * fix: use proper variables in source workflow [ed0ee5f](https://github.com/builder555/PineSAM/commit/ed0ee5f5b4fb7ee0ce43c35384830b642231a996)
