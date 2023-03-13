@@ -58,7 +58,10 @@ for (const group of groups.value) {
         <input v-model="isHintVisible" type="checkbox" id="sw-show-hints" />
         <label for="sw-show-hints"></label>
       </div>
-      <div class="is-hidden-desktop mr-5 is-inline">&nbsp;</div>
+      <div class="is-hidden-desktop mr-1 is-inline">&nbsp;</div>
+      <p v-show="isHintVisible" class="help px-3">
+        <strong>You can find more information about each setting on the <a href="https://ralim.github.io/IronOS/Settings/" target="_blank">IronOS Page</a>.</strong>
+      </p>
     </div>
   </div>
   <div v-if="Object.keys(settings).length > 0" class="columns is-multiline restore-click">
@@ -141,7 +144,7 @@ for (const group of groups.value) {
   margin-bottom: 0.5rem;
 }
 .settings-header {
-  background-color: rgba(var(--secondary-color),0.1);
+  background-color: rgba(var(--secondary-color), 0.1);
 }
 .no-shadow {
   box-shadow: none;
