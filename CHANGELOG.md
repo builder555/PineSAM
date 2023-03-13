@@ -1,5 +1,27 @@
 # Changelog
 
+## v1.9.4
+
+* fix: move work hud up, closes #102 [f9b3b20](https://github.com/builder555/PineSAM/commit/f9b3b20e7c8a21191893709d5e47053c6c85ff2d)
+* docs: Update with information about packaged versions of PineSAM
+
+* update and add logos [3bfb1d8](https://github.com/builder555/PineSAM/commit/3bfb1d85fa23cd1e8fdd2cf33497f2c107099feb)
+* Delete .gitkeep [4543526](https://github.com/builder555/PineSAM/commit/454352664d69147c26d02c210ba124eac345bc38)
+* Delete PineSAM_logo10-5500ff.png [bc4ca9e](https://github.com/builder555/PineSAM/commit/bc4ca9e969215f71386e8791cb3582056d4a6fc2)
+* Delete PineSAM_logo11-3C00B3.png [c4e5b10](https://github.com/builder555/PineSAM/commit/c4e5b107c6fe7c491fb65a1cf66413ddd55d280a)
+* Delete PineSAM_A91DB3.png [7b80af2](https://github.com/builder555/PineSAM/commit/7b80af23893f2cdd2e4043cd13d993e817c6f341)
+* Delete PineSAM_91279E.png [934c869](https://github.com/builder555/PineSAM/commit/934c86932e3c6c2bfaa9a52d3697e5caf6efb0a1)
+* Delete Pinesam-771db3.png [ae0bc30](https://github.com/builder555/PineSAM/commit/ae0bc3007e9fe105db0d7d1c59ee1981bccf91da)
+* Delete Pinesam-aa2aff.png [56efddc](https://github.com/builder555/PineSAM/commit/56efddcb9a521ebad643ff6cb6c0bb5763158213)
+* Update Readme.md [da8f44f](https://github.com/builder555/PineSAM/commit/da8f44f825addbd12fd48ed99a7025e8d940ddfc)
+* Update Readme.md [b708afa](https://github.com/builder555/PineSAM/commit/b708afa955a95cf70abb431374994f25a5aa0f60)
+* Delete PineSAM_logo7-AA00FF.png [4246909](https://github.com/builder555/PineSAM/commit/424690958042b749144ab2dfe5862f13062d13a4)
+* Delete PineSAM_logo8-7700B3.png [4b7ab8d](https://github.com/builder555/PineSAM/commit/4b7ab8d2d12504320c840d339f528b00ed3968bc)
+* Delete PineSAM_logo9-FF00BF.png [35a588a](https://github.com/builder555/PineSAM/commit/35a588af531d2e9bac20e6d22de69d48e87ca244)
+* Merge pull request #103 from River-Mochi/dev
+
+Update readme, install instructions, badges [9c8bce6](https://github.com/builder555/PineSAM/commit/9c8bce67fc8601bc37c7ece5d3e9019984ef9758)
+
 ## v1.9.3
 
 * fix: removed duplicate job [12d55d1](https://github.com/builder555/PineSAM/commit/12d55d11630171e84a864d3b31c2958822934ed9)
