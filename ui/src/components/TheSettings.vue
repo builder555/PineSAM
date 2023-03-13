@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import settingGroups from '../setting-groups.js';
 import SettingDropdown from './SettingDropdown.vue';
 import SettingCheckbox from './SettingCheckbox.vue';
@@ -17,7 +17,10 @@ const componentsMap = {
 const store = useAppStore();
 const settings = ref(store.settings);
 const groups = ref(settingGroups);
-const isHintVisible = ref(false);
+const isHintVisible = ref(getLocalStorageValue('are-setting-hints-visible', true));
+watch(isHintVisible, (isVisible) => {
+  localStorage.setItem('are-setting-hints-visible', isVisible);
+});
 const toggleGroup = (group) => {
   group.isVisible = !group.isVisible;
   localStorage.setItem(`setting-${group.name}-visible`, group.isVisible);
