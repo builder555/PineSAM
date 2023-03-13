@@ -99,11 +99,6 @@ jobs:
             TARGET: Ubuntu
             BUILD_CMD: ci/build.sh
             PACKAGE_CMD: ci/package.sh
-          - os: ubuntu-latest
-            ARCHITECTURE: all
-            TARGET: source
-            BUILD_CMD: echo "Nothing to build"
-            PACKAGE_CMD: ci/pack-source.sh
     steps:
       - name: Checkout
         uses: actions/checkout@v3
