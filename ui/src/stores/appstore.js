@@ -5,6 +5,7 @@ import settingDescriptions from '../setting-descriptions.js';
 import settingToComponentMap from '../setting-components.js';
 
 export const useAppStore = defineStore('appStore', () => {
+  const appInfo = ref({});
   const settings = ref({});
   const rawLiveData = ref({});
   const peakWatts = ref(0);
@@ -27,6 +28,7 @@ export const useAppStore = defineStore('appStore', () => {
   });
 
   const init = async () => {
+    await fetchAppInfo();
     await fetchSettings();
     await fetchInfo();
   };
@@ -39,6 +41,11 @@ export const useAppStore = defineStore('appStore', () => {
   const fetchInfo = async () => {
     isBusy.value = true;
     await socket.send({ command: 'GET_INFO' });
+  };
+
+  const fetchAppInfo = async () => {
+    isBusy.value = true;
+    await socket.send({ command: 'GET_APP_INFO' });
   };
 
   const parseSettings = (rawSettings) => {
@@ -145,6 +152,11 @@ export const useAppStore = defineStore('appStore', () => {
     info.value = data;
     isBusy.value = false;
   });
+  socket.on('GET_APP_INFO', (data) => {
+    console.log(data);
+    appInfo.value = data;
+    isBusy.value = false;
+  });
   socket.on('LIVE_DATA', (data) => {
     rawLiveData.value = data;
     const watts = liveData.value.Watts;
@@ -158,6 +170,7 @@ export const useAppStore = defineStore('appStore', () => {
   });
 
   return {
+    appInfo,
     error,
     fetchSettings,
     info,

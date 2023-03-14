@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 bleak = "*"
 websockets = "*"
+requests = "*"
 
 [dev-packages]
 pytest = "*"
