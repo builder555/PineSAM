@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.11.1
+
+* Update TheSettings.vue [2a37927](https://github.com/builder555/PineSAM/commit/2a3792785fcfce106cf0f5f94cc91091341b8478)
+* Update Readme.md [6a0c674](https://github.com/builder555/PineSAM/commit/6a0c6748d2126743886302b07acf6055db83873c)
+* Update Readme.md [3c7cdd2](https://github.com/builder555/PineSAM/commit/3c7cdd2cd57f13b92f7f12e8fa133b3efaf535e8)
+* Update Readme.md [77e06fc](https://github.com/builder555/PineSAM/commit/77e06fc4335c7a0b8297eab23607adc73148b06e)
+* Update Readme.md [9874b37](https://github.com/builder555/PineSAM/commit/9874b378fb69860fcc9271906fe92db43284e16f)
+* Update Readme.md [8f8b68f](https://github.com/builder555/PineSAM/commit/8f8b68f1cfa6ecec089ba599811c6b8c294bc60a)
+* Update Readme.md [52737d1](https://github.com/builder555/PineSAM/commit/52737d1efbd723d1fa2e694c484d9a44c0aa962d)
+* Update Readme.md [7b724b6](https://github.com/builder555/PineSAM/commit/7b724b65711dd67a72366b1be347735397645335)
+* Merge pull request #108 from River-Mochi/dev
+
+update readme, added link to Debug Menu settings in Debug Category [25aa43f](https://github.com/builder555/PineSAM/commit/25aa43f70752cb90343626db4b65f850e1a80073)
+* fix: don't show version until it's available [3be7c04](https://github.com/builder555/PineSAM/commit/3be7c0476a6799ce42c8a50195ce5e90c32cb670)
+* feat: show when new version is available [f968bbf](https://github.com/builder555/PineSAM/commit/f968bbf2b09460cb2f7ab41ca01ac931b9397180)
+* fix: compares semver properly [3a1fb08](https://github.com/builder555/PineSAM/commit/3a1fb08e412dce8a15589b0cc8b2b4a4c8f4635a)
+
 ## v1.10.0
 
 * fix: removed reload settings button [0550eb4](https://github.com/builder555/PineSAM/commit/0550eb4caa730db4af79c0aa8d21324a892c80a8)
