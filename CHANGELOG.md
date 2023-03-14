@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.10.0
+
+* fix: removed reload settings button [0550eb4](https://github.com/builder555/PineSAM/commit/0550eb4caa730db4af79c0aa8d21324a892c80a8)
+* fix: smaller font for device name [06d69e3](https://github.com/builder555/PineSAM/commit/06d69e3ecb99402a1130bb0a3e4737dbf81f4a04)
+* feat: add debug data. closes #39 [98488fa](https://github.com/builder555/PineSAM/commit/98488fab5daa32abec0fbcc9a995f5864d52fc2b)
+
 ## v1.9.4
 
 * fix: move work hud up, closes #102 [f9b3b20](https://github.com/builder555/PineSAM/commit/f9b3b20e7c8a21191893709d5e47053c6c85ff2d)
