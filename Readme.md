@@ -34,7 +34,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Show hints toggle button for help messsages.
 - [X] Modify settings and validate values before sending to V2.
 - [X] Save to flash toggle button to commit setting changes directly to V2 (leave off for Work view to save flash cycles).
-- [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F, peak watts, live watts, input voltage.
+- [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
 - [X] Custom Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the User Interface runs on your favorite browser.
 - [X] Temperature automatically adjusts based on °C or °F setting.
