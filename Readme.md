@@ -57,7 +57,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 3. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock.
    * Run powershell as admin `.\start.ps1`
-   * Accept any windows pop-up warnings about "Serve.exe" and "main_sever.exe"
+   * Allow any windows displays pop-up warnings about "Serve.exe" and "main_sever.exe".".
    * If you get [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
    
 ```shell
