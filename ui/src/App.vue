@@ -26,7 +26,7 @@ onBeforeUnmount(() => {
     <the-notification v-model="store.error" />
     <div class="columns">
       <div class="column is-half is-full-mobile">
-        <the-name-display :name="info.name" :is-new-available="appInfo?.isNewAvailable"/>
+        <the-name-display :name="info.name" :is-new-available="appInfo?.is_new_available"/>
       </div>
       <div v-show="store.isBusy" class="spinner"><div></div></div>
       <div class="column is-half is-full-mobile has-text-right-tablet has-text-left"></div>
