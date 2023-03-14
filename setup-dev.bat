@@ -9,7 +9,7 @@ where npm >nul 2>&1 || (
     exit /b
 )
 cd backend
-python3 -m pip install --user bleak websockets
+python3 -m pip install --user bleak websockets requests
 
 cd ../ui
 rd /s /q node_modules

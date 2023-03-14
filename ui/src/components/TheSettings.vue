@@ -114,7 +114,7 @@ for (const group of groups.value) {
           </span>
         </header>
         <div v-show="isDebugVisible" class="card-content">
-          For more info see <a href="https://github.com/Ralim/IronOS/blob/dev/source/Core/BSP/Pinecilv2/ble_handlers.cpp" target="_blank">source code</a>.
+          For more info see <a href="https://ralim.github.io/IronOS/DebugMenu/" target="_blank"> IronOS Debug Menu</a>.
           <form @submit.prevent="">
             <div
               v-for="name in Object.keys(debugData)"

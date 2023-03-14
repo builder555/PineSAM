@@ -9,6 +9,7 @@ import { wakeLock } from './pwa.js';
 import { useAppStore } from './stores/appstore.js';
 const store = useAppStore();
 const info = computed(() => store.info);
+const appInfo = computed(() => store.appInfo);
 let awakeLock = null;
 onMounted(async () => {
   awakeLock = await wakeLock.request();
@@ -20,12 +21,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <the-octocat :version="info.app_version"/>
+  <the-octocat :version="appInfo?.app_version"/>
   <div class="container p-2 no-click">
     <the-notification v-model="store.error" />
     <div class="columns">
       <div class="column is-half is-full-mobile">
-        <the-name-display :name="info.name" />
+        <the-name-display :name="info.name" :is-new-available="appInfo?.is_new_available"/>
       </div>
       <div v-show="store.isBusy" class="spinner"><div></div></div>
       <div class="column is-half is-full-mobile has-text-right-tablet has-text-left"></div>

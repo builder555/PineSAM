@@ -4,6 +4,7 @@ import os
 import websockets
 import websockets.exceptions
 import json
+import requests
 from ble import DeviceNotFoundException
 from ble import DeviceDisconnectedException
 from pinecil_ble import Pinecil
@@ -21,7 +22,24 @@ def read_app_version():
     with open(os.path.join(parent_dir, 'version.txt')) as f:
         return f.read().strip()
 
+def get_latest_version():
+    url = 'https://api.github.com/repos/builder555/PineSAM/releases/latest'
+    release_info = requests.get(url).json()
+    return release_info.get('tag_name', read_app_version()).strip('v')
+
+def is_semver_greater(v1, v2):
+    v1 = [int(x) for x in v1.split('.')]
+    v2 = [int(x) for x in v2.split('.')]
+    return any(a>b for a,b in zip(v1, v2))
+
 async def process_command(command: str, payload: dict) -> dict:
+    if command == 'GET_APP_INFO':
+        app_version = read_app_version()
+        info = {
+            'app_version': app_version,
+            'is_new_available': is_semver_greater(get_latest_version(), app_version),
+        }
+        return {'status': 'OK', 'payload': info}
     while not pinecil.is_connected:
         await asyncio.sleep(0.5)
     if command == 'GET_SETTINGS':
@@ -36,7 +54,6 @@ async def process_command(command: str, payload: dict) -> dict:
         return {'status': 'OK'}
     if command == 'GET_INFO':
         info = await pinecil.get_info()
-        info['app_version'] = read_app_version()
         return {'status': 'OK', 'payload': info}
     return {'status': 'ERROR', 'message': 'Unknown command'}
 

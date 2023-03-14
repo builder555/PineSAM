@@ -2,7 +2,7 @@
 defineProps(['version']);
 </script>
 <template>
-  <div class="version">v{{ version }}</div>
+  <div class="version" v-if="version">v{{ version }}</div>
   <a
     href="https://github.com/builder555/PineSAM"
     target="_blank"

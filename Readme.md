@@ -34,8 +34,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Show hints toggle button for help messsages.
 - [X] Modify settings and validate values before sending to V2.
 - [X] Save to flash toggle button to commit setting changes directly to V2 (leave off for Work view to save flash cycles).
-- [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F, peak watts, live watts, input voltage.
-- [X] Custom Preset buttons to allow quick change of user defined, commonly used temperatures (saves in local settings.html file).
+- [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
+- [X] Custom Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the User Interface runs on your favorite browser.
 - [X] Temperature automatically adjusts based on °C or °F setting.
 - [X] Hide Minimum Voltage (per cell) when source is not battery.
@@ -52,11 +52,12 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ## I. Using pre-made binaries
 
 1. Does not require installation of python or node.js
-2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your OS system (Mac/Linux, Windows).
+2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your OS system (Mac, Linux, Windows).
 2. **Mac/Linux**: extract and run `./start.sh` in terminal.
 3. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock.
    * Run powershell as admin `.\start.ps1`
+   * Allow any windows displays pop-up warnings about "Serve.exe" and "main_sever.exe".".
    * If you get [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
    
 ```shell
