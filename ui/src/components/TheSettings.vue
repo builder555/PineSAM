@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 import settingGroups from '../setting-groups.js';
 import SettingDropdown from './SettingDropdown.vue';
 import SettingCheckbox from './SettingCheckbox.vue';
@@ -18,6 +18,8 @@ const store = useAppStore();
 const settings = ref(store.settings);
 const groups = ref(settingGroups);
 const isHintVisible = ref(getLocalStorageValue('are-setting-hints-visible', true));
+const debugData = computed(() => store.rawLiveData);
+const isDebugVisible = ref(false);
 watch(isHintVisible, (isVisible) => {
   localStorage.setItem('are-setting-hints-visible', isVisible);
 });
@@ -96,6 +98,35 @@ for (const group of groups.value) {
                 </div>
               </div>
               <p v-show="isHintVisible" class="help">{{ settings[name].hint }}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-if="Object.keys(debugData).length > 0" class="columns is-multiline restore-click">
+    <div class="column is-4-widescreen is-6-tablet is-12-mobile">
+      <div class="card no-shadow">
+        <header class="card-header navbar-link is-arrowless settings-header" @click="isDebugVisible=!isDebugVisible">
+          <p class="card-header-title">Debug Data</p>
+          <span class="icon">
+            <i class="fa" :class="isDebugVisible ? 'fa-angle-down' : 'fa-angle-right'"></i>
+          </span>
+        </header>
+        <div v-show="isDebugVisible" class="card-content">
+          For more info see <a href="https://github.com/Ralim/IronOS/blob/dev/source/Core/BSP/Pinecilv2/ble_handlers.cpp" target="_blank">source code</a>.
+          <form @submit.prevent="">
+            <div
+              v-for="name in Object.keys(debugData)"
+              :key="name"
+              class="mfield my-0 py-0"
+            >
+              <div class="column is-half px-0 my-0">
+                <label class="label">{{ name }}</label>
+              </div>
+              <div class="column is-half is-flex is-justify-content-end px-0">
+                <input :value="debugData[name]" class="input py-0" type="text" style="height: auto" disabled />
+              </div>
             </div>
           </form>
         </div>
