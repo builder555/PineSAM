@@ -165,6 +165,7 @@ export const useAppStore = defineStore('appStore', () => {
     isBusy,
     isSaveToFlash,
     liveData,
+    rawLiveData,
     setTemperature,
     settings,
     updateSetting,
