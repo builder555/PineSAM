@@ -120,7 +120,7 @@ run-dev.bat     # run this command every time you use Pinecil
 2. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 
-## 📱 Remote access
+## :signal_strength: Remote access
 
 You can access the settings remotely (i.e, from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
 
