@@ -143,7 +143,7 @@ You can access the settings remotely (i.e, from a phone) once the app is running
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned`.
 
 
-## Testing
+## :eyes: Testing
 
 ```shell
 # run inside 'backend' directory:
