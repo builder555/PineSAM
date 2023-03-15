@@ -140,7 +140,7 @@ You can access the settings remotely (i.e, from a phone) once the app is running
     * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
     
 3. Windows Powershell permissions issue
-    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and execute in powershell ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)):<br>
+    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and set powershell to remotesigned ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)):<br>
     `set-executionpolicy remotesigned`
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned`.
 
