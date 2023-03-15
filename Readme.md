@@ -122,7 +122,7 @@ run-dev.bat     # run this command every time you use Pinecil
 
 ## Remote access
 
-You can access the settings remotely (i.e, run from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
+You can access the settings remotely (i.e, from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app.
 * open `http://<ip-address>:8080/` on the second device on the same network (i.e. phone).
