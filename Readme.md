@@ -4,11 +4,12 @@
 [![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=7700b3)](https://github.com/builder555/PineSAM/releases/latest)
 ![bluetooth](https://custom-icon-badges.demolab.com/badge/-bluetooth-7700b3.svg?logo=bluetooth&logoColor=white)
 <br><br>
-<img src="./images/PineSAM_logo-A017A5.png" align="left" width="150" height="48" style="float:left"> <br><br>
+<img src="./images/PineSAM_logo-A017A5.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
 ---
 <br>
 <img src="./images/workHUD.png" align="right" width="350" style="float:left">
-PineSAM = Pinecil Settings and Menus
+
+#### PineSAM = Pinecil Settings and Menus
 
 Why focus on soldering when you can play with the settings instead? With this app you have full control over your new shiny Pinecil V2 from your computer using bluetooth.
 
