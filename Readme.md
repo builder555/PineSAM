@@ -135,11 +135,11 @@ You can access the settings remotely (i.e, from a phone) once the app is running
 ## 👀 Known issues
 1. bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
-2. Pinecil not detected
+2. Pinecil not detected</summary>
     * possible solution: you paired your Pinecil using system settings - unpair it from all other places.
     * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
     * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
-    
+
 3. Windows Powershell permissions issue
     * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and set powershell to remotesigned ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)):<br>
     `set-executionpolicy remotesigned`
