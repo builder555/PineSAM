@@ -66,14 +66,14 @@ Set-ExecutionPolicy RemoteSigned
 5. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 ## II. Install the Dev version (Source-all-xxx)
-### Install these to run the backend script
+### A. Install these to run the backend script
 - python 3 (tested with 3.10/3.11)
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
 #### UI
 - runs on any browser (IE is not a browser)
 
-### Using Dev version on Mac/Linux
+### B. Using Dev version on Mac/Linux
 
 ### Install
 
@@ -96,7 +96,7 @@ chmod +x run-dev.sh
 * See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 
-### Using Dev version on Windows
+### C. Using Dev version on Windows
 
 ### Install
 If you already have Python and NodeJS installed, you can skip to step 3.
@@ -122,7 +122,7 @@ run-dev.bat     # run this command every time you use Pinecil
 2. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 
-## Remote access
+## III. Remote access
 
 You can access the settings remotely (i.e, from a phone) once the app is running on the main PC/laptop. All devices need to be on the same network.
 
@@ -131,7 +131,7 @@ You can access the settings remotely (i.e, from a phone) once the app is running
 * this works to run PineSAM on an iPhone or Android if you don't want to install python on the phone.
 * Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the main computer.
 
-## Known issues
+## IV. Known issues
 1. bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 2. Pinecil not detected
