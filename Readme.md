@@ -57,8 +57,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 3. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock.
    * Run powershell as admin `.\start.ps1`
-   * Allow any windows displays pop-up warnings about "Serve.exe" and "main_sever.exe".".
-   * If you get [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
+   * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
+   * If you get errors in powershell, set the permissions to allow scripts (reference: [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
    
 ```shell
 Set-ExecutionPolicy RemoteSigned
@@ -116,7 +116,7 @@ Set-ExecutionPolicy RemoteSigned
 ### Run
 2. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
 ```shell
-setup-dev.bat   # only need to run this one time
+setup-dev.bat   # only need to run this one time for each new version
 run-dev.bat     # run this command every time you use Pinecil
 ```
 
