@@ -2,8 +2,8 @@
 ![contributors welcome](https://custom-icon-badges.demolab.com/badge/contributors-welcome-A017A5.svg?logo=heart&logoColor=white)
 ![Download (all releases)](https://img.shields.io/github/downloads/builder555/pinesam/total?color=A017A5)
 ![bluetooth](https://custom-icon-badges.demolab.com/badge/-bluetooth-7700b3.svg?logo=bluetooth&logoColor=white)
-[![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=5500ff)](https://github.com/builder555/PineSAM/releases/latest)
-<br><br>
+[![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=7700b3)](https://github.com/builder555/PineSAM/releases/latest)
+<br><br>5500ff
 <img src="./images/PineSAM_logo-A017A5.png" align="left" width="175" height="56" style="float:left"> <br><br>
 ***
 <br>
