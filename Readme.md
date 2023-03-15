@@ -58,11 +58,9 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * right click on the zip, properties> general, check box to Unblock.
    * Run powershell as admin `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
-   * If you get errors in powershell, set the permissions to allow scripts (reference: [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
-   
-```shell
-Set-ExecutionPolicy RemoteSigned
-```
+   * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts (reference: [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
+   * ```Set-ExecutionPolicy RemoteSigned```
+
 5. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 ## II. Install the Dev version (Source-all-xxx)
