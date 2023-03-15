@@ -31,16 +31,13 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 # 💫 Features
 
-- [x] Automatically detect Pinecil V2 over BLE bluetooth.
-- [x] Get all settings from V2.
-- [X] Show hints toggle button for help messsages.
-- [X] Modify settings and validate values before sending to V2.
-- [X] Save to flash toggle button to commit setting changes directly to V2 (leave off for Work view to save flash cycles).
+- [x] Automatically detects Pinecil V2 over BLE.
+- [x] Control all settings on the device.
+- [X] Save your device flash by only changing settings in memory (with "Save To Flash" switched off).
 - [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
 - [X] Custom Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
-- [X] Backend runs locally on all major platforms/OS while the User Interface runs on your favorite browser.
+- [X] Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.
 - [X] Temperature automatically adjusts based on °C or °F setting.
-- [X] Power Settings: hide minimum voltage (per cell) when power source is not 3S-6S.
 
 ## Platforms
  | System  | MacOS | Linux | Windows | iOS | Android|
@@ -66,14 +63,14 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ## II. Install the Dev version (Source-all-xxx)
 
 For the backend script, first install:
+- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
-- pipenv
+- [pipenv](https://pipenv.pypa.io/en/latest/install/)
 - [node+npm](https://nodejs.org/en/download/)
 <details>
   <summary>
-    
-  ### Mac/Linux dev install
-    
+  
+  ### Mac/Linux install
   </summary>
   
 #### Setup
@@ -97,9 +94,8 @@ chmod +x run-dev.sh
 
 <details>
   <summary>
-    
-### Windows dev install
   
+### Windows dev install
   </summary>
 
 #### Install
@@ -128,48 +124,35 @@ run-dev.bat     # run this command every time you use Pinecil
 
 ## :signal_strength: Remote access
 
-You can access the settings remotely (i.e, from a phone) once the app is running on the main PC/laptop.
+You can access the settings remotely once the app is running on the main PC/laptop.
 
 * Find the [local IP address](https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108) of the device running the app.
-* open `http://<ip-address>:8080/` on the second device on the same network (i.e. phone).
-* this works to run PineSAM on an iPhone or Android if you don't want to install python on the phone.
-* Pinecil needs to be within BLE range of the computer running the PineSAM app; the 2nd device/phone just needs to be within Wifi/network range of the main computer.
+* open `http://<ip-address>:8080/` on the second device on the same network (e.g., a phone).
+* Pinecil needs to be within BLE range of the computer running the PineSAM app.
 
-## 👀 Known issues
+## 🚧 Known issues
 1. bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 
-<details>
-<summary>2. Pinecil not detected</summary>
+2. Pinecil not detected
+    * possible reason: you paired your Pinecil using system settings. solution: unpair it from all other places.  
+    * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip); below IronOS 2.21 only BETA versions will work with PineSAM.
 
-* possible solution: you paired your Pinecil using system settings - unpair it from all other places.  
-* possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
-* upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
-
-</details>
-<details>
-  <summary>3. Windows Powershell issue</summary>
-  
-* windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and set powershell to remotesigned with: <br>
+3. Windows Powershell issue
+    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and set powershell to remotesigned with:<br/>
     `set-executionpolicy remotesigned`
-* check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
-</details>
+    * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
   
 4. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install hints and solutions to some common issues.
+5. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
 
 
-## 🔍 Testing
+## 🛠️ Running Unit tests
 
 ```shell
 # run inside 'backend' directory:
 pipenv run test
 ```
-## 💬 Questions?
-Feel free to [open an issue](https://github.com/builder555/PineSAM/issues).
-
-## :heart_eyes: Support
-If you like this project, give it a ⭐ and share it with friends!
-
 
 ## :book: References
 
