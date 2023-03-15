@@ -53,8 +53,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 1. Does not require installation of python or node.js
 2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your OS system (Mac, Linux, Windows).
-2. **Mac/Linux**: extract and run `./start.sh` in terminal.
-3. **Windows**: 
+3. **Mac/Linux**: extract and run `./start.sh` in terminal.
+4. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock.
    * Run powershell as admin `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
@@ -63,7 +63,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ```shell
 Set-ExecutionPolicy RemoteSigned
 ```
-
+5. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 ## II. Install the Dev version (Source-all-xxx)
 ### Install these to run the backend script
@@ -91,9 +91,9 @@ chmod +x run-dev.sh
 # press CTRL+C in the terminal window to stop
 ```
 
-On a Mac http://localhost:8080 will open in your browser automatically. On some linux distros you may need to do it manually.
-
-For Debian 12 instructions, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
+* On a Mac http://localhost:8080 will open in your browser automatically. On some linux distros you may need to do it manually.
+* For Debian 12 hints, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
+* See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 
 ### Using Dev version on Windows
@@ -114,11 +114,13 @@ If you already have Python and NodeJS installed, you can skip to step 3.
 Set-ExecutionPolicy RemoteSigned
 ```
 ### Run
-2. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
+1. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
 ```shell
 setup-dev.bat   # only need to run this one time for each new version
 run-dev.bat     # run this command every time you use Pinecil
 ```
+2. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
+
 
 ## Remote access
 
