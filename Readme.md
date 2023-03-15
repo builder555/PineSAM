@@ -7,10 +7,9 @@
 <img src="./images/PineSAM_logo-A017A5.png" align="left" width="175" height="56" style="float:left"> <br><br>
 ---
 <br>
-<img src="./images/workHUD.png" align="right" width="350" style="float:left">
+<img src="./images/workHUD.png" align="right" width="350" style="float:left"><
 
-
-PineSAM = Pinecil Settings and Menus <i class="fa-brands fa-bluetooth-b"></i>
+PineSAM = Pinecil Settings and Menus
 
 Why focus on soldering when you can play with the settings instead? With this app you have full control over your new shiny Pinecil V2 from your computer using bluetooth.
 
