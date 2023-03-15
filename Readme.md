@@ -88,9 +88,7 @@ chmod +x run-dev.sh
 # press CTRL+C in the terminal window to stop
 ```
 * On a Mac http://localhost:8080 will open in your browser automatically.
-* On some linux distros you may need to manually open http://localhost:8080
-* For Debian 12 hints, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
-* If you run into problems, see [Known Issues](https://github.com/builder555/PineSAM#known-issues) below.
+* Some Linux distros may need http://localhost:8080 opened manually. Debian12 hints [here](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
 
 ### Using Dev version on Windows
 
