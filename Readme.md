@@ -110,7 +110,7 @@ If you already have Python and NodeJS installed, you can skip to step 3.
 4. Right click the zip and open Properties > General tab and check _Unblock_ if it appears at the bottom. Then Unzip it.
 5. Run powershell as administrator, [set permissions](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
 ```shell
-# only need to set this one time in powershell
+# setting this one time in powershell normally persists on reboots.
 Set-ExecutionPolicy RemoteSigned
 ```
 ### Run
@@ -138,7 +138,8 @@ You can access the settings remotely (i.e, run from a phone) once the app is run
     * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
     
 3. Windows Powershell permissions issue
-    * windows by default does not allow any scripts to run in powershell. `set-executionpolicy remotesigned` and make sure the zip file properties are _Unblocked_  [see permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/).
+    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and execute `set-executionpolicy remotesigned` in powershell ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
+    * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it if it is not `RemoteSigned`.
 
 
 ## Testing
