@@ -4,7 +4,7 @@
 ![contributors](https://img.shields.io/github/contributors-anon/builder555/pinesam?color=7700b3)
 [![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=5500ff)](https://github.com/builder555/PineSAM/releases/latest)
 <br><br>
-<img src="./images/PineSAM_logo-A017A5.png" align="left" width="200" height="64" style="float:left"> <br><br>
+<img src="./images/PineSAM_logo-A017A5.png" align="left" width="175" height="56" style="float:left"> <br><br>
 ***
 <br>
 <img src="./screenshot.png" align="right" width="500" style="float:left">
