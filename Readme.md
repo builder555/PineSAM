@@ -61,7 +61,6 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * If you get [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
    
 ```shell
-# set this one time in powershell
 Set-ExecutionPolicy RemoteSigned
 ```
 
