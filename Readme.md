@@ -73,7 +73,7 @@ For the backend script, install:
 <details>
   <summary>
     
-  ### Mac/Linux dev setup
+  ### Mac/Linux dev install
     
   </summary>
   
@@ -99,7 +99,7 @@ chmod +x run-dev.sh
 <details>
   <summary>
     
-### Windows dev setup
+### Windows dev install
   
   </summary>
 
