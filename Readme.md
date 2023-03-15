@@ -55,8 +55,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your OS system (Mac, Linux, Windows).
 3. **Mac/Linux**: extract and run `./start.sh` in terminal.
 4. **Windows**: 
-   * right click on the zip, properties> general, check box to Unblock.
-   * Run powershell as admin `.\start.ps1`
+   * right click on the zip, properties> general, check box to Unblock and extract.
+   * Run powershell as admin, cd to the pinesam folder and `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts (reference: [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
    * ```Set-ExecutionPolicy RemoteSigned```
