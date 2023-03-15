@@ -150,7 +150,10 @@ You can access the settings remotely (i.e, from a phone) once the app is running
 pipenv run test
 ```
 
-## References
+## :heart_eyes: Support
+If you like this project, give it a ⭐ and share it with friends!
+
+## :book: References
 
 - [Pinecil](https://wiki.pine64.org/wiki/Pinecil) - The Pinecil Wiki page
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
