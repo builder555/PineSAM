@@ -69,8 +69,10 @@ For the backend script, install:
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
 
-### Using Dev version on Mac/Linux
-
+<details>
+  <summary> Using Dev version on Mac/Linux </summary>
+  <p>
+    
 #### Setup
 
 ```shell
@@ -89,6 +91,10 @@ chmod +x run-dev.sh
 * On a Mac http://localhost:8080 will open in your browser automatically.
 * Some Linux distros may need http://localhost:8080 opened manually. Debian12 hints [here](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
 
+  </p>
+</details>
+<div style="clear:both;">&nbsp;</div>
+    
 ### Using Dev version on Windows
 
 #### Install
