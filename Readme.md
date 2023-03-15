@@ -61,8 +61,6 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
    * ```Set-ExecutionPolicy RemoteSigned```
 
-5. Done! 🎉 now you can enjoy some soldering. Please ⭐ and share it with friends!
-
 ## II. Install the Dev version (Source-all-xxx)
 ### Requirements 
 - any browser to run the UI (IE is not a browser)
