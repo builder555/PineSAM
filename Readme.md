@@ -72,7 +72,7 @@ For the backend script, first install:
 <details>
   <summary>
     
-  ### 🍎 🐧 Mac/Linux dev install
+  ### 🍎🐧 Mac/Linux dev install
     
   </summary>
   
