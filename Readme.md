@@ -18,10 +18,14 @@ Why focus on soldering when you can play with the settings instead? With this ap
 **NB**: This app needs the python backend to run on a computer, it CANNOT run entirely in the browser like Joric's UI.
 
 <details>
-  <summary>Full settings view</summary>
-  <p>
-    <img src="./full_settings.png"/>
-  </p>
+  <summary>
+    
+#### Full settings view
+
+  </summary>
+
+<img src="./full_settings.png" width="900"> 
+
 </details>
 <div style="clear:both;">&nbsp;</div>
 <br clear="right"/>
@@ -72,7 +76,7 @@ For the backend script, install:
   ### Mac/Linux dev setup
     
   </summary>
-    
+  
 #### Setup
 ```shell
 git clone https://github.com/builder555/PineSAM
