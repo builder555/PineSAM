@@ -27,7 +27,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 </details>
 <div style="clear:both;">&nbsp;</div>
 
-# 🚀 Features
+# 💫 Features
 
 - [x] Automatically detect Pinecil V2 over BLE bluetooth.
 - [x] Get all settings from V2.
