@@ -94,8 +94,10 @@ chmod +x run-dev.sh
   </p>
 </details>
 <div style="clear:both;">&nbsp;</div>
-    
-### Using Dev version on Windows
+
+<details>
+  <summary>Using Dev version on Windows</summary>
+  <p>
 
 #### Install
 If you already have Python and NodeJS installed, you can skip to step 3.
@@ -118,6 +120,9 @@ Set-ExecutionPolicy RemoteSigned
 setup-dev.bat   # only need to run this one time for each new version
 run-dev.bat     # run this command every time you use Pinecil
 ```
+  </p>
+</details>
+<div style="clear:both;">&nbsp;</div>
 
 ## :signal_strength: Remote access
 
