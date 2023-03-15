@@ -150,7 +150,7 @@ You can access the settings remotely (i.e, from a phone) once the app is running
 pipenv run test
 ```
 ## 💬 Questions?
-Feel free to [open an issue[(https://github.com/builder555/PineSAM/issues).
+Feel free to [open an issue](https://github.com/builder555/PineSAM/issues).
 
 ## :heart_eyes: Support
 If you like this project, give it a ⭐ and share it with friends!
