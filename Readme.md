@@ -94,8 +94,7 @@ chmod +x run-dev.sh
 * On a Mac http://localhost:8080 will open in your browser automatically.
 * On some linux distros you may need to manually open http://localhost:8080
 * For Debian 12 hints, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
-* If you run into problems, see [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) 
-
+* If you run into problems, see [Known Issues](https://github.com/builder555/PineSAM#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) 
 
 ### Using Dev version on Windows
 
