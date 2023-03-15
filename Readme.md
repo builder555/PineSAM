@@ -69,8 +69,9 @@ For the backend script, install:
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
 
+
 <details>
-  <summary> Mac/Linux dev install</summary>
+  <summary>Mac/Linux dev install</summary>
   <p>
     
 #### Setup
