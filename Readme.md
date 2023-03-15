@@ -64,14 +64,14 @@ Why focus on soldering when you can play with the settings instead? With this ap
 5. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 ## II. Install the Dev version (Source-all-xxx)
-### A. Install these to run the backend script
+### Install these to run the backend script
 - python 3 (tested with 3.10/3.11)
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
 #### UI
 - runs on any browser (IE is not a browser)
 
-### B. Using Dev version on Mac/Linux
+### Using Dev version on Mac/Linux
 
 ### Install
 
@@ -94,7 +94,7 @@ chmod +x run-dev.sh
 * See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
 
 
-### C. Using Dev version on Windows
+### Using Dev version on Windows
 
 ### Install
 If you already have Python and NodeJS installed, you can skip to step 3.
