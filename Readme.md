@@ -61,8 +61,6 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * ```Set-ExecutionPolicy RemoteSigned```
 
 ## II. Install the Dev version (Source-all-xxx)
-### Requirements 
-- any browser to run the UI (IE is not a browser)
 
 For the backend script, install:
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
@@ -71,7 +69,7 @@ For the backend script, install:
 
 
 <details>
-  <summary>Mac/Linux dev install</summary>
+  <summary>Mac/Linux dev setup</summary>
   <p>
     
 #### Setup
@@ -97,7 +95,7 @@ chmod +x run-dev.sh
 <div style="clear:both;">&nbsp;</div>
 
 <details>
-  <summary>Windows dev install</summary>
+  <summary>Windows dev setup</summary>
   <p>
 
 #### Install
