@@ -58,7 +58,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * right click on the zip, properties> general, check box to Unblock, then extract.
    * Run powershell as admin, cd to the pinesam folder and `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
-   * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts (reference: [permission errors](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
+   * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
    * ```Set-ExecutionPolicy RemoteSigned```
 
 5. Done! 🎉 now you can enjoy some soldering. Please ⭐ and share it with friends!
