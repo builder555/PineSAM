@@ -24,7 +24,6 @@ Why focus on soldering when you can play with the settings instead? With this ap
   </p>
 </details>
 <div style="clear:both;">&nbsp;</div>
-
 <br clear="right"/>
 
 # 💫 Features
