@@ -68,7 +68,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - any browser to run the UI (IE is not a browser)
 
 For the backend script, install:
-- python 3 (tested with 3.10/3.11)
+- [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
 
