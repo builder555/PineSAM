@@ -70,11 +70,9 @@ For the backend script, install:
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
 
-
 ### Using Dev version on Mac/Linux
 
-#### Install
-If you already have Python 3, NodeJS, and pipenv installed then `git clone` the source code.
+#### Setup
 
 ```shell
 git clone https://github.com/builder555/PineSAM
