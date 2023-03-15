@@ -108,7 +108,7 @@ If you already have Python and NodeJS installed, you can skip to step 3.
 2. Install NodeJS: https://nodejs.org/en/download/
 3. Download the Source-all-xxx from the latest release: https://github.com/builder555/PineSAM/releases/latest
 4. Right click the zip and open Properties > General tab and check _Unblock_ if it appears at the bottom. Then Unzip it.
-5. Run powershell as administrator, [set permissions](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)
+5. Run powershell as administrator, set permissions to RemoteSigned ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
 ```shell
 # setting this one time in powershell normally persists on reboots.
 Set-ExecutionPolicy RemoteSigned
