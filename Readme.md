@@ -41,7 +41,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Power Settings: hide minimum voltage (per cell) when power source is not 3S-6S.
 
 ## Platforms
- | System  | MacOS | :penguin: Linux | Windows | iOS | Android|
+ | System  | MacOS | Linux | Windows | iOS | Android|
  | :-----: | :-----: | :---: | :---: | :-: | :----: |
  | UI      |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
  | backend |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
