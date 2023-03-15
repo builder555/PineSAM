@@ -38,7 +38,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Custom Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the User Interface runs on your favorite browser.
 - [X] Temperature automatically adjusts based on °C or °F setting.
-- [X] Hide Minimum Voltage (per cell) when source is not battery.
+- [X] Power Settings: hide minimum voltage (per cell) when power source is not 3S-6S.
 
 ## Platforms
  | System  | Windows | MacOS | Linux | iOS | Android|
