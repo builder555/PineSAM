@@ -90,7 +90,7 @@ chmod +x run-dev.sh
 * On a Mac http://localhost:8080 will open in your browser automatically.
 * On some linux distros you may need to manually open http://localhost:8080
 * For Debian 12 hints, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
-* If you run into problems, see [Known Issues](https://github.com/builder555/PineSAM#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) 
+* If you run into problems, see [Known Issues](https://github.com/builder555/PineSAM#known-issues) below.
 
 ### Using Dev version on Windows
 
@@ -139,6 +139,7 @@ You can access the settings remotely (i.e, from a phone) once the app is running
     * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and set powershell to remotesigned ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)):<br>
     `set-executionpolicy remotesigned`
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned`.
+4. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install tips and solutions to some common issues.
 
 
 ## 🔍 Testing
