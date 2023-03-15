@@ -70,7 +70,7 @@ For the backend script, install:
 - [node+npm](https://nodejs.org/en/download/)
 
 <details>
-  <summary> Using Dev version on Mac/Linux </summary>
+  <summary> Mac/Linux dev install</summary>
   <p>
     
 #### Setup
@@ -96,7 +96,7 @@ chmod +x run-dev.sh
 <div style="clear:both;">&nbsp;</div>
 
 <details>
-  <summary>Using Dev version on Windows</summary>
+  <summary>Windows dev install</summary>
   <p>
 
 #### Install
