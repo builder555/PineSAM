@@ -47,7 +47,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
  | UI      |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 <br>
 
-# Install Options
+# :desktop_computer: Install Options
 
 ## I. Using pre-made binaries
 
