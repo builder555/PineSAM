@@ -65,7 +65,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 ## II. Install the Dev version (Source-all-xxx)
 
-For the backend script, install:
+For the backend script, first install:
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
