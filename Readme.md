@@ -155,7 +155,7 @@ You can access the settings remotely (i.e, from a phone) once the app is running
 * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
 </details>
   
-4. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install tips and solutions to some common issues.
+4. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install hints and solutions to some common issues.
 
 
 ## 🔍 Testing
