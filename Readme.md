@@ -51,7 +51,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ## I. Using pre-made binaries
 
 1. Binary packages do not require installation of python or node.js
-2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your OS (Mac, Linux, Windows).
+2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your specific OS (Mac, Linux, Windows).
 3. **Mac/Linux**: extract and run `./start.sh` in terminal.
 4. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock, then extract.
