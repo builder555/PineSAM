@@ -43,8 +43,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 ## Platforms
  | System  | MacOS | :penguin: Linux | Windows | iOS | Android|
  | :-----: | :-----: | :---: | :---: | :-: | :----: |
- | backend |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
  | UI      |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+ | backend |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 <br>
 
 # :desktop_computer: Install Options
