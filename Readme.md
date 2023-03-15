@@ -66,14 +66,14 @@ For the backend script, install:
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
-
-
 <details>
-  <summary>Mac/Linux dev setup</summary>
-  <p>
+  <summary>
+    
+  ### Mac/Linux dev setup
+    
+  </summary>
     
 #### Setup
-
 ```shell
 git clone https://github.com/builder555/PineSAM
 cd PineSAM
@@ -90,13 +90,14 @@ chmod +x run-dev.sh
 * On a Mac http://localhost:8080 will open in your browser automatically.
 * Some Linux distros may need http://localhost:8080 opened manually. Debian12 hints [here](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
 
-  </p>
 </details>
-<div style="clear:both;">&nbsp;</div>
 
 <details>
-  <summary>Windows dev setup</summary>
-  <p>
+  <summary>
+    
+### Windows dev setup
+  
+  </summary>
 
 #### Install
 If you already have Python and NodeJS installed, you can skip to step 3.
@@ -119,7 +120,6 @@ Set-ExecutionPolicy RemoteSigned
 setup-dev.bat   # only need to run this one time for each new version
 run-dev.bat     # run this command every time you use Pinecil
 ```
-  </p>
 </details>
 <div style="clear:both;">&nbsp;</div>
 
@@ -136,18 +136,13 @@ You can access the settings remotely (i.e, from a phone) once the app is running
 1. bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 
-
- 
-
-
-
 <details>
 <summary>2. Pinecil not detected</summary>
 
 * possible solution: you paired your Pinecil using system settings - unpair it from all other places.  
 * possible solution: need to [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip)
 * upcoming Ralim's IronOS 2.21 will be the first stable release that has BLE support built-in for V2. Before 2.21, only beta BLE versions of IronOS firmware will work.
-  
+
 </details>
 
 3. Windows Powershell permissions issue
