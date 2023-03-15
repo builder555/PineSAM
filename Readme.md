@@ -64,16 +64,19 @@ Why focus on soldering when you can play with the settings instead? With this ap
 5. Done! 🎉 now you can enjoy some soldering. Please ⭐ and share it with friends!
 
 ## II. Install the Dev version (Source-all-xxx)
-### Install these to run the backend script
+### Requirements 
+- any browser to run the UI (IE is not a browser)
+
+For the backend script, install:
 - python 3 (tested with 3.10/3.11)
 - pipenv
 - [node+npm](https://nodejs.org/en/download/)
-#### UI
-- runs on any browser (IE is not a browser)
+
 
 ### Using Dev version on Mac/Linux
 
-### Install
+#### Install
+If you already have Python 3, NodeJS, and pipenv installed then `git clone` the source code.
 
 ```shell
 git clone https://github.com/builder555/PineSAM
@@ -83,20 +86,20 @@ chmod +x run-dev.sh
 ./setup-dev.sh
 ```
 
-### Run
+#### Run
 ```shell
 ./run-dev.sh
 # press CTRL+C in the terminal window to stop
 ```
-
-* On a Mac http://localhost:8080 will open in your browser automatically. On some linux distros you may need to do it manually.
+* On a Mac http://localhost:8080 will open in your browser automatically.
+* On some linux distros you may need to manually open http://localhost:8080
 * For Debian 12 hints, see [this post](https://github.com/builder555/PineSAM/discussions/47#discussion-4884758).
-* See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
+* If you run into problems, see [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) 
 
 
 ### Using Dev version on Windows
 
-### Install
+#### Install
 If you already have Python and NodeJS installed, you can skip to step 3.
 
 1. Install Python: https://www.python.org/downloads
@@ -111,7 +114,7 @@ If you already have Python and NodeJS installed, you can skip to step 3.
 # setting this one time in powershell normally persists on reboots.
 Set-ExecutionPolicy RemoteSigned
 ```
-### Run
+#### Run
 1. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
 ```shell
 setup-dev.bat   # only need to run this one time for each new version
