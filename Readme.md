@@ -27,7 +27,6 @@ Why focus on soldering when you can play with the settings instead? With this ap
 <img src="./full_settings.png" width="900"> 
 
 </details>
-<div style="clear:both;">&nbsp;</div>
 <br clear="right"/>
 
 # 💫 Features
