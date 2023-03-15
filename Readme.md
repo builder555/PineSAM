@@ -115,7 +115,7 @@ Set-ExecutionPolicy RemoteSigned
 setup-dev.bat   # only need to run this one time for each new version
 run-dev.bat     # run this command every time you use Pinecil
 ```
-2. See [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below or the [Discussions](https://github.com/builder555/PineSAM/discussions) if you run into problems.
+2. Done! :tada: Enjoy soldering with PineSAM. Otherwise, see [Known Issues](https://github.com/builder555/PineSAM/Readme.md#known-issues) below.
 
 
 ## :signal_strength: Remote access
