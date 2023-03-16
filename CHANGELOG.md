@@ -1,5 +1,38 @@
 # Changelog
 
+## v1.11.2
+
+* Update Readme.md [0375946](https://github.com/builder555/PineSAM/commit/03759460dc31c3209909981d60eb48fb57c26787)
+* Update Readme.md [9ecb9a3](https://github.com/builder555/PineSAM/commit/9ecb9a3fcf92b524a169c01cdd8d9a26590c5353)
+* Update Readme.md [4010367](https://github.com/builder555/PineSAM/commit/4010367ab4dcb035a7252c69c5aa9ae908034672)
+* Update Readme.md [b84eca6](https://github.com/builder555/PineSAM/commit/b84eca61aaf091adf125babe2141e86e55487970)
+* Update Readme.md [0c6849d](https://github.com/builder555/PineSAM/commit/0c6849d8ba986120678a2b28596a2f6f73eafb7e)
+* Update Readme.md [e69ed63](https://github.com/builder555/PineSAM/commit/e69ed6360f73e41cb062e0aecd844d7f8352f197)
+* Update Readme.md [ce974b0](https://github.com/builder555/PineSAM/commit/ce974b089b6b99d3dddf63a3eea2d28e54b11c69)
+* Update Readme.md [2ac0b7a](https://github.com/builder555/PineSAM/commit/2ac0b7a33426a586ea06a7e61aa51f8643760d98)
+* Update Readme.md [e9b0a11](https://github.com/builder555/PineSAM/commit/e9b0a110a9b98fbec58e1a0eaf68dec27b26e6df)
+* Update Readme.md [0f3b748](https://github.com/builder555/PineSAM/commit/0f3b748b4b3c374474485f3924abb1930bb6fe29)
+* Update Readme.md [70d322e](https://github.com/builder555/PineSAM/commit/70d322e0284ac6fe1c458b0e8b83e7b422898163)
+* Update Readme.md [df82cd3](https://github.com/builder555/PineSAM/commit/df82cd33917d02d23fc3c9163203b954d1d40e04)
+* Update Readme.md [ebf3d30](https://github.com/builder555/PineSAM/commit/ebf3d30646fe95db8b2ef9c4a1d3a92e9c51c01a)
+* Update Readme.md [caf733c](https://github.com/builder555/PineSAM/commit/caf733c953431ebc199493371ecdc61929fa1b72)
+* Update Readme.md [b99e507](https://github.com/builder555/PineSAM/commit/b99e507a5b4e3c93cec5a33662bd45d7f1ea51df)
+* Update Readme.md [f63a8d2](https://github.com/builder555/PineSAM/commit/f63a8d2e237f9c7d54103715bf40aad56b55b7b0)
+* Update Readme.md [24cf910](https://github.com/builder555/PineSAM/commit/24cf9100d2c46d0ade27a99a9e6514a9271ad456)
+* Update Readme.md [0e8a8d1](https://github.com/builder555/PineSAM/commit/0e8a8d19cc65bbffc11a0be5b8de0703ea2001b4)
+* Update Readme.md [808887f](https://github.com/builder555/PineSAM/commit/808887f3e6820407e54b4fe0f461424d75bfea96)
+* Update Readme.md [863223f](https://github.com/builder555/PineSAM/commit/863223f84ddd99a7984d20389836a88409135cca)
+* Update Readme.md [69ca0cf](https://github.com/builder555/PineSAM/commit/69ca0cf55b8ff0b9e276b38f4e8199e75451a5df)
+* Update Readme.md [c2ca0d2](https://github.com/builder555/PineSAM/commit/c2ca0d24df0e41ece9a1be6320a8b0d4676e8c82)
+* Update Readme.md [77917b4](https://github.com/builder555/PineSAM/commit/77917b4d510cb6044a5aedeed6f3d75239e72195)
+* Update Readme.md [ba7cb45](https://github.com/builder555/PineSAM/commit/ba7cb452cd23d24b58c57e76d4a58b378915fb78)
+* Update Readme.md [ca5fdaa](https://github.com/builder555/PineSAM/commit/ca5fdaa58c9bf9b7788cf6af7acca322fe061fb8)
+* Update Readme.md [6524af1](https://github.com/builder555/PineSAM/commit/6524af1009be2ef54d0c29729183447501f4195a)
+* Update Readme.md [44a34d9](https://github.com/builder555/PineSAM/commit/44a34d914228b3d15dfcabb274dcb9154be317e2)
+* Update Readme.md [d9fb795](https://github.com/builder555/PineSAM/commit/d9fb7959312532405fdeb6f75850d627595b83d8)
+* Update Readme.md [f57e633](https://github.com/builder555/PineSAM/commit/f57e6338bdf25df854409a811c607e2111236313)
+* Update Readme.md [906e3d9](https://github.com/builder555/PineSAM/commit/906e3d90555208b152d2eed0b6c09c2e02c916f6)
+
 ## v1.11.1
 
 * Update TheSettings.vue [2a37927](https://github.com/builder555/PineSAM/commit/2a3792785fcfce106cf0f5f94cc91091341b8478)
