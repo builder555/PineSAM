@@ -18,7 +18,22 @@ const store = useAppStore();
 const settings = ref(store.settings);
 const groups = ref(settingGroups);
 const isHintVisible = ref(getLocalStorageValue('are-setting-hints-visible', true));
-const debugData = computed(() => store.rawLiveData);
+const debugData = computed(() => ({
+  'Live temp': store.rawLiveData?.LiveTemp,
+  'Set Temp': store.rawLiveData?.SetTemp,
+  'Input voltage x10': store.rawLiveData?.Voltage,
+  'Handle Temp in C x10': store.rawLiveData?.HandleTemp,
+  'Power as PWM level': store.rawLiveData?.PWMLevel,
+  'Power Source': store.rawLiveData?.PowerSource,
+  'Tip Resistance x10': store.rawLiveData?.TipResistance,
+  'Uptime (deciseconds)': store.rawLiveData?.Uptime,
+  'Last Movement': store.rawLiveData?.MovementTime,
+  'Max Temp': store.rawLiveData?.MaxTipTempAbility,
+  'Raw Tip in μV': store.rawLiveData?.uVoltsTip,
+  'Hall Sensor': store.rawLiveData?.HallSensor,
+  'Operating Mode': store.rawLiveData?.OperatingMode,
+  'Estimated Wattage x10': store.rawLiveData?.Watts,
+}));
 const isDebugVisible = ref(false);
 watch(isHintVisible, (isVisible) => {
   localStorage.setItem('are-setting-hints-visible', isVisible);
@@ -114,7 +129,7 @@ for (const group of groups.value) {
           </span>
         </header>
         <div v-show="isDebugVisible" class="card-content">
-          For more info see <a href="https://ralim.github.io/IronOS/DebugMenu/" target="_blank"> IronOS Debug Menu</a>.
+          Values taken from <a href="https://github.com/Ralim/IronOS/blob/dev/source/Core/BSP/Pinecilv2/ble_handlers.cpp" target="_blank">here</a>.
           <form @submit.prevent="">
             <div
               v-for="name in Object.keys(debugData)"
