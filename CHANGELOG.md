@@ -2,50 +2,14 @@
 
 ## v1.11.2
 
-* Update Readme.md [0375946](https://github.com/builder555/PineSAM/commit/03759460dc31c3209909981d60eb48fb57c26787)
-* Update Readme.md [9ecb9a3](https://github.com/builder555/PineSAM/commit/9ecb9a3fcf92b524a169c01cdd8d9a26590c5353)
-* Update Readme.md [4010367](https://github.com/builder555/PineSAM/commit/4010367ab4dcb035a7252c69c5aa9ae908034672)
-* Update Readme.md [b84eca6](https://github.com/builder555/PineSAM/commit/b84eca61aaf091adf125babe2141e86e55487970)
-* Update Readme.md [0c6849d](https://github.com/builder555/PineSAM/commit/0c6849d8ba986120678a2b28596a2f6f73eafb7e)
-* Update Readme.md [e69ed63](https://github.com/builder555/PineSAM/commit/e69ed6360f73e41cb062e0aecd844d7f8352f197)
-* Update Readme.md [ce974b0](https://github.com/builder555/PineSAM/commit/ce974b089b6b99d3dddf63a3eea2d28e54b11c69)
-* Update Readme.md [2ac0b7a](https://github.com/builder555/PineSAM/commit/2ac0b7a33426a586ea06a7e61aa51f8643760d98)
-* Update Readme.md [e9b0a11](https://github.com/builder555/PineSAM/commit/e9b0a110a9b98fbec58e1a0eaf68dec27b26e6df)
-* Update Readme.md [0f3b748](https://github.com/builder555/PineSAM/commit/0f3b748b4b3c374474485f3924abb1930bb6fe29)
-* Update Readme.md [70d322e](https://github.com/builder555/PineSAM/commit/70d322e0284ac6fe1c458b0e8b83e7b422898163)
-* Update Readme.md [df82cd3](https://github.com/builder555/PineSAM/commit/df82cd33917d02d23fc3c9163203b954d1d40e04)
-* Update Readme.md [ebf3d30](https://github.com/builder555/PineSAM/commit/ebf3d30646fe95db8b2ef9c4a1d3a92e9c51c01a)
-* Update Readme.md [caf733c](https://github.com/builder555/PineSAM/commit/caf733c953431ebc199493371ecdc61929fa1b72)
-* Update Readme.md [b99e507](https://github.com/builder555/PineSAM/commit/b99e507a5b4e3c93cec5a33662bd45d7f1ea51df)
-* Update Readme.md [f63a8d2](https://github.com/builder555/PineSAM/commit/f63a8d2e237f9c7d54103715bf40aad56b55b7b0)
-* Update Readme.md [24cf910](https://github.com/builder555/PineSAM/commit/24cf9100d2c46d0ade27a99a9e6514a9271ad456)
-* Update Readme.md [0e8a8d1](https://github.com/builder555/PineSAM/commit/0e8a8d19cc65bbffc11a0be5b8de0703ea2001b4)
-* Update Readme.md [808887f](https://github.com/builder555/PineSAM/commit/808887f3e6820407e54b4fe0f461424d75bfea96)
-* Update Readme.md [863223f](https://github.com/builder555/PineSAM/commit/863223f84ddd99a7984d20389836a88409135cca)
-* Update Readme.md [69ca0cf](https://github.com/builder555/PineSAM/commit/69ca0cf55b8ff0b9e276b38f4e8199e75451a5df)
-* Update Readme.md [c2ca0d2](https://github.com/builder555/PineSAM/commit/c2ca0d24df0e41ece9a1be6320a8b0d4676e8c82)
-* Update Readme.md [77917b4](https://github.com/builder555/PineSAM/commit/77917b4d510cb6044a5aedeed6f3d75239e72195)
-* Update Readme.md [ba7cb45](https://github.com/builder555/PineSAM/commit/ba7cb452cd23d24b58c57e76d4a58b378915fb78)
-* Update Readme.md [ca5fdaa](https://github.com/builder555/PineSAM/commit/ca5fdaa58c9bf9b7788cf6af7acca322fe061fb8)
-* Update Readme.md [6524af1](https://github.com/builder555/PineSAM/commit/6524af1009be2ef54d0c29729183447501f4195a)
-* Update Readme.md [44a34d9](https://github.com/builder555/PineSAM/commit/44a34d914228b3d15dfcabb274dcb9154be317e2)
-* Update Readme.md [d9fb795](https://github.com/builder555/PineSAM/commit/d9fb7959312532405fdeb6f75850d627595b83d8)
-* Update Readme.md [f57e633](https://github.com/builder555/PineSAM/commit/f57e6338bdf25df854409a811c607e2111236313)
 * Update Readme.md [906e3d9](https://github.com/builder555/PineSAM/commit/906e3d90555208b152d2eed0b6c09c2e02c916f6)
 
 ## v1.11.1
 
 * Update TheSettings.vue [2a37927](https://github.com/builder555/PineSAM/commit/2a3792785fcfce106cf0f5f94cc91091341b8478)
-* Update Readme.md [6a0c674](https://github.com/builder555/PineSAM/commit/6a0c6748d2126743886302b07acf6055db83873c)
-* Update Readme.md [3c7cdd2](https://github.com/builder555/PineSAM/commit/3c7cdd2cd57f13b92f7f12e8fa133b3efaf535e8)
-* Update Readme.md [77e06fc](https://github.com/builder555/PineSAM/commit/77e06fc4335c7a0b8297eab23607adc73148b06e)
-* Update Readme.md [9874b37](https://github.com/builder555/PineSAM/commit/9874b378fb69860fcc9271906fe92db43284e16f)
-* Update Readme.md [8f8b68f](https://github.com/builder555/PineSAM/commit/8f8b68f1cfa6ecec089ba599811c6b8c294bc60a)
-* Update Readme.md [52737d1](https://github.com/builder555/PineSAM/commit/52737d1efbd723d1fa2e694c484d9a44c0aa962d)
 * Update Readme.md [7b724b6](https://github.com/builder555/PineSAM/commit/7b724b65711dd67a72366b1be347735397645335)
 * Merge pull request #108 from River-Mochi/dev
-
-update readme, added link to Debug Menu settings in Debug Category [25aa43f](https://github.com/builder555/PineSAM/commit/25aa43f70752cb90343626db4b65f850e1a80073)
+* update readme, added link to Debug Menu settings in Debug Category [25aa43f](https://github.com/builder555/PineSAM/commit/25aa43f70752cb90343626db4b65f850e1a80073)
 * fix: don't show version until it's available [3be7c04](https://github.com/builder555/PineSAM/commit/3be7c0476a6799ce42c8a50195ce5e90c32cb670)
 * feat: show when new version is available [f968bbf](https://github.com/builder555/PineSAM/commit/f968bbf2b09460cb2f7ab41ca01ac931b9397180)
 * fix: compares semver properly [3a1fb08](https://github.com/builder555/PineSAM/commit/3a1fb08e412dce8a15589b0cc8b2b4a4c8f4635a)
@@ -60,20 +24,7 @@ update readme, added link to Debug Menu settings in Debug Category [25aa43f](htt
 
 * fix: move work hud up, closes #102 [f9b3b20](https://github.com/builder555/PineSAM/commit/f9b3b20e7c8a21191893709d5e47053c6c85ff2d)
 * docs: Update with information about packaged versions of PineSAM
-
 * update and add logos [3bfb1d8](https://github.com/builder555/PineSAM/commit/3bfb1d85fa23cd1e8fdd2cf33497f2c107099feb)
-* Delete .gitkeep [4543526](https://github.com/builder555/PineSAM/commit/454352664d69147c26d02c210ba124eac345bc38)
-* Delete PineSAM_logo10-5500ff.png [bc4ca9e](https://github.com/builder555/PineSAM/commit/bc4ca9e969215f71386e8791cb3582056d4a6fc2)
-* Delete PineSAM_logo11-3C00B3.png [c4e5b10](https://github.com/builder555/PineSAM/commit/c4e5b107c6fe7c491fb65a1cf66413ddd55d280a)
-* Delete PineSAM_A91DB3.png [7b80af2](https://github.com/builder555/PineSAM/commit/7b80af23893f2cdd2e4043cd13d993e817c6f341)
-* Delete PineSAM_91279E.png [934c869](https://github.com/builder555/PineSAM/commit/934c86932e3c6c2bfaa9a52d3697e5caf6efb0a1)
-* Delete Pinesam-771db3.png [ae0bc30](https://github.com/builder555/PineSAM/commit/ae0bc3007e9fe105db0d7d1c59ee1981bccf91da)
-* Delete Pinesam-aa2aff.png [56efddc](https://github.com/builder555/PineSAM/commit/56efddcb9a521ebad643ff6cb6c0bb5763158213)
-* Update Readme.md [da8f44f](https://github.com/builder555/PineSAM/commit/da8f44f825addbd12fd48ed99a7025e8d940ddfc)
-* Update Readme.md [b708afa](https://github.com/builder555/PineSAM/commit/b708afa955a95cf70abb431374994f25a5aa0f60)
-* Delete PineSAM_logo7-AA00FF.png [4246909](https://github.com/builder555/PineSAM/commit/424690958042b749144ab2dfe5862f13062d13a4)
-* Delete PineSAM_logo8-7700B3.png [4b7ab8d](https://github.com/builder555/PineSAM/commit/4b7ab8d2d12504320c840d339f528b00ed3968bc)
-* Delete PineSAM_logo9-FF00BF.png [35a588a](https://github.com/builder555/PineSAM/commit/35a588af531d2e9bac20e6d22de69d48e87ca244)
 * Merge pull request #103 from River-Mochi/dev
 
 Update readme, install instructions, badges [9c8bce6](https://github.com/builder555/PineSAM/commit/9c8bce67fc8601bc37c7ece5d3e9019984ef9758)
