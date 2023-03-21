@@ -146,7 +146,9 @@ You can access the settings remotely once the app is running on the main PC/lapt
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
   
 4. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install hints and solutions to some common issues.
-5. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
+5. PineSAM usage [instructions here](https://github.com/builder555/PineSAM/wiki/PineSAM
+).
+6. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
 
 
 ## 🛠️ Running Unit tests
