@@ -31,13 +31,15 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 # 💫 Features
 
-- [x] Automatically detects Pinecil V2 over BLE.
+- [x] Automatically detect Pinecil V2 over BLE.
 - [x] Control all settings on the device.
-- [X] Save your device flash by only changing settings in memory (with "Save To Flash" switched off).
+- [X] Save to Flash: toggle to save changes directly onto Pinecil (leave off unless actively changing settings).
 - [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
 - [X] Custom Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.
 - [X] Temperature automatically adjusts based on °C or °F setting.
+- [X] See PineSAM Wiki for full [usage details](https://github.com/builder555/PineSAM/wiki/PineSAM
+).
 
 ## Platforms
  | System  | MacOS | Linux | Windows | iOS | Android|
@@ -160,5 +162,4 @@ pipenv run test
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
 - [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
 - [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - almost all AliExpress Pinecils are fake, check your V2!
-
 
