@@ -35,9 +35,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [x] Control all settings on the device.
 - [X] Save to Flash: toggle to save changes directly onto Pinecil (leave off unless actively changing settings).
 - [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
-- [X] Custom Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
+- [X] Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.
-- [X] Temperature automatically adjusts based on °C or °F setting.
 - [X] See PineSAM Wiki for full [usage details](https://github.com/builder555/PineSAM/wiki/PineSAM
 ).
 
