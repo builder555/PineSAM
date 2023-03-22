@@ -140,7 +140,7 @@ You can access the settings remotely once the app is running on the main PC/lapt
     * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip); below IronOS 2.21 only BETA versions will work with PineSAM.
 
 3. Windows Powershell issue
-    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and set powershell to remotesigned with:<br/>
+    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)) and set powershell to remotesigned with:<br/>
     `set-executionpolicy remotesigned`
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
   
