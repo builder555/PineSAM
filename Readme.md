@@ -31,13 +31,14 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 # 💫 Features
 
-- [x] Automatically detects Pinecil V2 over BLE.
+- [x] Automatically detect Pinecil V2 over BLE.
 - [x] Control all settings on the device.
-- [X] Save your device flash by only changing settings in memory (with "Save To Flash" switched off).
+- [X] Save to Flash: toggle to save changes directly onto Pinecil (leave off unless actively changing settings).
 - [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
-- [X] Custom Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
+- [X] Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.
-- [X] Temperature automatically adjusts based on °C or °F setting.
+- [X] See PineSAM Wiki for full [usage details](https://github.com/builder555/PineSAM/wiki/PineSAM
+).
 
 ## Platforms
  | System  | MacOS | Linux | Windows | iOS | Android|
@@ -54,7 +55,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your specific OS (Mac, Linux, Windows).
 3. **Mac/Linux**: extract and run `./start.sh` in terminal.
 4. **Windows**: 
-   * right click on the zip, properties> general, check box to Unblock, then extract.
+   * right click on the zip, properties> general, check box to Unblock, then extract ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
    * Run powershell as admin, cd to the pinesam folder and `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
@@ -139,12 +140,14 @@ You can access the settings remotely once the app is running on the main PC/lapt
     * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip); below IronOS 2.21 only BETA versions will work with PineSAM.
 
 3. Windows Powershell issue
-    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ and set powershell to remotesigned with:<br/>
+    * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)) and set powershell to remotesigned with:<br/>
     `set-executionpolicy remotesigned`
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
   
 4. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install hints and solutions to some common issues.
-5. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
+5. PineSAM usage [instructions here](https://github.com/builder555/PineSAM/wiki/PineSAM
+).
+6. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
 
 
 ## 🛠️ Running Unit tests
@@ -160,5 +163,4 @@ pipenv run test
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
 - [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
 - [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - almost all AliExpress Pinecils are fake, check your V2!
-
 
