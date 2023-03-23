@@ -2,6 +2,22 @@
 
 ## v1.11.2
 
+* Correct Readme, add Usage instructions to Wiki (#120)
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md [13ecc27](https://github.com/builder555/PineSAM/commit/13ecc2781391675ee80030341e3f3b01c25c2b30)
+
+## v1.11.2
+
 * Update Readme.md [906e3d9](https://github.com/builder555/PineSAM/commit/906e3d90555208b152d2eed0b6c09c2e02c916f6)
 
 ## v1.11.1
