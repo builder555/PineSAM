@@ -5,6 +5,7 @@ import TheSettings from './components/TheSettings.vue';
 import TheOctocat from './components/TheOctocat.vue';
 import TheNotification from './components/TheNotification.vue';
 import TheNameDisplay from './components/TheNameDisplay.vue';
+import TheGraphView from './components/TheGraphView.vue';
 import { wakeLock } from './pwa.js';
 import { useAppStore } from './stores/appstore.js';
 const store = useAppStore();
@@ -30,6 +31,9 @@ onBeforeUnmount(() => {
       </div>
       <div v-show="store.isBusy" class="spinner"><div></div></div>
       <div class="column is-half is-full-mobile has-text-right-tablet has-text-left"></div>
+    </div>
+    <div class="is-flex">
+      <the-graph-view/>
     </div>
     <div class="is-flex is-justify-content-center mb-6">
       <the-work-view />

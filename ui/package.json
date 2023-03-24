@@ -11,8 +11,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "chart.js": "^4.2.1",
     "pinia": "^2.0.32",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-chartjs": "^5.2.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
