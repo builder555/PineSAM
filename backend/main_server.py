@@ -28,9 +28,9 @@ def get_latest_version():
     return release_info.get('tag_name', read_app_version()).strip('v')
 
 def is_semver_greater(v1, v2):
-    v1 = [int(x) for x in v1.split('.')]
-    v2 = [int(x) for x in v2.split('.')]
-    return any(a>b for a,b in zip(v1, v2))
+    v1 = list(map(int, v1.split('.')))
+    v2 = list(map(int, v2.split('.')))
+    return v1 > v2
 
 async def process_command(command: str, payload: dict) -> dict:
     if command == 'GET_APP_INFO':
