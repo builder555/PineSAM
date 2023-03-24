@@ -77,7 +77,7 @@ const setExactTemperature = (temp) => {
           class="button change minus primary"
           @click="changeTemperature(-1)"
           @touchstart="onChangeTempBtnDown(-1)"
-          @mousedown="onChangeTempBtnDown(-1)"
+          @mousedown.left="onChangeTempBtnDown(-1)"
           @touchend="onChangeTempBtnUp"
           @mouseup="onChangeTempBtnUp"
         >
@@ -87,7 +87,7 @@ const setExactTemperature = (temp) => {
           class="button change plus primary"
           @click="changeTemperature(1)"
           @touchstart="onChangeTempBtnDown(1)"
-          @mousedown="onChangeTempBtnDown(1)"
+          @mousedown.left="onChangeTempBtnDown(1)"
           @touchend="onChangeTempBtnUp"
           @mouseup="onChangeTempBtnUp"
         >
