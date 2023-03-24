@@ -115,7 +115,7 @@ const setExactTemperature = (temp) => {
         :aria-valuenow="presetTemp"
         class="row-item preset button"
         @click="setExactTemperature(presetTemp)"
-        @mousedown="onPresetBtnDown(idx)"
+        @mousedown.left="onPresetBtnDown(idx)"
         @mouseup="onPresetBtnUp"
         @touchstart="onPresetBtnDown(idx)"
         @touchend="onPresetBtnUp"
