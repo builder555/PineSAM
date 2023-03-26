@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.12.8
+
+* can list services on a ble device [23a7d11](https://github.com/builder555/PineSAM/commit/23a7d110f01da067540d63e7151c42d7a1d95bbc)
+* fix: prep work for uuid128 change [9f76308](https://github.com/builder555/PineSAM/commit/9f76308234b7b11b240f0b63a935329b4c2c5c14)
+* fix: store external dependencies locally. closes #125 [72536cf](https://github.com/builder555/PineSAM/commit/72536cf8173c4c86c2b213a1e0bc24186d691140)
+
 ## v1.12.6
 
 * Correct Readme, add Usage instructions to Wiki (#120)
