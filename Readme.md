@@ -117,8 +117,8 @@ Set-ExecutionPolicy RemoteSigned
 #### Run
 1. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
 ```shell
-setup-dev.bat   # only need to run this one time for each new version
-run-dev.bat     # run this command every time you use Pinecil
+.\setup-dev.bat   # only need to run this one time for each new version
+.\run-dev.bat     # run this command every time to start PineSAM
 ```
 </details>
 <div style="clear:both;">&nbsp;</div>

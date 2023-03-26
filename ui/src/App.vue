@@ -5,6 +5,7 @@ import TheSettings from './components/TheSettings.vue';
 import TheOctocat from './components/TheOctocat.vue';
 import TheNotification from './components/TheNotification.vue';
 import TheNameDisplay from './components/TheNameDisplay.vue';
+import TheGraphView from './components/TheGraphView.vue';
 import { wakeLock } from './pwa.js';
 import { useAppStore } from './stores/appstore.js';
 const store = useAppStore();
@@ -31,13 +32,23 @@ onBeforeUnmount(() => {
       <div v-show="store.isBusy" class="spinner"><div></div></div>
       <div class="column is-half is-full-mobile has-text-right-tablet has-text-left"></div>
     </div>
-    <div class="is-flex is-justify-content-center mb-6">
-      <the-work-view />
+    <div class="columns is-multiline is-justify-content-center mb-5">
+      <div class="column is-hidden-portrait is-6 m-0 is-8-widescreen">
+        <the-graph-view/>
+      </div>
+      <div class="column is-flex is-6 m-0 is-4-widescreen is-justify-content-center">
+        <the-work-view />
+      </div>
     </div>
-    <the-settings />
+    <the-settings/>
   </div>
 </template>
 <style scoped>
+@media (orientation: portrait) {
+  .is-hidden-portrait {
+    display: none;
+  }
+}
 @keyframes spinner {
   to {
     transform: rotate(360deg);

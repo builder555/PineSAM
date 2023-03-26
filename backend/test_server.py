@@ -5,6 +5,7 @@ from ble import DeviceDisconnectedException
 from main_server import main
 from main_server import ws_handler
 from main_server import pinecil_monitor
+from main_server import is_semver_greater
 from unittest.mock import AsyncMock, patch, MagicMock
 from test_utils import Method
 
@@ -97,3 +98,29 @@ def test_socket_command_get_info():
 
 def test_read_version_from_parent_directory_regardless_of_cwd():
     pass
+
+def test_versions_higher():
+    assert is_semver_greater('1.0.0', '0.0.0') == True
+    assert is_semver_greater('0.1.0', '0.0.0') == True
+    assert is_semver_greater('0.0.1', '0.0.0') == True
+    assert is_semver_greater('0.2.0', '0.0.9') == True
+    assert is_semver_greater('0.0.10', '0.0.9') == True
+    assert is_semver_greater('1.0.0', '0.99.99') == True
+    assert is_semver_greater('1.12.0', '1.11.9') == True
+
+def test_versions_lower():
+    assert is_semver_greater('0.2.0', '1.0.0') == False
+    assert is_semver_greater('0.0.9', '0.1.0') == False
+    assert is_semver_greater('0.0.9', '0.0.10') == False
+    assert is_semver_greater('1.11.9', '1.12.0') == False
+    assert is_semver_greater('1.11.9', '1.11.10') == False
+    assert is_semver_greater('0.99.99', '1.0.0') == False
+
+def test_versions_equal():
+    assert is_semver_greater('0.0.0', '0.0.0') == False
+    assert is_semver_greater('1.0.0', '1.0.0') == False
+    assert is_semver_greater('0.1.0', '0.1.0') == False
+    assert is_semver_greater('0.0.1', '0.0.1') == False
+    assert is_semver_greater('0.2.0', '0.2.0') == False
+    assert is_semver_greater('0.0.10', '0.0.10') == False
+    assert is_semver_greater('1.12.3', '1.12.3') == False
