@@ -157,9 +157,9 @@ const setExactTemperature = (temp) => {
 <style scoped>
 .temp-holder {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 450px;
+  flex-flow: column;
+  align-items: center;
+  width: 350px;
 }
 .live-temp {
   border: 1px solid #c0cbcd;
