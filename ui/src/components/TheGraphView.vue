@@ -1,63 +1,30 @@
 <script setup>
 import { ref } from 'vue';
 import { useAppStore } from '../stores/appstore';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip } from 'chart.js';
 import { Line } from 'vue-chartjs';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip);
+const pointsToDisplay = 50;
 const chart = ref('chart');
 const tempColor = '#f87979';
 const powerColor = '#00c4ab';
+const refreshRate = 500;
 const data = {
-  labels: [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-  ],
+  labels: Array(pointsToDisplay+1).fill(''),
   datasets: [
     {
       label: 'Temperature',
       backgroundColor: tempColor,
       borderColor: tempColor,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      data: Array(pointsToDisplay).fill(0),
       yAxisID: 'temperature',
     },
     {
       label: 'Power',
       backgroundColor: powerColor,
       borderColor: powerColor,
-      data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      data: Array(pointsToDisplay).fill(0),
       yAxisID: 'power',
     },
   ],
@@ -67,7 +34,7 @@ const options = {
   responsive: true,
   maintainAspectRatio: false,
   animation: {
-    duration: 1000,
+    duration: refreshRate,
     easing: 'linear',
   },
   animations: {
@@ -80,7 +47,7 @@ const options = {
   scales: {
     x: {
       min: 1,
-      max: 23,
+      max: pointsToDisplay-1,
       display: false,
       grid: {
         borderDash: [8, 4],
@@ -124,10 +91,7 @@ const options = {
   },
 };
 const addData = () => {
-  const {
-    liveData: { LiveTemp=0, Watts=0 },
-  } = store;
-  options.scales.temperature.ticks.max = store.settings?.TemperatureUnit?.value === 1 ? 850 : 460;
+  const { liveData: { LiveTemp = 0, Watts = 0 } } = store;
   data.datasets[0].data.push(LiveTemp);
   data.datasets[0].data.shift();
   data.datasets[1].data.push(Watts);
@@ -136,14 +100,18 @@ const addData = () => {
 };
 setInterval(() => {
   addData();
-}, 1000);
+}, refreshRate);
 </script>
 <template>
-  <!-- <button @click="addData" class="restore-click">add</button> -->
-  <Line class="chart" ref="chart" :data="data" :options="options" />
+  <div class="chart-holder">
+    <Line ref="chart" :data="data" :options="options" />
+  </div>
 </template>
 <style scoped>
-.chart {
-  height: 460px;
+.chart-holder {
+  width: 100%;
+  height: 100%;
+  min-height:350px;
+  position: relative;
 }
 </style>
