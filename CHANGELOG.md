@@ -1,5 +1,29 @@
 # Changelog
 
+## v1.12.6
+
+* Correct Readme, add Usage instructions to Wiki (#120)
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md
+
+* Update Readme.md [13ecc27](https://github.com/builder555/PineSAM/commit/13ecc2781391675ee80030341e3f3b01c25c2b30)
+* fix: update command for windows [ff6603e](https://github.com/builder555/PineSAM/commit/ff6603e85127d9a2742803b1d05d3b116b01a12c)
+* feat: first version with live data chart [c7b689e](https://github.com/builder555/PineSAM/commit/c7b689e3eab7e8dc1e6e68be885b99788fa7600c)
+* fix: prevent +/- buttons getting stuck. closes #119 [c518e6d](https://github.com/builder555/PineSAM/commit/c518e6d0265a88acfa3f558c6072353417e4cb70)
+* fix: version comparison was incorrect [039fa6a](https://github.com/builder555/PineSAM/commit/039fa6a88596cb365b7bd11fa8dcfc9031fd1150)
+* fix: right click triggers preset override [7ff9fd0](https://github.com/builder555/PineSAM/commit/7ff9fd0aa69ee97efc5db126e049f1432bf3879e)
+* fix: work hud gets split when div is too tall [a548bd8](https://github.com/builder555/PineSAM/commit/a548bd81b20d41fda69ba98f44988a3e45b77815)
+* fix: display work hud inline with graph [873a543](https://github.com/builder555/PineSAM/commit/873a543125ddb7d84ddbd639f8345382e2b2aeea)
+* fix: clean up chart style and code [6b8bc30](https://github.com/builder555/PineSAM/commit/6b8bc304c0d4cc398e346dbe11c9bbad35589f0a)
+
 ## v1.11.2
 
 * Correct Readme, add Usage instructions to Wiki (#120)
