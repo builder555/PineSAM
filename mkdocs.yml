@@ -10,7 +10,7 @@ theme:
     name: material
     custom_dir: docs/assets/overrides
     favicon: assets/img/logo/favicon.ico
-    logo: assets/img/logo/favicon.ico
+    logo: assets/img/logo/logo.png
     icon:
       repo: fontawesome/brands/github
       edit: material/file-edit-outline
@@ -35,8 +35,8 @@ theme:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: purple
-      accent: pink
+      primary: light green
+      accent: purple
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -44,8 +44,8 @@ theme:
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: purple
-      accent: pink
+      primary: light green
+      accent: purple
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
