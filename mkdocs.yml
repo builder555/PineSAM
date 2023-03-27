@@ -38,7 +38,7 @@ theme:
       primary: purple
       accent: pink
       toggle:
-        icon: material/lightbulb-outline
+        icon: material/brightness-7
         name: Switch to dark mode
 
     # Dark mode
@@ -47,7 +47,7 @@ theme:
       primary: purple
       accent: pink
       toggle:
-        icon: material/lightbulb
+        icon: material/brightness-4
         name: Switch to light mode
 
 markdown_extensions:
