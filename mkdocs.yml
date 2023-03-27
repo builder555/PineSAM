@@ -97,7 +97,7 @@ nav:
     - Overview:
         - index.md
     - Usage:
-        - usage/index.md
+        - how-to-use/index.md
     - Work HUD View:
         - hud/index.md
     - Settings Categories:
