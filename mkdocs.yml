@@ -1,0 +1,156 @@
+site_name: PineSAM documentation
+site_description: PineSAM is a Bluetooth BLE app to control the Pinecil V2 through a browser.
+site_url: 'https://builder555.github.io/PineSAM'
+
+repo_url: https://github.com/builder555/PineSAM
+edit_uri: https://github.com/builder555/PineSAM/edit/main/docs
+repo_name: PineSAM
+
+theme:
+    name: material
+    custom_dir: docs/assets/overrides
+    favicon: assets/img/logo/favicon.ico
+    logo: assets/img/logo/favicon.ico
+    icon:
+      repo: fontawesome/brands/github
+      edit: material/file-edit-outline
+    language: 'en'
+    font: false
+    features:
+      - navigation.top
+      - navigation.instant
+      - navigation.sections
+      - navigation.indexes
+      - toc.follow
+      - search.suggest
+      - search.highlight
+      - search.share
+      - content.code.copy
+      - navigation.footer
+      - content.action.edit
+      - content.action.view
+
+    palette:
+
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: purple
+      accent: pink
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple
+      accent: pink
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+
+markdown_extensions:
+  # Code highlighting in ``` ``` blocks
+  - codehilite:
+      guess_lang: true
+  # Table of Contents
+  - toc:
+      permalink: true
+  # block-styled side content
+  - admonition
+  # linkifies URL and email links without having to wrap them in Markdown syntax. Also, allows shortens repository issue, pull request, and commit links.
+  - pymdownx.magiclink
+  # Task lists (https://facelessuser.github.io/pymdown-extensions/extensions/tasklist)
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # Highlight words with ==mark me==
+  - pymdownx.mark
+  # Adds support for deletion ~~Delete me~~ and subscript text~a\ subscript~
+  - pymdownx.tilde
+  # This extension is a convenience extension which includes many pymdownx extensions
+  # (https://facelessuser.github.io/pymdown-extensions/extensions/extra)
+  - pymdownx.extra
+  # (https://facelessuser.github.io/pymdown-extensions/extensions/details)
+  - pymdownx.details
+  # Tabbed provides a syntax to easily add tabbed Markdown content.
+  # https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Adds syntax for defining footnotes in Markdown documents (https://python-markdown.github.io/extensions/footnotes)
+  - footnotes
+  # Adds the ability to define abbreviations
+  - abbr
+  # Metadata support in pages
+  # (https://squidfunk.github.io/mkdocs-material/extensions/metadata)
+  - meta
+  - attr_list
+  - md_in_html
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  
+
+nav:
+    - Overview:
+        - index.md
+    - Usage:
+        - usage/index.md
+    - Work HUD View:
+        - hud/index.md
+    - Settings Categories:
+        - settings/index.md
+
+extra:
+  social:
+    - icon: simple/github
+      link: https://github.com/builder555/PineSAM
+      name: GitHub
+    - icon: fontawesome/solid/heart
+      link: https://github.com/sponsors/builder555
+      name: Sponsor the project
+
+copyright: Copyright &copy; 2023 - present builder555 & contributors
+
+extra_css:
+  - assets/css/style.css
+
+plugins:
+  - search:
+      lang:
+        - en
+  - git-revision-date-localized:
+      type: timeago
+      #timezone: Europe/Berlin
+      locale: en
+      fallback_to_build_date: false
+      enable_creation_date: true
+      enabled: true
+  - git-authors:
+      show_contribution: true
+      show_line_count: true
+      show_email_address: false
+      count_empty_lines: true
+      fallback_to_empty: true
+      sort_authors_by: contribution
+      authorship_threshold_percent: 0
+      enabled: true
+  - enumerate-headings:
+      toc_depth: 6
+      exclude:
+        - index.md
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - nglb
+      auto_caption: true
+      caption_position: bottom

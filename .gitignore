@@ -1,3 +1,4 @@
 .vscode/**
 backend/__pycache__/**
 Pipfile.lock
+/site
