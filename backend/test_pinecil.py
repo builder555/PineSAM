@@ -24,10 +24,14 @@ def mock_ble(mocked_settings, mocked_live_data):
         return []
     async def read_crx(a): 
         return a.raw_value
-
+    mock_services = [
+        MagicMock(uuid='f6d75f91-5a10-4eba-a233-47d3f26a907f'),
+        MagicMock(uuid='9eae1adb-9d0d-48c5-a6e7-ae93f0ea37b0'),
+    ]
     ble = MagicMock()
     ble.is_connected = False
     ble.get_characteristics = AsyncMock(side_effect=get_characteristics)
+    ble.get_services = AsyncMock(return_value=mock_services)
     ble.ensure_connected = AsyncMock()
     ble.read_characteristic = read_crx
     return ble
@@ -45,7 +49,7 @@ async def test_after_connecting_device_loads_settings_ble_characteristics(mock_b
         assert Method(mock_ble.get_characteristics).was_called_with('f6d75f91-5a10-4eba-a233-47d3f26a907f')
 
 @pytest.mark.asyncio
-async def test_read_all_settings_from_v2_21(mock_ble, mocked_settings):
+async def test_read_all_settings_from_v2_21beta1(mock_ble, mocked_settings):
     with patch('pinecil_ble.BLE', return_value=mock_ble):
         pinecil = Pinecil()
         await pinecil.connect()
@@ -122,6 +126,9 @@ async def test_reading_live_data_while_disconnected_reconnects(mock_ble):
         assert mock_ble.ensure_connected.called
 
 def test_read_all_settings_from_v2_20():
+    pass
+
+def test_read_all_settings_from_v2_21beta2():
     pass
 
 def test_update_one_setting_at_a_time():

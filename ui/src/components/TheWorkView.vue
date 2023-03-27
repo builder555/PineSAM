@@ -77,7 +77,7 @@ const setExactTemperature = (temp) => {
           class="button change minus primary"
           @click="changeTemperature(-1)"
           @touchstart="onChangeTempBtnDown(-1)"
-          @mousedown="onChangeTempBtnDown(-1)"
+          @mousedown.left="onChangeTempBtnDown(-1)"
           @touchend="onChangeTempBtnUp"
           @mouseup="onChangeTempBtnUp"
         >
@@ -87,7 +87,7 @@ const setExactTemperature = (temp) => {
           class="button change plus primary"
           @click="changeTemperature(1)"
           @touchstart="onChangeTempBtnDown(1)"
-          @mousedown="onChangeTempBtnDown(1)"
+          @mousedown.left="onChangeTempBtnDown(1)"
           @touchend="onChangeTempBtnUp"
           @mouseup="onChangeTempBtnUp"
         >
@@ -115,7 +115,7 @@ const setExactTemperature = (temp) => {
         :aria-valuenow="presetTemp"
         class="row-item preset button"
         @click="setExactTemperature(presetTemp)"
-        @mousedown="onPresetBtnDown(idx)"
+        @mousedown.left="onPresetBtnDown(idx)"
         @mouseup="onPresetBtnUp"
         @touchstart="onPresetBtnDown(idx)"
         @touchend="onPresetBtnUp"
@@ -157,9 +157,9 @@ const setExactTemperature = (temp) => {
 <style scoped>
 .temp-holder {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 450px;
+  flex-flow: column;
+  align-items: center;
+  width: 350px;
 }
 .live-temp {
   border: 1px solid #c0cbcd;

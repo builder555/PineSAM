@@ -46,6 +46,12 @@ class BLE:
         else:
             raise DeviceNotFoundException
         logging.debug(f'Detecting "{self.search_name}" DONE')
+    
+    async def get_services(self) -> List[str]:
+        await self.ensure_connected()
+        if not self.client:
+            return []
+        return [s.uuid for s in self.client.services]
 
     async def get_characteristics(self, service_uuid: str) -> List[BleakGATTCharacteristic]:
         await self.ensure_connected()

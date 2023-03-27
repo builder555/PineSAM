@@ -49,12 +49,56 @@ names_v220 = {
 def reduce_idx(idx: str) -> str:
   parts = idx.split("-")
   first_group_as_number = int(parts[0],16)
-  # 0xffff ensures -1 becomes 0x0000ffff:
+  # '& 0xffff' makes int unsigned (ensures -1 becomes 0x0000ffff):
   new_first_group_as_hex = f"{first_group_as_number-1 & 0xffff:08x}"
   return '-'.join([new_first_group_as_hex] + parts[1:])
 
-names_v221 = {
+names_v221beta1 = {
   **{reduce_idx(k): v for k, v in names_v220.items()},
   "00000025-0000-1000-8000-00805f9b34fb": "BLEEnabled",
   "0000fffe-0000-1000-8000-00805f9b34fb": "SettingsReset",
+}
+
+names_v221beta2 = {
+'f6d75001-5a10-4eba-aa55-33e27f9bc533': 'save_to_flash',
+'f6d75002-5a10-4eba-aa55-33e27f9bc533': 'SettingsReset',
+'f6d75003-5a10-4eba-aa55-33e27f9bc533': 'SetTemperature',
+'f6d75004-5a10-4eba-aa55-33e27f9bc533': 'SleepTemperature',
+'f6d75005-5a10-4eba-aa55-33e27f9bc533': 'SleepTimeout',
+'f6d75006-5a10-4eba-aa55-33e27f9bc533': 'DCInCutoff',
+'f6d75007-5a10-4eba-aa55-33e27f9bc533': 'MinVolCell',
+'f6d75008-5a10-4eba-aa55-33e27f9bc533': 'QCMaxVoltage',
+'f6d75009-5a10-4eba-aa55-33e27f9bc533': 'DisplayRotation',
+'f6d7500a-5a10-4eba-aa55-33e27f9bc533': 'MotionSensitivity',
+'f6d7500b-5a10-4eba-aa55-33e27f9bc533': 'AnimLoop',
+'f6d7500c-5a10-4eba-aa55-33e27f9bc533': 'AnimSpeed',
+'f6d7500d-5a10-4eba-aa55-33e27f9bc533': 'AutoStart',
+'f6d7500e-5a10-4eba-aa55-33e27f9bc533': 'ShutdownTimeout',
+'f6d7500f-5a10-4eba-aa55-33e27f9bc533': 'CooldownBlink',
+'f6d75010-5a10-4eba-aa55-33e27f9bc533': 'AdvancedIdle',
+'f6d75011-5a10-4eba-aa55-33e27f9bc533': 'AdvancedSoldering',
+'f6d75012-5a10-4eba-aa55-33e27f9bc533': 'TemperatureUnit',
+'f6d75013-5a10-4eba-aa55-33e27f9bc533': 'ScrollingSpeed',
+'f6d75014-5a10-4eba-aa55-33e27f9bc533': 'LockingMode',
+'f6d75015-5a10-4eba-aa55-33e27f9bc533': 'PowerPulsePower',
+'f6d75016-5a10-4eba-aa55-33e27f9bc533': 'PowerPulseWait',
+'f6d75017-5a10-4eba-aa55-33e27f9bc533': 'PowerPulseDuration',
+'f6d75018-5a10-4eba-aa55-33e27f9bc533': 'VoltageCalibration',
+'f6d75019-5a10-4eba-aa55-33e27f9bc533': 'BoostTemperature',
+'f6d7501a-5a10-4eba-aa55-33e27f9bc533': 'CalibrationOffset',
+'f6d7501b-5a10-4eba-aa55-33e27f9bc533': 'PowerLimit',
+'f6d7501c-5a10-4eba-aa55-33e27f9bc533': 'ReverseButtonTempChange',
+'f6d7501d-5a10-4eba-aa55-33e27f9bc533': 'TempChangeLongStep',
+'f6d7501e-5a10-4eba-aa55-33e27f9bc533': 'TempChangeShortStep',
+'f6d7501f-5a10-4eba-aa55-33e27f9bc533': 'HallEffectSensitivity',
+'f6d75020-5a10-4eba-aa55-33e27f9bc533': 'AccelMissingWarningCounter',
+'f6d75021-5a10-4eba-aa55-33e27f9bc533': 'PDMissingWarningCounter',
+'f6d75022-5a10-4eba-aa55-33e27f9bc533': 'UILanguage',
+'f6d75023-5a10-4eba-aa55-33e27f9bc533': 'PDNegTimeout',
+'f6d75024-5a10-4eba-aa55-33e27f9bc533': 'ColourInversion',
+'f6d75025-5a10-4eba-aa55-33e27f9bc533': 'Brightness',
+'f6d75026-5a10-4eba-aa55-33e27f9bc533': 'LOGOTime',
+'f6d75027-5a10-4eba-aa55-33e27f9bc533': 'CalibrateCJC',
+'f6d75029-5a10-4eba-aa55-33e27f9bc533': 'BLEEnabled',
+'f6d7502a-5a10-4eba-aa55-33e27f9bc533': 'PDVpdoEnabled',
 }
