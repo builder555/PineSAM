@@ -1,6 +1,6 @@
 @echo off
-where python3 >nul 2>&1 || (
-    echo python3 could not be found
+where python >nul 2>&1 || (
+    echo python could not be found
     exit /b
 )
 where npm >nul 2>&1 || (
@@ -9,7 +9,7 @@ where npm >nul 2>&1 || (
     exit /b
 )
 cd backend
-python3 -m pip install --user bleak websockets requests
+python -m pip install --user bleak websockets requests
 
 cd ../ui
 rd /s /q node_modules
