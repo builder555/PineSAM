@@ -1,3 +1,3 @@
-# PineSAM documentation
+# Welcome!
 
 Welcome to the PineSAM documentation!

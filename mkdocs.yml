@@ -20,7 +20,7 @@ theme:
       - navigation.top
       - navigation.instant
       - navigation.sections
-      - navigation.indexes
+      #- navigation.indexes
       - toc.follow
       - search.suggest
       - search.highlight
@@ -29,6 +29,7 @@ theme:
       - navigation.footer
       - content.action.edit
       - content.action.view
+      - toc.integrate
 
     palette:
 
@@ -97,11 +98,8 @@ nav:
     - Overview:
         - index.md
     - Usage:
-        - how-to-use/index.md
-    - Work HUD View:
-        - hud/index.md
-    - Settings Categories:
-        - settings/index.md
+        - How to use: how-to-use/index.md
+        - Settings Categories: how-to-use/settings.md
 
 extra:
   social:
@@ -138,7 +136,7 @@ plugins:
       authorship_threshold_percent: 0
       enabled: true
   - enumerate-headings:
-      toc_depth: 6
+      toc_depth: 2
       exclude:
         - index.md
   - glightbox:
