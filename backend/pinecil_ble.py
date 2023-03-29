@@ -4,7 +4,7 @@ import logging
 import asyncio
 from pinecil_setting_limits import value_limits
 from pinecil_setting_limits import temperature_limits
-from crx_uuid_name_map import names_v220, names_v221beta1, names_v221beta2, bulk_data_names
+from crx_uuid_name_map import names_v220, names_v221beta1, names_v221beta2, bulk_data_names_v220, bulk_data_names_v221beta2
 from ble import BleakGATTCharacteristic
 from ble import BLE
 import time
@@ -26,6 +26,7 @@ class SettingNameToUUIDMap:
             '2.21beta1': names_v221beta1,
             '2.21beta2': names_v221beta2,
         }
+        print('setting version to ', version)
         self.names = names.get(version, names_v220)
 
     def get_name(self, uuid: str) -> str:
@@ -36,11 +37,16 @@ class SettingNameToUUIDMap:
 
 class BulkDataToUUIDMap:
     def __init__(self):
-        self.names = bulk_data_names
+        self.names = bulk_data_names_v220
 
     def set_version(self, version: str):
-        self.names = bulk_data_names
-        
+        names = {
+            '2.20': bulk_data_names_v220,
+            '2.21beta1': bulk_data_names_v220,
+            '2.21beta2': bulk_data_names_v221beta2,
+        }
+        self.names = names.get(version, names_v220)
+
     def get_name(self, uuid: str) -> str:
         return self.names.get(uuid, uuid)
     
@@ -72,7 +78,7 @@ class Pinecil:
     async def __set_ble_uuids_based_on_version(self):
         # this is just a hack until the version is exposed in the settings
         uuid_settings_pre_221 = 'f6d75f91-5a10-4eba-a233-47d3f26a907f'
-        uuid_settings_221beta2 = 'f6d75000-5a10-4eba-aa55-33e27f9bc533'
+        uuid_settings_221beta2 = 'f6d80000-5a10-4eba-aa55-33e27f9bc533'
         uuid_bulk_data_pre_221 = '9eae1adb-9d0d-48c5-a6e7-ae93f0ea37b0'
         uuid_bulk_data_221beta2 = '9eae1000-9d0d-48c5-aa55-33e27f9bc533'
         services = await self.ble.get_services()
@@ -80,14 +86,17 @@ class Pinecil:
             self.settings_uuid = uuid_settings_221beta2
             self.bulk_data_uuid = uuid_bulk_data_221beta2
             self.settings_map.set_version('2.21beta2')
+            self.bulk_data_map.set_version('2.21beta2')
             return
         crx_settings = await self.ble.get_characteristics(uuid_settings_pre_221)
         for crx in crx_settings:
             if crx.uuid == '0000ffff-0000-1000-8000-00805f9b34fb':
                 self.settings_map.set_version('2.21beta1')
+                self.bulk_data_map.set_version('2.21beta1')
                 break
         else:
             self.settings_map.set_version('2.20')
+            self.bulk_data_map.set_version('2.20')
         self.settings_uuid = uuid_settings_pre_221
         self.bulk_data_uuid = uuid_bulk_data_pre_221
 
