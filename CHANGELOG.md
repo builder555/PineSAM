@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.12.9
+
+* fix setup-dev.bat  for Windows users (#128)
+
+* Update Readme.md
+* Update setup-dev.bat [3e27f3f](https://github.com/builder555/PineSAM/commit/3e27f3f6c35153ae3ea7dc8454d4ee48e2940b5c)
+* fix: updated to work with new uuid128 [f28bc0d](https://github.com/builder555/PineSAM/commit/f28bc0db97ee072d04d406d6fc8a252a4803d949)
+
 ## v1.12.8
 
 * can list services on a ble device [23a7d11](https://github.com/builder555/PineSAM/commit/23a7d110f01da067540d63e7151c42d7a1d95bbc)
