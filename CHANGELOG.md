@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.12.11
+
+* fix: broken if statement [e484f67](https://github.com/builder555/PineSAM/commit/e484f67929eb198925df3e35f6c45edaff582d2c)
+
 ## v1.12.10
 
 * Use mkdocs as documentation software instead of GitHub wiki (#129)
