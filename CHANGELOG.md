@@ -1,5 +1,36 @@
 # Changelog
 
+## v1.12.10
+
+* Use mkdocs as documentation software instead of GitHub wiki (#129)
+
+* Added mkdocs
+
+- Added mkdocs with all assets and my customisations to the repo
+- Used elements from Wiki
+
+* Renamed folder 'usage' to 'how-to-use'
+
+Due to server issues
+
+* Changed theme switcher icons
+
+* Changed logo and adjusted colors
+
+* Combined Usage & HUD and integrated TOC
+
+* Fixed image paths
+
+* Updated image path [c18cd7a](https://github.com/builder555/PineSAM/commit/c18cd7a3b768058e3762b3d76e39419a0fbcb303)
+* Added logic to call xdg-open instead of open on linux [3286763](https://github.com/builder555/PineSAM/commit/3286763c2e151d8436d7a6ffab8c4495d42927b8)
+* Merge pull request #139 from builder555/master
+
+update dev [7ef05bb](https://github.com/builder555/PineSAM/commit/7ef05bb72e223d0d549ff9fe84ed432bd53677fa)
+* Merge pull request #140 from Spagett1/dev
+
+Added logic to call xdg-open instead of open on linux [ff25e61](https://github.com/builder555/PineSAM/commit/ff25e61e92d808c5a1999b194b8a5f08c6f342fa)
+* fix: dummy commit to increase version [553c54a](https://github.com/builder555/PineSAM/commit/553c54ab611c61597e3cff2fe32c36afcc168779)
+
 ## v1.12.9
 
 * fix setup-dev.bat  for Windows users (#128)
