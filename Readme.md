@@ -66,8 +66,9 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * ```Set-ExecutionPolicy RemoteSigned```
    * Usage guide [here](https://github.com/builder555/PineSAM/wiki/PineSAM).
 
-## II. Install the Dev version (Source-all-xxx.zip)
+## II. Install the Dev version (Source-all-_.zip)
 
+This is the same PineSam as the pre-made binaries. Install this if there is an issue with the binaries.  
 For the backend script, first install:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
@@ -107,14 +108,14 @@ chmod +x run-dev.sh
   </summary>
 
 #### Install
-First, install all the packages linked above for the backend script. Skip to 4 if you did this already.
+First, install the packages linked above for the backend script. Skip to 4 if you did this already.
 
 1. Python install notes
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
     * Screenshots of options to select [are here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
 2. Install [NodeJS here](https://nodejs.org/en/download/), accept prompts to packages during install and inside the terminal that opens.
-3. After installing packages listed for backend script, go to System Environment variables to check paths ([screenshot](https://github.com/builder555/PineSAM/discussions/130#discussion-5011624)).
+3. After installing packages listed for backend script ([reference](https://github.com/builder555/PineSAM/issues/131#issuecomment-1489711241)), go to System Environment variables to check paths ([image](https://github.com/builder555/PineSAM/discussions/130#discussion-5011624)).
 4. Download the Source-all-__.zip from the [latest release](https://github.com/builder555/PineSAM/releases/latest).
 5. If the zip has an Unblock option, then unblock and extract ([example](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
 6. Run powershell as administrator, set permissions to RemoteSigned ([image here](https://github.com/builder555/PineSAM/discussions/106)).
