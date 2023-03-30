@@ -159,7 +159,7 @@ You can access the settings remotely once the app is running on the main PC/lapt
 <br>
 
 ## :abacus: Contributors Welcome
-- Please fork the repo, and submit all PR using the `/dev` branch
+- Please fork the repo, and submit Pull Requests using the `/dev` branch
 
 ## 🛠️ Running Unit tests
 
