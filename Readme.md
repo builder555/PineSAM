@@ -54,7 +54,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your specific OS (Mac, Linux, Windows).
 3. **Mac/Linux**: extract and run `./start.sh` in terminal.
 
-   * On Windows/MacOS, http://localhost:8080/ opens in your browser automatically.
+   * On MacOS, http://localhost:8080/ opens in your browser automatically.
    * Some Linux distros may need http://localhost:8080/ opened manually.
    * Usage guide [here](https://github.com/builder555/PineSAM/wiki/PineSAM).
 
@@ -63,7 +63,8 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * Run [powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3) as admin, cd to the pinesam folder and `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
-   * ```Set-ExecutionPolicy RemoteSigned```
+     * ```C:\> Set-ExecutionPolicy RemoteSigned```
+   * Browser will automatically open http://localhost:8080
    * Usage guide [here](https://github.com/builder555/PineSAM/wiki/PineSAM).
 
 ## II. Install the Dev version (Source-all-_.zip)
