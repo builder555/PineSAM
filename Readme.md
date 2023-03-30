@@ -56,7 +56,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 3. **Mac/Linux**: extract and run `./start.sh` in terminal.
 4. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock, then extract ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
-   * Run powershell as admin, cd to the pinesam folder and `.\start.ps1`
+   * Run [powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3) as admin, cd to the pinesam folder and `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
    * ```Set-ExecutionPolicy RemoteSigned```
@@ -66,7 +66,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 For the backend script, first install:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
-- [pipenv](https://pipenv.pypa.io/en/latest/install/)
+- [pipenv](https://pipenv.pypa.io/en/latest/installation/)
 - [node+npm](https://nodejs.org/en/download/)
 <details>
   <summary>
@@ -75,6 +75,8 @@ For the backend script, first install:
   </summary>
   
 #### Setup
+Install all packages linked above first.
+
 ```shell
 git clone https://github.com/builder555/PineSAM
 cd PineSAM
@@ -100,25 +102,26 @@ chmod +x run-dev.sh
   </summary>
 
 #### Install
-If you already have Python and NodeJS installed, you can skip to step 3.
+Install  the packages linked above for the backend script. Skip to 4 if you did this already.
 
-1. Install Python: https://www.python.org/downloads
+1. Python install notes
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
-    * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Install NodeJS: https://nodejs.org/en/download/
-3. Download the Source-all-xxx from the latest release: https://github.com/builder555/PineSAM/releases/latest
-4. Right click the zip and open Properties > General tab and check _Unblock_ if it appears at the bottom. Then Unzip it.
-5. Run powershell as administrator, set permissions to RemoteSigned ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
+    * Screenshots of options to select [are here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
+2. Install [NodeJS here](https://nodejs.org/en/download/), accept prompts to packages during install and inside the terminal that opens.
+3. After installing all packages listed, go to the System Environment variables to check paths ([screenshot](https://github.com/builder555/PineSAM/discussions/130#discussion-5011624)).
+4. Download the Source-all-__.zip from the [latest release](https://github.com/builder555/PineSAM/releases/latest).
+5. If the zip has an Unblock option, then unblock and extract ([example](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
+6. Run powershell as administrator, set permissions to RemoteSigned ([image here](https://github.com/builder555/PineSAM/discussions/106)).
 ```shell
 # setting this one time in powershell normally persists on reboots.
-Set-ExecutionPolicy RemoteSigned
+C:\Set-ExecutionPolicy RemoteSigned
 ```
 #### Run
-1. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
+1. change directory, `cd` into the PineSAM folder that was extracted above.
 ```shell
 .\setup-dev.bat   # only need to run this one time for each new version
-.\run-dev.bat     # run this command every time to start PineSAM
+.\run-dev.bat     # run this command every time to start PineSAM (do not need to run as admin)
 ```
 </details>
 <div style="clear:both;">&nbsp;</div>
