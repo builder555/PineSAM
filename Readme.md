@@ -61,7 +61,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
    * ```Set-ExecutionPolicy RemoteSigned```
 
-## II. Install the Dev version (Source-all-xxx)
+## II. Install the Dev version (Source-all-xxx.zip)
 
 For the backend script, first install:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -102,7 +102,7 @@ chmod +x run-dev.sh
   </summary>
 
 #### Install
-Install  the packages linked above for the backend script. Skip to 4 if you did this already.
+First, install all the packages linked above for the backend script. Skip to 4 if you did this already.
 
 1. Python install notes
     * Check "Add python.exe to PATH" and select "Customize Installation"
