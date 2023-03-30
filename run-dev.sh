@@ -18,7 +18,7 @@ if [ "$(uname)" == "Darwin" ]; then
     open http://localhost:8080/
 else
     xdg-open http://localhost:8080/
-if
+fi
 
 trap "kill $pid1 $pid2" EXIT
 wait $pid1 $pid2
