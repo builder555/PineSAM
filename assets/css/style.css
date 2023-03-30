@@ -1,0 +1,24 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+@font-face {
+    font-family: "OpenSans";
+    src: "/docs/fonts/OpenSans/OpenSans-Regular.ttf";
+}
+
+@font-face {
+    font-family: "RobotoMono";
+    src: "/docs/fonts/RobotoMono/RobotoMono-Regular.ttf";
+}
+
+:root {
+    --md-text-font: "OpenSans"; 
+    --md-code-font: "RobotoMono";
+}
+
+.md-nav {
+    margin-bottom: 15px;
+    font-size: .71rem;
+}
