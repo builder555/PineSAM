@@ -109,7 +109,7 @@ chmod +x run-dev.sh
   </summary>
 
 #### Install
-First, install the packages linked above for the backend script. Skip to 4 if you did this already.
+Install the packages linked above for the backend script. Skip to 4 if you did this already.
 
 1. Python install notes
     * Check "Add python.exe to PATH" and select "Customize Installation"
