@@ -115,7 +115,7 @@ First, install the packages linked above for the backend script. Skip to 4 if yo
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
     * Screenshots of options to select [are here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Install [NodeJS here](https://nodejs.org/en/download/), accept prompts to packages during install and inside the terminal that opens.
+2. Install [NodeJS here](https://nodejs.org/en/download/), accept all prompts to add packages during install including a prompt in the terminal that opens.
 3. After installing packages listed for backend script ([reference](https://github.com/builder555/PineSAM/issues/131#issuecomment-1489711241)), go to System Environment variables to check paths ([image](https://github.com/builder555/PineSAM/discussions/130#discussion-5011624)).
 4. Download the Source-all-__.zip from the [latest release](https://github.com/builder555/PineSAM/releases/latest).
 5. If the zip has an Unblock option, then unblock and extract ([example](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
