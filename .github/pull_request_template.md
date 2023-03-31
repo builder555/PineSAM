@@ -1,4 +1,4 @@
-<!-- PLEASE MAKE PULL REQUESTS TO dev BRANCH -->
+<!-- please use DEV branch for all pull requests -->
 ## Description
 
 Please describe the changes you made in this pull request.
