@@ -1,5 +1,88 @@
 # Changelog
 
+## v1.12.13
+
+* fix: instructions, docs, wiki (#144)
+
+
+fix badge links
+
+* Update Readme.md
+
+* fix: updated instructions
+
+fix: closes issue https://github.com/builder555/PineSAM/issues/136
+
+* fix: instructions
+
+fix: instructions
+
+* fix: links
+
+fix: links
+
+* Update Readme.md
+
+* fix: add work HUD reference image
+
+fix: add work HUD detailed reference image
+
+* fix: added working 128 firmware
+
+fix: added link to working 128 UUID  firmware.  old beta ironOS causes main_server terminal crash
+
+* Update Readme.md
+
+* fix: readme doc
+
+fix: readme doc
+
+* fix: typo readme
+
+fix: typo readme [5f461fd](https://github.com/builder555/PineSAM/commit/5f461fd8aee172f85f4690e821b0ae87bfe353ae)
+* fix: error from wait=process,  instruction docs (#149)
+
+fix badge links
+
+* Update Readme.md
+
+* fix: updated instructions
+
+fix: closes issue https://github.com/builder555/PineSAM/issues/136
+
+* fix: instructions
+
+fix: instructions
+
+* fix: links
+
+fix: links
+
+* Update Readme.md
+
+* fix: add work HUD reference image
+
+fix: add work HUD detailed reference image
+
+* fix: added working 128 firmware
+
+fix: added link to working 128 UUID  firmware.  old beta ironOS causes main_server terminal crash
+
+* Update Readme.md
+
+* fix: readme doc
+
+fix: readme doc
+
+* fix: typo readme
+
+fix: typo readme
+
+* fix: wait-process error on windows
+
+fix:  this closes ticket for https://github.com/builder555/PineSAM/issues/148
+fix of Wait-process causing error in terminal window  start.ps1 [ed98d62](https://github.com/builder555/PineSAM/commit/ed98d6207deb6c9a4b36f1f91d30ed30a6771721)
+
 ## v1.12.11
 
 * fix: broken if statement [e484f67](https://github.com/builder555/PineSAM/commit/e484f67929eb198925df3e35f6c45edaff582d2c)
