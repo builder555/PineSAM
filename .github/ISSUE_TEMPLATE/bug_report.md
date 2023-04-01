@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
  - OS: [e.g. Windows 11]
  - Browser: [e.g. chrome, safari]
  - PineSAM Version: [e.g. 1.0.8]
- - IronOS build: [e.g. 2.20.EB5D5EA]
+ - IronOS build/date: [e.g. 2.20.EB5D5EA, 15-02-23]
 
 **Additional context**
 Add any other context about the problem here.
