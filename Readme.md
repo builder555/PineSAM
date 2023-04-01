@@ -1,6 +1,6 @@
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM&count_bg=%23FF00BF&title_bg=%23625E5E&icon=pre-commit.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/builder555/PineSAM/wiki)
-![contributors welcome](https://custom-icon-badges.demolab.com/badge/contributors-welcome-A017A5.svg?logo=star&logoColor=white)
-[![Download (all releases)](https://img.shields.io/github/downloads/builder555/pinesam/total?color=A017A5)](https://github.com/builder555/PineSAM/releases/)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM&count_bg=%23FF00BF&title_bg=%23625E5E&icon=airplayaudio.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/builder555/PineSAM/wiki/PineSAM)
+[![contributors welcome](https://custom-icon-badges.demolab.com/badge/contributors-welcome-A017A5.svg?logo=star&logoColor=white)](https://github.com/builder555/PineSAM#abacus-contributors-welcome)
+[![Download (all releases)](https://img.shields.io/github/downloads/builder555/pinesam/total?color=A017A5&&logo=docusign&logoColor=white)](https://github.com/builder555/PineSAM/releases/)
 [![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=7700b3)](https://github.com/builder555/PineSAM/releases/latest)
 ![bluetooth](https://custom-icon-badges.demolab.com/badge/-bluetooth-7700b3.svg?logo=bluetooth&logoColor=white)
 <br><br>
@@ -34,11 +34,10 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [x] Automatically detect Pinecil V2 over BLE.
 - [x] Control all settings on the device.
 - [X] Save to Flash: toggle to save changes directly onto Pinecil (leave off unless actively changing settings).
-- [X] Work View main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
+- [X] Work HUD main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
 - [X] Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.
-- [X] See PineSAM Wiki for full [usage details](https://github.com/builder555/PineSAM/wiki/PineSAM
-).
+- [X] Usage details in [PineSAM wiki](https://github.com/builder555/PineSAM/wiki).
 
 ## Platforms
  | System  | MacOS | Linux | Windows | iOS | Android|
@@ -54,19 +53,27 @@ Why focus on soldering when you can play with the settings instead? With this ap
 1. Binary packages do not require installation of python or node.js
 2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your specific OS (Mac, Linux, Windows).
 3. **Mac/Linux**: extract and run `./start.sh` in terminal.
+
+   * On MacOS, http://localhost:8080/ opens in your browser automatically.
+   * Some Linux distros may need http://localhost:8080/ opened manually.
+   * Usage guide [here](https://github.com/builder555/PineSAM/wiki).
+
 4. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock, then extract ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
-   * Run powershell as admin, cd to the pinesam folder and `.\start.ps1`
+   * Run [powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3) as admin, cd to the pinesam folder and `.\start.ps1`
    * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
-   * ```Set-ExecutionPolicy RemoteSigned```
+     * ```C:\> Set-ExecutionPolicy RemoteSigned```
+   * Browser will automatically open http://localhost:8080
+   * Usage guide [here](https://github.com/builder555/PineSAM/wiki).
 
-## II. Install the Dev version (Source-all-xxx)
+## II. Install the Dev version (Source-all-_.zip)
 
+This is the same PineSam as the pre-made binaries. Install this if there is an issue with the binaries.  
 For the backend script, first install:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
-- [pipenv](https://pipenv.pypa.io/en/latest/install/)
+- [pipenv](https://pipenv.pypa.io/en/latest/installation/)
 - [node+npm](https://nodejs.org/en/download/)
 <details>
   <summary>
@@ -75,6 +82,8 @@ For the backend script, first install:
   </summary>
   
 #### Setup
+Install all packages linked above first.
+
 ```shell
 git clone https://github.com/builder555/PineSAM
 cd PineSAM
@@ -100,25 +109,26 @@ chmod +x run-dev.sh
   </summary>
 
 #### Install
-If you already have Python and NodeJS installed, you can skip to step 3.
+Install the packages linked above for the backend script. Skip to 4 if you did this already.
 
-1. Install Python: https://www.python.org/downloads
+1. Python install notes
     * Check "Add python.exe to PATH" and select "Customize Installation"
     * Check "Add Python to environment variables" option
-    * See a reference screen [here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
-2. Install NodeJS: https://nodejs.org/en/download/
-3. Download the Source-all-xxx from the latest release: https://github.com/builder555/PineSAM/releases/latest
-4. Right click the zip and open Properties > General tab and check _Unblock_ if it appears at the bottom. Then Unzip it.
-5. Run powershell as administrator, set permissions to RemoteSigned ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
+    * Screenshots of options to select [are here](https://github.com/builder555/PineSAM/discussions/7#discussion-4862766).
+2. Install [NodeJS here](https://nodejs.org/en/download/), accept all prompts to add packages during install including a prompt in the terminal that opens.
+3. After installing packages listed for backend script ([reference](https://github.com/builder555/PineSAM/issues/131#issuecomment-1489711241)), go to System Environment variables to check paths ([image](https://github.com/builder555/PineSAM/discussions/130#discussion-5011624)).
+4. Download the Source-all-__.zip from the [latest release](https://github.com/builder555/PineSAM/releases/latest).
+5. If the zip has an Unblock option, then unblock and extract ([example](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
+6. Run powershell as administrator, set permissions to RemoteSigned ([image here](https://github.com/builder555/PineSAM/discussions/106)).
 ```shell
 # setting this one time in powershell normally persists on reboots.
-Set-ExecutionPolicy RemoteSigned
+C:\Set-ExecutionPolicy RemoteSigned
 ```
 #### Run
-1. Change directory, `cd` to the location of the PineSAM folder that was unzipped above.
+1. change directory, `cd` into the PineSAM folder that was extracted above.
 ```shell
 .\setup-dev.bat   # only need to run this one time for each new version
-.\run-dev.bat     # run this command every time to start PineSAM
+.\run-dev.bat     # run this command every time to start PineSAM (do not need to run as admin)
 ```
 </details>
 <div style="clear:both;">&nbsp;</div>
@@ -137,18 +147,22 @@ You can access the settings remotely once the app is running on the main PC/lapt
 
 2. Pinecil not detected
     * possible reason: you paired your Pinecil using system settings. solution: unpair it from all other places.  
-    * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) [BLE firmware](https://github.com/builder555/PineSAM/files/10797411/Pinecilv2_EN.zip); below IronOS 2.21 only BETA versions will work with PineSAM.
+    * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) current [BLE firmware](https://github.com/Ralim/IronOS/suites/11876815030/artifacts/621223733); below IronOS 2.21 only BETA versions will work with PineSAM.
+    
+3. main_server script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see above.
 
-3. Windows Powershell issue
+4. Windows Powershell issue
     * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)) and set powershell to remotesigned with:<br/>
     `set-executionpolicy remotesigned`
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
   
-4. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install hints and solutions to some common issues.
-5. PineSAM usage [instructions here](https://github.com/builder555/PineSAM/wiki/PineSAM
-).
-6. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
+5. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install hints and solutions to some common issues.
+6. PineSAM usage [instructions here](https://github.com/builder555/PineSAM/wiki).
+7. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
+<br>
 
+## :abacus: Contributors Welcome
+- Please fork the repo, and submit Pull Requests using the `/dev` branch
 
 ## 🛠️ Running Unit tests
 
