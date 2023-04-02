@@ -48,11 +48,16 @@ const options = {
     x: {
       min: 1,
       max: pointsToDisplay-1,
-      display: false,
-      grid: {
-        borderDash: [8, 4],
-        lineWidth: 2,
+      display: true,
+      border: {
+        dash: [8, 4],
       },
+      ticks: {
+        callback: function (value) {
+          return `${pointsToDisplay - value}s`;
+        },
+        maxTicksLimit: 20,
+      }
     },
     temperature: {
       position: 'left',
