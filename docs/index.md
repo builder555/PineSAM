@@ -5,10 +5,10 @@ title:
 
 PineSAM is a Bluetooth BLE app to control the Pinecil V2 through a browser.
 
-<img src="./images/PineSAM_logo-A017A5.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
+<img src="./assets/img/logo/logo.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
 ---
 <br>
-<img src="./images/workHUD.png" align="right" width="350" style="float:left">
+<img src="./assets/img/hud/workHUD.png" align="right" width="350" style="float:left">
 
 #### PineSAM = Pinecil Settings and Menus
 
@@ -25,7 +25,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
   </summary>
 
-<img src="./images/full_settings.png" width="900"> 
+<img src="./assets/img/settings/full_settings.png" width="900"> 
 
 </details>
 <br clear="right"/>

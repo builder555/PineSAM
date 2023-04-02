@@ -16,7 +16,7 @@
 <summary>
 Full settings view
 </summary>
-<img src="/PineSAM/assets/img/settings/all.png">
+<img src="/PineSAM/assets/img/settings/full_settings.png">
 </details>
 
 ## Debug Data
