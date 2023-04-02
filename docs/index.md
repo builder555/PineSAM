@@ -1,7 +1,7 @@
 <img src="./images/PineSAM_logo-A017A5.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
 ---
 <br>
-<img src="./images/workHUD.png" align="right" width="350" style="float:left">
+<img src="./images/workHUD1.png" align="right" width="350" style="float:left">
 
 #### PineSAM = Pinecil Settings and Menus
 
