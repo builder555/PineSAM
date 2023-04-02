@@ -21,6 +21,7 @@ theme:
       - navigation.instant
       - navigation.sections
       #- navigation.indexes
+      - navigation.expand
       - toc.follow
       - search.suggest
       - search.highlight
@@ -95,8 +96,7 @@ markdown_extensions:
   
 
 nav:
-    - Overview:
-        - index.md
+    - Welcome!: index.md
     - Usage:
         - How to use: how-to-use/index.md
         - Settings Categories: how-to-use/settings.md
