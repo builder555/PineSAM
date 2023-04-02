@@ -1,5 +1,58 @@
 # Changelog
 
+## v1.12.14
+
+* Added concurrency to workflow [1120bb2](https://github.com/builder555/PineSAM/commit/1120bb2c496d4f78286f41fae85fd609cc72aadd)
+* Merge pull request #151 from MagicLike/patch-1
+
+Added concurrency to mkdocs workflow [8ce2ec8](https://github.com/builder555/PineSAM/commit/8ce2ec8a7b18e2e16c2f55d697a2b58ac3f99c46)
+* fix Mkdocs  (#153)
+
+* Update index.md
+
+* Create test
+
+* fix: Mkdocs 
+
+fix: Mkdocs   add content, images, icons
+
+* Delete test
+
+* Add files via upload
+
+* fix: link mkdocs
+
+* fix: add images for mkdocs
+
+* Delete workHUD1.png
+
+* fix: links to images in docs
+
+fix links so that all images are from  docs images folder and not duplicated
+
+* Delete workHUD.png
+
+duplicate,  all images in /docs/images now
+
+* Delete workHUD-detailed.png
+
+duplicate,  all images in /docs/images now
+
+* Delete full_settings.png
+
+duplicate,  all images in /docs/images now
+
+* Delete PineSAM_logo-A017A5.png
+
+duplicate,  all images in /docs/images now
+
+* fix: broken edit link mkdocs
+
+* fix: links
+
+* fix: image links [556d646](https://github.com/builder555/PineSAM/commit/556d64616dab773643859de7f4c614441f1c15be)
+* fix: added vertical grid. closes #54 [0a3f07f](https://github.com/builder555/PineSAM/commit/0a3f07fb28fc28315833a3a466cb593315db1e8c)
+
 ## v1.12.13
 
 * fix: instructions, docs, wiki (#144)
