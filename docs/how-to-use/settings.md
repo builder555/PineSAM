@@ -4,7 +4,7 @@
 - Categories can be clicked to collapse and reduce screen clutter.
 - Setting numbers can be changed two ways: moving the slider or simply typing on the box next to the slider.
 - Drop-down menus are used for clarity of text choices.
-- Toggle choices are used for all check box items ballot_box_with_check seen on the pinecil (e.g. detailed idle).
+- Toggle choices are used for all check box items ☑️ seen on the pinecil (e.g. detailed idle).
 
 
 <figure markdown>
