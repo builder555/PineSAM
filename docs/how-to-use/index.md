@@ -1,4 +1,6 @@
-## Usage
+# 🗃️ How to use
+
+## 🔖 Usage
 
 1. PineSAM user interface runs in any browser.
    1. On Windows/MacOS, http://localhost:8080/  opens in your browser automatically.   
@@ -13,7 +15,7 @@
 1. Colors are designed to work in Light or Dark view mode on PC and Phone Browsers.
 1. Thermostat icon changes into 100 different color hues as the live temperature changes.
 
-### Save Changes to Flash
+### 💾 Save Changes to Flash
 
 - In Work HUD view, leave Save to Flash OFF (not needed and preserves flash cycles).
 - Toggle this on ''only'' before changing settings on the Pinecil so they persist on reboot.
@@ -27,9 +29,9 @@
 
 ---
 
-## Work HUD View
+## 🧑‍🏭 Work HUD View
 
-<img src="../assets/img/hud/workHUD.png" width="475px" align="right">
+<img src="../assets/img/hud/workHUD-detailed.png" width="475px" align="right">
 
 1. This is a HUD window designed as an all-in-one single view that can be used during soldering.
 1. Phone: designed to be completely viewable on vertical screen.
@@ -37,7 +39,7 @@
 1. Power Bar: bottom bar shows the input voltage, the current estimated watts pinecil is drawing, and the highest peak watt hit during the session.
 1. It is best to leave save to flash toggle Off while using the Work HUD to save on pinecil flash cycles as the PineSAM buttons are used often during a soldering session.
 
-### Preset buttons
+### 🎛️ Preset buttons
 
 1. Allows quick change of user customizable temperatures (exclusive to PineSAM and not available on Pinecil iron directly).
 1. Preset buttons can be customized and saved instantly to desired temperature.

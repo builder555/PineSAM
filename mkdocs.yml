@@ -95,10 +95,13 @@ markdown_extensions:
   
 
 nav:
-    - Welcome!: index.md
-    - Usage:
-        - How to use: how-to-use/index.md
-        - Settings Categories: how-to-use/settings.md
+    - 👋 Welcome!: index.md
+    - 🚀 Getting started:
+        - 🖥️ Installation: getting-started/installation.md
+        - 🚧 Known issues: getting-started/known-issues.md
+    - 📜 Usage:
+        - 🗃️ How to use: how-to-use/index.md
+        - ⚙️ Settings Categories: how-to-use/settings.md
 
 extra:
   social:
