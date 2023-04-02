@@ -30,5 +30,5 @@ Full settings view
 
 - a python script runs the backend server inside a terminal (e.g. powershell)
 - Terminal messages contain useful information for devs and troubleshooting.
-- BLE MAC address of the pinecil for example is on line "Found pinecil at" C4:xx:xx:xx:xx:xx
+- BLE MAC address of the pinecil for example is on line "Found pinecil at" `C4:xx:xx:xx:xx:xx`
 
