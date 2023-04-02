@@ -1,10 +1,9 @@
-site_name: PineSAM documentation
-site_description: PineSAM is a Bluetooth BLE app to control the Pinecil V2 through a browser.
-site_url: 'https://builder555.github.io/PineSAM'
-
-repo_url: https://github.com/builder555/PineSAM
-edit_uri: https://github.com/builder555/PineSAM/edit/master/docs
+site_name: PineSAM
 repo_name: PineSAM
+site_description: "PineSAM is a Bluetooth BLE app to control the Pinecil V2 through a browser."
+site_url: 'https://builder555.github.io/PineSAM'
+repo_url: https://github.com/builder555/PineSAM
+edit_uri: edit/dev/docs
 
 theme:
     name: material
