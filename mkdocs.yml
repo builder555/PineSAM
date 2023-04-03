@@ -8,8 +8,8 @@ edit_uri: edit/dev/docs
 theme:
     name: material
     custom_dir: docs/assets/overrides
-    favicon: assets/img/logo/favicon.ico
-    logo: assets/img/logo/logo.png
+    favicon: assets/img/favicon.ico
+    logo: assets/img/logo.png
     icon:
       repo: fontawesome/brands/github
       edit: material/file-edit-outline

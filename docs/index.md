@@ -4,11 +4,11 @@ description: Brief overview of PineSAM
 ᴴₒᴴₒᴴₒ: true
 ---
 
-<img src="./assets/img/logo/logo.png" width="200px" style="display: block; margin: 0 auto" class="nglb">
+<img src="./assets/img/logo.png" width="200px" style="display: block; margin: 0 auto" class="nglb">
 
 # 👋 Welcome to the PineSAM documentation!
 
-<img src="./assets/img/hud/workHUD.png" align="right" width="350px">
+<img src="./assets/img/workHUD.png" align="right" width="350px">
 
 PineSAM is a Bluetooth LE app to control the Pinecil V2 through a browser.
 

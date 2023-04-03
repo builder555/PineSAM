@@ -8,7 +8,7 @@
 
 
 <figure markdown>
-![](../assets/img/settings/categories.png)
+![](../assets/img/categories.png)
 <figcaption>Settings categories</figcaption>
 </figure>
 
@@ -16,7 +16,7 @@
 <summary>
 Full settings view
 </summary>
-<img src="/PineSAM/assets/img/settings/full_settings.png">
+<img src="/PineSAM/assets/img/full_settings.png">
 </details>
 
 ## 🧑‍💻 Debug Data

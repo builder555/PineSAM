@@ -4,10 +4,10 @@
 [![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=7700b3)](https://github.com/builder555/PineSAM/releases/latest)
 ![bluetooth](https://custom-icon-badges.demolab.com/badge/-bluetooth-7700b3.svg?logo=bluetooth&logoColor=white)
 <br><br>
-<img src="./docs/assets/img/logo/logo.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
+<img src="./docs/assets/img/logo.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
 ---
 <br>
-<img src="./docs/assets/img/hud/workHUD.png" align="right" width="350" style="float:left">
+<img src="./docs/assets/img/workHUD.png" align="right" width="350" style="float:left">
 
 #### PineSAM = Pinecil Settings and Menus
 
@@ -24,7 +24,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
   </summary>
 
-<img src="./docs/assets/img/settings/full_settings.png" width="900"> 
+<img src="./docs/assets/img/full_settings.png" width="900"> 
 
 </details>
 <br clear="right"/>
