@@ -45,7 +45,7 @@ You can access the settings remotely once the app is running on the main PC/lapt
 - Pinecil needs to be within BLE range of the computer running the PineSAM app.
 
 ## 🧮 Contributors Welcome
-- Please fork the repo, and submit Pull Requests using the `dev` branch
+- Please fork the [repo](https://github.com/builder555/PineSAM), and submit Pull Requests using the `dev` branch
 
 ## 🛠️ Running Unit tests
 
