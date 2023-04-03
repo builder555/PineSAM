@@ -102,6 +102,7 @@ nav:
     - 📜 Usage:
         - 🗃️ How to use: how-to-use/index.md
         - ⚙️ Settings Categories: how-to-use/settings.md
+        - 📒 Debugging & Terminal: how-to-use/debugging & terminal.md
 
 extra:
   social:
