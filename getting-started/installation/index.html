@@ -5,18 +5,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Brief overview of PineSAM" name="description"/>
-<link href="https://builder555.github.io/PineSAM/" rel="canonical"/>
-<link href="getting-started/installation/" rel="next"/>
-<link href="assets/img/favicon.ico" rel="icon"/>
+<meta content="PineSAM is a Bluetooth BLE app to control the Pinecil V2 through a browser." name="description"/>
+<link href="https://builder555.github.io/PineSAM/getting-started/installation/" rel="canonical"/>
+<link href="../.." rel="prev"/>
+<link href="../known-issues/" rel="next"/>
+<link href="../../assets/img/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.5" name="generator"/>
-<title>PineSAM documentation</title>
-<link href="assets/stylesheets/main.7a7fce14.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
-<link href="css/timeago.css" rel="stylesheet"/>
-<link href="assets/css/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<title>🖥️ Installation - PineSAM documentation</title>
+<link href="../../assets/stylesheets/main.7a7fce14.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link href="../../css/timeago.css" rel="stylesheet"/>
+<link href="../../assets/css/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -27,14 +28,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="purple" data-md-color-primary="light-green" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#welcome-to-the-pinesam-documentation">
+<a class="md-skip" href="#installation-options">1. 
           Skip to content
         </a>
 </div>
@@ -42,8 +43,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="PineSAM documentation" class="md-header__button md-logo" data-md-component="logo" href="." title="PineSAM documentation">
-<img alt="logo" src="assets/img/logo.png"/>
+<a aria-label="PineSAM documentation" class="md-header__button md-logo" data-md-component="logo" href="../.." title="PineSAM documentation">
+<img alt="logo" src="../../assets/img/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -58,7 +59,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              👋 Welcome!
+              🖥️ Installation
             
           </span>
 </div>
@@ -128,8 +129,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="PineSAM documentation" class="md-nav__button md-logo" data-md-component="logo" href="." title="PineSAM documentation">
-<img alt="logo" src="assets/img/logo.png"/>
+<a aria-label="PineSAM documentation" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="PineSAM documentation">
+<img alt="logo" src="../../assets/img/logo.png"/>
 </a>
     PineSAM documentation
   </label>
@@ -144,14 +145,31 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        👋 Welcome!
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          🚀 Getting started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          🚀 Getting started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          👋 Welcome!
+          🖥️ Installation
           <span class="md-nav__icon md-icon"></span>
 </label>
-<a class="md-nav__link md-nav__link--active" href=".">
-        👋 Welcome!
+<a class="md-nav__link md-nav__link--active" href="./">
+        🖥️ Installation
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -160,57 +178,81 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#features">
-    💫 Features
+<a class="md-nav__link" href="#using-pre-made-binaries">1.1 
+    📦 Using pre-made binaries
+  </a>
+<nav aria-label="📦 Using pre-made binaries" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maclinux">
+    Mac/Linux
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#platforms">
-    💿 Platforms
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#remote-access">
-    📶 Remote access
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#contributors-welcome">
-    🧮 Contributors Welcome
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#running-unit-tests">
-    🛠️ Running Unit tests
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-    📚 References
+<a class="md-nav__link" href="#windows">
+    Windows
   </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-          🚀 Getting started
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
-          🚀 Getting started
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="getting-started/installation/">
-        🖥️ Installation
-      </a>
+<a class="md-nav__link" href="#install-the-dev-version-from-source">1.2 
+    🛠️ Install the Dev version from source
+  </a>
+<nav aria-label="🛠️ Install the Dev version from source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dependencies">
+    Dependencies
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="getting-started/known-issues/">
+<a class="md-nav__link" href="#maclinux_1">
+    Mac/Linux
+  </a>
+<nav aria-label="Mac/Linux" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup">
+    Setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run">
+    Run
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows_1">
+    Windows
+  </a>
+<nav aria-label="Windows" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install">
+    Install
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run_1">
+    Run
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../known-issues/">
         🚧 Known issues
       </a>
 </li>
@@ -230,17 +272,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="how-to-use/">
+<a class="md-nav__link" href="../../how-to-use/">
         🗃️ How to use
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="how-to-use/settings/">
+<a class="md-nav__link" href="../../how-to-use/settings/">
         ⚙️ Settings Categories
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="how-to-use/debugging%20%26%20terminal/">
+<a class="md-nav__link" href="../../how-to-use/debugging%20%26%20terminal/">
         📒 Debugging &amp; Terminal
       </a>
 </li>
@@ -274,83 +316,90 @@
 -->
 <!-- Actions -->
 <!-- Edit button -->
-<a class="md-content__button md-icon" href="https://github.com/builder555/PineSAM/edit/dev/docs/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/builder555/PineSAM/edit/dev/docs/getting-started/installation.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <!-- View button -->
-<a class="md-content__button md-icon" href="https://github.com/builder555/PineSAM/blob/dev/docs/index.md" title="View source of this page">
+<a class="md-content__button md-icon" href="https://github.com/builder555/PineSAM/blob/dev/docs/getting-started/installation.md" title="View source of this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
-<p><img class="nglb" src="./assets/img/logo.png" style="display: block; margin: 0 auto" width="200px"/></p>
-<h1 id="welcome-to-the-pinesam-documentation">👋 Welcome to the PineSAM documentation!<a class="headerlink" href="#welcome-to-the-pinesam-documentation" title="Permanent link">¶</a></h1>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="./assets/img/workHUD.png"><img align="right" src="./assets/img/workHUD.png" width="350px"/></a></p>
-<p>PineSAM is a Bluetooth LE app to control the Pinecil V2 through a browser.</p>
-<p><strong>PineSAM</strong> = <strong>Pine</strong>cil <strong>S</strong>ettings <strong>a</strong>nd <strong>M</strong>enus</p>
-<p>Why focus on soldering when you can play with the settings instead?
-With this app you have full control over your new shiny Pinecil V2 from your computer using bluetooth.</p>
-<p><strong>NB</strong>: No special browser BLE GATT or flags required and works on all major OS/devices.</p>
-<p><strong>NB</strong>: This app needs the python backend to run on a computer, it CANNOT run entirely in the browser like Joric's UI.</p>
-<h2 id="features">💫 Features<a class="headerlink" href="#features" title="Permanent link">¶</a></h2>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> Automatically detect Pinecil V2 over BLE.</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> Control all settings on the device.</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> Save to Flash: toggle to save changes directly onto Pinecil (leave off unless actively changing settings).</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> Work HUD main screen with: Set °C/°F <code>[+][-]</code> buttons, live tip °C/°F updates, peak watts, live watts, input voltage.</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.</li>
-</ul>
-<h2 id="platforms">💿 Platforms<a class="headerlink" href="#platforms" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th align="center">System</th>
-<th align="center">MacOS</th>
-<th align="center">Linux</th>
-<th align="center">Windows</th>
-<th align="center">iOS</th>
-<th align="center">Android</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">UI</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td align="center">Backend</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="remote-access">📶 Remote access<a class="headerlink" href="#remote-access" title="Permanent link">¶</a></h2>
-<p>You can access the settings remotely once the app is running on the main PC/laptop.</p>
+<h1 id="installation-options"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> 🖥️ Installation Options<a class="headerlink" href="#installation-options" title="Permanent link">¶</a></h1>
+<h2 id="using-pre-made-binaries"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> 📦 Using pre-made binaries<a class="headerlink" href="#using-pre-made-binaries" title="Permanent link">¶</a></h2>
+<ol>
+<li>Binary packages do not require installation of python or node.js</li>
+<li>Download latest <a href="https://github.com/builder555/PineSAM/releases/latest">release</a> version for your specific OS (Mac, Linux, Windows).</li>
+</ol>
+<h3 id="maclinux"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> Mac/Linux<a class="headerlink" href="#maclinux" title="Permanent link">¶</a></h3>
 <ul>
-<li>Find the <a href="https://lifehacker.com/how-to-find-your-local-and-external-ip-address-5833108">local IP address</a> of the device running the app.</li>
-<li>open <code>http://&lt;ip-address&gt;:8080/</code> on the second device on the same network (e.g., a phone).</li>
-<li>Pinecil needs to be within BLE range of the computer running the PineSAM app.</li>
+<li>extract and run <code>./start.sh</code> in terminal.</li>
+<li>On MacOS, <a href="http://localhost:8080/">http://localhost:8080/</a> opens in your browser automatically.</li>
+<li>Some Linux distros may need <a href="http://localhost:8080/">http://localhost:8080/</a> opened manually.</li>
+<li>Usage guide <a href="https://github.com/builder555/PineSAM/wiki">here</a>.</li>
 </ul>
-<h2 id="contributors-welcome">🧮 Contributors Welcome<a class="headerlink" href="#contributors-welcome" title="Permanent link">¶</a></h2>
+<h3 id="windows"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> Windows<a class="headerlink" href="#windows" title="Permanent link">¶</a></h3>
 <ul>
-<li>Please fork the <a href="https://github.com/builder555/PineSAM">repo</a>, and submit Pull Requests using the <code>dev</code> branch</li>
+<li>right click on the zip, properties&gt; general, check box to Unblock, then extract (<a href="https://github.com/builder555/PineSAM/discussions/106#discussion-4960445">reference</a>).</li>
+<li>Run <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3">powershell</a> as admin, cd to the pinesam folder and <code>.\start.ps1</code></li>
+<li>Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".</li>
+<li>
+<p>If you get errors in powershell, set the permissions to RemoteSigned to allow scripts (<a href="https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/">reference</a>).</p>
+<div class="highlight"><pre><span></span><code><span class="n">C</span><span class="p">:\&gt;</span> <span class="nb">Set-ExecutionPolicy</span> <span class="n">RemoteSigned</span>
+</code></pre></div>
+</li>
+<li>
+<p>Browser will automatically open <a href="http://localhost:8080">http://localhost:8080</a></p>
+</li>
+<li>Usage guide <a href="https://github.com/builder555/PineSAM/wiki">here</a>.</li>
 </ul>
-<h2 id="running-unit-tests">🛠️ Running Unit tests<a class="headerlink" href="#running-unit-tests" title="Permanent link">¶</a></h2>
-<p>run inside <code>backend</code> directory:
-<div class="highlight"><pre><span></span><code>pipenv<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span>
-</code></pre></div></p>
-<h2 id="references">📚 References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
+<h2 id="install-the-dev-version-from-source"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> 🛠️ Install the Dev version from source<a class="headerlink" href="#install-the-dev-version-from-source" title="Permanent link">¶</a></h2>
+<p>This is the same PineSam as the pre-made binaries. Install this if there is an issue with the binaries or want to contribute / develop on your own.</p>
+<h3 id="dependencies"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h3>
 <ul>
-<li><a href="https://wiki.pine64.org/wiki/Pinecil">Pinecil</a> - The Pinecil Wiki page</li>
-<li><a href="https://github.com/Ralim/IronOS">IronOS</a> - The OS running on this soldering iron</li>
-<li><a href="https://github.com/joric/pinecil">Pinecil Web UI</a> - A neat web-based UI, requires bluetooth browser support</li>
-<li><a href="https://pinecil.pine64.org">Pinecil Authenticity Checker</a> - almost all AliExpress Pinecils are fake, check your V2!</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a></li>
+<li><a href="https://www.python.org/downloads/">python 3</a> (tested with 3.10/3.11)</li>
+<li><a href="https://pipenv.pypa.io/en/latest/installation/">pipenv</a></li>
+<li><a href="https://nodejs.org/en/download/">node+npm</a></li>
+</ul>
+<h3 id="maclinux_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Mac/Linux<a class="headerlink" href="#maclinux_1" title="Permanent link">¶</a></h3>
+<h4 id="setup"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2.1</span> Setup<a class="headerlink" href="#setup" title="Permanent link">¶</a></h4>
+<p>Install all packages linked above first.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/builder555/PineSAM
+<span class="nb">cd</span><span class="w"> </span>PineSAM
+chmod<span class="w"> </span>+x<span class="w"> </span>setup-dev.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>run-dev.sh
+./setup-dev.sh
+</code></pre></div>
+<h4 id="run"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2.2</span> Run<a class="headerlink" href="#run" title="Permanent link">¶</a></h4>
+<p><div class="highlight"><pre><span></span><code>./run-dev.sh
+</code></pre></div>
+<em>Press CTRL+C in the terminal window to stop</em></p>
+<ul>
+<li>On a Mac <a href="http://localhost:8080">http://localhost:8080</a> will open in your browser automatically.</li>
+<li>Some Linux distros may need <a href="http://localhost:8080">http://localhost:8080</a> opened manually. Debian12 hints <a href="https://github.com/builder555/PineSAM/discussions/47#discussion-4884758">here</a>.</li>
+</ul>
+<h3 id="windows_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Windows<a class="headerlink" href="#windows_1" title="Permanent link">¶</a></h3>
+<h4 id="install"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3.1</span> Install<a class="headerlink" href="#install" title="Permanent link">¶</a></h4>
+<p>Install the packages linked above for the backend script. Skip to 4 if you did this already.</p>
+<ol>
+<li>Python install notes</li>
+<li>Check "Add python.exe to PATH" and select "Customize Installation"</li>
+<li>Check "Add Python to environment variables" option</li>
+<li>Screenshots of options to select <a href="https://github.com/builder555/PineSAM/discussions/7#discussion-4862766">are here</a>.</li>
+<li>Install <a href="https://nodejs.org/en/download">NodeJS here</a>, accept all prompts to add packages during install including a prompt in the terminal that opens.</li>
+<li>After installing packages listed for backend script <a href="https://github.com/builder555/PineSAM/issues/131#issuecomment-1489711241">reference</a>, go to System Environment variables to check paths (<a href="https://github.com/builder555/PineSAM/discussions/130#discussion-5011624">image</a>).</li>
+<li>Download the Source-all-_.zip from the <a href="https://github.com/builder555/PineSAM/releases/latest">latest release</a>.</li>
+<li>If the zip has an Unblock option, then unblock and extract (<a href="https://github.com/builder555/PineSAM/discussions/106#discussion-4960445">example</a>).</li>
+<li>Run powershell as administrator, set permissions to RemoteSigned (<a href="https://github.com/builder555/PineSAM/discussions/106">image here</a>).</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c"># setting this one time in powershell normally persists on reboots.</span>
+<span class="n">C</span><span class="p">:\</span><span class="nb">Set-ExecutionPolicy</span> <span class="n">RemoteSigned</span>
+</code></pre></div>
+<h4 id="run_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3.2</span> Run<a class="headerlink" href="#run_1" title="Permanent link">¶</a></h4>
+<ul>
+<li>change directory, <code>cd</code> into the PineSAM folder that was extracted above.
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">setup-dev</span><span class="p">.</span><span class="n">bat</span>   <span class="c"># only need to run this one time for each new version</span>
+<span class="p">.\</span><span class="n">run-dev</span><span class="p">.</span><span class="n">bat</span>     <span class="c"># run this command every time to start PineSAM (do not need to run as admin)</span>
+</code></pre></div></li>
 </ul>
 <hr/>
 <div class="md-source-file">
@@ -360,12 +409,12 @@ With this app you have full control over your new shiny Pinecil V2 from your com
       <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-05T12:14:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-05</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-03-29T11:48:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-29</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-05T12:14:47+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-05</span>
 </small>
 </div>
 <div class="md-source-date">
 <small>
-          Authors: <span class="git-page-authors git-authors">MagicLike (43.55%), River M (56.45%)</span>
+          Authors: <span class="git-page-authors git-authors">MagicLike</span>
 </small>
 </div>
 </article>
@@ -378,13 +427,26 @@ With this app you have full control over your new shiny Pinecil V2 from your com
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Next: 🖥️ Installation" class="md-footer__link md-footer__link--next" href="getting-started/installation/" rel="next">
+<a aria-label="Previous: 👋 Welcome!" class="md-footer__link md-footer__link--prev" href="../.." rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                👋 Welcome!
+              </div>
+</div>
+</a>
+<a aria-label="Next: 🚧 Known issues" class="md-footer__link md-footer__link--next" href="../known-issues/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                🖥️ Installation
+                🚧 Known issues
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -420,9 +482,9 @@ With this app you have full control over your new shiny Pinecil V2 from your com
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.instant", "navigation.sections", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "content.action.edit", "content.action.view", "toc.integrate"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.407015b8.min.js"></script>
-<script src="js/timeago.min.js"></script>
-<script src="js/timeago_mkdocs_material.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.instant", "navigation.sections", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "navigation.footer", "content.action.edit", "content.action.view", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
+<script src="../../js/timeago.min.js"></script>
+<script src="../../js/timeago_mkdocs_material.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
