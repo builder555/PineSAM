@@ -1,5 +1,52 @@
 # Changelog
 
+## v1.12.15
+
+* Mkdocs patch (#152)
+
+* Updated assets & greeting
+
+* Fix for too long title
+
+* Fix view and edit buttons
+
+* Menu fix for title being too long
+
+* Updated lists & headings
+
+* fix checkbox
+
+* Display MAC adress as code
+
+* Update mkdocs.yml
+
+* Fix image paths
+
+* Added back "documentaion" to title
+
+* Major overhaul
+
+- Welcome page fixed
+- New categories
+- Emojis added
+- Added metadata and special settings
+- Formatting corrected
+- Links fixed
+- other fixes
+
+* Update docs-deploy.yml
+
+* Moved all images into one directory
+
+* Reworked arrangement of Installaion page
+
+* Formatting
+
+* Moved Debugging & Terminal section to own document
+
+* Added link to repo in contribution section [fd840e6](https://github.com/builder555/PineSAM/commit/fd840e6fe173a390eb829d7f60856f4e4349fff1)
+* fix: dummy commit to up the version [8a8315d](https://github.com/builder555/PineSAM/commit/8a8315da98375cfa04fa21e168aa2dac13b35e8d)
+
 ## v1.12.14
 
 * Added concurrency to workflow [1120bb2](https://github.com/builder555/PineSAM/commit/1120bb2c496d4f78286f41fae85fd609cc72aadd)
