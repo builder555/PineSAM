@@ -1,15 +1,15 @@
-site_name: PineSAM
+site_name: PineSAM documentation
 repo_name: PineSAM
+site_description: "PineSAM is a Bluetooth BLE app to control the Pinecil V2 through a browser."
 site_url: 'https://builder555.github.io/PineSAM'
 repo_url: https://github.com/builder555/PineSAM
-site_description: "PineSAM is a Bluetooth BLE app to control the Pinecil V2 through a browser."
 edit_uri: edit/dev/docs
 
 theme:
     name: material
     custom_dir: docs/assets/overrides
-    favicon: assets/img/logo/favicon.ico
-    logo: assets/img/logo/logo.png
+    favicon: assets/img/favicon.ico
+    logo: assets/img/logo.png
     icon:
       repo: fontawesome/brands/github
       edit: material/file-edit-outline
@@ -20,6 +20,7 @@ theme:
       - navigation.instant
       - navigation.sections
       #- navigation.indexes
+      #- navigation.expand
       - toc.follow
       - search.suggest
       - search.highlight
@@ -94,11 +95,14 @@ markdown_extensions:
   
 
 nav:
-    - Overview:
-        - index.md
-    - Usage:
-        - How to use: how-to-use/index.md
-        - Settings Categories: how-to-use/settings.md
+    - 👋 Welcome!: index.md
+    - 🚀 Getting started:
+        - 🖥️ Installation: getting-started/installation.md
+        - 🚧 Known issues: getting-started/known-issues.md
+    - 📜 Usage:
+        - 🗃️ How to use: how-to-use/index.md
+        - ⚙️ Settings Categories: how-to-use/settings.md
+        - 📒 Debugging & Terminal: how-to-use/debugging & terminal.md
 
 extra:
   social:
