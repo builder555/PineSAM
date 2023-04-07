@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.12.16
+
+* fix: bring back pinecil-id. closes #166 [0efead1](https://github.com/builder555/PineSAM/commit/0efead14e24a279a0865ecb286aac565ee8baf79)
+
 ## v1.12.15
 
 * Mkdocs patch (#152)
