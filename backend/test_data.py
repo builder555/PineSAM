@@ -209,4 +209,14 @@ live_data = [
         raw_value=bytearray(b'!\x00\x00\x006\x01\x00\x00x\x00\x00\x00\x1d\x01\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00P\x00\x00\x00<,\x00\x00\xc7*\x00\x00\xc3\x01\x00\x00\x1e\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
         expected_value=[33, 310, 120, 285, 0, 3, 80, 11324, 10951, 451, 1054, 0, 0, 0],
     ),
+    MagicMock(
+        uuid='00000003-0000-1000-8000-00805f9b34fb',
+        raw_value=bytearray(b'v2.20'),
+        expected_value='v2.20',
+    ),
+    MagicMock(
+        uuid='00000004-0000-1000-8000-00805f9b34fb',
+        raw_value=bytearray(b'\xb4\x0b\xcfB\xdbn\x00\x00'),
+        expected_value='42CF656F',
+    ),
 ]
