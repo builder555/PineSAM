@@ -199,7 +199,7 @@ class Pinecil:
         return {
             'name': f'Pinecil-{self.unique_id}',
             'id': self.unique_id,
-            'build': self.build_version,
+            'build': self.build_version or 'v2.20',
         }
 
     async def __read_live_data(self, crx: BleakGATTCharacteristic) -> Dict[str, int]:
