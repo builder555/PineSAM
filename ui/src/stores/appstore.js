@@ -3,11 +3,11 @@ import { defineStore } from 'pinia';
 import { socket } from '../socket';
 import settingDescriptions from '../setting-descriptions.js';
 import settingToComponentMap from '../setting-components.js';
-
 export const useAppStore = defineStore('appStore', () => {
   const appInfo = ref({});
   const settings = ref({});
   const rawLiveData = ref({});
+  const rawSettings = ref({});
   const peakWatts = ref(0);
   const isSaveToFlash = ref(false);
   const isBusy = ref(false);
@@ -26,7 +26,20 @@ export const useAppStore = defineStore('appStore', () => {
       PeakWatts: peakWatts.value.toFixed(1),
     };
   });
-
+  const settingsComponents = computed(() => {
+    const components = { ...settingToComponentMap };
+    if (info.value?.build === 'v2.21') {
+      components.Brightness = {
+          name: 'range',
+          min: 1,
+          max: 101,
+          step: 25,
+          display: (value) => ((value - 1) / 25 + 1),
+      };
+    }
+    return components;
+  });
+  
   const init = async () => {
     await fetchAppInfo();
     await fetchSettings();
@@ -48,18 +61,18 @@ export const useAppStore = defineStore('appStore', () => {
     await socket.send({ command: 'GET_APP_INFO' });
   };
 
-  const parseSettings = (rawSettings) => {
-    for (const name in rawSettings) {
-      const value = Number(rawSettings[name]);
+  const parseSettings = () => {
+    for (const name in rawSettings.value) {
+      const value = Number(rawSettings.value[name]);
       settings.value[name] = {
         value,
         lastSent: value,
         display: settingDescriptions[name]?.displayText ?? name,
         hint: settingDescriptions[name]?.description ?? '',
-        component: settingToComponentMap[name],
+        component: settingsComponents.value[name],
         isUpdating: false,
       };
-      const isBooleanField = settingToComponentMap[name]?.name === 'checkbox';
+      const isBooleanField = settingsComponents.value[name]?.name === 'checkbox';
       if (isBooleanField) {
         settings.value[name].value = value === 1;
       }
@@ -145,15 +158,16 @@ export const useAppStore = defineStore('appStore', () => {
   };
 
   socket.on('GET_SETTINGS', (data) => {
-    parseSettings(data);
+    rawSettings.value = data;
+    parseSettings();
     isBusy.value = false;
   });
   socket.on('GET_INFO', (data) => {
     info.value = data;
+    parseSettings();
     isBusy.value = false;
   });
   socket.on('GET_APP_INFO', (data) => {
-    console.log(data);
     appInfo.value = data;
     isBusy.value = false;
   });
