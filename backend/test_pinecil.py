@@ -119,6 +119,16 @@ async def test_get_live_data(mock_ble, mocked_live_data):
         assert live_data["Watts"] == mocked_live_data[0].expected_value[13]
 
 @pytest.mark.asyncio
+async def test_get_pinecil_info(mock_ble, mocked_live_data):
+    with patch('pinecil_ble.BLE', return_value=mock_ble):
+        pinecil = Pinecil()
+        await pinecil.connect()
+        info = await pinecil.get_info()
+        assert info["build"] == mocked_live_data[1].expected_value
+        assert info["id"] == mocked_live_data[2].expected_value
+        assert info["name"] == f'Pinecil-{info["id"]}'
+
+@pytest.mark.asyncio
 async def test_reading_live_data_while_disconnected_reconnects(mock_ble):
     with patch('pinecil_ble.BLE', return_value=mock_ble):
         pinecil = Pinecil()

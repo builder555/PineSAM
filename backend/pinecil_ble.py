@@ -69,6 +69,8 @@ class Pinecil:
         self.is_getting_settings = False
         self.__last_read_settings = {}
         self.__last_read_settings_time = 0
+        self.unique_id = ''
+        self.build_version = ''
 
     @property
     def is_connected(self):
@@ -109,7 +111,7 @@ class Pinecil:
             if crx.uuid == self.bulk_data_map.get_uuid(self.bulk_data_to_read):
                 self.crx_bulk_data = crx
                 break
-        self.unique_id = await self.__get_pinecil_id()
+        self.unique_id, self.build_version = await self.__get_pinecil_info()
         self.is_initialized = True
         
     async def __read_setting(self, crx: BleakGATTCharacteristic) -> Tuple[str, int]:
@@ -117,8 +119,10 @@ class Pinecil:
         number = struct.unpack('<H', raw_value)[0]
         return self.settings_map.get_name(crx.uuid), number
 
-    async def __get_pinecil_id(self):
+    async def __get_pinecil_info(self):
         try:
+            device_id = ''
+            build_version = ''
             characteristics = await self.ble.get_characteristics(self.bulk_data_uuid)
             for crx in characteristics:
                 if crx.uuid == self.bulk_data_map.get_uuid('DeviceID'):
@@ -127,9 +131,13 @@ class Pinecil:
                     # using algorithm from here:
                     # https://github.com/Ralim/IronOS/commit/eb5d6ea9fd6acd221b8880650728e13968e54d3d
                     unique_id = ((n & 0xFFFFFFFF) ^ ((n >> 32) & 0xFFFFFFFF))
-                    return f'{unique_id:X}'
+                    device_id = f'{unique_id:X}'
+                elif crx.uuid == self.bulk_data_map.get_uuid('Build'):
+                    raw_value = await self.ble.read_characteristic(crx)
+                    build_version = raw_value.decode('utf-8')
+            return device_id, build_version
         except:
-            return ''
+            return '', ''
 
     async def get_all_settings(self) -> Dict[str, int]:
         logging.info('REQUEST FOR SETTINGS')
@@ -191,6 +199,7 @@ class Pinecil:
         return {
             'name': f'Pinecil-{self.unique_id}',
             'id': self.unique_id,
+            'build': self.build_version,
         }
 
     async def __read_live_data(self, crx: BleakGATTCharacteristic) -> Dict[str, int]:
