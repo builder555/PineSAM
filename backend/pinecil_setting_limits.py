@@ -43,7 +43,7 @@ value_limits = {
     "UILanguage":                   [0, 0xFFFF],
     "PDNegTimeout":                 [0, 50],
     "ColourInversion":              [0, 1],
-    "Brightness":                   [0, 99],
+    "Brightness":                   [0, 101],
     "LOGOTime":                     [0, 5],
     "CalibrateCJC":                 [0, 1],
     "BLEEnabled":                   [0, 1],
