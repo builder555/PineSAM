@@ -26,7 +26,6 @@ class SettingNameToUUIDMap:
             '2.21beta1': names_v221beta1,
             '2.21beta2': names_v221beta2,
         }
-        print('setting version to ', version)
         self.names = names.get(version, names_v220)
 
     def get_name(self, uuid: str) -> str:
@@ -122,7 +121,7 @@ class Pinecil:
         try:
             characteristics = await self.ble.get_characteristics(self.bulk_data_uuid)
             for crx in characteristics:
-                if crx.uuid == '00000004-0000-1000-8000-00805f9b34fb':
+                if crx.uuid == self.bulk_data_map.get_uuid('DeviceID'):
                     raw_value = await self.ble.read_characteristic(crx)
                     n = struct.unpack('<Q',raw_value)[0]
                     # using algorithm from here:
