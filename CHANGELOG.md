@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.13.3
+
+* feat: pass the build version from pinecil [86eb85a](https://github.com/builder555/PineSAM/commit/86eb85a0530675bf288939372c364047619ff22d)
+* fix: by default send v2.20 as build version [2f3426d](https://github.com/builder555/PineSAM/commit/2f3426d089aa4966e73dac88144d70aca9716913)
+* fix: ensure proper min/max range for brightness [68e9431](https://github.com/builder555/PineSAM/commit/68e943115aee0b60be49239b4804530b413566d0)
+* fix: display proper brightness values for v2.21. closes #133 [3f44fc5](https://github.com/builder555/PineSAM/commit/3f44fc5e6157743b0dd1866afbeee7cdfbed6977)
+
 ## v1.12.16
 
 * fix: bring back pinecil-id. closes #166 [0efead1](https://github.com/builder555/PineSAM/commit/0efead14e24a279a0865ecb286aac565ee8baf79)
