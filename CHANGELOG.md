@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.13.9
+
+* fix: update docs with new IronOS version [804c77b](https://github.com/builder555/PineSAM/commit/804c77b343e9cab324b43b57440b4c77f026db55)
+
 ## v1.13.8
 
 * fix: smaller font for build version [48a9f8e](https://github.com/builder555/PineSAM/commit/48a9f8e2ff603e094fb02d0d42d3a3b75823818e)
