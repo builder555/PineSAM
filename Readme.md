@@ -147,7 +147,7 @@ You can access the settings remotely once the app is running on the main PC/lapt
 
 2. Pinecil not detected
     * possible reason: you paired your Pinecil using system settings. solution: unpair it from all other places.  
-    * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) current [BLE firmware](https://github.com/Ralim/IronOS/suites/11876815030/artifacts/621223733); below IronOS 2.21 only BETA versions will work with PineSAM.
+    * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) current [BLE firmware](https://github.com/Ralim/IronOS/releases/tag/v2.21); below IronOS 2.21 only BETA versions will work with PineSAM.
     
 3. main_server script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see above.
 
