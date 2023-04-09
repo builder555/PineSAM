@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.13.6
+
+* fix: get latest os ver. + if new build available [e68b9d4](https://github.com/builder555/PineSAM/commit/e68b9d4cb4d7d38cf1221db4c0198ceaaf85b149)
+* fix: update tests for new version [b07d7c5](https://github.com/builder555/PineSAM/commit/b07d7c509df10d9470accec7016ab8fcfb7e786c)
+* fix: display ironOS build version [095f7c0](https://github.com/builder555/PineSAM/commit/095f7c0181e67ae865caa0dbf20b1b74d61420d5)
+
 ## v1.13.3
 
 * feat: pass the build version from pinecil [86eb85a](https://github.com/builder555/PineSAM/commit/86eb85a0530675bf288939372c364047619ff22d)
