@@ -1,14 +1,19 @@
 <script setup>
 import { ref } from 'vue';
-defineProps(['name', 'isNewAvailable']);
+defineProps(['name', 'build', 'isNewPinesamAvailable', 'isNewBuildAvailable']);
 const isNameHidden = ref(true);
 </script>
 <template>
-  <div v-if="isNewAvailable" class="new-available restore-click"><a href="https://github.com/builder555/PineSAM/releases/latest" target="_blank">New Version Available</a></div>
+  <div class="new-available restore-click">
+    <a v-if="isNewPinesamAvailable" href="https://github.com/builder555/PineSAM/releases/latest" target="_blank">New PineSAM Available</a>
+    &nbsp;<a v-if="isNewBuildAvailable" href="https://github.com/Ralim/IronOS/releases/latest" target="_blank">New IronOS Available</a>
+  </div>
   <h1 class="title">
     <a class="restore-click" @click="isNameHidden = !isNameHidden || !name">
       <span class="accent" v-if="isNameHidden">PineSAM</span>
-      <span class="accent small" v-else>{{ name }}</span>
+      <span class="accent small" v-else>
+        {{ name }} <span class="smaller" v-if="build">(build {{ build }})</span>
+      </span>
     </a>
   </h1>
 </template>
@@ -22,6 +27,9 @@ h1 {
 }
 .small {
   font-size: 0.8em;
+}
+.smaller {
+  font-size: 0.6em;
 }
 .new-available {
   position:absolute;

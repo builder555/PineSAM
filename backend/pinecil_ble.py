@@ -134,7 +134,7 @@ class Pinecil:
                     device_id = f'{unique_id:X}'
                 elif crx.uuid == self.bulk_data_map.get_uuid('Build'):
                     raw_value = await self.ble.read_characteristic(crx)
-                    build_version = raw_value.decode('utf-8')
+                    build_version = raw_value.decode('utf-8').strip('v')
             return device_id, build_version
         except:
             return '', ''
@@ -199,7 +199,7 @@ class Pinecil:
         return {
             'name': f'Pinecil-{self.unique_id}',
             'id': self.unique_id,
-            'build': self.build_version or 'v2.20',
+            'build': self.build_version or '2.20',
         }
 
     async def __read_live_data(self, crx: BleakGATTCharacteristic) -> Dict[str, int]:

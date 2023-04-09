@@ -17,6 +17,29 @@ def mocked_live_data():
 def mock_ble(mocked_settings, mocked_live_data):
 
     async def get_characteristics(uuid):
+        if uuid == 'f6d80000-5a10-4eba-aa55-33e27f9bc533':
+            return mocked_settings
+        if uuid == '9eae1000-9d0d-48c5-aa55-33e27f9bc533':
+            return mocked_live_data
+        return []
+    async def read_crx(a): 
+        return a.raw_value
+    mock_services = [
+        'f6d80000-5a10-4eba-aa55-33e27f9bc533',
+        '9eae1000-9d0d-48c5-aa55-33e27f9bc533',
+    ]
+    ble = MagicMock()
+    ble.is_connected = False
+    ble.get_characteristics = AsyncMock(side_effect=get_characteristics)
+    ble.get_services = AsyncMock(return_value=mock_services)
+    ble.ensure_connected = AsyncMock()
+    ble.read_characteristic = read_crx
+    return ble
+
+@pytest.fixture
+def mock_ble_old(mocked_settings, mocked_live_data):
+
+    async def get_characteristics(uuid):
         if uuid == 'f6d75f91-5a10-4eba-a233-47d3f26a907f':
             return mocked_settings
         if uuid == '9eae1adb-9d0d-48c5-a6e7-ae93f0ea37b0':
@@ -46,10 +69,10 @@ async def test_after_connecting_device_loads_settings_ble_characteristics(mock_b
     with patch('pinecil_ble.BLE', return_value=mock_ble):
         pinecil = Pinecil()
         await pinecil.connect()
-        assert Method(mock_ble.get_characteristics).was_called_with('f6d75f91-5a10-4eba-a233-47d3f26a907f')
+        assert Method(mock_ble.get_characteristics).was_called_with('f6d80000-5a10-4eba-aa55-33e27f9bc533')
 
 @pytest.mark.asyncio
-async def test_read_all_settings_from_v2_21beta1(mock_ble, mocked_settings):
+async def test_read_all_settings_from_v2_21beta2(mock_ble, mocked_settings):
     with patch('pinecil_ble.BLE', return_value=mock_ble):
         pinecil = Pinecil()
         await pinecil.connect()
@@ -124,9 +147,17 @@ async def test_get_pinecil_info(mock_ble, mocked_live_data):
         pinecil = Pinecil()
         await pinecil.connect()
         info = await pinecil.get_info()
-        assert info["build"] == mocked_live_data[1].expected_value
+        assert info["build"] == mocked_live_data[1].expected_value.strip('v')
         assert info["id"] == mocked_live_data[2].expected_value
         assert info["name"] == f'Pinecil-{info["id"]}'
+
+@pytest.mark.asyncio
+async def test_get_info_returns_2_20_build_for_older_versions(mock_ble_old, mocked_live_data):
+    with patch('pinecil_ble.BLE', return_value=mock_ble_old):
+        pinecil = Pinecil()
+        await pinecil.connect()
+        info = await pinecil.get_info()
+        assert info["build"] == '2.20'
 
 @pytest.mark.asyncio
 async def test_reading_live_data_while_disconnected_reconnects(mock_ble):
@@ -138,7 +169,7 @@ async def test_reading_live_data_while_disconnected_reconnects(mock_ble):
 def test_read_all_settings_from_v2_20():
     pass
 
-def test_read_all_settings_from_v2_21beta2():
+def test_read_all_settings_from_v2_21beta1():
     pass
 
 def test_update_one_setting_at_a_time():
