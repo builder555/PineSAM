@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.13.7
+
+* fix: build shows only number version [4f778ab](https://github.com/builder555/PineSAM/commit/4f778abd595855e9d3d54df17b9ddaeb1ee98630)
+
 ## v1.13.6
 
 * fix: get latest os ver. + if new build available [e68b9d4](https://github.com/builder555/PineSAM/commit/e68b9d4cb4d7d38cf1221db4c0198ceaaf85b149)
