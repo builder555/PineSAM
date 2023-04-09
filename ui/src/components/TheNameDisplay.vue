@@ -26,7 +26,7 @@ h1 {
   font-family: 'Righteous', "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .small {
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 .smaller {
   font-size: 0.6em;
