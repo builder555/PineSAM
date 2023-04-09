@@ -28,7 +28,7 @@ export const useAppStore = defineStore('appStore', () => {
   });
   const settingsComponents = computed(() => {
     const components = { ...settingToComponentMap };
-    if (info.value?.build === 'v2.21') {
+    if (info.value?.build === '2.21') {
       components.Brightness = {
           name: 'range',
           min: 1,
