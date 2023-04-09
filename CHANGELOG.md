@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.13.8
+
+* fix: smaller font for build version [48a9f8e](https://github.com/builder555/PineSAM/commit/48a9f8e2ff603e094fb02d0d42d3a3b75823818e)
+
 ## v1.13.7
 
 * fix: build shows only number version [4f778ab](https://github.com/builder555/PineSAM/commit/4f778abd595855e9d3d54df17b9ddaeb1ee98630)
