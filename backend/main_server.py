@@ -22,10 +22,15 @@ def read_app_version():
     with open(os.path.join(parent_dir, 'version.txt')) as f:
         return f.read().strip()
 
-def get_latest_version():
+def get_latest_app_version():
     url = 'https://api.github.com/repos/builder555/PineSAM/releases/latest'
     release_info = requests.get(url).json()
     return release_info.get('tag_name', read_app_version()).strip('v')
+
+def get_latest_ironos_version():
+    url = 'https://api.github.com/repos/Ralim/IronOS/releases/latest'
+    release_info = requests.get(url).json()
+    return release_info.get('tag_name', '').strip('v')
 
 def is_semver_greater(v1, v2):
     v1 = list(map(int, v1.split('.')))
@@ -37,7 +42,7 @@ async def process_command(command: str, payload: dict) -> dict:
         app_version = read_app_version()
         info = {
             'app_version': app_version,
-            'is_new_available': is_semver_greater(get_latest_version(), app_version),
+            'is_new_available': is_semver_greater(get_latest_app_version(), app_version),
         }
         return {'status': 'OK', 'payload': info}
     while not pinecil.is_connected:
@@ -54,7 +59,11 @@ async def process_command(command: str, payload: dict) -> dict:
         return {'status': 'OK'}
     if command == 'GET_INFO':
         info = await pinecil.get_info()
-        return {'status': 'OK', 'payload': info}
+        result = {}
+        result['latest_build'] = get_latest_ironos_version()
+        result['is_new_build_available'] = is_semver_greater(result['latest_build'], info['build'])
+        result = {**result, **info}
+        return {'status': 'OK', 'payload': result}
     return {'status': 'ERROR', 'message': 'Unknown command'}
 
 async def handle_message(websocket, data):
