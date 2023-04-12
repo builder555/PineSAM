@@ -1,0 +1,109 @@
+
+/* Use local fonts for privacy, add to mkdocs.yml font: false */
+/* override default text and code in :root to use new fonts @font-face */
+/* see fonts.css for list of local fonts */
+:root {
+    --md-text-font: "Roboto";
+    --md-code-font: "Roboto Mono";
+}
+
+/* git committers 2 plugin */
+.metadata{
+     padding:0;
+     margin:0;
+     margin-bottom: 15px;
+     color: #999;
+     font-size:0.85em;
+     margin-top: 0.5rem;
+     display: inline-flex;
+ }
+ .metadata .md-source-file {
+     display: inline-flex;
+ }
+ .metadata .md-source-file div.metadata-item {
+     align-items: center;
+     display: inline-flex;
+     margin-right: 0.6rem;
+     gap: .3rem;
+ }
+
+ .metadata .md-source-file div.metadata-item span.twemoji {
+     font-size: 1rem;
+ }
+
+ .page-metadata .contributors {
+     align-items: center;
+     display: inline-flex;
+}
+ .page-metadata .contributors span {
+    display: block;
+    flex-shrink: 0;
+    height: 1.6rem;
+    overflow: hidden;
+    position: relative;
+    transition: color 125ms,transform 125ms;
+    width: 1.6rem;
+    margin-right: .2rem;
+ }
+ .page-metadata .contributors span img {
+    border-radius: 50%;
+    -webkit-filter: grayscale(100%) opacity(75%);
+    filter: grayscale(100%) opacity(75%);
+    transition: filter 125ms;
+ }
+ .page-metadata .contributors span img:hover {
+    -webkit-filter: none !important;
+    filter: none !important;
+}
+
+/* animated icons for lower banner */
+@keyframes md-social {
+     0%, 40%, 80%, 100% {
+       transform: scale(1);
+     }
+     20%, 60% {
+       transform: scale(1.15);
+     }
+}
+.md-social a:hover {
+     animation: md-social linear 1000ms infinite;
+}
+
+/* for About page color sponsor heart */
+.githubsponsors {
+  color: #a017a5;
+}
+
+/* replace tables with Github style tables */
+th, td {
+  border: 1px solid var(--md-typeset-table-color);
+  border-spacing: 0;
+  border-bottom: none;
+  border-left: none;
+  border-top: none;
+}
+
+.md-typeset__table {
+  line-height: 1;
+}
+
+.md-typeset__table table:not([class]) {
+  font-size: .75rem;
+  border-right: none;
+}
+
+.md-typeset__table table:not([class]) td,
+.md-typeset__table table:not([class]) th {
+  padding: 9px;
+}
+
+/* light mode alternating table bg colors */
+.md-typeset__table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* dark mode alternating table bg colors */
+[data-md-color-scheme="slate"] .md-typeset__table tr:nth-child(2n) {
+  background-color: hsla(var(--md-hue),25%,25%,1)
+}
+

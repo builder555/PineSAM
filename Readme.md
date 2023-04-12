@@ -4,12 +4,13 @@
 [![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=7700b3)](https://github.com/builder555/PineSAM/releases/latest)
 ![bluetooth](https://custom-icon-badges.demolab.com/badge/-bluetooth-7700b3.svg?logo=bluetooth&logoColor=white)
 <br><br>
-<img src="./docs/assets/img/logo.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
+
+<img src="./docs/img/logo-A017A5.png" align="left" width="150" height="48" style="float:left"> <br clear="left" />
 ---
 <br>
-<img src="./docs/assets/img/workHUD.png" align="right" width="350" style="float:left">
+<img src="./docs/img/workHUD.png" align="right" width="350" style="float:left">
 
-#### PineSAM = Pinecil Settings and Menus
+#### Pinecil Settings and Menus
 
 Why focus on soldering when you can play with the settings instead? With this app you have full control over your new shiny Pinecil V2 from your computer using bluetooth.
 
@@ -24,34 +25,35 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
   </summary>
 
-<img src="./docs/assets/img/full_settings.png" width="900"> 
+<img src="./docs/img/full_settings.png" width="900"> 
 
 </details>
 <br clear="right"/>
 
-# 💫 Features
+# Features
 
 - [x] Automatically detect Pinecil V2 over BLE.
 - [x] Control all settings on the device.
 - [X] Save to Flash: toggle to save changes directly onto Pinecil (leave off unless actively changing settings).
 - [X] Work HUD main screen with: Set °C/°F `[+][-]` buttons, live tip °C/°F updates, peak watts, live watts, input voltage.
+- [X] Graph with tip temperature and power provides a quick overview of the device.
 - [X] Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.
 - [X] Usage details in [PineSAM wiki](https://github.com/builder555/PineSAM/wiki).
 
-## Platforms
- | System  | MacOS | Linux | Windows | iOS | Android|
- | :-----: | :-----: | :---: | :---: | :-: | :----: |
- | UI      |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+## Supported
+ | System  | MacOS | Linux | Windows | Phones |
+ | :-----: | :---: | :---: | :-----: | :----: |
+ | UI      |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
  | backend |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 <br>
 
 # :desktop_computer: Install Options
 
-## I. Using pre-made binaries
+## I. Easy Method
 
-1. Binary packages do not require installation of python or node.js
-2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) version for your specific OS (Mac, Linux, Windows).
+1. Install one of the binary packages made for your OS; does not require install of python or node.js.
+2. Download latest [release](https://github.com/builder555/PineSAM/releases/latest) here for your specific OS (Mac, Linux, Windows).
 3. **Mac/Linux**: extract and run `./start.sh` in terminal.
 
    * On MacOS, http://localhost:8080/ opens in your browser automatically.
@@ -67,9 +69,9 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * Browser will automatically open http://localhost:8080
    * Usage guide [here](https://github.com/builder555/PineSAM/wiki).
 
-## II. Install the Dev version (Source-all-_.zip)
+## II. Build the Dev version (Source-all-_.zip)
 
-This is the same PineSam as the pre-made binaries. Install this if there is an issue with the binaries.  
+This ultimately creates the same PineSAM as in the premade binaries. Install this if there is an issue with the binaries or you are doing dev work.  
 For the backend script, first install:
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [python 3](https://www.python.org/downloads/) (tested with 3.10/3.11)
