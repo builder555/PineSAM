@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.13.10
+
+* Setup and configure mkdocs, write initial docs
+
+We need a place to write documentation for PineSAM and accept
+contributions from non-technical end users who wish to add items to the
+FAQ, add information, and otherwise grow the project.
+
+This is a fairly large PR but it is the result of about a week of work
+getting things setup and configured how we think it should be. [56bd0ed](https://github.com/builder555/PineSAM/commit/56bd0ed3127856b87760a9d613c5e92b2c5b15a9)
+* Merge pull request #173 from neil-forks/feature/mkdocs
+
+Setup and configure mkdocs, write initial docs [31284fe](https://github.com/builder555/PineSAM/commit/31284feb5f0028d0528fb7d25619080ce81c17c7)
+* fix: small change for version bump [38a8998](https://github.com/builder555/PineSAM/commit/38a8998f75084d10db714327b2d03f2938266d11)
+
 ## v1.13.9
 
 * fix: update docs with new IronOS version [804c77b](https://github.com/builder555/PineSAM/commit/804c77b343e9cab324b43b57440b4c77f026db55)
