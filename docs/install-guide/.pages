@@ -1,0 +1,6 @@
+---
+nav:
+    - Easy Install: easy-install.md
+    - Build from Scripts: dev-scripts.md
+    - Backend Server: backend.md
+    - Troubleshooting: troubleshooting.md

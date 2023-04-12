@@ -1,0 +1,7 @@
+---
+nav:
+    - Home: index.md
+    - Install Guide: install-guide
+    - User Guide: user-guide
+    - About: about.md
+    - Pinecil Wiki: https://wiki.pine64.org/wiki/Pinecil
