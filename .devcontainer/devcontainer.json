@@ -1,0 +1,9 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/mkdocs:2": {
+      "plugins": "mkdocs-material mkdocs-autolinks-plugin mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin mkdocs-macros-plugin mkdocs-glightbox mkdocs-git-committers-plugin-2 lxml"
+    }
+  },
+  "postAttachCommand": "mkdocs serve"
+}
