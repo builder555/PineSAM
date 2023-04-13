@@ -1,4 +1,4 @@
-name: docs-deploy 
+name: docs-deploy
 on:
   schedule:
     - cron: "0 0 * * 1"
@@ -6,9 +6,9 @@ on:
     branches:
       - master
       - dev
-    paths: 
-      - '/docs'
-      - '/mkdocs.yml'
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
   workflow_dispatch:
 concurrency:
   group: "docs"
@@ -26,8 +26,9 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip || exit $?
-          pip install mkdocs-material mkdocs-autolinks-plugin mkdocs-awesome-pages-plugin \
-            mkdocs-git-revision-date-localized-plugin mkdocs-macros-plugin mkdocs-git-committers-plugin-2 \
-            lxml mkdocs-open-in-new-tab mkdocs-glightbox
+          pip install mkdocs-material mkdocs-autolinks-plugin \
+          mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin \
+          mkdocs-macros-plugin mkdocs-git-committers-plugin-2 lxml \
+          mkdocs-open-in-new-tab mkdocs-glightbox
       - name: Deploy to gh-pages
         run: mkdocs gh-deploy --force
