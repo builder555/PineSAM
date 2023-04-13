@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.13.11
+
+* fix(docs): fix devcontainer and docs-deploy syntax [cc3b639](https://github.com/builder555/PineSAM/commit/cc3b63909acf0447f9ec5acef0426aae4e546e62)
+* fix: cleanup files that should have been deleted [ae8bcb5](https://github.com/builder555/PineSAM/commit/ae8bcb5156d029b4f0337eaaa15bf033a4f69077)
+* Merge pull request #175 from neil-forks/fix/docs-build
+
+fix(docs): fix devcontainer and docs-deploy syntax [cfea04e](https://github.com/builder555/PineSAM/commit/cfea04ed7c37695375243cf9874c22a333e92b72)
+
 ## v1.13.10
 
 * Setup and configure mkdocs, write initial docs
