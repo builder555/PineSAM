@@ -39,7 +39,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 - [X] Graph with tip temperature and power provides a quick overview of the device.
 - [X] Preset buttons to allow quick change of user defined temperatures (PineSAM extra feature not available directly inside Pinecil).
 - [X] Backend runs locally on all major platforms/OS while the user interface runs on your favorite browser.
-- [X] Usage details in [PineSAM wiki](https://github.com/builder555/PineSAM/wiki).
+- [X] Usage details [here](https://builder555.github.io/PineSAM/user-guide/usage/).
 
 ## Supported
  | System  | MacOS | Linux | Windows | Phones |
@@ -58,7 +58,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
    * On MacOS, http://localhost:8080/ opens in your browser automatically.
    * Some Linux distros may need http://localhost:8080/ opened manually.
-   * Usage guide [here](https://github.com/builder555/PineSAM/wiki).
+   * Usage guide [here](https://builder555.github.io/PineSAM/user-guide/usage/).
 
 4. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock, then extract ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
@@ -67,7 +67,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
      * ```C:\> Set-ExecutionPolicy RemoteSigned```
    * Browser will automatically open http://localhost:8080
-   * Usage guide [here](https://github.com/builder555/PineSAM/wiki).
+   * Usage guide [here](https://builder555.github.io/PineSAM/user-guide/usage/).
 
 ## II. Build the Dev version (Source-all-_.zip)
 
@@ -120,11 +120,11 @@ Install the packages linked above for the backend script. Skip to 4 if you did t
 2. Install [NodeJS here](https://nodejs.org/en/download/), accept all prompts to add packages during install including a prompt in the terminal that opens.
 3. After installing packages listed for backend script ([reference](https://github.com/builder555/PineSAM/issues/131#issuecomment-1489711241)), go to System Environment variables to check paths ([image](https://github.com/builder555/PineSAM/discussions/130#discussion-5011624)).
 4. Download the Source-all-__.zip from the [latest release](https://github.com/builder555/PineSAM/releases/latest).
-5. If the zip has an Unblock option, then unblock and extract ([example](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
+5. Right click the zip > properties, if it has an Unblock option, then check unblock and extract ([example](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
 6. Run powershell as administrator, set permissions to RemoteSigned ([image here](https://github.com/builder555/PineSAM/discussions/106)).
 ```shell
 # setting this one time in powershell normally persists on reboots.
-C:\Set-ExecutionPolicy RemoteSigned
+C:\ Set-ExecutionPolicy RemoteSigned
 ```
 #### Run
 1. change directory, `cd` into the PineSAM folder that was extracted above.
@@ -159,7 +159,7 @@ You can access the settings remotely once the app is running on the main PC/lapt
     * check that windows has not reset the permissions in powershell with `Get-ExecutionPolicy` and change it back to `RemoteSigned` if needed ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
   
 5. See the [Discussions](https://github.com/builder555/PineSAM/discussions) section for install hints and solutions to some common issues.
-6. PineSAM usage [instructions here](https://github.com/builder555/PineSAM/wiki).
+6. PineSAM usage [instructions here](https://builder555.github.io/PineSAM/user-guide/usage/).
 7. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
 <br>
 
