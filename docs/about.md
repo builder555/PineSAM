@@ -9,7 +9,7 @@ If you find the project useful, then consider sponsoring what you can, even a cu
 
 1. Try to read the documents and search the issue tracker to find answers before posting a new issue.
 2. Follow the template in the issue ticket and include all details requested.
-3. Be prepared to answer questions or give additional information if required. Issues where the creator does not follow up to questions will be marked stale and closed.
+3. Be prepared to answer questions or give additional information. Issues where the creator does not follow up to questions will be marked stale and closed.
 
 ## :material-chat-question-outline: Issue Tickets
 
@@ -21,15 +21,15 @@ Test features on different devices and systems. Report on items not working as i
 
 ## :material-file-edit-outline: Improve Documents
 
-If the documents are lacking or there is a typo, consider improving it or open an issue ticket if you are not comfortable digging into a full Github Pull Request.
+If the documents are lacking or there is a typo, consider improving it or open an issue ticket if you are not comfortable digging into a full Github Pull Request. Translating PineSAM into different languages is another way to help.
 
 ## :material-eye-refresh-outline: Review Code
 
-Participate in code review of pull requests and direct commits. Make suggestions that improve code, error handling, and algorithms.
+Make suggestions that improve code, error handling, and algorithms. Participate in code review of pull requests and direct commits.
 
 ## :material-source-pull: Pull Requests
 
-Code contributions are welcome. Just fork the code and submit one or more well commented and clean commits to the repository. Perform a pull pequests (pr) to the **/dev** branch. Check out some of the open issue tickets or propose new features. If there is no existing ticket related to the PR, then create a ticket outlining what issues are being addressed.
+Code contributions are welcome. Just fork the code and submit well commented and clean commits to the repository. Perform a pull pequests (pr) to the **/dev** branch. Check out some of the open issue tickets or propose new features. If there is no existing ticket related to the PR, then create a ticket outlining what issues are being addressed.
 <br><br>
 
 ---

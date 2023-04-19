@@ -21,10 +21,11 @@ Toggles on/off to display help messages from Pinecil and PineSAM.
 1. Toggle `On` the Save changes to flash.
 2. Change multiple settings and when done, toggle it back `Off`.
 3. While actively soldering and using buttons in the Work HUD, it is best to leave the save toggle off. No reason to constantly flash to pinecil for each temperature change (don't worry, Pinecil still changes temperature, it's just not permanently flashed and saved on Pinecil).
-
-## Work HUD
+<div style="clear: both;"></div>
 
 ![PineSAM Work View - HUD (Heads Up Display) detailed](../img/workHUD-detailed.png){ align="left" width="400" style="margin-top: -1rem" float="left" }
+
+## Work HUD
 
 1. This is a HUD window designed as an all-in-one single view that can be used during soldering.
 2. Phone: designed to be completely viewable on vertical screen.
