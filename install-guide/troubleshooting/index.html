@@ -287,7 +287,7 @@
 <p>Pinecil not detected</p>
 <ul>
 <li>possible reason: pinecil is paired to computer/phone settings. solution: unpair it from all other places and reboot.</li>
-<li>possible reason: using older firmware (below 2.21). solution: <a href="https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637">flash</a> current <a href="https://github.com/Ralim/IronOS/releases">BLE firmware</a>; below IronOS 2.21 only BETA versions will work with PineSAM.</li>
+<li>possible reason: using older firmware (below 2.21). solution: <a href="https://github.com/Spagett1/PineFlash">flash</a> current <a href="https://github.com/Ralim/IronOS/releases">BLE firmware</a>; below IronOS 2.21 only beta versions work with PineSAM.</li>
 </ul>
 </li>
 <li>
@@ -297,7 +297,7 @@
 </ul>
 </li>
 <li>
-<p>main_server script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see above.</p>
+<p>main_server script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see <a href="https://wiki.pine64.org/wiki/Pinecil_Firmware#Update_V2:_Windows"></a>.</p>
 </li>
 <li>
 <p>Windows Powershell issue</p>
@@ -315,8 +315,9 @@
 </li>
 </ol>
 <h2 id="running-unit-tests"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.25 12a.75.75 0 0 1-.22.53l-2.75 2.75a.75.75 0 0 1-1.06-1.06L7.44 12 5.22 9.78a.75.75 0 1 1 1.06-1.06l2.75 2.75c.141.14.22.331.22.53Zm2 2a.75.75 0 0 0 0 1.5h5a.75.75 0 0 0 0-1.5h-5Z"></path><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"></path></svg></span> Running Unit tests<a class="headerlink" href="#running-unit-tests" title="Anchor link to this section for reference">🔗︎</a></h2>
+<p>For development work
 <div class="language-shell highlight"><span class="filename">Run inside 'backend' folder</span><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pipenv<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span>
-</span></code></pre></div>
+</span></code></pre></div></p>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
@@ -347,7 +348,7 @@
 <span class="twemoji" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-12T02:10:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-12</span></span>
+<span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-19T12:30:49+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-19</span></span>
 </div>
 <div class="metadata-item">
 <span class="twemoji" title="Created">
@@ -360,7 +361,7 @@
 <svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
 </span>
 <span>Github</span>
-<div class="contributors" data-bi-name="contributors" title="Page Contributors"><span><a data-bi-name="contributorprofile" href="https://github.com/NeilHanlon" target="_blank" title="NeilHanlon"><img alt="NeilHanlon" height:="" src="https://avatars.githubusercontent.com/u/680198?size=32"/></a></span></div>
+<div class="contributors" data-bi-name="contributors" title="Page Contributors"><span><a data-bi-name="contributorprofile" href="https://github.com/appsgithub-actions" target="_blank" title="appsgithub-actions"><img alt="appsgithub-actions" height:="" src="https://avatars.githubusercontent.com/in/15368?size=32"/></a></span><span><a data-bi-name="contributorprofile" href="https://github.com/NeilHanlon" target="_blank" title="NeilHanlon"><img alt="NeilHanlon" height:="" src="https://avatars.githubusercontent.com/u/680198?size=32"/></a></span><span><a data-bi-name="contributorprofile" href="https://github.com/River-Mochi" target="_blank" title="River-Mochi"><img alt="River-Mochi" height:="" src="https://avatars.githubusercontent.com/u/97197236?size=32"/></a></span><span><a data-bi-name="contributorprofile" href="https://github.com/builder555" target="_blank" title="builder555"><img alt="builder555" height:="" src="https://avatars.githubusercontent.com/u/85308587?size=32"/></a></span></div>
 </div>
 </div>
 </aside>

@@ -357,11 +357,11 @@
 <li>After installing packages listed for backend script (<a href="https://github.com/builder555/PineSAM/issues/131#issuecomment-1489711241">reference</a>), go to System Environment variables to check paths (<a href="https://github.com/builder555/PineSAM/discussions/130#discussion-5011624">image</a>).</li>
 <li>Download the Source-all-__.zip from the latest <a href="https://github.com/builder555/PineSAM/releases/latest">releases</a>.</li>
 <li>Right-click the zip &gt; properties, if it has an Unblock option, then unblock and extract it (<a href="https://github.com/builder555/PineSAM/discussions/106#discussion-4960445">example</a>).</li>
-<li>Run powershell as administrator, set permissions to <code>RemoteSigned</code> (<a href="https://github.com/builder555/PineSAM/discussions/106">example</a>). Setting this one time in powershell normally persists on reboots.
-<div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="go"> Set-ExecutionPolicy RemoteSigned</span>
+<li>Run powershell as administrator, set permissions to <code>RemoteSigned</code> (<a href="https://github.com/builder555/PineSAM/discussions/106">reference</a>). Setting this one time in powershell is usually enough as it persists on reboot.
+<div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="go">C:\&gt; Set-ExecutionPolicy RemoteSigned</span>
 </span></code></pre></div></li>
-<li>Then check that powershell permissions are correct; at minimum, need LocalMachine to show as <code>RemoteSigned</code>.
-<div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="go"> Get-executionPolicy -List</span>
+<li>Then check that powershell permissions are correct; at minimum, need LocalMachine to show as <code>RemoteSigned</code> (Unrestricted also works).
+<div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="go">C:\&gt; Get-executionPolicy -List</span>
 </span></code></pre></div></li>
 </ol>
 <h4 id="run_1">Run<a class="headerlink" href="#run_1" title="Anchor link to this section for reference">🔗︎</a></h4>
@@ -403,7 +403,7 @@
 <span class="twemoji" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-12T02:10:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-12</span></span>
+<span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-19T12:30:49+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-19</span></span>
 </div>
 <div class="metadata-item">
 <span class="twemoji" title="Created">
@@ -416,7 +416,7 @@
 <svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
 </span>
 <span>Github</span>
-<div class="contributors" data-bi-name="contributors" title="Page Contributors"><span><a data-bi-name="contributorprofile" href="https://github.com/NeilHanlon" target="_blank" title="NeilHanlon"><img alt="NeilHanlon" height:="" src="https://avatars.githubusercontent.com/u/680198?size=32"/></a></span></div>
+<div class="contributors" data-bi-name="contributors" title="Page Contributors"><span><a data-bi-name="contributorprofile" href="https://github.com/appsgithub-actions" target="_blank" title="appsgithub-actions"><img alt="appsgithub-actions" height:="" src="https://avatars.githubusercontent.com/in/15368?size=32"/></a></span><span><a data-bi-name="contributorprofile" href="https://github.com/NeilHanlon" target="_blank" title="NeilHanlon"><img alt="NeilHanlon" height:="" src="https://avatars.githubusercontent.com/u/680198?size=32"/></a></span><span><a data-bi-name="contributorprofile" href="https://github.com/River-Mochi" target="_blank" title="River-Mochi"><img alt="River-Mochi" height:="" src="https://avatars.githubusercontent.com/u/97197236?size=32"/></a></span><span><a data-bi-name="contributorprofile" href="https://github.com/builder555" target="_blank" title="builder555"><img alt="builder555" height:="" src="https://avatars.githubusercontent.com/u/85308587?size=32"/></a></span></div>
 </div>
 </div>
 </aside>
