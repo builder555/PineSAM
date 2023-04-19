@@ -21,18 +21,20 @@ Toggles on/off to display help messages from Pinecil and PineSAM.
 1. Toggle `On` the Save changes to flash.
 2. Change multiple settings and when done, toggle it back `Off`.
 3. While actively soldering and using buttons in the Work HUD, it is best to leave the save toggle off. No reason to constantly flash to pinecil for each temperature change (don't worry, Pinecil still changes temperature, it's just not permanently flashed and saved on Pinecil).
-<div style="clear: both;"></div>
+<div style="clear: both;"></div><br>
 
-![PineSAM Work View - HUD (Heads Up Display) detailed](../img/workHUD-detailed.png){ align="left" width="400" style="margin-top: -1rem" float="left" }
+![PineSAM Work View - HUD (Heads Up Display) detailed](../img/workHUD-detailed.png){ align="left" width="400" style="margin-top: -0.5rem" float="left" }
 
 ## Work HUD
 
-1. This is a HUD window designed as an all-in-one single view that can be used during soldering.
-2. Phone: designed to be completely viewable on vertical screen.
-3. In this view one can control Set temperature with buttons ++plus++ ++minus++ and view important stats, e.g., live temperature.
-4. Thermostat icon changes into 100 different color hues as the live temperature changes.
-5. Power Bar: bottom bar shows the input voltage, the current estimated watts pinecil is drawing, and the highest peak watt hit during the session.
-6. It is best to leave save to flash toggle Off while using the Work HUD to save on pinecil flash cycles as the PineSAM buttons are used often during a soldering session.
+1. This window designed as an all-in-one single view that can be used during soldering.
+2. Phone use: designed to be completely viewable on vertical screen.
+3. Control set temperature with buttons ++plus++ ++minus++.
+4. View live temperature in large font.
+5. Thermostat icon changes into 100 different color hues as the live temperature changes.
+6. Power Bar: bottom bar shows the input voltage, the current estimated watts pinecil is drawing, and the highest peak watts hit during the session.
+
+Hint: while using the Work HUD view, it is best to leave save changes to flash toggle button off. This saves on pinecil flash cycles as the PineSAM buttons are used often during a soldering session.
 <div style="clear: both;"></div>
 
 ### Preset buttons
@@ -49,7 +51,7 @@ Toggles on/off to display help messages from Pinecil and PineSAM.
 
 ## Settings Categories
 
-- For familiarity, Settings are grouped in a similar way as seen on Pinecil (and as organized in Ralim's IronOS firmware).
+- The settings are grouped in a similar way as seen on Pinecil (and as organized in Ralim's IronOS firmware).
 - Categories can be clicked to collapse and reduce screen clutter.
 - Setting numbers can be changed two ways: moving the slider or simply typing on the box next to the slider.
 - Drop-down menus are used for clarity of text choices.
