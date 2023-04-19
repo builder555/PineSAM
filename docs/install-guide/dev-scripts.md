@@ -51,13 +51,13 @@ Follow the additional hints below to install all packages linked above in [depen
 3. After installing packages listed for backend script ([reference](https://github.com/builder555/PineSAM/issues/131#issuecomment-1489711241)), go to System Environment variables to check paths ([image](https://github.com/builder555/PineSAM/discussions/130#discussion-5011624)).
 4. Download the Source-all-__.zip from the latest [releases](https://github.com/builder555/PineSAM/releases/latest).
 5. Right-click the zip > properties, if it has an Unblock option, then unblock and extract it ([example](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
-6. Run powershell as administrator, set permissions to `RemoteSigned` ([example](https://github.com/builder555/PineSAM/discussions/106)). Setting this one time in powershell normally persists on reboots.
+6. Run powershell as administrator, set permissions to `RemoteSigned` ([reference](https://github.com/builder555/PineSAM/discussions/106)). Setting this one time in powershell is usually enough as it persists on reboot.
 ```console
- Set-ExecutionPolicy RemoteSigned
+C:\> Set-ExecutionPolicy RemoteSigned
 ```
-7. Then check that powershell permissions are correct; at minimum, need LocalMachine to show as `RemoteSigned`.
+7. Then check that powershell permissions are correct; at minimum, need LocalMachine to show as `RemoteSigned` (Unrestricted also works).
 ```console
- Get-executionPolicy -List
+C:\> Get-executionPolicy -List
 ```
 
 #### Run
