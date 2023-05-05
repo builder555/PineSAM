@@ -52,12 +52,6 @@ const options = {
       border: {
         dash: [8, 4],
       },
-      ticks: {
-        callback: function (value) {
-          return `${pointsToDisplay - value}s`;
-        },
-        maxTicksLimit: 20,
-      }
     },
     temperature: {
       position: 'left',
@@ -80,7 +74,7 @@ const options = {
     power: {
       position: 'right',
       suggestedMin: 0,
-      suggestedMax: 120,
+      suggestedMax: 100,
       ticks: {
         callback: function (value) {
           return value + ' W';
