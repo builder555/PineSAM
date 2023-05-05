@@ -11,6 +11,11 @@ then
 fi
 
 cd backend
+python3 -m pip install --user pipenv
+if ! command -v pipenv &> /dev/null
+then
+    alias pipenv=$(python3 -m site --user-base)/bin/pipenv
+fi
 pipenv install --dev
 
 cd ../ui
