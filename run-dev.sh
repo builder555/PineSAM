@@ -11,13 +11,15 @@ cd ../ui
 npm run dev &
 pid2=$!
 cd ..
-
 sleep 2
 
-if [ "$(uname)" == "Darwin" ]; then
-    open http://localhost:8080/
-else
-    xdg-open http://localhost:8080/
+if ! [ -f /.dockerenv ]; then
+    echo "I'm inside matrix ;(";
+    if [ "$(uname)" == "Darwin" ]; then
+       open http://localhost:8080/
+    else
+       xdg-open http://localhost:8080/
+    fi
 fi
 
 trap "kill $pid1 $pid2" EXIT

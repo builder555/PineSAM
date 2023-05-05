@@ -1,0 +1,10 @@
+version: '3'
+services:
+  pine-sam:
+    image: pine-sam
+    privileged: true
+    ports:
+      - "3245:8080"
+      - "12999:12999"
+    volumes:
+      - /var/run/dbus:/var/run/dbus
