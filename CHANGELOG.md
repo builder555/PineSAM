@@ -1,5 +1,30 @@
 # Changelog
 
+## v1.13.12
+
+* fix: minimum temperature & update links (#183)
+
+* chore: update changelog
+
+* chore: update changelog
+
+* fix: minimum temperature
+
+-  50 F = 10 C  correction on minimum temperature
+- to align with new changes in 2.21 IronOS
+- closes ticket  https://github.com/builder555/PineSAM/issues/182
+
+* fix:  links to usage guides
+
+* fix: update mkdocs
+
+* fix: update mkdocs
+
+---------
+
+Co-authored-by: Robert'); DROP TABLE students; -- <85308587+builder555@users.noreply.github.com>
+Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com> [c9621d3](https://github.com/builder555/PineSAM/commit/c9621d3fdbbde36b4eb471d8d8ca9c896544f7a0)
+
 ## v1.13.11
 
 * fix(docs): fix devcontainer and docs-deploy syntax [cc3b639](https://github.com/builder555/PineSAM/commit/cc3b63909acf0447f9ec5acef0426aae4e546e62)
