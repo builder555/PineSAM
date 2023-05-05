@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.13.13
+
+* add docker support [dbe727a](https://github.com/builder555/PineSAM/commit/dbe727a8e21e0538a6f5d5516e7856badd331732)
+* Merge pull request #186 from krisstakos/master
+
+Add docker support. Tested on RPI4 [0ba5239](https://github.com/builder555/PineSAM/commit/0ba52394483ec16abf3fc5aa0637f6e93603df32)
+* fix: ensure pipenv is setup during initial run [7dd8572](https://github.com/builder555/PineSAM/commit/7dd85729b49bbd1fc0501d3e941a594f00edb67a)
+
 ## v1.13.12
 
 * fix: minimum temperature & update links (#183)
