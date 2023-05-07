@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.14.0
+
+* fix: removed time ticks, updated initial max power [692090f](https://github.com/builder555/PineSAM/commit/692090fe1bf6979cf78533040756636e147f51f8)
+* feat: display temperature value on the chart [6039e75](https://github.com/builder555/PineSAM/commit/6039e7506901edb271b22ec7e2296014cc916c7b)
+
 ## v1.13.13
 
 * add docker support [dbe727a](https://github.com/builder555/PineSAM/commit/dbe727a8e21e0538a6f5d5516e7856badd331732)
