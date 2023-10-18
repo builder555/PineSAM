@@ -14,7 +14,7 @@ const settingGroups = [
   {
     name: 'Sleep mode',
     isVisible: true,
-    items: ['MotionSensitivity', 'SleepTemperature', 'SleepTimeout', 'ShutdownTimeout'],
+      items: ['MotionSensitivity', 'SleepTemperature', 'SleepTimeout', 'ShutdownTimeout', 'HallEffectSensitivity'],
   },
   {
     name: 'Power settings',
@@ -51,7 +51,6 @@ const settingGroups = [
       'AccelMissingWarningCounter',
       'AnimLoop',
       'CalibrationOffset',
-      'HallEffectSensitivity',
       'PDMissingWarningCounter',
       'UILanguage',
       // "VoltageCalibration",

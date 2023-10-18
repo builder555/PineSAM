@@ -151,6 +151,11 @@ for (const group of groups.value) {
 </template>
 
 <style scoped>
+.is-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .navbar-link {
   align-items: center;
   display: flex;

@@ -194,6 +194,12 @@ const settingToComponentMap = {
     offable: true,
     display: (value) => (value == 0 ? 'Off' : value),
   },
+  HallEffectSensitivity: {
+    name: 'range',
+    min: 0,
+    max: 9,
+    step: 1,
+  },
   SettingsReset: {
     name: 'confirm',
     message: 'Are you sure you want to reset all settings to default?',
