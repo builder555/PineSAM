@@ -163,9 +163,6 @@ You can access the settings remotely once the app is running on the main PC/lapt
 7. Something else: [open an issue](https://github.com/builder555/PineSAM/issues).
 <br>
 
-## :abacus: Contributors Welcome
-- Please fork the repo, and submit Pull Requests using the `/dev` branch
-
 ## 🛠️ Running Unit tests
 
 ```shell
@@ -179,3 +176,5 @@ pipenv run test
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
 - [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
 - [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - almost all AliExpress Pinecils are fake, check your V2!
+
+## Contributors
