@@ -80,6 +80,12 @@ export const useAppStore = defineStore('appStore', () => {
     setTemperatureRanges();
     toggleVoltageSettings(settings.value.DCInCutoff.value);
   };
+  const toggleHallSensorSettings = (isEnabled) => {
+    const classDisabled = isEnabled ? '' : 'is-disabled';
+    if (settings?.value?.HallEffectSensitivity?.component?.class != classDisabled){
+      settings.value.HallEffectSensitivity.component.class = classDisabled;
+    }
+  }
 
   const setTemperature = async (temperature) => {
     settings.value.SetTemperature.value = Number(temperature);
@@ -177,6 +183,7 @@ export const useAppStore = defineStore('appStore', () => {
     if (watts > peakWatts.value) {
       peakWatts.value = Math.max(watts, peakWatts.value);
     }
+    toggleHallSensorSettings(!!rawLiveData.value?.HallSensor);
   });
   socket.on('ERROR', (data) => {
     error.value = data;

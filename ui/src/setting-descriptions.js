@@ -58,9 +58,9 @@ const settingDescriptions = {
     displayText: 'Shutdown timeout',
     description: 'Interval before the iron shuts down (m=minutes)',
   },
-  HallEffSensitivity: {
+  HallEffectSensitivity: {
     displayText: 'Hall sensor sensitivity',
-    description: 'Sensitivity to magnets (0=off | 1=least sensitive | ... | 9=most sensitive)',
+    description: 'Sensitivity to magnets (0=off | 1=least sensitive | ... | 9=most sensitive). Only available if there is a Hall Effect Sensor installed.',
   },
   TemperatureUnit: {
     displayText: 'Temperature unit',
