@@ -178,3 +178,59 @@ pipenv run test
 - [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - almost all AliExpress Pinecils are fake, check your V2!
 
 ## Contributors
+
+<table>
+<tr>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/builder555>
+            <img src=https://avatars.githubusercontent.com/u/85308587?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Robert'); DROP TABLE students; --/>
+            <br />
+            <sub style="font-size:14px"><b>Robert'); DROP TABLE students; --</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/River-Mochi>
+            <img src=https://avatars.githubusercontent.com/u/97197236?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=river-mochi/>
+            <br />
+            <sub style="font-size:14px"><b>river-mochi</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/NeilHanlon>
+            <img src=https://avatars.githubusercontent.com/u/680198?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Neil Hanlon/>
+            <br />
+            <sub style="font-size:14px"><b>Neil Hanlon</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/MagicLike>
+            <img src=https://avatars.githubusercontent.com/u/82117109?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=MagicLike/>
+            <br />
+            <sub style="font-size:14px"><b>MagicLike</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/Spagett1>
+            <img src=https://avatars.githubusercontent.com/u/77225642?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Spagett/>
+            <br />
+            <sub style="font-size:14px"><b>Spagett</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/krisstakos>
+            <img src=https://avatars.githubusercontent.com/u/5090779?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Kristian Kosev/>
+            <br />
+            <sub style="font-size:14px"><b>Kristian Kosev</b></sub>
+        </a>
+    </td>
+</tr>
+<tr>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/mcraa>
+            <img src=https://avatars.githubusercontent.com/u/6892971?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=mcraa/>
+            <br />
+            <sub style="font-size:14px"><b>mcraa</b></sub>
+        </a>
+    </td>
+</tr>
+</table>
