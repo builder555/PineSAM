@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.14.1
+
+* fix: can adjust Hall Sensor setting. closes #33 [ddbeac2](https://github.com/builder555/PineSAM/commit/ddbeac259eb292fbe863a47107e41510e0bacd50)
+
 ## v1.14.0
 
 * fix: removed time ticks, updated initial max power [692090f](https://github.com/builder555/PineSAM/commit/692090fe1bf6979cf78533040756636e147f51f8)
