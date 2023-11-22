@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.14.3
+
+* fix: hopefully NOW #193 is fixed [6f32fb1](https://github.com/builder555/PineSAM/commit/6f32fb1dd87668c645b2709fc4ca3a719cc36a7d)
+
 ## v1.14.2
 
 * fix: add version.txt to correct path in packages [33192db](https://github.com/builder555/PineSAM/commit/33192db34840c40db33b9d9d91a9fdd527e38538)
