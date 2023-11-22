@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.14.2
+
+* fix: add version.txt to correct path in packages [33192db](https://github.com/builder555/PineSAM/commit/33192db34840c40db33b9d9d91a9fdd527e38538)
+
 ## v1.14.1
 
 * fix: can adjust Hall Sensor setting. closes #33 [ddbeac2](https://github.com/builder555/PineSAM/commit/ddbeac259eb292fbe863a47107e41510e0bacd50)
