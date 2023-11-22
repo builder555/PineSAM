@@ -10,7 +10,7 @@ fi
 zip_path="$(dirname "${PWD}")/${name}.zip"
 
 pushd dist || exit
-cp version.txt main_server/
+cp ../version.txt main_server/
 zip -r "${zip_path}" main_server/ serve/
 
 popd || exit
