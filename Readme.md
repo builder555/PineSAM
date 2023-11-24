@@ -59,6 +59,7 @@ Why focus on soldering when you can play with the settings instead? With this ap
    * On MacOS, http://localhost:8080/ opens in your browser automatically.
    * Some Linux distros may need http://localhost:8080/ opened manually.
    * Usage guide [here](https://builder555.github.io/PineSAM/user-guide/usage/).
+   * [@dreirund](https://www.github.com/dreirund) created [Arch Linux package](https://aur.archlinux.org/packages/pinesam-git) that you can try out.
 
 4. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock, then extract ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
