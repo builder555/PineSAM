@@ -2,6 +2,10 @@
 
 ## v1.14.3
 
+* add reference to arch package [c9b9c7c](https://github.com/builder555/PineSAM/commit/c9b9c7c4b79abe62df78e80b918b6afe894b5445)
+
+## v1.14.3
+
 * fix: hopefully NOW #193 is fixed [6f32fb1](https://github.com/builder555/PineSAM/commit/6f32fb1dd87668c645b2709fc4ca3a719cc36a7d)
 
 ## v1.14.2
