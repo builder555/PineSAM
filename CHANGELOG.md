@@ -2,6 +2,13 @@
 
 ## v1.14.3
 
+* Merge pull request #197 from builder555/master
+
+merge master into dev [89f87ad](https://github.com/builder555/PineSAM/commit/89f87ad0bee65c356da97b5b623c0478edb83552)
+* add reference to pinecil_lib [8a1c1da](https://github.com/builder555/PineSAM/commit/8a1c1dad6dbbc0027ac28342be425217ac24bd94)
+
+## v1.14.3
+
 * add reference to arch package [c9b9c7c](https://github.com/builder555/PineSAM/commit/c9b9c7c4b79abe62df78e80b918b6afe894b5445)
 
 ## v1.14.3
