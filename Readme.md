@@ -177,6 +177,7 @@ pipenv run test
 - [IronOS](https://github.com/Ralim/IronOS) - The OS running on this soldering iron
 - [Pinecil Web UI](https://github.com/joric/pinecil) - A neat web-based UI, requires bluetooth browser support
 - [Pinecil Authenticity Checker](https://pinecil.pine64.org/) - almost all AliExpress Pinecils are fake, check your V2!
+- [pinecil_lib](https://github.com/builder555/pinecil_lib) - The library for interfacing with Pinecil via ble (integration coming soon!)
 
 ## Contributors
 
