@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.14.4
+
+* fix: using pinecil_lib [11b06ce](https://github.com/builder555/PineSAM/commit/11b06ce95ad485668cec3adaf87852dedecc8cab)
+
 ## v1.14.3
 
 * Merge pull request #197 from builder555/master
