@@ -4,9 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-bleak = "*"
 websockets = "*"
 requests = "*"
+pinecil = "*"
 
 [dev-packages]
 pytest = "*"
