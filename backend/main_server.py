@@ -5,17 +5,17 @@ import websockets
 import websockets.exceptions
 import json
 import requests
-from ble import DeviceNotFoundException
-from ble import DeviceDisconnectedException
-from pinecil_ble import Pinecil
-from pinecil_ble import InvalidSettingException
-from pinecil_ble import ValueOutOfRangeException
+from pinecil import DeviceNotFoundException
+from pinecil import DeviceDisconnectedException
+from pinecil import Pinecil, find_pinecils
+from pinecil import InvalidSettingException
+from pinecil import ValueOutOfRangeException
 
 LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO').upper()
 timestamp_format = '%H:%M:%S'
 logging.basicConfig(level=LOG_LEVEL, format='%(asctime)s.%(msecs)03d::%(levelname)s::%(message)s', datefmt=timestamp_format)
 
-pinecil = Pinecil()
+pinecils = []
 
 def read_app_version():
     parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,6 +45,9 @@ async def process_command(command: str, payload: dict) -> dict:
             'is_new_available': is_semver_greater(get_latest_app_version(), app_version),
         }
         return {'status': 'OK', 'payload': info}
+    while not pinecils:
+        await asyncio.sleep(0.5)
+    pinecil = pinecils[0]
     while not pinecil.is_connected:
         await asyncio.sleep(0.5)
     if command == 'GET_SETTINGS':
@@ -105,9 +108,16 @@ def broadcast(message):
         asyncio.create_task(send(client, message))
 
 async def pinecil_monitor(stop_event: asyncio.Event):
+    global pinecils
     logging.info('Starting pinecil monitor')
     should_announce_not_found = True
     while not stop_event.is_set():
+        if not pinecils:
+            pinecils = await find_pinecils()
+            logging.info('looking for pinecil...')
+            await asyncio.sleep(1)
+            continue
+        pinecil = pinecils[0]
         if not pinecil.is_connected:
             logging.info('waiting for pinecil...')
             try:
