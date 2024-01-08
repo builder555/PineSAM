@@ -2,6 +2,10 @@
 
 ## v1.14.4
 
+* minor readme change [ab95182](https://github.com/builder555/PineSAM/commit/ab95182b1c97c5a286473c3895b014cd4caa7333)
+
+## v1.14.4
+
 * fix: using pinecil_lib [11b06ce](https://github.com/builder555/PineSAM/commit/11b06ce95ad485668cec3adaf87852dedecc8cab)
 
 ## v1.14.3
