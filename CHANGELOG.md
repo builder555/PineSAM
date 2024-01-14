@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.14.5
+
+* fix: missing dependency [c35eba5](https://github.com/builder555/PineSAM/commit/c35eba5e9d382d4646ef702b43dc22f1c1edea9e)
+
 ## v1.14.4
 
 * minor readme change [ab95182](https://github.com/builder555/PineSAM/commit/ab95182b1c97c5a286473c3895b014cd4caa7333)
