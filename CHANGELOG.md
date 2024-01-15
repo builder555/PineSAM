@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.14.6
+
+* fix: add dbus module [10af24a](https://github.com/builder555/PineSAM/commit/10af24ad21b5d7437f173686db01c3a4a648878c)
+
 ## v1.14.5
 
 * fix: missing dependency [c35eba5](https://github.com/builder555/PineSAM/commit/c35eba5e9d382d4646ef702b43dc22f1c1edea9e)
