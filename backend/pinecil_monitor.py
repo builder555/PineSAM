@@ -13,6 +13,8 @@ class PinecilFinder:
         self.selected: Pinecil | None = None
 
     def select_pinecil(self, index: int):
+        if not 0 <= index < len(self.pinecils):
+            raise DeviceNotFoundException()
         self.selected = self.pinecils[index]
 
     async def find_pinecils(self):
