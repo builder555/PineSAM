@@ -3,7 +3,6 @@ import pytest
 from unittest.mock import AsyncMock
 from pinecil_monitor import PinecilFinder
 
-# Mock Pinecil object if necessary
 class MockPinecil:
     pass
 
