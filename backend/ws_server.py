@@ -110,6 +110,8 @@ def make_protocol(ui_path: str):
             return content_type or "application/octet-stream"
 
         def _handle_http_request(self, path):
+            if not ui_path:
+                return http.HTTPStatus.NOT_FOUND, [], b"404 Not Found"
             if path == "/" or path == "":
                 path = "/index.html"
             filepath = os.path.join(ui_path, path.lstrip("/"))

@@ -4,10 +4,19 @@ import sys
 import sys
 
 
-def resource_path(relative_path):
+def get_resource_path(relative_path, max_levels=3):
     """Get the absolute path to the resource, works for development and for PyInstaller"""
     # PyInstaller creates a temp folder and stores path in _MEIPASS
-    base_path: str = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    level = 0
+    while base_path != '/' and level < max_levels:
+        file_path = os.path.join(base_path, relative_path)
+        if os.path.exists(file_path):
+            break
+        base_path = os.path.dirname(base_path)
+        level += 1
+    else:
+        raise FileNotFoundError(f"Could not find resource {relative_path}")
     return os.path.join(base_path, relative_path)
 
 

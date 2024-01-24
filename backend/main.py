@@ -4,7 +4,7 @@ from pinecil_monitor import PinecilMonitor, PinecilFinder
 from ws_server import CommandProcessor, WebSocketHandler
 from version_checker import VersionChecker
 import logging
-from io_utils import parse_cmd_args, resource_path
+from io_utils import parse_cmd_args, get_resource_path
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
 timestamp_format = "%H:%M:%S"
@@ -26,7 +26,7 @@ async def main(stop_event=asyncio.Event()):
     pinesam_url = "https://api.github.com/repos/builder555/PineSAM/releases/latest"
     ironos_url = "https://api.github.com/repos/Ralim/IronOS/releases/latest"
     app_version_manager = VersionChecker(
-        api_url=pinesam_url, file_path=resource_path("version.txt")
+        api_url=pinesam_url, file_path=get_resource_path("version.txt")
     )
     ironos_version_manager = VersionChecker(api_url=ironos_url)
 
@@ -34,7 +34,12 @@ async def main(stop_event=asyncio.Event()):
     command_processor = CommandProcessor(
         pinecil_finder, app_version_manager, ironos_version_manager
     )
-    ws_handler = WebSocketHandler(command_processor, ui_path=resource_path("gui"))
+    try:
+        ui_path = get_resource_path("gui", max_levels=2)
+    except FileNotFoundError:
+        logging.warning("gui directory not found. You will need to serve UI separately")
+        ui_path = ''
+    ws_handler = WebSocketHandler(command_processor, ui_path=ui_path)
     pinecil_monitor = PinecilMonitor(pinecil_finder, ws_handler.broadcast)
     tasks = [
         asyncio.create_task(ws_handler.serve(host, port)),
