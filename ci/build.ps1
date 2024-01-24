@@ -1,4 +1,3 @@
-# Does the build
 Push-Location ui
 npm run build
 Pop-Location
