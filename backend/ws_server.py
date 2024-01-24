@@ -129,8 +129,9 @@ def make_protocol(ui_path: str):
 
     return HTTPServerProtocol
 
+
 class WebSocketHandler:
-    def __init__(self, command_processor: CommandProcessor, ui_path: str = './ui'):
+    def __init__(self, command_processor: CommandProcessor, ui_path: str):
         self.command_processor = command_processor
         self.clients = set()
         self._ui_path = ui_path

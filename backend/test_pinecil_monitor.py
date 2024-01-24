@@ -67,8 +67,10 @@ def mock_pinecil_finder():
     finder = MagicMock(spec=PinecilFinder)
     finder.pinecils = [MockPinecil()]
     finder.selected = None
+
     def select_pinecil(index):
         finder.selected = finder.pinecils[index]
+
     finder.select_pinecil = select_pinecil
     return finder
 
@@ -99,6 +101,9 @@ async def test_monitor_success(mock_pinecil_finder, mock_broadcast):
     asyncio.create_task(monitor.monitor(stop_event))
     await asyncio.sleep(0.5)
     stop_event.set()
-    mock_broadcast.assert_called_with('{"command": "LIVE_DATA", "payload": {"temp": 100, "voltage": 230}, "status": "OK"}')
+    mock_broadcast.assert_called_with(
+        '{"command": "LIVE_DATA", "payload": {"temp": 100, "voltage": 230}, "status": "OK"}'
+    )
+
 
 # Add more tests for different scenarios (pinecil not connected, device disconnected exception, etc.)
