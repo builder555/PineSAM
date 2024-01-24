@@ -82,7 +82,7 @@ export const useAppStore = defineStore('appStore', () => {
   };
   const toggleHallSensorSettings = (isEnabled) => {
     const classDisabled = isEnabled ? '' : 'is-disabled';
-    if (settings?.value?.HallEffectSensitivity?.component?.class != classDisabled){
+    if (settings?.value?.HallEffectSensitivity?.component && settings.value.HallEffectSensitivity.component.class != classDisabled){
       settings.value.HallEffectSensitivity.component.class = classDisabled;
     }
   }
@@ -178,6 +178,7 @@ export const useAppStore = defineStore('appStore', () => {
     isBusy.value = false;
   });
   socket.on('LIVE_DATA', (data) => {
+    if (error.value == 'Device not found') error.value = '';
     rawLiveData.value = data;
     const watts = liveData.value.Watts;
     if (watts > peakWatts.value) {
