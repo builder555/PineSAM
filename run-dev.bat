@@ -2,7 +2,6 @@
 set LOG_LEVEL=info
 
 cd backend
-python check_install.py
 
 start /b python main_server.py
 set pidsrv=%ERRORLEVEL%
