@@ -1,7 +1,11 @@
 import asyncio
 import logging
 import json
+import http
+import os
+import mimetypes
 import websockets
+from websockets import WebSocketServerProtocol
 import websockets.exceptions
 from websockets.typing import Data
 from pinecil import DeviceNotFoundException
@@ -89,12 +93,6 @@ class CommandProcessor:
         v1 = list(map(int, v1.split(".")))
         v2 = list(map(int, v2.split(".")))
         return v1 > v2
-
-
-import http
-import os
-import mimetypes
-from websockets import WebSocketServerProtocol
 
 
 def make_protocol(ui_path: str):
