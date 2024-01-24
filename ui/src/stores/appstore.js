@@ -178,7 +178,10 @@ export const useAppStore = defineStore('appStore', () => {
     isBusy.value = false;
   });
   socket.on('LIVE_DATA', (data) => {
-    if (error.value == 'Device not found') error.value = '';
+    if (error.value == 'Device not found' || error.value == 'Device disconnected') {
+      error.value = '';
+      init();
+    }
     rawLiveData.value = data;
     const watts = liveData.value.Watts;
     if (watts > peakWatts.value) {
