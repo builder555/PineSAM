@@ -91,14 +91,55 @@ class CommandProcessor:
         return v1 > v2
 
 
+import http
+import os
+import mimetypes
+from websockets import WebSocketServerProtocol
+
+
+def make_protocol(ui_path: str):
+    class HTTPServerProtocol(WebSocketServerProtocol):
+        async def process_request(self, path, request_headers):
+            is_ws_request = "Upgrade" in request_headers
+            if not is_ws_request:
+                return self._handle_http_request(path)
+
+        def _get_content_type(self, filepath):
+            """
+            Returns the MIME type based on the file extension.
+            """
+            content_type, _ = mimetypes.guess_type(filepath)
+            return content_type or "application/octet-stream"
+
+        def _handle_http_request(self, path):
+            if path == "/" or path == "":
+                path = "/index.html"
+            filepath = os.path.join(ui_path, path.lstrip("/"))
+            if os.path.exists(filepath) and os.path.isfile(filepath):
+                content_type = self._get_content_type(filepath)
+                with open(filepath, "rb") as f:
+                    content = f.read()
+                response_headers = [
+                    ("Content-Type", content_type),
+                    ("Content-Length", str(len(content))),
+                ]
+                return http.HTTPStatus.OK, response_headers, content
+            else:
+                return http.HTTPStatus.NOT_FOUND, [], b"404 Not Found"
+
+    return HTTPServerProtocol
+
 class WebSocketHandler:
-    def __init__(self, command_processor: CommandProcessor):
+    def __init__(self, command_processor: CommandProcessor, ui_path: str = './ui'):
         self.command_processor = command_processor
         self.clients = set()
+        self._ui_path = ui_path
 
     async def serve(self, host: str, port: int):
         logging.info(f"Starting websocket server on {host}:{port}")
-        await websockets.serve(self.ws_handler, host, port)
+        await websockets.serve(
+            self.ws_handler, host, port, create_protocol=make_protocol(self._ui_path)
+        )
 
     async def handle_message(
         self, websocket: websockets.WebSocketServerProtocol, data: Data
