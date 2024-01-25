@@ -77,7 +77,7 @@ def mock_pinecil_finder():
 
 @pytest.fixture
 def mock_broadcast():
-    return MagicMock()
+    return AsyncMock()
 
 
 @pytest.mark.asyncio
@@ -97,11 +97,12 @@ async def test_monitor_no_pinecil_found(
 @pytest.mark.asyncio
 async def test_monitor_success(mock_pinecil_finder, mock_broadcast):
     stop_event = asyncio.Event()
-    monitor = PinecilMonitor(mock_pinecil_finder, mock_broadcast)
+    mock_broadcast_sets_event = AsyncMock(side_effect=lambda msg: stop_event.set())
+
+    monitor = PinecilMonitor(mock_pinecil_finder, mock_broadcast_sets_event)
     asyncio.create_task(monitor.monitor(stop_event))
     await asyncio.sleep(0.2)
-    stop_event.set()
-    mock_broadcast.assert_called_with(
+    mock_broadcast_sets_event.assert_called_with(
         '{"command": "LIVE_DATA", "payload": {"temp": 100, "voltage": 230}, "status": "OK"}'
     )
 

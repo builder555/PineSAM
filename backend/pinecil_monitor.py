@@ -68,6 +68,8 @@ class PinecilMonitor:
                 await self.broadcast(msg)
             except DeviceDisconnectedException:
                 logging.info("Pinecil disconnected")
-                self.broadcast(
+                await self.broadcast(
                     json.dumps({"status": "ERROR", "message": "Device disconnected"})
                 )
+            except Exception as e:
+                logging.warning("Error while getting live data - ignored")
