@@ -8,7 +8,7 @@ exit 1
 $zip_path = "$(Get-Location)/$name.zip"
 
 Push-Location dist
-Compress-Archive -Path main_server/, serve/ -DestinationPath $zip_path -Force
+Compress-Archive -Path Pinecil.exe  -DestinationPath $zip_path -Force
 Pop-Location
 
 Compress-Archive -Update ci/start.ps1 $zip_path
