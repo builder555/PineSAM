@@ -9,7 +9,7 @@ def get_resource_path(relative_path, max_levels=3):
     # PyInstaller creates a temp folder and stores path in _MEIPASS
     base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
     level = 0
-    while base_path != '/' and level < max_levels:
+    while base_path != "/" and level < max_levels:
         file_path = os.path.join(base_path, relative_path)
         if os.path.exists(file_path):
             break

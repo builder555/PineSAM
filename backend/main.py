@@ -38,7 +38,7 @@ async def main(stop_event=asyncio.Event()):
         ui_path = get_resource_path("gui", max_levels=2)
     except FileNotFoundError:
         logging.warning("gui directory not found. You will need to serve UI separately")
-        ui_path = ''
+        ui_path = ""
     ws_handler = WebSocketHandler(command_processor, ui_path=ui_path)
     pinecil_monitor = PinecilMonitor(pinecil_finder, ws_handler.broadcast)
     tasks = [
