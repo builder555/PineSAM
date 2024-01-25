@@ -16,3 +16,8 @@ class VersionChecker:
     def get_latest_version(self):
         response = requests.get(self.api_url).json()
         return response.get("tag_name", self.read_version()).strip("v")
+
+def is_semver_greater(v1, v2):
+    v1 = list(map(int, v1.split(".")))
+    v2 = list(map(int, v2.split(".")))
+    return v1 > v2
