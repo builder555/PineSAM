@@ -14,7 +14,7 @@ from pinecil import ValueOutOfRangeException
 from pinecil import DeviceDisconnectedException
 from pinecil import Pinecil
 from pinecil_monitor import PinecilFinder
-from version_checker import VersionChecker
+from version_checker import VersionChecker, is_semver_greater
 
 
 class UnknownCommandException(Exception):
@@ -33,7 +33,7 @@ class CommandProcessor:
         self.ironos_ver = ironos_version_manager
 
     @property
-    def pinecil(self) -> Pinecil:
+    def _pinecil(self) -> Pinecil:
         if not self.finder.selected:
             raise DeviceNotFoundException()
         if not self.finder.selected.is_connected:
@@ -42,57 +42,52 @@ class CommandProcessor:
 
     async def process_command(self, command: str, payload: dict) -> dict:
         if command == "GET_APP_INFO":
-            return await self.get_app_info()
+            return await self._get_app_info()
         elif command == "GET_SETTINGS":
-            return await self.get_settings()
+            return await self._get_settings()
         elif command == "UPDATE_SETTING":
-            return await self.update_setting(payload)
+            return await self._update_setting(payload)
         elif command == "GET_INFO":
-            return await self.get_info()
+            return await self._get_info()
         else:
             raise UnknownCommandException()
 
-    async def get_app_info(self) -> dict:
-        app_version = self.app_ver.read_version()
+    async def _get_app_info(self) -> dict:
+        app_current_version = self.app_ver.read_version()
+        app_latest_version = self.app_ver.get_latest_version()
         return {
             "status": "OK",
             "payload": {
-                "app_version": app_version,
-                "is_new_available": self.is_semver_greater(
-                    self.app_ver.get_latest_version(), app_version
+                "app_version": app_current_version,
+                "is_new_available": is_semver_greater(
+                    app_latest_version, app_current_version
                 ),
             },
         }
 
-    async def get_settings(self) -> dict:
-        settings = await self.pinecil.get_all_settings()
+    async def _get_settings(self) -> dict:
+        settings = await self._pinecil.get_all_settings()
         return {"status": "OK", "payload": settings}
 
-    async def update_setting(self, payload):
-        await self.pinecil.set_one_setting(payload["name"], payload["value"])
+    async def _update_setting(self, payload):
+        await self._pinecil.set_one_setting(payload["name"], payload["value"])
         if payload.get("save"):
-            await self.pinecil.save_to_flash()
+            await self._pinecil.save_to_flash()
         return {"status": "OK"}
 
-    async def get_info(self) -> dict:
-        info = await self.pinecil.get_info()
+    async def _get_info(self) -> dict:
+        info = await self._pinecil.get_info()
         latest_build = self.ironos_ver.get_latest_version()
         return {
             "status": "OK",
             "payload": {
                 **info,
                 "latest_build": latest_build,
-                "is_new_build_available": self.is_semver_greater(
+                "is_new_build_available": is_semver_greater(
                     latest_build, info["build"]
                 ),
             },
         }
-
-    @staticmethod
-    def is_semver_greater(v1, v2):
-        v1 = list(map(int, v1.split(".")))
-        v2 = list(map(int, v2.split(".")))
-        return v1 > v2
 
 
 def make_protocol(ui_path: str):
