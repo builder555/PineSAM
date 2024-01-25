@@ -1,5 +1,38 @@
 # Changelog
 
+## v2.1.12
+
+* feat: refactored main server to be modular [220e9c5](https://github.com/builder555/PineSAM/commit/220e9c542d354ac866e7ccbb3a7f0a88358adb5b)
+* fix: unit tests for version checker [0970cae](https://github.com/builder555/PineSAM/commit/0970cae93b19aa3250ec1a30e1a330a57fb597a6)
+* formatted [dce81d2](https://github.com/builder555/PineSAM/commit/dce81d290092a9c6081c824fe26903d6d0ef486f)
+* fix: added tests for pinecil monitor [c880d66](https://github.com/builder555/PineSAM/commit/c880d660458cebc9ce25e3f93a14ac15b492ba3b)
+* removed comment [fe0fdec](https://github.com/builder555/PineSAM/commit/fe0fdec84ae9114136fe124e80a7781f25e028e8)
+* fix: pass monitor_success test [b8d3639](https://github.com/builder555/PineSAM/commit/b8d3639d24e24e9745deb09baf646887a4626917)
+* feat! built-in http server, socket and http on same port [8f88992](https://github.com/builder555/PineSAM/commit/8f88992bbf4e20e92e0a4672dacc5859cdd052f7)
+* fix: formatted [ec1666b](https://github.com/builder555/PineSAM/commit/ec1666b1e8d945a4e759fb2554b6cafcb4115bda)
+* fix: update builder for windows [278a758](https://github.com/builder555/PineSAM/commit/278a758c0883d4e01de6b427f96aa622c7acac23)
+* fix: remove useless comment [de77c81](https://github.com/builder555/PineSAM/commit/de77c812b3cfe9d972a8fe67feccd01a3630f95d)
+* check_install is outdated [cf2b946](https://github.com/builder555/PineSAM/commit/cf2b946302adf33d16907357dd1e74a1acfa13d6)
+* moved imports to the top of file [b706056](https://github.com/builder555/PineSAM/commit/b7060564fdc87e60b29ed42a435ec12ec13cf93b)
+* fix: remove empty file [f89a6ab](https://github.com/builder555/PineSAM/commit/f89a6ab17374d0c0cdc3cb70fdf64d407336335d)
+* feat: 'not found' error disappears when pinecil is connected [1bb9259](https://github.com/builder555/PineSAM/commit/1bb925960df8435dfcef47823bab89518fedd73c)
+* fix: ignore DS_Store [acb4eab](https://github.com/builder555/PineSAM/commit/acb4eab27978b1030e2c0990f68162dfec3e1041)
+* fix: use flexible paths for resources [996cbd2](https://github.com/builder555/PineSAM/commit/996cbd28d3d0fdc844ecbc39e2e361477323e32e)
+* fix: fetch settings after pinecil is re-connected [a7398e5](https://github.com/builder555/PineSAM/commit/a7398e5810cbb1b0fbc8d397b074470e0457b1fb)
+* fix: update building process [56c37d1](https://github.com/builder555/PineSAM/commit/56c37d10e21a6a9caf7c42195ae8d0395c4cf565)
+* fix: update build and package scripts [b13591d](https://github.com/builder555/PineSAM/commit/b13591dbc37086f357c2affc227cda4e625f0059)
+* fix: move version cheker out of server class [005c383](https://github.com/builder555/PineSAM/commit/005c383c2c5cb838cf879b1d72a90048dfc1dffd)
+* fix: remove ui server from building process [f45b16e](https://github.com/builder555/PineSAM/commit/f45b16e0e2b36718413fba0decbe5cafd0fd1e00)
+* formatted [be3537d](https://github.com/builder555/PineSAM/commit/be3537d24bcc96eed40525ab6f1174f0e2587e13)
+* minor refactor [f62f7a5](https://github.com/builder555/PineSAM/commit/f62f7a53a9482ce443ef67a115546d500c868505)
+* refactor [aa503f2](https://github.com/builder555/PineSAM/commit/aa503f2df5227581515fa3704a84e64995f8bee0)
+* fix: add unit tests for command processor [efeb201](https://github.com/builder555/PineSAM/commit/efeb2019e647ec7db20cb61fb41e782cc6433ead)
+* fix: remove outdated unit tests [959c3ca](https://github.com/builder555/PineSAM/commit/959c3caaf747c40e613b686a7f5524a8c3af4bd0)
+* formatted [aa0e89f](https://github.com/builder555/PineSAM/commit/aa0e89faab6e16e4fa2153b7cea5c2007e459d35)
+* fix: remove references to old main_server [43f56ea](https://github.com/builder555/PineSAM/commit/43f56eac682d47c10b4d3d17774f61d71e53e13a)
+* fix: using async for broadcasting [593977e](https://github.com/builder555/PineSAM/commit/593977ef256eaf06d0b543cb50af1d042ec931cf)
+* fix: add unit tests for websocket handler [a9108e6](https://github.com/builder555/PineSAM/commit/a9108e60f5da6b6ea5a74a6d3d3d33b5b4f6b418)
+
 ## v1.14.6
 
 * fix: add dbus module [10af24a](https://github.com/builder555/PineSAM/commit/10af24ad21b5d7437f173686db01c3a4a648878c)
