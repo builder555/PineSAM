@@ -16,9 +16,9 @@ sleep 2
 if ! [ -f /.dockerenv ]; then
     echo "I'm inside matrix ;(";
     if [ "$(uname)" == "Darwin" ]; then
-       open http://localhost:8080/
+       open http://localhost:8081/
     else
-       xdg-open http://localhost:8080/
+       xdg-open http://localhost:8081/
     fi
 fi
 

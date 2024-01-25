@@ -1,3 +1,4 @@
+// import process from 'process';
 class Socket {
   constructor() {
     this.socket = null;
@@ -8,8 +9,11 @@ class Socket {
     console.warn(message);
   }
   initSocket() {
+    // change this if you're running back-end on a different port when in development
+    let port = import.meta.env.MODE === 'production' ? window.location.port : 8080; 
+
     return new Promise((resolve) => {
-      this.socket = new WebSocket(`ws://${window.location.hostname}:12999/`);
+      this.socket = new WebSocket(`ws://${window.location.hostname}:${port}/`);
       this.registerCallbacks();
       this.socket.onopen = () => {
         resolve();

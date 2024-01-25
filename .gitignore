@@ -3,3 +3,4 @@ backend/__pycache__/**
 Pipfile.lock
 /site
 .cache/**
+.DS_Store

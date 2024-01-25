@@ -7,8 +7,10 @@ name = "pypi"
 websockets = "*"
 requests = "*"
 pinecil = "*"
+typing_extensions = "*"
 
 [dev-packages]
+black = "*"
 pytest = "*"
 pytest-watch = "*"
 pytest-asyncio = "*"
@@ -18,5 +20,5 @@ pyinstaller = "*"
 python_version = "3"
 
 [scripts]
-"server" = "python main_server.py"
+"server" = "python main.py"
 "test" = "pytest"
