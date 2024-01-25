@@ -139,9 +139,11 @@ class WebSocketHandler:
             self._ws_handler, host, port, create_protocol=make_protocol(self._ui_path)
         )
 
-    def broadcast(self, message: str):
-        for client in self.clients:
-            asyncio.create_task(self._send(client, message))
+    async def broadcast(self, message: str):
+        if not self.clients:
+            return
+        tasks = [self._send(client, message) for client in self.clients]
+        await asyncio.gather(*tasks, return_exceptions=True)
 
     async def _handle_message(
         self, websocket: websockets.WebSocketServerProtocol, data: Data

@@ -99,7 +99,7 @@ async def test_monitor_success(mock_pinecil_finder, mock_broadcast):
     stop_event = asyncio.Event()
     monitor = PinecilMonitor(mock_pinecil_finder, mock_broadcast)
     asyncio.create_task(monitor.monitor(stop_event))
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.2)
     stop_event.set()
     mock_broadcast.assert_called_with(
         '{"command": "LIVE_DATA", "payload": {"temp": 100, "voltage": 230}, "status": "OK"}'

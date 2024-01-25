@@ -54,7 +54,7 @@ class PinecilMonitor:
                     logging.warning(e.message)
                     response = {"status": "ERROR", "message": e.message}
                     if self.should_announce_not_found:
-                        self.broadcast(json.dumps(response))
+                        await self.broadcast(json.dumps(response))
                     self.should_announce_not_found = False
                     self.pinecil_finder.reset()
                 await asyncio.sleep(1)
@@ -65,8 +65,7 @@ class PinecilMonitor:
                 msg = json.dumps(
                     {"command": "LIVE_DATA", "payload": pinecil_data, "status": "OK"}
                 )
-                self.broadcast(msg)
-                await asyncio.sleep(0.5)
+                await self.broadcast(msg)
             except DeviceDisconnectedException:
                 logging.info("Pinecil disconnected")
                 self.broadcast(
