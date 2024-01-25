@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.14
+
+* fix: start scrtipt on mac clears protection attribute [1b764c0](https://github.com/builder555/PineSAM/commit/1b764c013a920b8382bb1dd1d8e3482d48050ee6)
+* fix: catch any random BLE errors on LIVE_DATA [b8d0a76](https://github.com/builder555/PineSAM/commit/b8d0a7619abb2544c3a3337f2f18d6a8331954d1)
+
 ## v2.1.12
 
 * feat: refactored main server to be modular [220e9c5](https://github.com/builder555/PineSAM/commit/220e9c542d354ac866e7ccbb3a7f0a88358adb5b)
