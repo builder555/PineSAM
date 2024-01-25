@@ -7,9 +7,10 @@ name = "pypi"
 websockets = "*"
 requests = "*"
 pinecil = "*"
-black = "*"
+typing_extensions = "*"
 
 [dev-packages]
+black = "*"
 pytest = "*"
 pytest-watch = "*"
 pytest-asyncio = "*"
