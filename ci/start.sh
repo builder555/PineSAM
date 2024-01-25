@@ -13,7 +13,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # this is needed because the mac will not execute binaries that are downloaded from the internet
     # see https://developer.apple.com/library/archive/technotes/tn2459/_index.html
     if xattr -p com.apple.quarantine ./Pinecil >/dev/null 2>&1; then
-        find ./ --name Pinecil | xargs xattr -rd com.apple.quarantine
+        find ./ -name Pinecil | xargs xattr -rd com.apple.quarantine
     fi
 fi
 
