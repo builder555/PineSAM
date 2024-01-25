@@ -8,11 +8,13 @@ import websockets
 from websockets import WebSocketServerProtocol
 import websockets.exceptions
 from websockets.typing import Data
-from pinecil import DeviceNotFoundException
-from pinecil import InvalidSettingException
-from pinecil import ValueOutOfRangeException
-from pinecil import DeviceDisconnectedException
-from pinecil import Pinecil
+from pinecil import (
+    DeviceNotFoundException,
+    InvalidSettingException,
+    ValueOutOfRangeException,
+    DeviceDisconnectedException,
+    Pinecil,
+)
 from pinecil_monitor import PinecilFinder
 from version_checker import VersionChecker, is_semver_greater
 
