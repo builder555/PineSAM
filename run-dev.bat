@@ -3,7 +3,7 @@ set LOG_LEVEL=info
 
 cd backend
 
-start /b python main_server.py
+start /b python main.py
 set pidsrv=%ERRORLEVEL%
 cd ..\ui
 

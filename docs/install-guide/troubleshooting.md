@@ -8,7 +8,7 @@
 2. bleak causes Python to crash on Mac: https://github.com/hbldh/bleak/issues/768
     * possible solution: give access to iTerm (or whichever terminal you use) to Bluetooth in Settings
 
-3. main_server script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see [](https://wiki.pine64.org/wiki/Pinecil_Firmware#Update_V2:_Windows).
+3. Pinecil script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see [](https://wiki.pine64.org/wiki/Pinecil_Firmware#Update_V2:_Windows).
 
 4. Windows Powershell issue
     * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)) and set powershell to remotesigned with:<br/>

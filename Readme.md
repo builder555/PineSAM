@@ -152,7 +152,7 @@ You can access the settings remotely once the app is running on the main PC/lapt
     * possible reason: you paired your Pinecil using system settings. solution: unpair it from all other places.  
     * possible reason: using older firmware (below 2.21). solution: [flash](https://github.com/Ralim/IronOS/discussions/1518#discussioncomment-4866637) current [BLE firmware](https://github.com/Ralim/IronOS/releases/tag/v2.21); below IronOS 2.21 only BETA versions will work with PineSAM.
     
-3. main_server script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see above.
+3. Pinecil script terminal crashes on start of script: incompatible version of IronOS, check/update firmware see above.
 
 4. Windows Powershell issue
     * windows by default does not allow any scripts to run in powershell. Make sure the zip file property is _Unblock_ ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)) and set powershell to remotesigned with:<br/>

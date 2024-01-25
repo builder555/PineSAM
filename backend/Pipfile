@@ -20,5 +20,5 @@ pyinstaller = "*"
 python_version = "3"
 
 [scripts]
-"server" = "python main_server.py"
+"server" = "python main.py"
 "test" = "pytest"
