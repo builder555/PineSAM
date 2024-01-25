@@ -134,10 +134,14 @@ class WebSocketHandler:
     async def serve(self, host: str, port: int):
         logging.info(f"Starting websocket server on {host}:{port}")
         await websockets.serve(
-            self.ws_handler, host, port, create_protocol=make_protocol(self._ui_path)
+            self._ws_handler, host, port, create_protocol=make_protocol(self._ui_path)
         )
 
-    async def handle_message(
+    def broadcast(self, message: str):
+        for client in self.clients:
+            asyncio.create_task(self._send(client, message))
+
+    async def _handle_message(
         self, websocket: websockets.WebSocketServerProtocol, data: Data
     ):
         logging.info(f"Got message: {data}")
@@ -156,22 +160,18 @@ class WebSocketHandler:
             response = {"status": "ERROR", "message": e.message}
         await websocket.send(json.dumps({**response, "command": command}))
 
-    async def ws_handler(self, websocket: websockets.WebSocketServerProtocol):
+    async def _ws_handler(self, websocket: websockets.WebSocketServerProtocol):
         try:
             self.clients.add(websocket)
             while True:
                 message = await websocket.recv()
-                await self.handle_message(websocket, message)
+                await self._handle_message(websocket, message)
         except websockets.exceptions.ConnectionClosed:
             logging.info("Connection closed")
             self.clients.remove(websocket)
 
-    async def send(self, client: websockets.WebSocketServerProtocol, message: str):
+    async def _send(self, client: websockets.WebSocketServerProtocol, message: str):
         try:
             await client.send(message)
         except websockets.exceptions.ConnectionClosed:
             pass
-
-    def broadcast(self, message: str):
-        for client in self.clients:
-            asyncio.create_task(self.send(client, message))
