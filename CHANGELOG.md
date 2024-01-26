@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.15
+
+* better logging [dc6a4b4](https://github.com/builder555/PineSAM/commit/dc6a4b4a677a4d46e39520d1835761a65663c1bc)
+* fix: exit gracefully on ctrl+c [1f77378](https://github.com/builder555/PineSAM/commit/1f77378dd8a62bf17147f0f83a395d2c609a6525)
+* formatted [52dd3e4](https://github.com/builder555/PineSAM/commit/52dd3e4578160480112f57fee9f1f8d8772ed996)
+
 ## v2.1.14
 
 * fix: start scrtipt on mac clears protection attribute [1b764c0](https://github.com/builder555/PineSAM/commit/1b764c013a920b8382bb1dd1d8e3482d48050ee6)
