@@ -45,8 +45,18 @@ async def main(stop_event=asyncio.Event()):
         asyncio.create_task(ws_handler.serve(host, port)),
         asyncio.create_task(pinecil_monitor.monitor(stop_event)),
     ]
-    await asyncio.gather(*tasks)
+    try:
+        await asyncio.gather(*tasks)
+    except KeyboardInterrupt:
+        stop_event.set()
+        for task in tasks:
+            task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+        logging.info("Gracefully shutting down")
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
