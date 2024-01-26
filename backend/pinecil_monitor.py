@@ -47,9 +47,10 @@ class PinecilMonitor:
                 self.pinecil_finder.select_pinecil(0)
                 continue
             if not self.pinecil.is_connected:
-                logging.info("waiting for pinecil...")
+                logging.info("Connecting to pinecil...")
                 try:
                     await self.pinecil.connect()
+                    logging.info("Pinecil connected")
                 except DeviceNotFoundException as e:
                     logging.warning(e.message)
                     response = {"status": "ERROR", "message": e.message}
