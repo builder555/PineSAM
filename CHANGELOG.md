@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.16
+
+* fix: start.ps1 causes more problems than it solves [8cff8b1](https://github.com/builder555/PineSAM/commit/8cff8b1f018a46e41d7b91dcfa09a35842814d5f)
+
 ## v2.1.15
 
 * better logging [dc6a4b4](https://github.com/builder555/PineSAM/commit/dc6a4b4a677a4d46e39520d1835761a65663c1bc)
