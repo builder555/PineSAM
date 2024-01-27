@@ -63,11 +63,9 @@ Why focus on soldering when you can play with the settings instead? With this ap
 
 4. **Windows**: 
    * right click on the zip, properties> general, check box to Unblock, then extract ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
-   * Run [powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3) as admin, cd to the pinesam folder and `.\start.ps1`
-   * Allow any windows pop-up warnings about "serve.exe" and "main_sever.exe".
-   * If you get errors in powershell, set the permissions to RemoteSigned to allow scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)).
-     * ```C:\> Set-ExecutionPolicy RemoteSigned```
-   * Browser will automatically open http://localhost:8080
+   * Run `Pinesam.exe`
+   * Approve any pop-up warnings.
+   * Open http://localhost:8080 in your normal browser (the page will not open automatically).
    * Usage guide [here](https://builder555.github.io/PineSAM/user-guide/usage/).
 
 ## II. Build the Dev version (Source-all-_.zip)
