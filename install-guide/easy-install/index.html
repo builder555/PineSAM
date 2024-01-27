@@ -764,17 +764,14 @@
 <ul>
 <li>Download the zip for Windows from <a href="https://github.com/builder555/PineSAM/releases/latest">here</a>.</li>
 <li>Right-click the zip &gt; properties, if it has an Unblock option, then unblock and extract the zip (<a href="https://github.com/builder555/PineSAM/discussions/106#discussion-4960445">reference</a>).</li>
-<li>Inside powershell, change to the directory where the files were extracted.</li>
-</ul>
-<div class="language-console highlight"><span class="filename">Run powershell, path may differ from example</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">C:\&gt; cd .\Downloads\PineSAM\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">C:\&gt; .\start.ps1</span>
-</span></code></pre></div>
-<ul>
 <li>
-<p>Accept any pop-up warnings about "serve.exe" and "main_sever.exe" (<a href="https://github.com/builder555/PineSAM/discussions/106#discussion-4960445">reference</a>).</p>
+<p>Run <code>Pinesam.exe</code>.</p>
 </li>
 <li>
-<p>Your default browser will automatically open <a href="http://localhost:8080">http://localhost:8080</a></p>
+<p>Accept any pop-up warnings (<a href="https://github.com/builder555/PineSAM/discussions/106#discussion-4960445">reference</a>).</p>
+</li>
+<li>
+<p>Open <a href="http://localhost:8080">http://localhost:8080</a> in your normal browser (the page will not open automatically).</p>
 </li>
 <li>To run from a phone <a href="../../#remote-access">see <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 16v2a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7m0 4v3h3a3 3 0 0 0-3-3m0-8v2a9 9 0 0 1 9 9h2c0-6.08-4.92-11-11-11M17 1H7a2 2 0 0 0-2 2v7.37c.69.16 1.36.37 2 .63V5h10v13h-3.03c.53 1.25.84 2.59.95 4H17a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Z"/></svg></span></a></li>
 <li>
@@ -782,16 +779,8 @@
 <br></p>
 </li>
 <li>
-<p>If there are errors, run <a href="https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3">Powershell</a> as administrator.</p>
+<p>See <a href="../troubleshooting/">Troubleshooting</a> for help.</p>
 </li>
-<li>
-<p>Then use this command to set permissions to <code>RemoteSigned</code> to allow pwsh to execute scripts (<a href="https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/">reference</a>). </p>
-</li>
-</ul>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">C:\&gt; Set-ExecutionPolicy RemoteSigned</span>
-</span></code></pre></div>
-<ul>
-<li>See <a href="../troubleshooting/">Troubleshooting</a> for help.</li>
 </ul>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
@@ -825,7 +814,7 @@
             <span class="twemoji" title='Last update'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg> 
             </span>
-            <span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-04-12T02:10:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-04-12</span></span>
+            <span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-27T04:08:06+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-27</span></span>
         </div>
         
         
@@ -842,7 +831,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
             </span>
             <span>Github</span>
-            <div class="contributors" data-bi-name="contributors" title="Page Contributors"><span><a href="https://github.com/NeilHanlon" title="NeilHanlon" data-bi-name="contributorprofile" target="_blank"><img src="https://avatars.githubusercontent.com/u/680198?v=4?size=32" alt="NeilHanlon" height: ></a></span></div>
+            <div class="contributors" data-bi-name="contributors" title="Page Contributors"><span><a href="https://github.com/builder555" title="builder555" data-bi-name="contributorprofile" target="_blank"><img src="https://avatars.githubusercontent.com/u/85308587?v=4?size=32" alt="builder555" height: ></a></span><span><a href="https://github.com/NeilHanlon" title="NeilHanlon" data-bi-name="contributorprofile" target="_blank"><img src="https://avatars.githubusercontent.com/u/680198?v=4?size=32" alt="NeilHanlon" height: ></a></span></div>
         </div>
         
     </div>
