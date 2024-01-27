@@ -24,26 +24,13 @@ Just download the latest [release](https://github.com/builder555/PineSAM/release
 
 * Download the zip for Windows from [here](https://github.com/builder555/PineSAM/releases/latest).
 * Right-click the zip > properties, if it has an Unblock option, then unblock and extract the zip ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
-* Inside powershell, change to the directory where the files were extracted.
+* Run `Pinesam.exe`.
 
-``` console title="Run powershell, path may differ from example"
-C:\> cd .\Downloads\PineSAM\
-C:\> .\start.ps1
-```
+* Accept any pop-up warnings ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
 
-* Accept any pop-up warnings about "serve.exe" and "main_sever.exe" ([reference](https://github.com/builder555/PineSAM/discussions/106#discussion-4960445)).
-
-* Your default browser will automatically open http://localhost:8080
+* Open http://localhost:8080 in your normal browser (the page will not open automatically).
 * To run from a phone [see :material-cellphone-nfc:](../index.md#remote-access)
 * User [guide here](../user-guide/usage.md).
 <br>
-
-* If there are errors, run [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3) as administrator.
-
-* Then use this command to set permissions to `RemoteSigned` to allow pwsh to execute scripts ([reference](https://lazyadmin.nl/powershell/running-scripts-is-disabled-on-this-system/)). 
-
-``` console
-C:\> Set-ExecutionPolicy RemoteSigned
-```
 
 * See [Troubleshooting](troubleshooting.md) for help.
