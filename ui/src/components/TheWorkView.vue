@@ -106,7 +106,7 @@ const setExactTemperature = (temp) => {
       <span>&nbsp;</span>
       <span style="font-weight: 500">{{ store.liveData?.LiveTemp }}</span
       >&deg;{{ store.settings?.TemperatureUnit?.value ? 'F' : 'C' }}
-      <div style="font-size: 0.2em; margin-top: -1em">CURRENT</div>
+      <div style="font-size:0.2em">HANDLE: {{ store.liveData?.HandleTemp }}</div>
     </div>
     <div class="info-row">
       <div
