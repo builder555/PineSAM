@@ -8,6 +8,7 @@ websockets = "*"
 requests = "*"
 pinecil = "*"
 typing_extensions = "*"
+rich = "*"
 
 [dev-packages]
 black = "*"

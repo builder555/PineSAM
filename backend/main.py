@@ -1,10 +1,13 @@
 import asyncio
 import os
+import sys
 from pinecil_monitor import PinecilMonitor, PinecilFinder
 from ws_server import CommandProcessor, WebSocketHandler
 from version_checker import VersionChecker
 import logging
 from io_utils import parse_cmd_args, get_resource_path
+from bluetooth_check import run_checks as run_bluetooth_checks
+from rich.logging import RichHandler
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
 timestamp_format = "%H:%M:%S"
@@ -12,6 +15,7 @@ logging.basicConfig(
     level=LOG_LEVEL,
     format="%(asctime)s.%(msecs)03d::%(levelname)s::%(message)s",
     datefmt=timestamp_format,
+    handlers=[RichHandler(rich_tracebacks=True)],
 )
 
 DEFAULT_HOST = "0.0.0.0"
@@ -22,7 +26,13 @@ async def main(stop_event=asyncio.Event()):
     host, port = parse_cmd_args(DEFAULT_HOST, DEFAULT_PORT)
     if not host or not port:
         return
-
+    if sys.platform == "linux":
+        bt_ok, bt_errors = run_bluetooth_checks()
+        if not bt_ok:
+            logging.warning(
+                "Bluetooth check failed. Application may not work as expected."
+            )
+            logging.warning("\n" + "\n".join(bt_errors))
     pinesam_url = "https://api.github.com/repos/builder555/PineSAM/releases/latest"
     ironos_url = "https://api.github.com/repos/Ralim/IronOS/releases/latest"
     app_version_manager = VersionChecker(
