@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.3
+
+* fix: add missing library [a170f33](https://github.com/builder555/PineSAM/commit/a170f335d2b672ceab58204ffc17bf926388315f)
+
 ## v2.2.2
 
 * fix: update screenshot [624ab77](https://github.com/builder555/PineSAM/commit/624ab7783087c7ec7b7a177db6989754165b5aff)
