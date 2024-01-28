@@ -112,7 +112,7 @@ jobs:
           node-version: 18
       - name: Install dependencies for ${{matrix.target}}
         run: |
-          pip install pyinstaller websockets requests pinecil typing_extensions
+          pip install pyinstaller websockets requests pinecil typing_extensions rich
           pushd ui && npm install && popd
       - name: Build application for ${{matrix.target}}
         run: ${{ matrix.BUILD_CMD }}
