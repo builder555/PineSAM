@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.0
+
+* feat: display handle temperature. closes #156 [24757bd](https://github.com/builder555/PineSAM/commit/24757bde815f2173ba56eb8a41bc501143e5d24b)
+
 ## v2.1.16
 
 * fix: start.ps1 causes more problems than it solves [8cff8b1](https://github.com/builder555/PineSAM/commit/8cff8b1f018a46e41d7b91dcfa09a35842814d5f)
