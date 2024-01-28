@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.2.2
+
+* fix: update screenshot [624ab77](https://github.com/builder555/PineSAM/commit/624ab7783087c7ec7b7a177db6989754165b5aff)
+* fix: check bluetooth on linux before starting; pretty logs [8b1017a](https://github.com/builder555/PineSAM/commit/8b1017a43123fb54fd0f737b561c0b7eedd5b06c)
+
 ## v2.2.0
 
 * feat: display handle temperature. closes #156 [24757bd](https://github.com/builder555/PineSAM/commit/24757bde815f2173ba56eb8a41bc501143e5d24b)
