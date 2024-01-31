@@ -5,6 +5,7 @@ from pinecil_monitor import PinecilMonitor, PinecilFinder
 from ws_server import CommandProcessor, WebSocketHandler
 from version_checker import VersionChecker
 import logging
+import webbrowser
 from io_utils import parse_cmd_args, get_resource_path
 from rich.logging import RichHandler
 
@@ -20,16 +21,15 @@ logging.basicConfig(
 DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = 8080
 
-import webbrowser
 
-
-async def open_browser(url):
-    await asyncio.sleep(5)
-    webbrowser.open(url)
-
-
-async def log(msg):
-    logging.info(msg)
+async def handle_ui_opening(args):
+    host = args.host if args.host != "0.0.0.0" else "localhost"
+    if not args.no_open:
+        await asyncio.sleep(5)
+        url = f"http://{host}:{args.port}"
+        webbrowser.open(url)
+    else:
+        logging.info(f"Open browser at http://{host}:{args.port}")
 
 
 async def main(stop_event=asyncio.Event()):
@@ -47,24 +47,19 @@ async def main(stop_event=asyncio.Event()):
     command_processor = CommandProcessor(
         pinecil_finder, app_version_manager, ironos_version_manager
     )
+    tasks = []
     try:
         ui_path = get_resource_path("gui", max_levels=2)
+        tasks += [asyncio.create_task(handle_ui_opening(args))]
     except FileNotFoundError:
         logging.warning("gui directory not found. You will need to serve UI separately")
         ui_path = ""
     ws_handler = WebSocketHandler(command_processor, ui_path=ui_path)
     pinecil_monitor = PinecilMonitor(pinecil_finder, ws_handler.broadcast)
-    tasks = [
+    tasks += [
         asyncio.create_task(ws_handler.serve(args.host, args.port)),
         asyncio.create_task(pinecil_monitor.monitor(stop_event)),
     ]
-    if not args.no_open:
-        url = f"http://{args.host}:{args.port}"
-        tasks.append(asyncio.create_task(open_browser(url)))
-    else:
-        tasks.append(
-            asyncio.create_task(log(f"Open browser at http://{args.host}:{args.port}"))
-        )
     try:
         await asyncio.gather(*tasks)
     except KeyboardInterrupt:
