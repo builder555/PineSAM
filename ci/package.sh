@@ -10,7 +10,7 @@ fi
 zip_path="$(dirname "${PWD}")/${name}.zip"
 
 pushd dist || exit
-zip -r "${zip_path}" Pinecil
+zip -r "${zip_path}" PineSAM
 
 popd || exit
 zip -u -j "${zip_path}" ci/start.sh
