@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.2.5
+
+* fix: removed bluetooth check, better args parsing, auto-open browser from python [1ce7469](https://github.com/builder555/PineSAM/commit/1ce74692e45e81183e9dbb4d22e05d1b1f096b71)
+* fix: use PineSAM as name for binary [15707a8](https://github.com/builder555/PineSAM/commit/15707a8bd0a68fd0fa5f94149df90b9295c95fcd)
+
 ## v2.2.3
 
 * fix: add missing library [a170f33](https://github.com/builder555/PineSAM/commit/a170f335d2b672ceab58204ffc17bf926388315f)
