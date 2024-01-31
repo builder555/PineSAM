@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.6
+
+* fix: clean up ui opening [fc5e548](https://github.com/builder555/PineSAM/commit/fc5e548df06acd38ca424984a3f7282199142501)
+
 ## v2.2.5
 
 * fix: removed bluetooth check, better args parsing, auto-open browser from python [1ce7469](https://github.com/builder555/PineSAM/commit/1ce74692e45e81183e9dbb4d22e05d1b1f096b71)
