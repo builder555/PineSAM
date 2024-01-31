@@ -1,7 +1,6 @@
 import sys
 import os
-import sys
-import sys
+import argparse
 
 
 def get_resource_path(relative_path, max_levels=3):
@@ -20,15 +19,22 @@ def get_resource_path(relative_path, max_levels=3):
     return os.path.join(base_path, relative_path)
 
 
-def parse_cmd_args(default_host, default_port):
-    host = sys.argv[1] if len(sys.argv) > 1 else default_host
-    port = int(sys.argv[2]) if len(sys.argv) > 2 else default_port
-
-    if len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help"):
-        print(f"Usage: {sys.argv[0]} [host] [port]")
-        print(f"Example: {sys.argv[0]} 127.0.0.1 8080")
-        print(f"Default host: {default_host}")
-        print(f"Default port: {default_port}")
-        return None, None
-
-    return host, port
+def parse_cmd_args(default_host, default_port) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="PineSAM - Pinecil v2 Control")
+    parser.add_argument(
+        "host",
+        nargs="?",
+        default=default_host,
+        help="Host address (default: %(default)s)",
+    )
+    parser.add_argument(
+        "port",
+        nargs="?",
+        type=int,
+        default=default_port,
+        help="Port number (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--no-open", action="store_true", help="Do not open browser page automatically."
+    )
+    return parser.parse_args()

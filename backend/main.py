@@ -6,7 +6,6 @@ from ws_server import CommandProcessor, WebSocketHandler
 from version_checker import VersionChecker
 import logging
 from io_utils import parse_cmd_args, get_resource_path
-from bluetooth_check import run_checks as run_bluetooth_checks
 from rich.logging import RichHandler
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
@@ -21,18 +20,22 @@ logging.basicConfig(
 DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = 8080
 
+import webbrowser
+
+
+async def open_browser(url):
+    await asyncio.sleep(5)
+    webbrowser.open(url)
+
+
+async def log(msg):
+    logging.info(msg)
+
 
 async def main(stop_event=asyncio.Event()):
-    host, port = parse_cmd_args(DEFAULT_HOST, DEFAULT_PORT)
-    if not host or not port:
+    args = parse_cmd_args(DEFAULT_HOST, DEFAULT_PORT)
+    if not args.host or not args.port:
         return
-    if sys.platform == "linux":
-        bt_ok, bt_errors = run_bluetooth_checks()
-        if not bt_ok:
-            logging.warning(
-                "Bluetooth check failed. Application may not work as expected."
-            )
-            logging.warning("\n" + "\n".join(bt_errors))
     pinesam_url = "https://api.github.com/repos/builder555/PineSAM/releases/latest"
     ironos_url = "https://api.github.com/repos/Ralim/IronOS/releases/latest"
     app_version_manager = VersionChecker(
@@ -52,9 +55,16 @@ async def main(stop_event=asyncio.Event()):
     ws_handler = WebSocketHandler(command_processor, ui_path=ui_path)
     pinecil_monitor = PinecilMonitor(pinecil_finder, ws_handler.broadcast)
     tasks = [
-        asyncio.create_task(ws_handler.serve(host, port)),
+        asyncio.create_task(ws_handler.serve(args.host, args.port)),
         asyncio.create_task(pinecil_monitor.monitor(stop_event)),
     ]
+    if not args.no_open:
+        url = f"http://{args.host}:{args.port}"
+        tasks.append(asyncio.create_task(open_browser(url)))
+    else:
+        tasks.append(
+            asyncio.create_task(log(f"Open browser at http://{args.host}:{args.port}"))
+        )
     try:
         await asyncio.gather(*tasks)
     except KeyboardInterrupt:

@@ -8,7 +8,7 @@ exit 1
 $zip_path = "$(Get-Location)/$name.zip"
 
 Push-Location dist
-Compress-Archive -Path Pinecil.exe  -DestinationPath $zip_path -Force
+Compress-Archive -Path PineSAM.exe  -DestinationPath $zip_path -Force
 Pop-Location
 
 Write-Output "asset_path=$zip_path" >> $Env:GITHUB_OUTPUT
