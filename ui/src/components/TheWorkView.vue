@@ -75,6 +75,7 @@ const setExactTemperature = (temp) => {
       <div class="buttons are-large">
         <button
           class="button change minus primary"
+          aria-label="Decrease Temperature"
           @click="changeTemperature(-1)"
           @touchstart="onChangeTempBtnDown(-1)"
           @mousedown.left="onChangeTempBtnDown(-1)"
@@ -85,6 +86,7 @@ const setExactTemperature = (temp) => {
         </button>
         <button
           class="button change plus primary"
+          aria-label="Increase Temperature"
           @click="changeTemperature(1)"
           @touchstart="onChangeTempBtnDown(1)"
           @mousedown.left="onChangeTempBtnDown(1)"
@@ -94,7 +96,7 @@ const setExactTemperature = (temp) => {
           <i class="fas fa-plus"></i>
         </button>
       </div>
-      <div style="font-size: 0.3em; margin-bottom: 0.8em">
+      <div role="alert" style="font-size: 0.3em; margin-bottom: 0.8em">
         SET {{ store.settings?.SetTemperature?.value }}&deg;{{ store.settings?.TemperatureUnit?.value ? 'F' : 'C' }}
       </div>
       <i

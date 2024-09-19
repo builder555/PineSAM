@@ -84,22 +84,25 @@ for (const group of groups.value) {
   <div v-if="Object.keys(settings).length > 0" class="columns is-multiline restore-click">
     <div v-for="group in groups" :key="group.name" class="column is-4-widescreen is-6-tablet is-12-mobile">
       <div class="card no-shadow">
-        <header class="card-header navbar-link is-arrowless settings-header" @click="toggleGroup(group)">
+        <button class="card-header navbar-link is-arrowless settings-header"  style="border: 0cap;" @click="toggleGroup(group)" :aria-expanded="group.isVisible">
+        <h3 class="card-header navbar-link is-arrowless settings-header" >
           <p class="card-header-title">{{ group.name }}</p>
           <span class="icon">
             <i class="fa" :class="group.isVisible ? 'fa-angle-down' : 'fa-angle-right'"></i>
           </span>
-        </header>
+        </h3>
+        </button>
         <div v-show="group.isVisible" class="card-content">
           <form @submit.prevent="">
             <div
-              v-for="name in availableItems(group.items)"
+              v-for="name, index in availableItems(group.items)"
               :key="name"
               :class="settings[name].component?.class"
               class="mfield"
             >
               <div class="column is-half px-0">
-                <label class="label">{{ settings[name].display }}</label>
+                <label :id="'lbl_' + name" class="label">{{ settings[name].display }}</label>
+                
               </div>
               <div class="column is-half is-flex is-justify-content-end px-0">
                 <component
@@ -109,7 +112,7 @@ for (const group of groups.value) {
                   :name="name"
                 />
                 <div v-else>
-                  <input :value="settings[name].value" class="input py-0" type="text" style="height: auto" disabled />
+                  <input :aria-labelledby="'lbl_' + name" :value="settings[name].value" class="input py-0" type="text" style="height: auto" disabled />
                 </div>
               </div>
               <p v-show="isHintVisible" class="help">{{ settings[name].hint }}</p>
