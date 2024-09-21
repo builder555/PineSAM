@@ -80,6 +80,8 @@ const setExactTemperature = (temp) => {
           @mousedown.left="onChangeTempBtnDown(-1)"
           @touchend="onChangeTempBtnUp"
           @mouseup="onChangeTempBtnUp"
+          @mouseleave="onChangeTempBtnUp"
+          @touchleave="onChangeTempBtnUp"
         >
           <i class="fas fa-minus"></i>
         </button>
@@ -90,6 +92,8 @@ const setExactTemperature = (temp) => {
           @mousedown.left="onChangeTempBtnDown(1)"
           @touchend="onChangeTempBtnUp"
           @mouseup="onChangeTempBtnUp"
+          @touchleave="onChangeTempBtnUp"
+          @mouseleave="onChangeTempBtnUp"
         >
           <i class="fas fa-plus"></i>
         </button>
