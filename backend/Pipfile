@@ -23,3 +23,4 @@ python_version = "3"
 [scripts]
 "server" = "python main.py"
 "test" = "pytest"
+"format" = "black ."

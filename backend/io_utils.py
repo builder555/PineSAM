@@ -3,7 +3,7 @@ import os
 import argparse
 
 
-def get_resource_path(relative_path, max_levels=3):
+def get_resource_path(relative_path: str, max_levels: int = 3):
     """Get the absolute path to the resource, works for development and for PyInstaller"""
     # PyInstaller creates a temp folder and stores path in _MEIPASS
     base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
@@ -19,7 +19,7 @@ def get_resource_path(relative_path, max_levels=3):
     return os.path.join(base_path, relative_path)
 
 
-def parse_cmd_args(default_host, default_port) -> argparse.Namespace:
+def parse_cmd_args(default_host: str, default_port: int) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="PineSAM - Pinecil v2 Control")
     parser.add_argument(
         "host",

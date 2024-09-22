@@ -33,10 +33,10 @@ class PinecilMonitor:
         self.should_announce_not_found = True
 
     @property
-    def pinecil(self):
+    def pinecil(self) -> Pinecil | None:
         return self.pinecil_finder.selected
 
-    async def monitor(self, stop_event):
+    async def monitor(self, stop_event: asyncio.Event):
         logging.info("Starting pinecil monitor")
         while not stop_event.is_set():
             if not self.pinecil_finder.pinecils:

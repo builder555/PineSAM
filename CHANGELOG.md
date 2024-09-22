@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.2.9
+
+* fix: better type annotations [1cde711](https://github.com/builder555/PineSAM/commit/1cde711445b6886366559a021e03ce801a5d2d72)
+* fix: add shortcut to format with black [639940c](https://github.com/builder555/PineSAM/commit/639940ceb0c5dcb2ddeae1f67fb6bf50f32919bc)
+* fix: bug when holding a mouse key and leaving + or - button [f20a562](https://github.com/builder555/PineSAM/commit/f20a562d90b964c72ab3e24c3cfbb91451066bf2)
+
 ## v2.2.6
 
 * fix: clean up ui opening [fc5e548](https://github.com/builder555/PineSAM/commit/fc5e548df06acd38ca424984a3f7282199142501)

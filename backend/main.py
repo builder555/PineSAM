@@ -1,6 +1,5 @@
 import asyncio
 import os
-import sys
 from pinecil_monitor import PinecilMonitor, PinecilFinder
 from ws_server import CommandProcessor, WebSocketHandler
 from version_checker import VersionChecker
@@ -8,6 +7,7 @@ import logging
 import webbrowser
 from io_utils import parse_cmd_args, get_resource_path
 from rich.logging import RichHandler
+import argparse
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
 timestamp_format = "%H:%M:%S"
@@ -22,7 +22,7 @@ DEFAULT_HOST = "0.0.0.0"
 DEFAULT_PORT = 8080
 
 
-async def handle_ui_opening(args):
+async def handle_ui_opening(args: argparse.Namespace):
     host = args.host if args.host != "0.0.0.0" else "localhost"
     if not args.no_open:
         await asyncio.sleep(5)
@@ -32,7 +32,7 @@ async def handle_ui_opening(args):
         logging.info(f"Open browser at http://{host}:{args.port}")
 
 
-async def main(stop_event=asyncio.Event()):
+async def main(stop_event: asyncio.Event = asyncio.Event()):
     args = parse_cmd_args(DEFAULT_HOST, DEFAULT_PORT)
     if not args.host or not args.port:
         return
