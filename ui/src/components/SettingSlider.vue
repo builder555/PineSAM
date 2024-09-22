@@ -35,7 +35,7 @@ watch(
   <div class="is-flex is-flex-grow-1">
     <input
       type="range"
-      :aria-labelledby="'lbl_' + name"
+      :aria-labelledby="`lbl_${ name }`"
       class="mr-1 is-flex-grow-1"
       :min="setting.component.min"
       :max="setting.component.max"

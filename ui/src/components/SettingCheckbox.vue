@@ -10,7 +10,7 @@ const cbName = 'cb-' + Math.random().toString(36);
       :checked="setting.value"
       :id="cbName"
       type="checkbox"
-      :aria-labelledby="'lbl_' + name"
+      :aria-labelledby="`lbl_${ name }`"
       @change="store.updateSetting(name, $event.target.checked)"
     />
   </div>

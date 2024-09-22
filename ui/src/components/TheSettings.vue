@@ -95,7 +95,7 @@ for (const group of groups.value) {
         <div v-show="group.isVisible" class="card-content">
           <form @submit.prevent="">
             <div
-              v-for="name, index in availableItems(group.items)"
+              v-for="name in availableItems(group.items)"
               :key="name"
               :class="settings[name].component?.class"
               class="mfield"
@@ -112,7 +112,7 @@ for (const group of groups.value) {
                   :name="name"
                 />
                 <div v-else>
-                  <input :aria-labelledby="'lbl_' + name" :value="settings[name].value" class="input py-0" type="text" style="height: auto" disabled />
+                  <input :aria-labelledby="`lbl_${ name }`" :value="settings[name].value" class="input py-0" type="text" style="height: auto" disabled />
                 </div>
               </div>
               <p v-show="isHintVisible" class="help">{{ settings[name].hint }}</p>

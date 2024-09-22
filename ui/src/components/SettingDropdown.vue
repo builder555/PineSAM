@@ -10,7 +10,7 @@ watch(localValue, (value) => {
 </script>
 <template>
   <div class="is-flex-grow-1">
-    <select :aria-labelledby="'lbl_' + name" v-model="localValue" class="input py-0" style="height: auto">
+    <select :aria-labelledby="`lbl_${ name }`" v-model="localValue" class="input py-0" style="height: auto">
       <option v-for="option in setting.component.options" :key="option.value" :value="option.value">
         {{ option.text }}
       </option>
