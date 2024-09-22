@@ -1,5 +1,20 @@
 # Changelog
 
+## v2.2.9
+
+* fix: better type annotations [1cde711](https://github.com/builder555/PineSAM/commit/1cde711445b6886366559a021e03ce801a5d2d72)
+* fix: add shortcut to format with black [639940c](https://github.com/builder555/PineSAM/commit/639940ceb0c5dcb2ddeae1f67fb6bf50f32919bc)
+* fix: bug when holding a mouse key and leaving + or - button [f20a562](https://github.com/builder555/PineSAM/commit/f20a562d90b964c72ab3e24c3cfbb91451066bf2)
+
+## v2.2.6
+
+* fix: clean up ui opening [fc5e548](https://github.com/builder555/PineSAM/commit/fc5e548df06acd38ca424984a3f7282199142501)
+
+## v2.2.5
+
+* fix: removed bluetooth check, better args parsing, auto-open browser from python [1ce7469](https://github.com/builder555/PineSAM/commit/1ce74692e45e81183e9dbb4d22e05d1b1f096b71)
+* fix: use PineSAM as name for binary [15707a8](https://github.com/builder555/PineSAM/commit/15707a8bd0a68fd0fa5f94149df90b9295c95fcd)
+
 ## v2.2.3
 
 * fix: add missing library [a170f33](https://github.com/builder555/PineSAM/commit/a170f335d2b672ceab58204ffc17bf926388315f)
