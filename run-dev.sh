@@ -6,6 +6,7 @@ fi
 cd backend
 LOG_LEVEL=info pipenv run server &
 pid1=$!
+sleep 1 #sometimes may be required, otherwise UI can start before backend
 
 cd ../ui
 npm run dev &

@@ -17,10 +17,12 @@ export const useAppStore = defineStore('appStore', () => {
     if (Object.keys(rawLiveData.value).length < 1) return {};
     const tempInF = tempConverter[1](rawLiveData.value.LiveTemp);
     const isTempInF = settings.value.TemperatureUnit?.value === 1;
+    const handleTempInC = rawLiveData.value.HandleTemp * 0.1;
+    const handleTempInF = tempConverter[1](handleTempInC);
     return {
       LiveTemp: isTempInF ? tempInF : rawLiveData.value.LiveTemp,
       Voltage: (rawLiveData.value.Voltage * 0.1).toFixed(1),
-      HandleTemp: (rawLiveData.value.HandleTemp * 0.1).toFixed(1),
+      HandleTemp: (isTempInF ? handleTempInF : handleTempInC).toFixed(1),
       OperatingMode: rawLiveData.value.OperatingMode,
       Watts: (rawLiveData.value.Watts * 0.1).toFixed(1),
       PeakWatts: peakWatts.value.toFixed(1),
