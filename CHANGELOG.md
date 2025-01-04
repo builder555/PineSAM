@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.2.11
+
+* fix: on slower computers python might take longer to start [3879266](https://github.com/builder555/PineSAM/commit/3879266f8d07f1c1624a13e5635a8c99d8a8eefc)
+* fix: handle temp always in C (fixes #220) [433653f](https://github.com/builder555/PineSAM/commit/433653fd1ce8ea403f5836602794acefb2a35229)
+
 ## v2.2.9
 
 * fix: better type annotations [1cde711](https://github.com/builder555/PineSAM/commit/1cde711445b6886366559a021e03ce801a5d2d72)
