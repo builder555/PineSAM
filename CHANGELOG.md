@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.2.12
+
+* fix: should fix the broken build issue [491eeae](https://github.com/builder555/PineSAM/commit/491eeae1072acdcfde9787415c18605114799bb3)
+
 ## v2.2.11
 
 * fix: on slower computers python might take longer to start [3879266](https://github.com/builder555/PineSAM/commit/3879266f8d07f1c1624a13e5635a8c99d8a8eefc)
