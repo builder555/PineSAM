@@ -135,7 +135,7 @@ class WebSocketHandler:
 
     async def serve(self, host: str, port: int):
         logging.info(f"Starting websocket server on {host}:{port}")
-        await websockets.serve(
+        await websockets.legacy.server.serve(
             self._ws_handler, host, port, create_protocol=make_protocol(self._ui_path)
         )
 
