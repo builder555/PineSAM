@@ -2,6 +2,13 @@
 
 ## v2.2.12
 
+* Use legacy websockets asyncio implementation [7e72d1a](https://github.com/builder555/PineSAM/commit/7e72d1a3859ddaa5b6b1f93bd355f84bb3c3c899)
+* Merge pull request #224 from Quba1/master
+
+Hotfix for #223 [3a64388](https://github.com/builder555/PineSAM/commit/3a643880cd1a6875e4b2d8525198bf12073c8f80)
+
+## v2.2.12
+
 * fix: should fix the broken build issue [491eeae](https://github.com/builder555/PineSAM/commit/491eeae1072acdcfde9787415c18605114799bb3)
 
 ## v2.2.11
