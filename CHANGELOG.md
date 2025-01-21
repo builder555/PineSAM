@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.2.14
+
+* Merge pull request #226 from builder555/master
+
+update dev [3989424](https://github.com/builder555/PineSAM/commit/398942435f3dc439f80129b09d0d472b91e9abcb)
+* fix: another action trigger [5aafa5a](https://github.com/builder555/PineSAM/commit/5aafa5aa96e129959bc6c4c61ff6867b7ea8d7d6)
+
 ## v2.2.12
 
 * Use legacy websockets asyncio implementation [7e72d1a](https://github.com/builder555/PineSAM/commit/7e72d1a3859ddaa5b6b1f93bd355f84bb3c3c899)
