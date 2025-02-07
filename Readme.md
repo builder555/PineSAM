@@ -226,6 +226,13 @@ pipenv run test
 </tr>
 <tr>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/dotzenith>
+            <img src=https://avatars.githubusercontent.com/u/77712443?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=zenith/>
+            <br />
+            <sub style="font-size:14px"><b>zenith</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/krisstakos>
             <img src=https://avatars.githubusercontent.com/u/5090779?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Kristian Kosev/>
             <br />
