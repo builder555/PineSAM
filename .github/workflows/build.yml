@@ -86,7 +86,12 @@ jobs:
         include:
           - os: macos-latest
             TARGET: MacOS
-            ARCHITECTURE: x64
+            ARCHITECTURE: aarch64
+            BUILD_CMD: ci/build.sh
+            PACKAGE_CMD: ci/package.sh
+          - os: macos-13
+            TARGET: MacOS
+            ARCHITECTURE: x86_64
             BUILD_CMD: ci/build.sh
             PACKAGE_CMD: ci/package.sh
           - os: windows-latest
