@@ -1,5 +1,5 @@
 ---
-name: Buld a release
+name: Build a release
 
 on:
   pull_request:
