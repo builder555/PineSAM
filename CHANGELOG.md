@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.2.16
+
+* add x86 macos to build matrix [e377f19](https://github.com/builder555/PineSAM/commit/e377f19571cc767a248ce59c1434c7a85acaa839)
+* fix typo in build.yml [e3edf75](https://github.com/builder555/PineSAM/commit/e3edf75a531df360e0a5cf9188a864e74b83859c)
+* change macos runner architecture name to match github docs [dba9eab](https://github.com/builder555/PineSAM/commit/dba9eab69bd07a36297a1e9918b1a13fcea755e8)
+* Merge pull request #230 from dotzenith/add-macos-x86-builds
+
+feat: add macos x86 builds [3e45582](https://github.com/builder555/PineSAM/commit/3e4558234ed9cb39a222ee170a33b5bb4493a9c8)
+* fix: dummy commit to trigger a build [1149a9e](https://github.com/builder555/PineSAM/commit/1149a9eacf6e2f095fac6c1617e2e86eb9f93912)
+* Merge branch 'master' into dev [1533910](https://github.com/builder555/PineSAM/commit/15339100b795bfb7f68856906958c5d7e943c5b1)
+
 ## v2.2.15
 
 * remove xargs from start.sh [634da81](https://github.com/builder555/PineSAM/commit/634da81f239c08027cc799d264526d0f95ce9fa0)
