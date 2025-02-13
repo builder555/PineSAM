@@ -1,5 +1,5 @@
 ---
-name: Buld a release
+name: Build a release
 
 on:
   pull_request:
@@ -86,7 +86,12 @@ jobs:
         include:
           - os: macos-latest
             TARGET: MacOS
-            ARCHITECTURE: x64
+            ARCHITECTURE: arm64
+            BUILD_CMD: ci/build.sh
+            PACKAGE_CMD: ci/package.sh
+          - os: macos-13
+            TARGET: MacOS
+            ARCHITECTURE: Intel
             BUILD_CMD: ci/build.sh
             PACKAGE_CMD: ci/package.sh
           - os: windows-latest
