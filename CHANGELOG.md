@@ -1,5 +1,20 @@
 # Changelog
 
+## v2.2.15
+
+* remove xargs from start.sh [634da81](https://github.com/builder555/PineSAM/commit/634da81f239c08027cc799d264526d0f95ce9fa0)
+* Merge pull request #228 from dotzenith/remove-xargs
+
+fix: remove xargs from start.sh [303496d](https://github.com/builder555/PineSAM/commit/303496d9e42ac0f2d9ae7c84eb51a6e20817fb60)
+* fix: dummy commit to trigger a build [f007f1b](https://github.com/builder555/PineSAM/commit/f007f1bef8f68efecda68b7573c09dc9bc91732a)
+
+## v2.2.14
+
+* Merge pull request #226 from builder555/master
+
+update dev [3989424](https://github.com/builder555/PineSAM/commit/398942435f3dc439f80129b09d0d472b91e9abcb)
+* fix: another action trigger [5aafa5a](https://github.com/builder555/PineSAM/commit/5aafa5aa96e129959bc6c4c61ff6867b7ea8d7d6)
+
 ## v2.2.12
 
 * Use legacy websockets asyncio implementation [7e72d1a](https://github.com/builder555/PineSAM/commit/7e72d1a3859ddaa5b6b1f93bd355f84bb3c3c899)
