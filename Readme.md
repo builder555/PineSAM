@@ -1,4 +1,4 @@
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM&count_bg=%23FF00BF&title_bg=%23625E5E&icon=airplayaudio.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://github.com/builder555/PineSAM/wiki/PineSAM)
+[![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fbuilder555%2FPineSAM%2Fwiki%2FPineSAM&label=&icon=github&color=%23FF00BF&message=&style=flat&tz=UTC)](https://github.com/builder555/PineSAM/wiki/PineSAM)
 [![contributors welcome](https://custom-icon-badges.demolab.com/badge/contributors-welcome-A017A5.svg?logo=star&logoColor=white)](https://github.com/builder555/PineSAM#abacus-contributors-welcome)
 [![Download (all releases)](https://img.shields.io/github/downloads/builder555/pinesam/total?color=A017A5&&logo=docusign&logoColor=white)](https://github.com/builder555/PineSAM/releases/)
 [![Latest release](https://img.shields.io/github/v/release/builder555/pinesam?color=7700b3)](https://github.com/builder555/PineSAM/releases/latest)
