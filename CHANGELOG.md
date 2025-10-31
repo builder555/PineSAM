@@ -2,6 +2,13 @@
 
 ## v2.2.16
 
+* Merge pull request #233 from dotzenith/update-macos-runner
+
+chore: update intel mac os runner [c7a3285](https://github.com/builder555/PineSAM/commit/c7a3285fa1082d949e833d1f4f82a375364014a6)
+* Merge branch 'master' into dev [dfe42fa](https://github.com/builder555/PineSAM/commit/dfe42fad521b37881697e9e2ba6af570c0047ce9)
+
+## v2.2.16
+
 * add x86 macos to build matrix [e377f19](https://github.com/builder555/PineSAM/commit/e377f19571cc767a248ce59c1434c7a85acaa839)
 * fix typo in build.yml [e3edf75](https://github.com/builder555/PineSAM/commit/e3edf75a531df360e0a5cf9188a864e74b83859c)
 * change macos runner architecture name to match github docs [dba9eab](https://github.com/builder555/PineSAM/commit/dba9eab69bd07a36297a1e9918b1a13fcea755e8)
