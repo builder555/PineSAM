@@ -89,7 +89,7 @@ jobs:
             ARCHITECTURE: arm64
             BUILD_CMD: ci/build.sh
             PACKAGE_CMD: ci/package.sh
-          - os: macos-13
+          - os: macos-15-intel
             TARGET: MacOS
             ARCHITECTURE: Intel
             BUILD_CMD: ci/build.sh
